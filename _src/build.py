@@ -39,11 +39,16 @@ LOGO = LOGO.replace("<svg ", '<svg role="img" aria-hidden="true" focusable="fals
 
 FAVICON = SRC / "marca" / "simbolo-escuro-solido.svg"
 
+# Visor de fólios do dossiê 008. Fica num arquivo à parte porque é um bloco
+# grande e independente do texto.
+VISOR = (SRC / "visor-voynich.html").read_text(encoding="utf-8")
+
 # template  ->  caminho final, relativo à raiz do site
 PAGINAS = {
     "index.tpl.html": "index.html",
     "gobekli-tepe.tpl.html": "dossies/gobekli-tepe.html",
     "amazonia-lidar.tpl.html": "dossies/amazonia-lidar.html",
+    "manuscrito-voynich.tpl.html": "dossies/manuscrito-voynich.html",
 }
 
 
@@ -65,7 +70,8 @@ def main() -> None:
         saida.write_text(
             html.replace("{{CSS}}", CSS)
                 .replace("{{LOGO}}", LOGO)
-                .replace("{{DOMINIO}}", DOMINIO.rstrip("/")),
+                .replace("{{DOMINIO}}", DOMINIO.rstrip("/"))
+                .replace("{{VISOR}}", VISOR),
             encoding="utf-8",
         )
         print(f"  ✓ {destino}  ({saida.stat().st_size / 1024:.1f} KB)")

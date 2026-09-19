@@ -1,0 +1,96 @@
+<!--
+  VISOR DE FÓLIOS — bloco pronto para colar dentro do dossiê 008.
+  Depende do CSS da seção 23 de vestigio.css e do script no fim deste arquivo.
+  As imagens são as da pasta assets/img/vy-*.jpg.
+-->
+<div class="visor larga" id="visor-voynich">
+  <div class="visor-palco">
+    <button class="visor-nav ant" type="button" aria-label="Fólio anterior">‹</button>
+    <img src="../assets/img/vy-004.jpg" class="ativo"
+         data-rotulo="Seção botânica"
+         data-desc="A primeira página ilustrada. A planta ocupa o alto do fólio e o texto corre embaixo, na mesma escrita que atravessa o livro inteiro."
+         alt="Fólio do manuscrito Voynich com uma planta de folhas verdes e ocres e texto na escrita do manuscrito">
+    <img src="../assets/img/vy-025.jpg"
+         data-rotulo="Seção botânica"
+         data-desc="Folhas largas e uma raiz vermelha desenhada com precisão de herbário. Nenhuma das plantas do manuscrito corresponde com segurança a uma espécie conhecida."
+         alt="Fólio do manuscrito Voynich com planta de folhas largas e raiz vermelha">
+    <img src="../assets/img/vy-080.jpg"
+         data-rotulo="Seção botânica"
+         data-desc="Uma das páginas mais elaboradas: coroa azul e ocre, folhagem densa, bulbos na base. O desenho é confiante — quem o fez não estava improvisando."
+         alt="Fólio do manuscrito Voynich com planta de coroa azul e ocre e bulbos na base">
+    <img src="../assets/img/vy-125.jpg"
+         data-rotulo="Seção astronômica"
+         data-desc="Diagrama circular dividido em raios, com texto correndo pela borda. A seção costuma ser lida como astronômica ou calendárica, mas nada nela foi decifrado."
+         alt="Fólio do manuscrito Voynich com um diagrama circular dividido em raios">
+    <img src="../assets/img/vy-158.jpg"
+         data-rotulo="Folha dobrada"
+         data-desc="Uma folha maior que o livro, dobrada para dentro da encadernação: nove diagramas circulares ligados por dutos e figuras. É a página mais reproduzida do manuscrito."
+         alt="Folha dobrada do manuscrito Voynich com nove diagramas circulares">
+    <img src="../assets/img/vy-163.jpg"
+         data-rotulo="Seção farmacológica"
+         data-desc="Raízes e folhas isoladas, alinhadas ao lado de recipientes decorados. A leitura corrente é a de um receituário — leitura que a escrita não confirma nem desmente."
+         alt="Fólio duplo do manuscrito Voynich com raízes isoladas e recipientes decorados">
+    <img src="../assets/img/vy-190.jpg"
+         data-rotulo="Seção das receitas"
+         data-desc="Texto corrido, sem ilustração, com uma estrela marcando o começo de cada parágrafo. É a parte mais densa de escrita do livro — e a que mais frustrou os criptógrafos."
+         alt="Fólio do manuscrito Voynich com texto corrido e estrelas marcando os parágrafos">
+    <button class="visor-nav prox" type="button" aria-label="Próximo fólio">›</button>
+  </div>
+
+  <div class="visor-barra">
+    <div class="linha-topo">
+      <span class="rotulo" data-campo="rotulo">Seção botânica</span>
+      <span class="contagem" data-campo="contagem">01 / 07</span>
+    </div>
+    <p class="descricao" data-campo="descricao"></p>
+    <div class="visor-pontos" role="group" aria-label="Escolher fólio"></div>
+    <p class="acervo-fonte">
+      Acervo · Beinecke Rare Book &amp; Manuscript Library, Yale University — MS 408.
+      O manuscrito é do início do século XV e está em domínio público.
+      <a href="https://collections.library.yale.edu/catalog/2002046" target="_blank" rel="noopener">Digitalização completa, 213 páginas</a>.
+    </p>
+  </div>
+</div>
+
+<script>
+(function () {
+  var visor = document.getElementById('visor-voynich');
+  if (!visor) return;
+  var imgs = Array.prototype.slice.call(visor.querySelectorAll('.visor-palco img'));
+  var ant = visor.querySelector('.visor-nav.ant');
+  var prox = visor.querySelector('.visor-nav.prox');
+  var pontos = visor.querySelector('.visor-pontos');
+  var campo = {};
+  visor.querySelectorAll('[data-campo]').forEach(function (e) { campo[e.dataset.campo] = e; });
+  var i = 0;
+
+  imgs.forEach(function (im, n) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.textContent = String(n + 1).padStart(2, '0');
+    b.addEventListener('click', function () { mostrar(n); });
+    pontos.appendChild(b);
+  });
+  var botoes = Array.prototype.slice.call(pontos.children);
+
+  function mostrar(n) {
+    i = Math.max(0, Math.min(imgs.length - 1, n));
+    imgs.forEach(function (im, k) { im.classList.toggle('ativo', k === i); });
+    botoes.forEach(function (b, k) { b.setAttribute('aria-current', String(k === i)); });
+    campo.rotulo.textContent = imgs[i].dataset.rotulo;
+    campo.descricao.textContent = imgs[i].dataset.desc;
+    campo.contagem.textContent = String(i + 1).padStart(2, '0') + ' / ' + String(imgs.length).padStart(2, '0');
+    ant.disabled = i === 0;
+    prox.disabled = i === imgs.length - 1;
+  }
+
+  ant.addEventListener('click', function () { mostrar(i - 1); });
+  prox.addEventListener('click', function () { mostrar(i + 1); });
+  visor.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft') { mostrar(i - 1); }
+    if (e.key === 'ArrowRight') { mostrar(i + 1); }
+  });
+  visor.tabIndex = 0;
+  mostrar(0);
+})();
+</script>

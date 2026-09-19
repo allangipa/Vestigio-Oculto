@@ -77,3 +77,21 @@ Corte 16:9, 1200 px de largura, JPEG progressivo em qualidade 82 — entre 100 e
 230 KB por arquivo. Os fólios do visor fogem à regra: preservam a proporção
 original, limitados a 1400 × 980, porque cortar um documento histórico para
 caber num quadro seria falsificá-lo.
+
+## ⚠ Correção de atribuição — material do episódio 01
+
+O clipe `gize-piramide-aereo-SBV-354940900.mp4`, catalogado em
+`Material real/01 Gobekli Tepe/CREDITOS.md` como *"drone subindo pela face da
+Grande Pirâmide"*, **não é a Grande Pirâmide**. O topo do monumento no clipe
+conserva o revestimento liso de calcário — assinatura da pirâmide de Quéfren,
+a segunda de Gizé. A de Quéops perdeu praticamente todo o revestimento, e o
+que se vê nela são as fiadas do núcleo.
+
+Consequência para o vídeo: no episódio 01 o clipe entra na comparação de
+idade, onde a narração diz "Gizé" de forma genérica — ali não há erro. Mas ele
+**não pode** entrar num trecho que nomeie a Grande Pirâmide, e a linha do
+`CREDITOS.md` do episódio precisa ser corrigida.
+
+Consequência para o site: por isso o quadro e a figura do dossiê 006 usam a
+recriação, e não esse frame. Um substituto real está indicado em
+`_src/imagens/COMMONS.md`.

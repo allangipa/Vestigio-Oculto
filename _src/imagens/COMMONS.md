@@ -96,6 +96,26 @@ névoa do Storyblocks (`SBI-357813396`) continua sendo a escolha.
 
 ---
 
+---
+
+## 006 · Grande Pirâmide — substituto real recomendado
+
+O dossiê está publicado com recriação. Para trocar por fotografia real de
+**Quéops** — não de Quéfren — a melhor opção no Commons é:
+
+| Arquivo | Licença | Autor | Resolução |
+|---|---|---|---|
+| `+146,6 Meter hoch war ursprünglich die Cheopspyramide. 02.jpg` | CC BY-SA 4.0 | Holger Uwe Schmitt | 5906 × 3936 |
+
+Alternativas na mesma categoria, todas acima de 4000 px: `Badr photography.jpg`
+(CC BY-SA 4.0) e `Camellos y jinete frente a las pirámides de Giza, 2024.jpg`
+(CC BY 4.0, que dispensa o share-alike).
+
+**Como distinguir as duas no enquadramento:** Quéfren conserva o revestimento
+de calcário no topo, formando um capuz liso e mais claro. Quéops não tem
+revestimento nenhum — é fiada exposta do alto até a base. Se a imagem tem
+capuz, é a errada.
+
 ## Como baixar
 
 Abra cada arquivo em `https://commons.wikimedia.org/wiki/File:<nome>` —

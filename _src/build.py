@@ -49,6 +49,7 @@ PAGINAS = {
     "gobekli-tepe.tpl.html": "dossies/gobekli-tepe.html",
     "amazonia-lidar.tpl.html": "dossies/amazonia-lidar.html",
     "manuscrito-voynich.tpl.html": "dossies/manuscrito-voynich.html",
+    "denisovanos.tpl.html": "dossies/denisovanos.html",
 }
 
 

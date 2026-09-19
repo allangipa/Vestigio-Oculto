@@ -1433,6 +1433,148 @@ h1, h2, h3, h4 {
   background: var(--ambar);
   border-color: var(--ambar);
 }
+
+/* ============================================================
+   24. CANAL NO YOUTUBE
+   O site e o canal contam a mesma coisa em dois ritmos. O link
+   é discreto na navegação e explícito no fim do dossiê.
+   ============================================================ */
+.nav-canal a {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  color: var(--ambar) !important;
+  border-color: transparent;
+}
+.nav-canal a::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 7px solid currentColor;
+  border-top: 4.5px solid transparent;
+  border-bottom: 4.5px solid transparent;
+}
+.nav-canal a:hover { color: #e0a34a !important; border-color: var(--ambar); }
+
+/* Chamada no fim do dossiê */
+.canal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  padding: 1.6rem 1.7rem;
+  background:
+    radial-gradient(30rem 16rem at 8% 0%, color-mix(in srgb, var(--ambar) 8%, transparent), transparent 70%),
+    var(--carvao-2);
+  border: 1px solid var(--linha);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color var(--transicao), background var(--transicao);
+}
+.canal:hover { border-color: var(--ambar); }
+.canal .rotulo {
+  display: block;
+  font-family: var(--mono);
+  font-size: .6rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ambar);
+}
+.canal strong {
+  display: block;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.18rem;
+  letter-spacing: .04em;
+  line-height: 1.3;
+  margin-top: .55rem;
+  color: var(--gelo);
+}
+.canal .aviso {
+  display: block;
+  margin-top: .5rem;
+  font-size: .9rem;
+  color: var(--osso-suave);
+  max-width: 52ch;
+}
+.canal .play,
+.caixa-canal .play {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid var(--linha-viva);
+  border-radius: 50%;
+  color: var(--ambar);
+  transition: border-color var(--transicao), background var(--transicao);
+}
+.canal:hover .play,
+.caixa-canal:hover .play { border-color: var(--ambar); background: color-mix(in srgb, var(--ambar) 12%, transparent); }
+.canal .play::before,
+.caixa-canal .play::before {
+  content: "";
+  width: 0; height: 0;
+  margin-left: 3px;
+  border-left: 11px solid currentColor;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+}
+
+/* No rodapé */
+.rodape .canal-handle {
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .1em;
+  color: var(--ambar);
+  text-decoration: none;
+}
+.rodape .canal-handle:hover { text-decoration: underline; }
+
+/* Caixa do canal, na coluna de apoio da home */
+.caixa-canal { display: block; text-decoration: none; color: inherit; }
+.caixa-canal:hover { border-color: var(--ambar); }
+.caixa-canal .linha-canal {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.caixa-canal h2 { margin-bottom: 0; }
+.caixa-canal p { margin-top: .9rem; }
+.caixa-canal .handle {
+  font-family: var(--mono);
+  font-size: .78rem;
+  color: var(--ambar);
+}
+.caixa-canal .play { width: 2.4rem; height: 2.4rem; margin-top: .2rem; }
+.caixa-canal .play::before { border-left-width: 9px; border-top-width: 6px; border-bottom-width: 6px; }
+.episodios {
+  list-style: none;
+  margin: 1.1rem 0 0;
+  padding: 1rem 0 0;
+  border-top: 1px solid var(--linha);
+  display: grid;
+  gap: .7rem;
+}
+.episodios li {
+  font-size: .86rem;
+  line-height: 1.45;
+  color: var(--osso-suave);
+  display: grid;
+  grid-template-columns: 3.6rem 1fr;
+  gap: .6rem;
+  align-items: baseline;
+}
+.episodios .dur {
+  font-family: var(--mono);
+  font-size: .6rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--osso-fraco);
+}
 </style>
 <script type="application/ld+json">
 {
@@ -1473,6 +1615,7 @@ h1, h2, h3, h4 {
         <li><a href="../index.html#dossies">Dossiês</a></li>
         <li><a href="../index.html#pilares">Pilares</a></li>
         <li><a href="../index.html#metodo">Método</a></li>
+        <li class="nav-canal"><a href="https://www.youtube.com/@VestigoOcultoBrasil" target="_blank" rel="noopener">YouTube</a></li>
       </ul>
     </nav>
   </div>
@@ -1966,6 +2109,15 @@ h1, h2, h3, h4 {
   </article>
 
   <section class="wrap" style="padding-bottom: 2rem;">
+    <a class="canal" href="https://www.youtube.com/@VestigoOcultoBrasil" target="_blank" rel="noopener">
+      <span>
+        <span class="rotulo">Este dossiê tem episódio · 14 min</span>
+        <strong>Cidades na Amazônia: 20 mil estruturas debaixo da floresta</strong>
+        <span class="aviso">A versão narrada, no canal. O texto e o vídeo contam o mesmo caso em ritmos diferentes.</span>
+      </span>
+      <span class="play" aria-hidden="true"></span>
+    </a>
+
     <a class="proximo" href="gobekli-tepe.html">
       <span>
         <span class="mono">No arquivo · Dossiê 001</span>
@@ -1994,6 +2146,10 @@ h1, h2, h3, h4 {
     <div>
       <span class="mono">Pilares</span>
       <p>Pedra e Poeira · Descoberto Ontem · Arquivo Selado · Últimos Isolados</p>
+    </div>
+    <div>
+      <span class="mono">Canal</span>
+      <p><a class="canal-handle" href="https://www.youtube.com/@VestigoOcultoBrasil" target="_blank" rel="noopener">@VestigoOcultoBrasil</a></p>
     </div>
     <div class="creditos">
       <span class="mono">© 2026 Vestígio Oculto</span>

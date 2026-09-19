@@ -1,0 +1,1919 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Göbekli Tepe — o templo enterrado de propósito | Vestígio Oculto</title>
+<meta name="description" content="Dossiê sobre Göbekli Tepe: os pilares em T de 11.600 anos no sudeste da Turquia, a hipótese do sepultamento ritual, a disputa entre santuário e povoado e o que a escavação ainda não alcançou.">
+<meta name="theme-color" content="#0B0B0C">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="canonical" href="https://vestigiooculto.com.br/dossies/gobekli-tepe.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Göbekli Tepe — o templo enterrado de propósito">
+<meta property="og:description" content="Caçadores-coletores ergueram pilares de cinco metros e, séculos depois, os recintos sumiram sob entulho. A arqueologia ainda discute se foi um sepultamento ritual.">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://vestigiooculto.com.br/dossies/gobekli-tepe.html">
+<meta property="og:image" content="https://vestigiooculto.com.br/assets/img/og-vestigio-oculto.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>/* ============================================================
+   VESTÍGIO OCULTO — sistema de design
+   Fonte única de estilo. Injetada em cada página por build.py.
+
+   Alinhado à Identidade Visual v1 do canal:
+   carvão, osso, âmbar e branco-gelo. Âmbar é o ÚNICO acento.
+   Vermelho não entra — é a cor dos canais que o Vestígio Oculto
+   não quer parecer.
+   ============================================================ */
+
+/* --- 1. Tokens ------------------------------------------- */
+:root {
+  /* Paleta da marca */
+  --carvao:      #0B0B0C;   /* fundo de tudo */
+  --osso:        #D9CBB3;   /* letras, molduras */
+  --ambar:       #C8862A;   /* acento único: lentes, destaques, marcadores */
+  --gelo:        #F2F0EA;   /* números e destaques de leitura */
+
+  /* Superfícies derivadas do carvão */
+  --carvao-2:    #121213;   /* cartões e blocos */
+  --carvao-3:    #191919;   /* hover */
+
+  /* Tinta derivada do osso */
+  --osso-suave:  #a79c8a;
+  --osso-fraco:  #756e62;
+
+  /* Traços */
+  --linha:       #232120;
+  --linha-viva:  #3a3630;
+
+  /* Âmbar rebaixado, para peso menor sem sair da paleta */
+  --ambar-fundo: #8a5c1c;
+
+  /* Tipografia — Cinzel é a fonte da marca */
+  --display: "Cinzel", "Times New Roman", serif;
+  --texto:   "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:    "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* Métrica */
+  --medida:  66ch;
+  --gutter:  clamp(1.25rem, 5vw, 4rem);
+  --topo:    72px;
+
+  --transicao: 420ms cubic-bezier(.16,.84,.44,1);
+}
+
+/* --- 2. Base --------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--carvao);
+  color: var(--osso);
+  font-family: var(--texto);
+  font-size: clamp(1rem, .5vw + .9rem, 1.08rem);
+  font-weight: 350;
+  line-height: 1.72;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Grão fino — peso de papel, sem sujar a paleta */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: .03;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+img, svg { max-width: 100%; }
+img { display: block; }
+
+/* Âncoras não param sob o cabeçalho fixo */
+[id] { scroll-margin-top: calc(var(--topo) + 1.5rem); }
+
+a {
+  color: var(--ambar);
+  text-decoration-color: color-mix(in srgb, var(--ambar) 38%, transparent);
+  text-underline-offset: .22em;
+  transition: color var(--transicao), text-decoration-color var(--transicao);
+}
+a:hover { color: #e0a34a; text-decoration-color: currentColor; }
+
+:focus-visible {
+  outline: 2px solid var(--ambar);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection { background: color-mix(in srgb, var(--ambar) 32%, transparent); }
+
+/* --- 3. Utilitários tipográficos -------------------------- */
+.mono {
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--osso-fraco);
+  font-weight: 400;
+}
+
+.kicker {
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ambar);
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+}
+.kicker::before {
+  content: "";
+  width: 1.6rem;
+  height: 1px;
+  background: currentColor;
+  opacity: .75;
+}
+
+/* Cinzel é caixa-alta por desenho: minúscula vira versalete.
+   Por isso os títulos levam entrelinha curta e tracking aberto. */
+h1, h2, h3, h4 {
+  font-family: var(--display);
+  font-weight: 500;
+  line-height: 1.16;
+  letter-spacing: .015em;
+  margin: 0;
+  text-wrap: balance;
+  color: var(--gelo);
+}
+
+.wrap {
+  width: min(1280px, 100% - var(--gutter) * 2);
+  margin-inline: auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* --- 4. Cabeçalho ---------------------------------------- */
+.topbar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: var(--topo);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  background: color-mix(in srgb, var(--carvao) 82%, transparent);
+  backdrop-filter: blur(14px) saturate(130%);
+  border-bottom: 1px solid var(--linha);
+}
+.topbar .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+/* A marca é o arquivo oficial, em curvas. Nada de recolorir
+   as lentes: o âmbar nelas é a assinatura. */
+.marca {
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.marca svg {
+  height: 34px;
+  width: auto;
+  display: block;
+}
+.marca .selo {
+  font-family: var(--mono);
+  font-size: .56rem;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: var(--osso-fraco);
+  padding-left: .9rem;
+  border-left: 1px solid var(--linha-viva);
+}
+@media (max-width: 560px) {
+  .marca svg { height: 26px; }
+  .marca .selo { display: none; }
+}
+
+.nav-pilares {
+  display: flex;
+  gap: 1.6rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-pilares a {
+  font-family: var(--mono);
+  font-size: .66rem;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--osso-suave);
+  text-decoration: none;
+  padding-block: .35rem;
+  border-bottom: 1px solid transparent;
+  transition: color var(--transicao), border-color var(--transicao);
+}
+.nav-pilares a:hover { color: var(--gelo); border-color: var(--ambar); }
+
+@media (max-width: 900px) { .nav-pilares { display: none; } }
+
+/* --- 5. Barra de progresso de leitura --------------------- */
+.progresso {
+  position: fixed;
+  top: var(--topo);
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: var(--ambar);
+  z-index: 60;
+  transition: width 90ms linear;
+}
+
+/* --- 6. Revelação no scroll ------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 760ms var(--transicao), transform 760ms var(--transicao);
+}
+.reveal.visivel { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+
+/* --- 7. Tarja de confidencialidade ------------------------ */
+/* Metadados nascem cobertos e se revelam ao passar o cursor —
+   a quebra do sigilo como microinteração. */
+.tarja {
+  position: relative;
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: .66rem;
+  letter-spacing: .08em;
+  color: var(--osso-suave);
+  padding: .1rem .3rem;
+  cursor: default;
+}
+.tarja::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--linha-viva);
+  transition: transform var(--transicao), opacity var(--transicao);
+  transform-origin: left;
+}
+.tarja:hover::after,
+.tarja:focus-visible::after,
+.dossie-card:hover .tarja::after,
+.dossie-card:focus-within .tarja::after {
+  transform: scaleX(0);
+  opacity: 0;
+}
+
+/* --- 8. Hero --------------------------------------------- */
+.hero {
+  padding-top: calc(var(--topo) + clamp(3.5rem, 11vh, 8rem));
+  padding-bottom: clamp(4rem, 10vh, 8rem);
+  position: relative;
+  isolation: isolate;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(58rem 32rem at 76% -12%, color-mix(in srgb, var(--osso) 6%, transparent), transparent 66%),
+    radial-gradient(34rem 24rem at 6% 14%, color-mix(in srgb, var(--ambar) 8%, transparent), transparent 70%);
+}
+
+.hero h1 {
+  font-size: clamp(2.1rem, 5.4vw, 4.4rem);
+  line-height: 1.14;
+  letter-spacing: .01em;
+  margin: 1.7rem 0 0;
+  max-width: 19ch;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--ambar);
+}
+.hero .linha-fina {
+  margin: 2rem 0 0;
+  max-width: 54ch;
+  font-size: 1.08rem;
+  color: var(--osso-suave);
+  line-height: 1.7;
+}
+
+.hero-meta {
+  margin-top: 3.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.4rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--linha);
+}
+.hero-meta div { display: flex; flex-direction: column; gap: .45rem; }
+.hero-meta .rotulo {
+  font-family: var(--mono);
+  font-size: .6rem;
+  letter-spacing: .19em;
+  text-transform: uppercase;
+  color: var(--osso-fraco);
+}
+.hero-meta .valor {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.35rem;
+  letter-spacing: .04em;
+  color: var(--gelo);
+}
+.hero-meta .valor.viva { color: var(--ambar); }
+
+/* --- 9. Secções ------------------------------------------ */
+.secao { padding-block: clamp(4rem, 9vh, 7rem); }
+
+.secao-cabeca {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid var(--linha);
+}
+.secao-cabeca h2 {
+  font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+  margin-top: .9rem;
+  max-width: 24ch;
+}
+.secao-cabeca p {
+  margin: 0;
+  max-width: 40ch;
+  color: var(--osso-suave);
+  font-size: .95rem;
+}
+
+/* --- 10. Pilares ----------------------------------------- */
+.pilares {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1px;
+  background: var(--linha);
+  border: 1px solid var(--linha);
+}
+.pilar {
+  background: var(--carvao-2);
+  padding: 2rem 1.7rem 2.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: .9rem;
+  position: relative;
+  transition: background var(--transicao);
+}
+.pilar:hover { background: var(--carvao-3); }
+.pilar::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: var(--ambar);
+  transform: scaleX(.12);
+  transform-origin: left;
+  transition: transform var(--transicao);
+}
+.pilar:hover::before { transform: scaleX(1); }
+.pilar h3 {
+  font-size: 1.12rem;
+  letter-spacing: .05em;
+}
+.pilar p {
+  margin: 0;
+  font-size: .92rem;
+  line-height: 1.62;
+  color: var(--osso-suave);
+}
+.pilar .contagem {
+  margin-top: auto;
+  padding-top: 1.2rem;
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ambar);
+}
+
+/* --- 11. Bento grid dos dossiês --------------------------- */
+.bento {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+}
+.dossie-card {
+  grid-column: span 2;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: .95rem;
+  padding: 1.6rem 1.5rem 1.7rem;
+  background: var(--carvao-2);
+  border: 1px solid var(--linha);
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  transition: border-color var(--transicao), background var(--transicao), transform var(--transicao);
+}
+.dossie-card:hover,
+.dossie-card:focus-within {
+  border-color: var(--linha-viva);
+  background: var(--carvao-3);
+  transform: translateY(-3px);
+}
+.dossie-card .numero {
+  font-family: var(--mono);
+  font-size: .64rem;
+  letter-spacing: .17em;
+  color: var(--osso-fraco);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.dossie-card h3 {
+  font-size: 1.12rem;
+  line-height: 1.3;
+  letter-spacing: .035em;
+}
+.dossie-card p {
+  margin: 0;
+  font-size: .91rem;
+  line-height: 1.6;
+  color: var(--osso-suave);
+}
+.dossie-card .rodape-card {
+  margin-top: auto;
+  padding-top: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid var(--linha);
+}
+.dossie-card .selo-pilar {
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--osso-fraco);
+}
+
+/* Estados editoriais — âmbar é o acento, osso é a espera */
+.estado {
+  font-family: var(--mono);
+  font-size: .56rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  padding: .2rem .5rem;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+.estado.publicado { color: var(--ambar); }
+.estado.apuracao  { color: var(--osso-fraco); }
+
+/* O dossiê em linha ocupa metade da grade */
+.dossie-card.destaque {
+  grid-column: span 3;
+  grid-row: span 2;
+  background:
+    radial-gradient(34rem 20rem at 12% 0%, color-mix(in srgb, var(--ambar) 9%, transparent), transparent 68%),
+    var(--carvao-2);
+  padding: 2.2rem 2rem 2rem;
+}
+.dossie-card.destaque h3 { font-size: clamp(1.5rem, 2.6vw, 2.1rem); line-height: 1.2; }
+.dossie-card.destaque p  { font-size: 1rem; max-width: 44ch; }
+
+.dossie-card.largo { grid-column: span 3; }
+
+@media (max-width: 1000px) {
+  .bento { grid-template-columns: repeat(4, 1fr); }
+  .dossie-card, .dossie-card.largo { grid-column: span 2; }
+  .dossie-card.destaque { grid-column: span 4; grid-row: auto; }
+}
+@media (max-width: 620px) {
+  .bento { grid-template-columns: 1fr; }
+  .dossie-card, .dossie-card.largo, .dossie-card.destaque { grid-column: span 1; }
+}
+
+/* --- 12. Página de dossiê: capa --------------------------- */
+.dossie-capa {
+  padding-top: calc(var(--topo) + clamp(3rem, 9vh, 6rem));
+  padding-bottom: clamp(3rem, 7vh, 5rem);
+  position: relative;
+  isolation: isolate;
+}
+.dossie-capa::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(48rem 28rem at 70% -5%, color-mix(in srgb, var(--osso) 6%, transparent), transparent 68%),
+    radial-gradient(30rem 20rem at 4% 20%, color-mix(in srgb, var(--ambar) 7%, transparent), transparent 72%);
+}
+.dossie-capa h1 {
+  font-size: clamp(1.9rem, 4.6vw, 3.6rem);
+  line-height: 1.16;
+  margin: 1.5rem 0 0;
+  max-width: 19ch;
+}
+.dossie-capa .subtitulo {
+  margin: 1.7rem 0 0;
+  max-width: 58ch;
+  font-size: 1.1rem;
+  color: var(--osso-suave);
+  line-height: 1.66;
+}
+
+.ficha {
+  margin: 3rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+  gap: 1px;
+  background: var(--linha);
+  border: 1px solid var(--linha);
+}
+.ficha > div {
+  background: var(--carvao-2);
+  padding: 1.1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: .45rem;
+}
+.ficha dt {
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: .19em;
+  text-transform: uppercase;
+  color: var(--osso-fraco);
+}
+.ficha dd {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: .84rem;
+  color: var(--gelo);
+}
+
+/* --- 13. Corpo do dossiê ---------------------------------- */
+.corpo {
+  width: min(var(--medida), 100% - var(--gutter) * 2);
+  margin-inline: auto;
+  padding-block: clamp(2.5rem, 6vh, 4.5rem);
+  font-size: 1.06rem;
+  line-height: 1.78;
+}
+.corpo > * + * { margin-top: 1.5rem; }
+.corpo p { margin-bottom: 0; }
+
+.corpo h2 {
+  font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+  letter-spacing: .05em;
+  margin-top: 3.8rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--linha);
+  position: relative;
+}
+.corpo h2 .indice {
+  position: absolute;
+  top: 1.6rem;
+  left: -3.4rem;
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: .12em;
+  color: var(--ambar);
+}
+@media (max-width: 900px) {
+  .corpo h2 .indice { position: static; display: block; margin-bottom: .55rem; }
+}
+
+.corpo h3 {
+  font-family: var(--texto);
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: .01em;
+  line-height: 1.5;
+  margin-top: 2.4rem;
+  color: var(--gelo);
+}
+
+.abertura {
+  font-size: 1.16rem;
+  line-height: 1.7;
+  color: var(--gelo);
+}
+.abertura::first-letter {
+  float: left;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 3.6rem;
+  line-height: .9;
+  padding: .12rem .5rem .1rem 0;
+  color: var(--ambar);
+}
+
+.corpo blockquote {
+  margin: 2.6rem 0;
+  padding: 0 0 0 1.6rem;
+  border-left: 2px solid var(--ambar);
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.28rem;
+  line-height: 1.38;
+  letter-spacing: .03em;
+  color: var(--gelo);
+}
+.corpo blockquote cite {
+  display: block;
+  margin-top: 1rem;
+  font-family: var(--mono);
+  font-size: .62rem;
+  font-style: normal;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--osso-fraco);
+}
+
+.nota {
+  font-size: .95rem;
+  line-height: 1.7;
+  color: var(--osso-suave);
+  background: var(--carvao-2);
+  border: 1px solid var(--linha);
+  border-left: 2px solid var(--ambar);
+  padding: 1.2rem 1.4rem;
+}
+.nota strong {
+  display: block;
+  font-family: var(--mono);
+  color: var(--ambar);
+  font-size: .6rem;
+  font-weight: 500;
+  letter-spacing: .19em;
+  text-transform: uppercase;
+  margin-bottom: .6rem;
+}
+
+/* --- 14. Cronologia --------------------------------------- */
+.cronologia {
+  list-style: none;
+  margin: 2.4rem 0 0;
+  padding: 0;
+  border-left: 1px solid var(--linha);
+}
+.cronologia li {
+  position: relative;
+  padding: 0 0 1.9rem 1.8rem;
+}
+.cronologia li::before {
+  content: "";
+  position: absolute;
+  left: -4px;
+  top: .6rem;
+  width: 7px;
+  height: 7px;
+  background: var(--carvao);
+  border: 1px solid var(--ambar);
+  border-radius: 50%;
+}
+.cronologia li:last-child { padding-bottom: 0; }
+.cronologia .quando {
+  display: block;
+  font-family: var(--mono);
+  font-size: .66rem;
+  letter-spacing: .13em;
+  color: var(--ambar);
+  margin-bottom: .35rem;
+}
+.cronologia .oque {
+  font-size: .96rem;
+  line-height: 1.64;
+  color: var(--osso-suave);
+}
+
+/* --- 15. Evidências e teorias ----------------------------- */
+.evidencias {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+  gap: 1px;
+  background: var(--linha);
+  border: 1px solid var(--linha);
+  margin-top: 2.4rem;
+}
+.evidencia {
+  background: var(--carvao-2);
+  padding: 1.5rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+}
+.evidencia .medida {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.9rem;
+  line-height: 1.1;
+  letter-spacing: .02em;
+  color: var(--ambar);
+}
+.evidencia .legenda {
+  font-size: .9rem;
+  line-height: 1.58;
+  color: var(--osso-suave);
+}
+.evidencia .legenda strong { color: var(--gelo); font-weight: 600; }
+
+.teoria {
+  background: var(--carvao-2);
+  border: 1px solid var(--linha);
+  padding: 1.6rem 1.5rem;
+  margin-top: 1.2rem;
+}
+.teoria h3 {
+  margin: 0 0 .9rem;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.16rem;
+  letter-spacing: .04em;
+  line-height: 1.32;
+}
+.teoria p { font-size: .96rem; line-height: 1.66; color: var(--osso-suave); margin: 0; }
+.teoria p + p { margin-top: .85rem; }
+
+/* Medidor de peso de evidência: o comprimento carrega o dado,
+   o rótulo o nomeia. Sem semáforo de cores. */
+.medidor {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  margin-bottom: 1.1rem;
+  font-family: var(--mono);
+  font-size: .56rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--osso-fraco);
+}
+.medidor .barra {
+  flex: 1;
+  height: 3px;
+  background: var(--linha-viva);
+  position: relative;
+  max-width: 130px;
+}
+.medidor .barra::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--nivel, 50%);
+  background: var(--cor-nivel, var(--ambar));
+}
+.medidor .peso { color: var(--osso-suave); }
+
+/* --- 16. Fontes ------------------------------------------- */
+.fontes {
+  list-style: none;
+  margin: 1.8rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: .95rem;
+}
+.fontes li {
+  font-size: .9rem;
+  line-height: 1.62;
+  color: var(--osso-suave);
+  padding-left: 1.5rem;
+  position: relative;
+}
+.fontes li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--osso-fraco);
+}
+
+/* --- 17. Rodapé ------------------------------------------- */
+.rodape {
+  border-top: 1px solid var(--linha);
+  margin-top: clamp(4rem, 10vh, 7rem);
+  padding-block: 3.2rem 2.4rem;
+  background: var(--carvao-2);
+}
+.rodape .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.4rem;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.rodape p {
+  margin: 1rem 0 0;
+  max-width: 42ch;
+  font-size: .92rem;
+  color: var(--osso-suave);
+}
+.rodape .creditos {
+  width: 100%;
+  margin-top: 2.4rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--linha);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+/* --- 18. Navegação entre dossiês -------------------------- */
+.proximo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding: 1.8rem 1.7rem;
+  background: var(--carvao-2);
+  border: 1px solid var(--linha);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color var(--transicao), background var(--transicao);
+}
+.proximo:hover { border-color: var(--ambar); background: var(--carvao-3); }
+.proximo strong {
+  display: block;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.22rem;
+  letter-spacing: .04em;
+  line-height: 1.3;
+  margin-top: .55rem;
+  color: var(--gelo);
+}
+.proximo .seta { font-family: var(--mono); color: var(--ambar); font-size: 1.1rem; }
+
+/* ============================================================
+   20. PAINEL DA HOME — molde do Viagem na Lupa
+   Hero com foto à esquerda, coluna de apoio à direita,
+   e abaixo a grade de quadros, um por curiosidade.
+   ============================================================ */
+.painel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 1.5rem;
+  align-items: start;
+  padding-top: calc(var(--topo) + 2rem);
+}
+@media (max-width: 1000px) {
+  .painel { grid-template-columns: 1fr; }
+}
+
+/* --- Hero com fotografia --------------------------------- */
+.hero-foto {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid var(--linha);
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(1.6rem, 3vw, 2.6rem);
+}
+.hero-foto > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+.hero-foto::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--carvao) 55%, transparent) 0%, transparent 34%),
+    linear-gradient(0deg, var(--carvao) 4%, color-mix(in srgb, var(--carvao) 72%, transparent) 46%, transparent 78%);
+}
+.hero-foto h1 {
+  font-size: clamp(1.7rem, 3.3vw, 2.9rem);
+  line-height: 1.16;
+  margin: 1.1rem 0 0;
+  max-width: 17ch;
+}
+.hero-foto h1 em { font-style: normal; color: var(--ambar); }
+.hero-foto .linha-fina {
+  margin: 1.1rem 0 0;
+  max-width: 50ch;
+  font-size: 1rem;
+  color: var(--osso-suave);
+  line-height: 1.64;
+}
+.hero-foto .hero-meta {
+  margin-top: 1.9rem;
+  gap: 2rem;
+  padding-top: 1.2rem;
+}
+
+/* --- Coluna de apoio -------------------------------------- */
+.apoio { display: grid; gap: 1.5rem; }
+.caixa {
+  background: var(--carvao-2);
+  border: 1px solid var(--linha);
+  padding: 1.4rem 1.4rem 1.5rem;
+}
+.caixa h2 {
+  font-size: 1.05rem;
+  letter-spacing: .05em;
+  margin-bottom: 1rem;
+}
+.caixa p {
+  margin: 0;
+  font-size: .9rem;
+  line-height: 1.62;
+  color: var(--osso-suave);
+}
+.caixa .selo-metodo {
+  display: block;
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: .19em;
+  text-transform: uppercase;
+  color: var(--ambar);
+  margin-bottom: .9rem;
+}
+
+/* Filtro por pilar */
+.filtros { display: flex; flex-wrap: wrap; gap: .5rem; }
+.filtros button {
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--osso-suave);
+  background: transparent;
+  border: 1px solid var(--linha-viva);
+  border-radius: 999px;
+  padding: .42rem .85rem;
+  cursor: pointer;
+  transition: color var(--transicao), border-color var(--transicao), background var(--transicao);
+}
+.filtros button:hover { color: var(--gelo); border-color: var(--osso-fraco); }
+.filtros button[aria-pressed="true"] {
+  background: var(--ambar);
+  border-color: var(--ambar);
+  color: var(--carvao);
+  font-weight: 500;
+}
+.contador {
+  display: block;
+  margin-top: 1rem;
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--osso-fraco);
+}
+
+/* --- Grade de quadros ------------------------------------- */
+.quadros {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.quadro {
+  display: flex;
+  flex-direction: column;
+  background: var(--carvao-2);
+  border: 1px solid var(--linha);
+  overflow: hidden;
+  transition: border-color var(--transicao);
+}
+.quadro:hover { border-color: var(--linha-viva); }
+.quadro[hidden] { display: none; }
+
+/* Foto com a legenda por cima */
+.quadro-foto {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background: var(--carvao-3);
+}
+.quadro-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 900ms var(--transicao), filter var(--transicao);
+}
+.quadro:hover .quadro-foto img { transform: scale(1.035); }
+.quadro-foto::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, color-mix(in srgb, var(--carvao) 92%, transparent) 2%, color-mix(in srgb, var(--carvao) 55%, transparent) 38%, transparent 68%);
+}
+.quadro-legenda {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  z-index: 1;
+  padding: 1.1rem 1.2rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.quadro-legenda h3 {
+  font-size: 1.28rem;
+  letter-spacing: .04em;
+  line-height: 1.2;
+  margin: 0;
+}
+.quadro-legenda .origem {
+  display: block;
+  margin-top: .4rem;
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--osso-suave);
+}
+
+/* Etiqueta de honestidade: imagem gerada nunca passa por foto do sítio */
+.recriacao {
+  position: absolute;
+  top: .8rem;
+  right: .8rem;
+  z-index: 1;
+  font-family: var(--mono);
+  font-size: .52rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--osso-suave);
+  background: color-mix(in srgb, var(--carvao) 76%, transparent);
+  backdrop-filter: blur(4px);
+  border: 1px solid var(--linha-viva);
+  padding: .18rem .45rem;
+  border-radius: 2px;
+}
+
+/* Quadro ainda sem imagem — carvão e o símbolo da marca apagado */
+.quadro-foto.sem-imagem {
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(22rem 14rem at 50% 30%, color-mix(in srgb, var(--ambar) 7%, transparent), transparent 70%),
+    var(--carvao-3);
+}
+.quadro-foto.sem-imagem .aguardando {
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--osso-fraco);
+  border: 1px dashed var(--linha-viva);
+  padding: .5rem .9rem;
+  transform: translateY(-1.4rem);
+}
+
+/* Faixa de dados */
+.quadro-dados {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--linha);
+  border-block: 1px solid var(--linha);
+}
+.quadro-dados > div {
+  background: var(--carvao-2);
+  padding: .85rem 1.2rem .95rem;
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+  min-width: 0;
+}
+.quadro-dados .rot {
+  font-family: var(--mono);
+  font-size: .54rem;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  color: var(--osso-fraco);
+}
+.quadro-dados .val {
+  font-family: var(--mono);
+  font-size: .95rem;
+  color: var(--ambar);
+  line-height: 1.3;
+}
+.quadro-dados .val.neutro { color: var(--gelo); }
+
+/* Texto e chips */
+.quadro-texto {
+  padding: 1.2rem 1.2rem 0;
+  font-size: .94rem;
+  line-height: 1.64;
+  color: var(--osso-suave);
+  flex: 1;
+}
+.quadro-texto p { margin: 0; }
+.quadro-texto strong { color: var(--gelo); font-weight: 600; }
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  padding: 1.2rem;
+}
+.chips a, .chips span {
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: .1em;
+  color: var(--osso-suave);
+  border: 1px solid var(--linha-viva);
+  padding: .42rem .8rem;
+  text-decoration: none;
+  transition: color var(--transicao), border-color var(--transicao);
+}
+.chips a:hover { color: var(--ambar); border-color: var(--ambar); }
+.chips span { color: var(--osso-fraco); border-style: dashed; }
+
+/* --- Figura dentro do dossiê ------------------------------ */
+.figura { margin: 2.6rem 0; }
+.figura img { width: 100%; height: auto; border: 1px solid var(--linha); }
+.figura figcaption {
+  margin-top: .7rem;
+  font-family: var(--mono);
+  font-size: .64rem;
+  line-height: 1.6;
+  letter-spacing: .04em;
+  color: var(--osso-fraco);
+}
+.figura figcaption b {
+  color: var(--osso-suave);
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-size: .56rem;
+}
+
+/* ============================================================
+   21. FIGURAS DENTRO DO DOSSIÊ
+   A imagem entra junto do trecho que ela ilustra, e não em
+   galeria no fim. Três larguras, para o texto não virar régua.
+   ============================================================ */
+
+/* Revelação: a imagem chega desfocada e abre — a mesma quebra
+   de sigilo das tarjas, aplicada ao material visual. */
+.figura img {
+  cursor: zoom-in;
+  filter: blur(14px);
+  opacity: .35;
+  transform: scale(1.015);
+  transition: filter 900ms var(--transicao), opacity 900ms var(--transicao), transform 900ms var(--transicao);
+}
+.figura.visivel img { filter: none; opacity: 1; transform: none; }
+
+/* Larga: escapa da coluna de leitura para dar fôlego */
+.figura.larga {
+  width: min(94vw, 1000px);
+  margin-inline: calc(50% - min(47vw, 500px));
+}
+
+/* Lado: acompanha o texto em telas grandes */
+.figura.lado {
+  float: right;
+  width: 46%;
+  margin: .4rem 0 1.4rem 1.8rem;
+}
+.figura.lado + * { clear: none; }
+@media (max-width: 860px) {
+  .figura.lado { float: none; width: 100%; margin: 2.2rem 0; }
+  .figura.larga { width: 100%; margin-inline: 0; }
+}
+
+/* Clareia a legenda quando a figura é a única coisa na linha */
+.figura figcaption { max-width: 62ch; }
+
+/* --- Lupa: ampliar a imagem sem sair da página ------------- */
+.lupa {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  place-items: center;
+  padding: clamp(1rem, 4vw, 3rem);
+  background: color-mix(in srgb, var(--carvao) 94%, transparent);
+  backdrop-filter: blur(6px);
+}
+.lupa[open], .lupa.aberta { display: grid; }
+.lupa figure { margin: 0; max-width: min(1200px, 100%); }
+.lupa img {
+  width: 100%;
+  height: auto;
+  max-height: 78vh;
+  object-fit: contain;
+  border: 1px solid var(--linha-viva);
+}
+.lupa figcaption {
+  margin-top: .9rem;
+  font-family: var(--mono);
+  font-size: .68rem;
+  line-height: 1.6;
+  color: var(--osso-suave);
+  max-width: 70ch;
+}
+.lupa .fechar {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.4rem;
+  background: transparent;
+  border: 1px solid var(--linha-viva);
+  color: var(--osso);
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: .5rem .9rem;
+  cursor: pointer;
+}
+.lupa .fechar:hover { border-color: var(--ambar); color: var(--ambar); }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Göbekli Tepe — o templo enterrado de propósito",
+  "description": "Dossiê investigativo sobre os recintos megalíticos de Göbekli Tepe, no sudeste da Turquia: cronologia, evidências materiais, a hipótese do sepultamento intencional e o debate entre santuário e povoado.",
+  "inLanguage": "pt-BR",
+  "datePublished": "2026-09-19",
+  "dateModified": "2026-09-19",
+  "articleSection": "Pedra e Poeira",
+  "keywords": "Göbekli Tepe, Neolítico Pré-Cerâmico, pilares em T, Şanlıurfa, Taş Tepeler, arqueologia",
+  "author": { "@type": "Organization", "name": "Vestígio Oculto" },
+  "publisher": { "@type": "Organization", "name": "Vestígio Oculto" },
+  "about": {
+    "@type": "Place",
+    "name": "Göbekli Tepe",
+    "description": "Sítio arqueológico do Neolítico Pré-Cerâmico na província de Şanlıurfa, sudeste da Turquia, inscrito na lista do Patrimônio Mundial da UNESCO em 2018.",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 37.22361,
+      "longitude": 38.92167
+    },
+    "containedInPlace": {
+      "@type": "AdministrativeArea",
+      "name": "Şanlıurfa, Turquia"
+    }
+  },
+  "temporalCoverage": "-9600/-8200"
+}
+</script>
+</head>
+<body>
+
+<div class="progresso" id="progresso" role="presentation"></div>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="marca" href="../index.html" aria-label="Vestígio Oculto — início">
+      <svg role="img" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0.0 -2003.7 10717.5 2080.2"> <defs><clipPath id="crownclip"><path d="M 4971.8 -900.2 C 4971.8 -1693.8 6336.7 -1693.8 6336.7 -900.2 Z"/></clipPath></defs> <g fill="#D9CBB3"><path d="M368 -20 68 627Q52 661 27.5 675.5Q3 690 -20 690H-28V700H290V690H281Q262 690 247.5 673.5Q233 657 244 627L413 214L589 627Q602 657 586.0 673.5Q570 690 551 690H542V700H756V690H747Q725 690 700.5 675.5Q676 661 660 627H659L426 111Q424 105 416.5 88.5Q409 72 400.0 51.0Q391 30 384.5 10.5Q378 -9 377 -20Z" transform="translate(90.0,0) scale(1,-1)"/><path d="M606 205 560 0H42V10H55Q81 10 99.5 28.5Q118 47 119 73V627Q118 653 99.5 671.5Q81 690 55 690H42V700H423Q445 700 469.5 703.0Q494 706 515.0 710.0Q536 714 545 718V543H535V555Q535 601 508 629Q484 653 447 657H269V366H401Q438 367 462.0 391.5Q486 416 486 453V460H496V230H486V238Q486 275 462.0 299.0Q438 323 401 324H269V43H400Q450 43 488.0 62.5Q526 82 553.0 118.5Q580 155 596 205Z" transform="translate(888.0,0) scale(1,-1)"/><path d="M277 714Q297 714 326.5 712.0Q356 710 388 707Q399 705 409 704H476L475 692Q475 692 475 692L463 557H453Q453 609 414.5 640.5Q376 672 312 672Q254 672 218.5 644.0Q183 616 181 576Q180 546 200.0 524.0Q220 502 251 483L442 359Q488 333 511.5 291.0Q535 249 532 193Q527 95 457.0 40.5Q387 -14 267 -14Q223 -14 181.5 -6.5Q140 1 108.0 14.5Q76 28 57 47Q49 69 50.0 100.0Q51 131 59.5 163.0Q68 195 81 216H90Q86 165 108.5 121.5Q131 78 174.5 52.5Q218 27 278 28Q344 29 380.0 61.5Q416 94 416 140Q416 171 397.5 196.0Q379 221 337 244L162 360Q109 390 85.0 437.0Q61 484 66 539Q71 591 97.0 630.5Q123 670 168.5 692.0Q214 714 277 714Z" transform="translate(1590.0,0) scale(1,-1)"/><path d="M654 719V544L644 545V556Q644 603 616.5 630.5Q589 658 542 659H409V73Q410 47 428.5 28.5Q447 10 473 10H486V0H182V10H195Q221 10 239.5 28.5Q258 47 259 73V659H125Q79 658 51.5 630.5Q24 603 24 556V545L14 544V719Q24 715 44.5 711.0Q65 707 90.0 704.0Q115 701 136 701H532Q554 701 578.5 704.0Q603 707 624.0 711.0Q645 715 654 719Z" transform="translate(2238.0,0) scale(1,-1)"/><path d="M119 73V627Q118 653 99.5 671.5Q81 690 55 690H42V700H346V690H333Q307 690 288.5 671.5Q270 653 269 627V73Q270 47 288.5 28.5Q307 10 333 10H346V0H42V10H55Q81 10 99.5 28.5Q118 47 119 73ZM177 769Q194 798 219.0 829.0Q244 860 271.5 887.0Q299 914 320 934Q347 919 363.0 899.0Q379 879 389 852Q359 833 323.5 815.5Q288 798 252.5 784.0Q217 770 184 762Z" transform="translate(2975.0,0) scale(1,-1)"/><path d="M755 280V115Q731 85 683.5 55.0Q636 25 570.0 5.5Q504 -14 423 -14Q309 -14 224.0 30.5Q139 75 92.0 157.0Q45 239 45.0 351.0Q45 463 91.5 544.0Q138 625 224.5 669.5Q311 714 429 714Q484 714 536.0 706.5Q588 699 632.0 687.0Q676 675 705 659L707 488H698Q679 556 643.0 596.5Q607 637 559.5 654.5Q512 672 459 672Q378 672 321.5 632.5Q265 593 236.5 520.0Q208 447 208 345Q208 249 234.5 177.5Q261 106 312.0 67.5Q363 29 436 28Q473 28 507.5 39.5Q542 51 568.0 73.0Q594 95 605 127L606 280Q606 325 555 325H539V335H820V325H805Q775 325 763 310Q754 299 755 280Z" transform="translate(3432.0,0) scale(1,-1)"/><path d="M119 73V627Q118 653 99.5 671.5Q81 690 55 690H42V700H346V690H333Q307 690 288.5 671.5Q270 653 269 627V73Q270 47 288.5 28.5Q307 10 333 10H346V0H42V10H55Q81 10 99.5 28.5Q118 47 119 73Z" transform="translate(4338.0,0) scale(1,-1)"/><path d="M722 292 731 120Q709 83 672.0 53.0Q635 23 580.0 4.5Q525 -14 450 -14Q328 -13 236.5 30.5Q145 74 95.0 155.0Q45 236 45 351Q45 463 94.0 544.5Q143 626 234.5 670.0Q326 714 453 714Q533 714 596.5 698.0Q660 682 703 659L704 488H695Q668 587 607.0 629.5Q546 672 464 672Q384 672 327.0 633.0Q270 594 239.0 523.0Q208 452 208 353Q208 254 237.5 182.0Q267 110 321.5 70.0Q376 30 450 28Q527 28 580.0 53.0Q633 78 665.5 136.0Q698 194 714 292Z" transform="translate(6513.5,0) scale(1,-1)"/><path d="M326 700V690H310Q288 690 272.5 676.0Q257 662 257 640V260Q257 189 280.5 137.0Q304 85 347.5 57.0Q391 29 451 29Q512 29 556.5 55.5Q601 82 625.0 131.0Q649 180 649 247V640Q649 662 633.5 676.0Q618 690 596 690H580V700H790V690H774Q752 690 736.5 676.0Q721 662 721 640V253Q721 171 686.5 111.0Q652 51 587.5 18.5Q523 -14 432 -14Q326 -14 253.0 18.5Q180 51 143.5 110.5Q107 170 107 252V640Q107 662 91.5 676.0Q76 690 54 690H38V700Z" transform="translate(7363.5,0) scale(1,-1)"/><path d="M606 205 560 0H42V10H55Q81 10 99.5 28.5Q118 47 119 73V627Q118 653 99.5 671.5Q81 690 55 690H42V700H346V690H333Q307 690 288.5 671.5Q270 653 269 627V43H400Q450 43 488.0 62.5Q526 82 553.0 118.5Q580 155 596 205Z" transform="translate(8254.5,0) scale(1,-1)"/><path d="M654 719V544L644 545V556Q644 603 616.5 630.5Q589 658 542 659H409V73Q410 47 428.5 28.5Q447 10 473 10H486V0H182V10H195Q221 10 239.5 28.5Q258 47 259 73V659H125Q79 658 51.5 630.5Q24 603 24 556V545L14 544V719Q24 715 44.5 711.0Q65 707 90.0 704.0Q115 701 136 701H532Q554 701 578.5 704.0Q603 707 624.0 711.0Q645 715 654 719Z" transform="translate(8941.5,0) scale(1,-1)"/><path d="M442 714Q562 714 650.5 669.5Q739 625 787.5 544.0Q836 463 836 350Q836 238 787.5 156.5Q739 75 650.5 30.5Q562 -14 442 -14Q322 -14 233.5 30.5Q145 75 97.0 156.0Q49 237 49 350Q49 462 97.0 543.5Q145 625 233.5 669.5Q322 714 442 714ZM442 28Q513 28 564.0 67.5Q615 107 643.0 179.0Q671 251 671 350Q671 449 643.0 521.0Q615 593 564.0 632.5Q513 672 442 672Q372 672 320.5 632.5Q269 593 241.0 521.0Q213 449 213 350Q213 251 241.0 179.0Q269 107 320.5 67.5Q372 28 442 28Z" transform="translate(9678.5,0) scale(1,-1)"/></g> <g fill="#D9CBB3"><path d="M 4703.1 -793.7 C 5159.7 -1029.2 6148.8 -1029.2 6605.4 -793.7 C 6148.8 -739.8 5159.7 -739.8 4703.1 -793.7 Z"/><path d="M 5014.9 -1208.2 C 4983.2 -1454.9 4964.0 -1548.5 5175.8 -1633.6 C 5387.5 -1548.5 5470.3 -1454.9 5438.5 -1208.2 Z"/><path d="M 5870.0 -1208.2 C 5838.2 -1454.9 5921.0 -1548.5 6132.7 -1633.6 C 6344.5 -1548.5 6325.3 -1454.9 6293.6 -1208.2 Z"/><path d="M 4971.8 -900.2 C 4971.8 -1693.8 6336.7 -1693.8 6336.7 -900.2 Z"/><path d="M 5654.2 -1586.6 C 5510.1 -1753.3 5462.1 -1713.3 5462.1 -1613.2 C 5462.1 -1493.2 5548.5 -1473.2 5654.2 -1586.6 Z"/><path d="M 5654.2 -1586.6 C 5798.4 -1753.3 5846.4 -1713.3 5846.4 -1613.2 C 5846.4 -1493.2 5760.0 -1473.2 5654.2 -1586.6 Z"/><circle cx="5654.2" cy="-1586.6" r="82.4"/></g> <g><circle cx="5262.2" cy="-350.0" r="332.5" fill="none" stroke="#C8862A" stroke-width="59.5"/><circle cx="6046.2" cy="-350.0" r="332.5" fill="none" stroke="#C8862A" stroke-width="59.5"/><path d="M 5612.6 -388.5 C 5654.2 -451.5 5654.2 -451.5 5695.9 -388.5" fill="none" stroke="#C8862A" stroke-width="47.6" stroke-linecap="round"/><path d="M 5612.6 -297.5 C 5654.2 -339.5 5654.2 -339.5 5695.9 -297.5" fill="none" stroke="#C8862A" stroke-width="47.6" stroke-linecap="round"/></g> </svg>
+      <span class="selo">Dossiê 001</span>
+    </a>
+    <nav aria-label="Pilares editoriais">
+      <ul class="nav-pilares">
+        <li><a href="../index.html#pedra-e-poeira">Pedra e Poeira</a></li>
+        <li><a href="../index.html#descoberto-ontem">Descoberto Ontem</a></li>
+        <li><a href="../index.html#arquivo-selado">Arquivo Selado</a></li>
+        <li><a href="../index.html#ultimos-isolados">Últimos Isolados</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ========== CAPA ========== -->
+  <article>
+  <header class="dossie-capa">
+    <div class="wrap">
+      <span class="kicker">Dossiê 001 · Pedra e Poeira · Em aberto</span>
+      <h1>Göbekli Tepe — o templo enterrado de propósito</h1>
+      <p class="subtitulo">
+        Caçadores-coletores ergueram pilares de calcário de cinco metros e meio
+        no alto de uma colina do sudeste da Turquia. Séculos depois, os recintos
+        desapareceram sob toneladas de entulho. A pergunta que a arqueologia
+        ainda não resolveu não é quem construiu — é por que tudo foi coberto.
+      </p>
+
+      <dl class="ficha">
+        <div><dt>Local</dt><dd>Şanlıurfa, Turquia</dd></div>
+        <div><dt>Coordenadas</dt><dd>37°13′25″N 38°55′18″E</dd></div>
+        <div><dt>Período</dt><dd>c. 9600 – 8200 a.C.</dd></div>
+        <div><dt>Escavado</dt><dd>≈ 10% do sítio</dd></div>
+        <div><dt>Patrimônio</dt><dd>UNESCO, 2018</dd></div>
+        <div><dt>Status</dt><dd>Escavação ativa</dd></div>
+      </dl>
+    </div>
+  </header>
+
+  <!-- ========== CORPO ========== -->
+  <div class="corpo">
+
+    <p class="abertura">
+      No verão, o vento que sobe da planície de Harran chega seco à colina e
+      carrega calcário moído. A elevação não impressiona de longe: quinze metros
+      de altura sobre um platô já alto, o formato arredondado que deu o nome
+      turco ao lugar — göbekli tepe, a colina com barriga. Não há rio ao lado,
+      nem sombra, nem nada que recomende o alto do morro a quem precise viver
+      dali. As nascentes do Balikh, afluente do Eufrates, ficam abaixo. Quem
+      subisse até ali, há onze mil e seiscentos anos, subia por outro motivo.
+    </p>
+
+    <p>
+      O que esse alguém encontrou no topo foram anéis de pedra. Recintos
+      circulares e ovais, entre dez e trinta metros de diâmetro, delimitados por
+      muros baixos e bancos de pedra. Cravados nesses muros, pilares de calcário
+      em forma de T. No centro de cada recinto, um par maior, mais alto que
+      qualquer homem, os dois voltados um para o outro. Nas faces dos pilares,
+      em baixo-relevo: raposas de dentes à mostra, javalis, touros, escorpiões,
+      cobras descendo em fila, aves de pescoço longo. Alguns pilares têm braços
+      esculpidos nas laterais, mãos que se encontram sobre o ventre, cinto,
+      tanga. São corpos. Corpos sem cabeça, de pedra, em pé, em círculo, no alto
+      de uma colina sem água.
+    </p>
+
+    <p>
+      Nada disso deveria existir. Não naquela data.
+    </p>
+
+    <h2 id="descoberta"><span class="indice">01</span>A colina que passou por cemitério</h2>
+
+    <p>
+      Göbekli Tepe foi registrada pela primeira vez em 1963, num levantamento
+      conduzido por Halet Çambel, da Universidade de Istambul, e Robert
+      Braidwood, da Universidade de Chicago. As equipes anotaram a presença de
+      lajes de calcário quebradas espalhadas pela superfície e seguiram adiante.
+      A leitura foi razoável para o que se via: pareciam lápides. A colina
+      entrou nos cadernos como um cemitério medieval de pouco interesse e
+      permaneceu assim por três décadas.
+    </p>
+
+    <figure class="figura larga reveal-fig">
+      <img src="../assets/img/gt-01-levantamento-1963.jpg" loading="lazy" width="1200" height="675" alt="Recriação de dois pesquisadores caminhando sobre uma colina de calcário em 1963">
+      <figcaption><b>Recriação</b> — 1963. O levantamento de Halet Çambel e Robert Braidwood passa pela colina e anota lajes de calcário na superfície. A leitura foi cemitério medieval.</figcaption>
+    </figure>
+
+    <p>
+      Em 1994, o arqueólogo alemão Klaus Schmidt, do Instituto Arqueológico
+      Alemão, releu aquelas anotações enquanto procurava um sítio para escavar
+      na região. A descrição das lajes não fechava com um cemitério: o volume de
+      calcário trabalhado era grande demais, e a pedra tinha marcas de talhe.
+      Schmidt foi ao local. Reconheceu, na superfície, topos de pilares ainda
+      enterrados. No ano seguinte começou a escavar, e continuaria ali até
+      morrer, em 2014.
+    </p>
+
+    <figure class="figura lado reveal-fig">
+      <img src="../assets/img/gt-02-caderno.jpg" loading="lazy" width="1200" height="675" alt="Recriação de um caderno de campo aberto, com anotações e desenhos">
+      <figcaption><b>Recriação</b> — Foram anotações como estas que Schmidt releu trinta anos depois. O volume de calcário trabalhado não fechava com um cemitério.</figcaption>
+    </figure>
+
+    <p>
+      A primeira datação por radiocarbono desmontou a cronologia que os manuais
+      traziam. As camadas mais antigas do sítio pertencem ao Neolítico
+      Pré-Cerâmico A, por volta de 9500 a.C. A inscrição da UNESCO, em 2018,
+      fixa a ocupação entre aproximadamente 9600 e 8200 a.C. Isso coloca os
+      pilares cerca de seis mil anos antes de Stonehenge e das pirâmides de
+      Gizé, e — este é o ponto que desestabilizou a arqueologia do Próximo
+      Oriente — antes da agricultura, antes da cerâmica, antes da roda, antes da
+      escrita e antes de qualquer cidade.
+    </p>
+
+    <blockquote>
+      Primeiro veio o templo, depois a cidade.
+      <cite>Síntese atribuída a Klaus Schmidt sobre a inversão que o sítio propõe</cite>
+    </blockquote>
+
+    <p>
+      A frase resume a inversão. O modelo clássico dizia que a agricultura vem
+      primeiro: gente sedentária, excedente de alimento, população concentrada,
+      hierarquia e, no fim dessa cadeia, monumentos religiosos. Göbekli Tepe
+      apresenta a ordem contrária. Os ossos encontrados no sítio são de animais
+      caçados — gazelas, javalis, cervos, aves selvagens. Nenhum rebanho. Os
+      cereais processados ali eram silvestres. As pessoas que ergueram aqueles
+      pilares ainda não plantavam. E, no entanto, moveram e levantaram pedras de
+      várias toneladas.
+    </p>
+
+    <figure class="figura larga reveal-fig">
+      <img src="../assets/img/gt-03-gazelas.jpg" loading="lazy" width="1200" height="675" alt="Recriação de um bando de gazelas numa planície ao entardecer">
+      <figcaption><b>Recriação</b> — Gazelas. Os ossos recuperados no sítio são todos de caça — nenhum rebanho, nenhum animal domesticado. Quem ergueu os pilares ainda não plantava.</figcaption>
+    </figure>
+
+    <div class="nota">
+      <strong>Detalhe que raramente é mencionado</strong>
+      A menos de trinta quilômetros da colina fica a serra de Karacadağ.
+      Estudos genéticos sobre a origem do trigo einkorn domesticado apontam para
+      populações silvestres dessa mesma região como as mais próximas das
+      variedades cultivadas. Ou seja: a domesticação do trigo e a construção dos
+      recintos aconteceram praticamente no mesmo lugar e na mesma janela de
+      tempo. Isso não prova causalidade em nenhuma direção — mas explica por que
+      o debate sobre o que veio antes se tornou tão acirrado.
+    </div>
+
+    <h2 id="evidencias"><span class="indice">02</span>O que está efetivamente no chão</h2>
+
+    <p>
+      Convém separar o que foi escavado do que foi inferido, porque grande parte
+      do que circula sobre Göbekli Tepe confunde as duas coisas.
+    </p>
+
+    <p>
+      Quatro recintos monumentais foram escavados. Levantamentos geofísicos —
+      radar de penetração e magnetometria — indicam pelo menos outros vinte
+      ainda enterrados, com até oito pilares cada, o que projeta algo próximo de
+      duzentos pilares no conjunto. Em 2021, a direção da escavação estimava que
+      cerca de 10% do sítio havia sido aberto. Os outros 90% são, por ora,
+      leitura de instrumento.
+    </p>
+
+    <figure class="figura larga reveal-fig">
+      <img src="../assets/img/001-gobekli-tepe.jpg" loading="lazy" width="1200" height="675"
+           alt="Recriação de um pilar em T de Göbekli Tepe ao lado de uma pessoa, mostrando a escala da peça">
+      <figcaption>
+        <b>Recriação</b> — a proporção segue as medidas registradas: os
+        pilares centrais chegam a 5,5 m, mais altos que qualquer pessoa em pé
+        ao lado.
+      </figcaption>
+    </figure>
+
+    <div class="evidencias">
+      <div class="evidencia">
+        <span class="medida">5,5 m</span>
+        <span class="legenda">Altura máxima registrada dos pilares em T, conforme a descrição oficial da UNESCO. Os pilares centrais de cada recinto são sempre os maiores.</span>
+      </div>
+      <div class="evidencia">
+        <span class="medida">≈ 100 m</span>
+        <span class="legenda">Distância entre as pedreiras identificadas no platô e os recintos. Um pilar inacabado permanece deitado na rocha-matriz, ainda preso ao leito.</span>
+      </div>
+      <div class="evidencia">
+        <span class="medida">+ de 7.000</span>
+        <span class="legenda">Mós e pedras de moagem recuperadas no sítio — um volume difícil de conciliar com a ideia de um lugar visitado apenas em ocasiões rituais.</span>
+      </div>
+      <div class="evidencia">
+        <span class="medida">150 m³</span>
+        <span class="legenda">Capacidade mínima estimada das cisternas talhadas na rocha, alimentadas por canaletas de captação de chuva. Numa colina sem nascente, isso é infraestrutura.</span>
+      </div>
+    </div>
+
+    <h3>O repertório gravado</h3>
+
+    <p>
+      Os relevos não são decorativos no sentido moderno. Repetem um repertório
+      fechado e desequilibrado: predadores e animais perigosos aparecem muito
+      mais do que presas. Leões, javalis, escorpiões, aranhas, cobras e abutres
+      dominam as faces. Símbolos abstratos — o sinal em H, crescentes, discos —
+      reaparecem em pilares diferentes e em sítios diferentes da mesma região,
+      o que sugere um sistema de convenções compartilhado, ainda que ilegível
+      para nós.
+    </p>
+
+    <figure class="figura lado reveal-fig">
+      <img src="../assets/img/gt-04-relevo-animal.jpg" loading="lazy" width="1200" height="675" alt="Recriação de um relevo em pedra com um javali e uma ave de pescoço longo">
+      <figcaption><b>Recriação</b> — Javali e ave de pescoço longo, dois dos animais que mais se repetem. O repertório favorece predadores e bichos perigosos, não presas.</figcaption>
+    </figure>
+
+    <p>
+      Em 2023, a escavação recuperou no Recinto D uma escultura de calcário em
+      tamanho natural de um javali, com resíduos de pigmento vermelho, branco e
+      preto ainda aderidos à pedra — a primeira estátua neolítica com pintura
+      preservada de que se tem notícia. A peça estava apoiada sobre um banco
+      decorado com um símbolo em H, um crescente, duas cobras e três rostos ou
+      máscaras humanas. É uma informação com consequência: significa que o que
+      hoje vemos como pedra cinzenta era, originalmente, colorido.
+    </p>
+
+    <figure class="figura larga reveal-fig">
+      <img src="../assets/img/gt-05-javali-pintado.jpg" loading="lazy" width="1200" height="675" alt="Recriação de uma escultura de javali em tamanho natural iluminada dentro de um recinto de pedra">
+      <figcaption><b>Recriação</b> — A escultura de javali recuperada no Recinto D em 2023 conserva pigmento vermelho, branco e preto — a primeira estátua neolítica pintada de que se tem notícia.</figcaption>
+    </figure>
+
+    <p>
+      Há também ossos humanos. Em 2017, fragmentos de crânios com incisões
+      deliberadas foram publicados e interpretados como indício de um culto ao
+      crânio — prática documentada em outros sítios do Neolítico levantino, como
+      Jericó e Tell Aswad, e mais tarde em Çatalhöyük. Não foram encontrados
+      sepultamentos formais nos recintos escavados até agora.
+    </p>
+
+    <figure class="figura lado reveal-fig">
+      <img src="../assets/img/gt-06-cranios.jpg" loading="lazy" width="1200" height="675" alt="Recriação de fragmentos de crânio dispostos sobre uma mesa de laboratório sob luz dirigida">
+      <figcaption><b>Recriação</b> — Fragmentos de crânio com incisões deliberadas, publicados em 2017, sustentam a hipótese de um culto ao crânio.</figcaption>
+    </figure>
+
+    <h2 id="sepultamento"><span class="indice">03</span>O sepultamento — e a dúvida sobre ele</h2>
+
+    <p>
+      Aqui está o nó do dossiê. Os recintos de Göbekli Tepe não ruíram: eles
+      foram encontrados cheios. Até o topo dos pilares, preenchidos por uma
+      massa de sedimento, lascas de calcário, ossos de animais, sílex trabalhado
+      e vasos de pedra quebrados. Foi essa cobertura que preservou os relevos
+      durante onze milênios — e é ela que gera a pergunta mais difícil do sítio.
+    </p>
+
+    <figure class="figura larga reveal-fig">
+      <img src="../assets/img/gt-07-entulho.jpg" loading="lazy" width="1200" height="675" alt="Recriação de um recinto de pedra preenchido até o topo por entulho e lascas de calcário">
+      <figcaption><b>Recriação</b> — Os recintos foram encontrados cheios até o topo dos pilares. É essa cobertura que preservou os relevos por onze milênios — e é ela que está em disputa.</figcaption>
+    </figure>
+
+    <p>
+      Schmidt interpretou esse preenchimento como intencional. O argumento é de
+      composição e de ritmo: o material não é solo homogêneo, como seria um
+      depósito formado por acumulação lenta, e sim uma mistura heterogênea de
+      refugo e pedra que a estratigrafia sugere ter sido depositada em episódios
+      concentrados. A leitura que se consolidou a partir daí é a do
+      descomissionamento ritual — cada recinto teria sido encerrado, sepultado e
+      substituído por outro ao fim de um ciclo de uso.
+    </p>
+
+    <p>
+      Essa continua sendo a interpretação mais aceita, mas deixou de ser
+      consensual. Trabalhos geoarqueológicos mais recentes levantam a
+      possibilidade de que parte do preenchimento tenha origem natural:
+      material carreado de encosta acima, enxurrada, colapso progressivo das
+      paredes. A colina é inclinada, o entorno é de calcário friável e onze mil
+      anos são tempo suficiente para mover muita coisa. A hipótese não
+      substituiu a anterior; convive com ela. E é possível que ambas estejam
+      parcialmente certas — recintos diferentes podem ter tido destinos
+      diferentes.
+    </p>
+
+    <div class="nota">
+      <strong>Por que isso importa</strong>
+      A palavra “enterrado de propósito” carrega uma implicação forte: a de
+      intenção coletiva, planejamento e encerramento simbólico. Se o
+      preenchimento for majoritariamente natural, o sítio continua
+      extraordinário — mas deixa de contar a história de uma comunidade que
+      decidiu apagar o próprio monumento. A diferença entre as duas versões é a
+      diferença entre um ritual e uma encosta.
+    </div>
+
+    <h2 id="teorias"><span class="indice">04</span>As teorias, da mais sóbria à mais improvável</h2>
+
+    <div class="teoria">
+      <div class="medidor" style="--nivel: 88%">
+        <span>Peso de evidência</span><span class="barra"></span><span class="peso">Alto</span>
+      </div>
+      <h3>Centro cerimonial de caçadores-coletores</h3>
+      <p>
+        A leitura original de Schmidt: um santuário de topo de colina, erguido e
+        frequentado por grupos que viviam em outro lugar e se reuniam ali
+        periodicamente para construir, celebrar e banquetear. Sustenta-se na
+        escala monumental, na iconografia, nos vasos de calcário de grande
+        volume e nos depósitos de ossos compatíveis com festins coletivos.
+      </p>
+    </div>
+
+    <div class="teoria">
+      <div class="medidor" style="--nivel: 82%">
+        <span>Peso de evidência</span><span class="barra"></span><span class="peso">Alto</span>
+      </div>
+      <h3>Povoado com arquitetura comunal — e não só um templo</h3>
+      <p>
+        A revisão que ganhou força depois de 2014. O arqueólogo Ted Banning
+        havia questionado, já em 2011, se as categorias modernas de “sagrado” e
+        “profano” fazem sentido para sociedades neolíticas, propondo que os
+        recintos pudessem ser casas ricamente decoradas. As escavações
+        posteriores reforçaram essa direção: estruturas domésticas, mais de sete
+        mil pedras de moagem, processamento intensivo de cereais silvestres,
+        cisternas de captação de água. Hoje a formulação dominante é de
+        convivência — funções rituais e cotidianas no mesmo espaço, sem a
+        fronteira que nós projetamos.
+      </p>
+    </div>
+
+    <div class="teoria">
+      <div class="medidor" style="--nivel: 46%">
+        <span>Peso de evidência</span><span class="barra"></span><span class="peso">Em disputa</span>
+      </div>
+      <h3>A obra exigiu uma sociedade hierarquizada</h3>
+      <p>
+        Schmidt sustentava que mover e erguer aqueles pilares demandava centenas
+        de trabalhadores coordenados — e, portanto, alguma forma de autoridade
+        capaz de coordená-los. Experimentos de arqueologia experimental
+        contestam a escala: há estimativas de que entre doze e vinte e quatro
+        pessoas dariam conta de todas as estruturas expostas do Neolítico
+        Pré-Cerâmico B em menos de quatro meses, o que caberia numa família
+        extensa ou numa pequena comunidade.
+      </p>
+      <p>
+        A disputa não é sobre a pedra, é sobre a sociedade: quanto de estrutura
+        política é necessário para produzir um monumento.
+      </p>
+    </div>
+
+    <div class="teoria">
+      <div class="medidor" style="--nivel: 22%; --cor-nivel: var(--ambar-fundo)">
+        <span>Peso de evidência</span><span class="barra"></span><span class="peso">Minoritária</span>
+      </div>
+      <h3>O calendário solar do Pilar 43</h3>
+      <p>
+        Em julho de 2024, Martin Sweatman, da Universidade de Edimburgo,
+        publicou no periódico <em>Time and Mind</em> uma leitura do Pilar 43 do
+        Recinto D — a chamada Pedra do Abutre — segundo a qual cada marca em V
+        gravada na peça representaria um dia, somando 365: doze meses lunares
+        mais onze dias. Seria o registro de calendário mais antigo já
+        identificado. Sweatman associa o conjunto ao impacto de fragmentos de
+        cometa por volta de 10.850 a.C., evento que estaria na origem do Dryas
+        Recente.
+      </p>
+      <p>
+        A interpretação circula bem fora da arqueologia e mal dentro dela. Dois
+        problemas são estruturais: o repertório de símbolos do sítio é recorrente
+        e aparece em contextos onde a leitura calendárica não se aplica, o que
+        enfraquece a atribuição de valor numérico às marcas; e há um intervalo de
+        aproximadamente mil e duzentos anos entre a data proposta para o evento
+        e a construção do recinto, o que exigiria uma transmissão oral precisa
+        por dezenas de gerações. Nenhuma das duas objeções é fatal — mas nenhuma
+        foi respondida.
+      </p>
+    </div>
+
+    <div class="teoria">
+      <div class="medidor" style="--nivel: 4%; --cor-nivel: var(--ambar-fundo)">
+        <span>Peso de evidência</span><span class="barra"></span><span class="peso">Nula</span>
+      </div>
+      <h3>Civilização perdida, visitantes externos, tecnologia esquecida</h3>
+      <p>
+        A tese de que Göbekli Tepe seria herança de uma civilização avançada
+        anterior — ou de algo não humano — apoia-se inteiramente num argumento de
+        incredulidade: a suposição de que caçadores-coletores não seriam capazes
+        daquilo. O sítio responde a essa objeção sozinho. As pedreiras estão a
+        cem metros. Um pilar inacabado continua deitado no leito de rocha, com as
+        marcas de percussão visíveis. As ferramentas líticas usadas no talhe
+        foram recuperadas. Não há um único artefato de metal, nenhum traço de
+        corte mecanizado, nenhuma anomalia de material.
+      </p>
+      <p>
+        O que o sítio de fato derruba não é a capacidade humana — é a nossa
+        estimativa dela. Essa é a descoberta, e ela é mais interessante do que
+        qualquer substituto.
+      </p>
+    </div>
+
+    <h2 id="cronologia"><span class="indice">05</span>Cronologia</h2>
+
+    <ul class="cronologia">
+      <li>
+        <span class="quando">c. 9600 a.C.</span>
+        <span class="oque">Início da ocupação registrada. Erguem-se os primeiros recintos com pilares em T, no Neolítico Pré-Cerâmico A.</span>
+      </li>
+      <li>
+        <span class="quando">c. 8800 – 8200 a.C.</span>
+        <span class="oque">Fase seguinte, do Neolítico Pré-Cerâmico B. As estruturas tornam-se menores e progressivamente retangulares; a construção monumental cessa.</span>
+      </li>
+      <li>
+        <span class="quando">c. 8200 a.C.</span>
+        <span class="oque">Abandono do sítio. Os recintos já estão preenchidos — por deposição humana, por processo natural, ou por ambos.</span>
+      </li>
+      <li>
+        <span class="quando">1963</span>
+        <span class="oque">Levantamento de Halet Çambel e Robert Braidwood registra lajes de calcário na superfície. O lugar é catalogado como cemitério medieval.</span>
+      </li>
+      <li>
+        <span class="quando">1994 – 1995</span>
+        <span class="oque">Klaus Schmidt relê as anotações do levantamento, visita a colina e inicia a escavação sistemática.</span>
+      </li>
+      <li>
+        <span class="quando">2014</span>
+        <span class="oque">Morte de Schmidt. A direção do projeto passa por transição e a interpretação do sítio começa a ser revista.</span>
+      </li>
+      <li>
+        <span class="quando">2017</span>
+        <span class="oque">Publicação dos fragmentos de crânio com incisões deliberadas, base da hipótese de um culto ao crânio.</span>
+      </li>
+      <li>
+        <span class="quando">2018</span>
+        <span class="oque">Inscrição na lista do Patrimônio Mundial da UNESCO, sob os critérios (i), (ii) e (iv).</span>
+      </li>
+      <li>
+        <span class="quando">2021</span>
+        <span class="oque">Necmi Karul, da Universidade de Istambul, assume a direção do projeto conjunto com o Museu de Şanlıurfa e o Instituto Arqueológico Alemão, no âmbito do programa regional Taş Tepeler.</span>
+      </li>
+      <li>
+        <span class="quando">2023</span>
+        <span class="oque">Escultura de javali em tamanho natural, com pigmento vermelho, branco e preto preservado, é recuperada no Recinto D — a primeira estátua neolítica pintada conhecida.</span>
+      </li>
+      <li>
+        <span class="quando">2024</span>
+        <span class="oque">Publicação da hipótese do calendário solar do Pilar 43, em <em>Time and Mind</em>. Recepção ampla fora da arqueologia, reservada dentro dela.</span>
+      </li>
+    </ul>
+
+    <h2 id="aberto"><span class="indice">06</span>O que continua em aberto</h2>
+
+    <p>
+      Göbekli Tepe deixou de ser um caso isolado. O programa Taş Tepeler — “as
+      colinas de pedra” — investiga hoje uma dezena de sítios contemporâneos
+      espalhados pela mesma região de Şanlıurfa, entre eles Karahan Tepe, Sefer
+      Tepe e Taşlı Tepe, todos com a mesma gramática de pilares em T. O que
+      parecia um evento único revelou-se um fenômeno regional. Isso resolve uma
+      pergunta — não era uma anomalia — e abre outra: havia ali, no décimo
+      milênio antes de Cristo, uma rede de comunidades partilhando arquitetura,
+      símbolos e provavelmente crenças, numa escala que não sabemos descrever.
+    </p>
+
+    <p>
+      Três perguntas permanecem sem resposta, e não por falta de tecnologia:
+    </p>
+
+    <p>
+      <strong>O que os pilares centrais representam.</strong> Os braços, as mãos
+      sobre o ventre, o cinto e a tanga indicam figuras antropomórficas. A
+      ausência sistemática de cabeça pode ser convenção estilística, pode ser
+      representação de ancestrais, pode ser algo para o qual não temos conceito.
+      Não há texto, não há analogia etnográfica direta.
+    </p>
+
+    <p>
+      <strong>Por que os recintos foram cobertos.</strong> A disputa entre
+      sepultamento ritual e preenchimento natural só se resolve com
+      geoarqueologia fina aplicada recinto a recinto — e 90% do sítio continua
+      fechado.
+    </p>
+
+    <p>
+      <strong>Qual é a relação com o nascimento da agricultura.</strong> A
+      proximidade com Karacadağ é sugestiva, a coincidência temporal é real, e a
+      direção da causalidade permanece indeterminada. Não se sabe se a
+      necessidade de alimentar quem construía puxou o cultivo, se o cultivo
+      liberou o tempo para construir, ou se as duas coisas cresceram juntas sem
+      que uma tenha causado a outra.
+    </p>
+
+    <p>
+      A escavação avança devagar por decisão deliberada: a direção atual prefere
+      preservar a maior parte do sítio para métodos que ainda não existem, em
+      vez de abrir tudo com os de hoje. É uma escolha incomum e, provavelmente,
+      correta. Significa que a resposta para a pergunta do título deste dossiê
+      está fisicamente ali, sob a colina, a poucos metros de profundidade — e
+      que a decisão consciente é não ir buscá-la ainda.
+    </p>
+
+    <h2 id="fontes"><span class="indice">07</span>Fontes consultadas</h2>
+
+    <p class="mono" style="text-transform: none; letter-spacing: 0; line-height: 1.7;">
+      Este dossiê é texto autoral. As fontes abaixo foram consultadas para
+      apuração de datas, medidas e atribuições; nenhuma foi reproduzida.
+    </p>
+
+    <ul class="fontes">
+      <li>UNESCO, Centro do Patrimônio Mundial — ficha oficial de inscrição de Göbekli Tepe (ref. 1572, 2018).</li>
+      <li>Verbete enciclopédico consolidado sobre Göbekli Tepe — cronologia, levantamentos geofísicos, histórico de direção da escavação.</li>
+      <li>Sweatman, M. B. — artigo sobre a interpretação calendárica do Pilar 43, <em>Time and Mind</em>, julho de 2024 (DOI 10.1080/1751696X.2024.2373876).</li>
+      <li>Cobertura técnica da escultura de javali pintada recuperada no Recinto D (2023) e das peças associadas de Karahan Tepe.</li>
+      <li>Literatura de divulgação especializada sobre o debate santuário × povoado, incluindo a crítica de T. Banning (2011) às categorias sagrado/profano.</li>
+      <li>Material de referência do programa Taş Tepeler sobre o preenchimento dos recintos e as hipóteses de deposição.</li>
+    </ul>
+
+  </div>
+  </article>
+
+  <!-- ========== PRÓXIMO ========== -->
+  <section class="wrap" style="padding-bottom: 2rem;">
+    <a class="proximo" href="amazonia-lidar.html">
+      <span>
+        <span class="mono">Próximo no arquivo · Dossiê 002</span>
+        <strong>Cidades amazônicas reveladas por laser</strong>
+      </span>
+      <span class="seta">→</span>
+    </a>
+  </section>
+
+</main>
+
+<div class="lupa" id="lupa" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
+  <button class="fechar" type="button" id="lupa-fechar">Fechar ✕</button>
+  <figure>
+    <img id="lupa-img" alt="">
+    <figcaption id="lupa-legenda"></figcaption>
+  </figure>
+</div>
+
+
+<footer class="rodape">
+  <div class="wrap">
+    <div>
+      <a class="marca" href="../index.html" aria-label="Vestígio Oculto — início"><svg role="img" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0.0 -2003.7 10717.5 2080.2"> <defs><clipPath id="crownclip"><path d="M 4971.8 -900.2 C 4971.8 -1693.8 6336.7 -1693.8 6336.7 -900.2 Z"/></clipPath></defs> <g fill="#D9CBB3"><path d="M368 -20 68 627Q52 661 27.5 675.5Q3 690 -20 690H-28V700H290V690H281Q262 690 247.5 673.5Q233 657 244 627L413 214L589 627Q602 657 586.0 673.5Q570 690 551 690H542V700H756V690H747Q725 690 700.5 675.5Q676 661 660 627H659L426 111Q424 105 416.5 88.5Q409 72 400.0 51.0Q391 30 384.5 10.5Q378 -9 377 -20Z" transform="translate(90.0,0) scale(1,-1)"/><path d="M606 205 560 0H42V10H55Q81 10 99.5 28.5Q118 47 119 73V627Q118 653 99.5 671.5Q81 690 55 690H42V700H423Q445 700 469.5 703.0Q494 706 515.0 710.0Q536 714 545 718V543H535V555Q535 601 508 629Q484 653 447 657H269V366H401Q438 367 462.0 391.5Q486 416 486 453V460H496V230H486V238Q486 275 462.0 299.0Q438 323 401 324H269V43H400Q450 43 488.0 62.5Q526 82 553.0 118.5Q580 155 596 205Z" transform="translate(888.0,0) scale(1,-1)"/><path d="M277 714Q297 714 326.5 712.0Q356 710 388 707Q399 705 409 704H476L475 692Q475 692 475 692L463 557H453Q453 609 414.5 640.5Q376 672 312 672Q254 672 218.5 644.0Q183 616 181 576Q180 546 200.0 524.0Q220 502 251 483L442 359Q488 333 511.5 291.0Q535 249 532 193Q527 95 457.0 40.5Q387 -14 267 -14Q223 -14 181.5 -6.5Q140 1 108.0 14.5Q76 28 57 47Q49 69 50.0 100.0Q51 131 59.5 163.0Q68 195 81 216H90Q86 165 108.5 121.5Q131 78 174.5 52.5Q218 27 278 28Q344 29 380.0 61.5Q416 94 416 140Q416 171 397.5 196.0Q379 221 337 244L162 360Q109 390 85.0 437.0Q61 484 66 539Q71 591 97.0 630.5Q123 670 168.5 692.0Q214 714 277 714Z" transform="translate(1590.0,0) scale(1,-1)"/><path d="M654 719V544L644 545V556Q644 603 616.5 630.5Q589 658 542 659H409V73Q410 47 428.5 28.5Q447 10 473 10H486V0H182V10H195Q221 10 239.5 28.5Q258 47 259 73V659H125Q79 658 51.5 630.5Q24 603 24 556V545L14 544V719Q24 715 44.5 711.0Q65 707 90.0 704.0Q115 701 136 701H532Q554 701 578.5 704.0Q603 707 624.0 711.0Q645 715 654 719Z" transform="translate(2238.0,0) scale(1,-1)"/><path d="M119 73V627Q118 653 99.5 671.5Q81 690 55 690H42V700H346V690H333Q307 690 288.5 671.5Q270 653 269 627V73Q270 47 288.5 28.5Q307 10 333 10H346V0H42V10H55Q81 10 99.5 28.5Q118 47 119 73ZM177 769Q194 798 219.0 829.0Q244 860 271.5 887.0Q299 914 320 934Q347 919 363.0 899.0Q379 879 389 852Q359 833 323.5 815.5Q288 798 252.5 784.0Q217 770 184 762Z" transform="translate(2975.0,0) scale(1,-1)"/><path d="M755 280V115Q731 85 683.5 55.0Q636 25 570.0 5.5Q504 -14 423 -14Q309 -14 224.0 30.5Q139 75 92.0 157.0Q45 239 45.0 351.0Q45 463 91.5 544.0Q138 625 224.5 669.5Q311 714 429 714Q484 714 536.0 706.5Q588 699 632.0 687.0Q676 675 705 659L707 488H698Q679 556 643.0 596.5Q607 637 559.5 654.5Q512 672 459 672Q378 672 321.5 632.5Q265 593 236.5 520.0Q208 447 208 345Q208 249 234.5 177.5Q261 106 312.0 67.5Q363 29 436 28Q473 28 507.5 39.5Q542 51 568.0 73.0Q594 95 605 127L606 280Q606 325 555 325H539V335H820V325H805Q775 325 763 310Q754 299 755 280Z" transform="translate(3432.0,0) scale(1,-1)"/><path d="M119 73V627Q118 653 99.5 671.5Q81 690 55 690H42V700H346V690H333Q307 690 288.5 671.5Q270 653 269 627V73Q270 47 288.5 28.5Q307 10 333 10H346V0H42V10H55Q81 10 99.5 28.5Q118 47 119 73Z" transform="translate(4338.0,0) scale(1,-1)"/><path d="M722 292 731 120Q709 83 672.0 53.0Q635 23 580.0 4.5Q525 -14 450 -14Q328 -13 236.5 30.5Q145 74 95.0 155.0Q45 236 45 351Q45 463 94.0 544.5Q143 626 234.5 670.0Q326 714 453 714Q533 714 596.5 698.0Q660 682 703 659L704 488H695Q668 587 607.0 629.5Q546 672 464 672Q384 672 327.0 633.0Q270 594 239.0 523.0Q208 452 208 353Q208 254 237.5 182.0Q267 110 321.5 70.0Q376 30 450 28Q527 28 580.0 53.0Q633 78 665.5 136.0Q698 194 714 292Z" transform="translate(6513.5,0) scale(1,-1)"/><path d="M326 700V690H310Q288 690 272.5 676.0Q257 662 257 640V260Q257 189 280.5 137.0Q304 85 347.5 57.0Q391 29 451 29Q512 29 556.5 55.5Q601 82 625.0 131.0Q649 180 649 247V640Q649 662 633.5 676.0Q618 690 596 690H580V700H790V690H774Q752 690 736.5 676.0Q721 662 721 640V253Q721 171 686.5 111.0Q652 51 587.5 18.5Q523 -14 432 -14Q326 -14 253.0 18.5Q180 51 143.5 110.5Q107 170 107 252V640Q107 662 91.5 676.0Q76 690 54 690H38V700Z" transform="translate(7363.5,0) scale(1,-1)"/><path d="M606 205 560 0H42V10H55Q81 10 99.5 28.5Q118 47 119 73V627Q118 653 99.5 671.5Q81 690 55 690H42V700H346V690H333Q307 690 288.5 671.5Q270 653 269 627V43H400Q450 43 488.0 62.5Q526 82 553.0 118.5Q580 155 596 205Z" transform="translate(8254.5,0) scale(1,-1)"/><path d="M654 719V544L644 545V556Q644 603 616.5 630.5Q589 658 542 659H409V73Q410 47 428.5 28.5Q447 10 473 10H486V0H182V10H195Q221 10 239.5 28.5Q258 47 259 73V659H125Q79 658 51.5 630.5Q24 603 24 556V545L14 544V719Q24 715 44.5 711.0Q65 707 90.0 704.0Q115 701 136 701H532Q554 701 578.5 704.0Q603 707 624.0 711.0Q645 715 654 719Z" transform="translate(8941.5,0) scale(1,-1)"/><path d="M442 714Q562 714 650.5 669.5Q739 625 787.5 544.0Q836 463 836 350Q836 238 787.5 156.5Q739 75 650.5 30.5Q562 -14 442 -14Q322 -14 233.5 30.5Q145 75 97.0 156.0Q49 237 49 350Q49 462 97.0 543.5Q145 625 233.5 669.5Q322 714 442 714ZM442 28Q513 28 564.0 67.5Q615 107 643.0 179.0Q671 251 671 350Q671 449 643.0 521.0Q615 593 564.0 632.5Q513 672 442 672Q372 672 320.5 632.5Q269 593 241.0 521.0Q213 449 213 350Q213 251 241.0 179.0Q269 107 320.5 67.5Q372 28 442 28Z" transform="translate(9678.5,0) scale(1,-1)"/></g> <g fill="#D9CBB3"><path d="M 4703.1 -793.7 C 5159.7 -1029.2 6148.8 -1029.2 6605.4 -793.7 C 6148.8 -739.8 5159.7 -739.8 4703.1 -793.7 Z"/><path d="M 5014.9 -1208.2 C 4983.2 -1454.9 4964.0 -1548.5 5175.8 -1633.6 C 5387.5 -1548.5 5470.3 -1454.9 5438.5 -1208.2 Z"/><path d="M 5870.0 -1208.2 C 5838.2 -1454.9 5921.0 -1548.5 6132.7 -1633.6 C 6344.5 -1548.5 6325.3 -1454.9 6293.6 -1208.2 Z"/><path d="M 4971.8 -900.2 C 4971.8 -1693.8 6336.7 -1693.8 6336.7 -900.2 Z"/><path d="M 5654.2 -1586.6 C 5510.1 -1753.3 5462.1 -1713.3 5462.1 -1613.2 C 5462.1 -1493.2 5548.5 -1473.2 5654.2 -1586.6 Z"/><path d="M 5654.2 -1586.6 C 5798.4 -1753.3 5846.4 -1713.3 5846.4 -1613.2 C 5846.4 -1493.2 5760.0 -1473.2 5654.2 -1586.6 Z"/><circle cx="5654.2" cy="-1586.6" r="82.4"/></g> <g><circle cx="5262.2" cy="-350.0" r="332.5" fill="none" stroke="#C8862A" stroke-width="59.5"/><circle cx="6046.2" cy="-350.0" r="332.5" fill="none" stroke="#C8862A" stroke-width="59.5"/><path d="M 5612.6 -388.5 C 5654.2 -451.5 5654.2 -451.5 5695.9 -388.5" fill="none" stroke="#C8862A" stroke-width="47.6" stroke-linecap="round"/><path d="M 5612.6 -297.5 C 5654.2 -339.5 5654.2 -339.5 5695.9 -297.5" fill="none" stroke="#C8862A" stroke-width="47.6" stroke-linecap="round"/></g> </svg></a>
+      <p>Um arquivo aberto sobre o que a história começou e não terminou de contar.</p>
+    </div>
+    <div>
+      <span class="mono">Pilares</span>
+      <p><a href="../index.html#pedra-e-poeira">Pedra e Poeira</a> · <a href="../index.html#descoberto-ontem">Descoberto Ontem</a> · <a href="../index.html#arquivo-selado">Arquivo Selado</a> · <a href="../index.html#ultimos-isolados">Últimos Isolados</a></p>
+    </div>
+    <div class="creditos">
+      <span class="mono">© 2026 Vestígio Oculto</span>
+      <span class="mono">Dossiê 001 · revisado em set 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var barra = document.getElementById('progresso');
+  function atualiza() {
+    var h = document.documentElement;
+    var total = h.scrollHeight - h.clientHeight;
+    var pct = total > 0 ? (h.scrollTop / total) * 100 : 0;
+    barra.style.width = pct + '%';
+  }
+  document.addEventListener('scroll', atualiza, { passive: true });
+  atualiza();
+})();
+</script>
+
+
+<script>
+(function () {
+  var figs = document.querySelectorAll('.reveal-fig');
+  if (!('IntersectionObserver' in window) ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    figs.forEach(function (f) { f.classList.add('visivel'); });
+  } else {
+    var obs = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('visivel'); obs.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    figs.forEach(function (f) { obs.observe(f); });
+  }
+
+  var lupa = document.getElementById('lupa');
+  var img = document.getElementById('lupa-img');
+  var leg = document.getElementById('lupa-legenda');
+  var btn = document.getElementById('lupa-fechar');
+  var ultimo = null;
+
+  function abrir(fig) {
+    var origem = fig.querySelector('img');
+    img.src = origem.src; img.alt = origem.alt;
+    leg.textContent = fig.querySelector('figcaption').textContent.trim();
+    lupa.classList.add('aberta');
+    document.body.style.overflow = 'hidden';
+    ultimo = origem; btn.focus();
+  }
+  function fechar() {
+    lupa.classList.remove('aberta');
+    document.body.style.overflow = '';
+    if (ultimo) ultimo.focus();
+  }
+
+  figs.forEach(function (fig) {
+    var alvo = fig.querySelector('img');
+    alvo.tabIndex = 0;
+    alvo.addEventListener('click', function () { abrir(fig); });
+    alvo.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); abrir(fig); }
+    });
+  });
+  btn.addEventListener('click', fechar);
+  lupa.addEventListener('click', function (e) { if (e.target === lupa) fechar(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && lupa.classList.contains('aberta')) fechar();
+  });
+})();
+</script>
+</body>
+</html>

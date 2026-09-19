@@ -1,0 +1,1902 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cidades amazônicas reveladas por laser | Vestígio Oculto</title>
+<meta name="description" content="Dossiê sobre o urbanismo pré-colombiano da Amazônia revelado por lidar: o vale do Upano, os Llanos de Mojos, os geoglifos do Acre, a terra preta e o que ainda está sob os 99% não mapeados.">
+<meta name="theme-color" content="#0B0B0C">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="canonical" href="https://vestigiooculto.com.br/dossies/amazonia-lidar.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cidades amazônicas reveladas por laser">
+<meta property="og:description" content="O laser atravessou o dossel e desenhou o que estava embaixo: praças, estradas retas e pirâmides de terra onde se supunha floresta virgem.">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://vestigiooculto.com.br/dossies/amazonia-lidar.html">
+<meta property="og:image" content="https://vestigiooculto.com.br/assets/img/og-vestigio-oculto.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>/* ============================================================
+   VESTÍGIO OCULTO — sistema de design
+   Fonte única de estilo. Injetada em cada página por build.py.
+
+   Alinhado à Identidade Visual v1 do canal:
+   carvão, osso, âmbar e branco-gelo. Âmbar é o ÚNICO acento.
+   Vermelho não entra — é a cor dos canais que o Vestígio Oculto
+   não quer parecer.
+   ============================================================ */
+
+/* --- 1. Tokens ------------------------------------------- */
+:root {
+  /* Paleta da marca */
+  --carvao:      #0B0B0C;   /* fundo de tudo */
+  --osso:        #D9CBB3;   /* letras, molduras */
+  --ambar:       #C8862A;   /* acento único: lentes, destaques, marcadores */
+  --gelo:        #F2F0EA;   /* números e destaques de leitura */
+
+  /* Superfícies derivadas do carvão */
+  --carvao-2:    #121213;   /* cartões e blocos */
+  --carvao-3:    #191919;   /* hover */
+
+  /* Tinta derivada do osso */
+  --osso-suave:  #a79c8a;
+  --osso-fraco:  #756e62;
+
+  /* Traços */
+  --linha:       #232120;
+  --linha-viva:  #3a3630;
+
+  /* Âmbar rebaixado, para peso menor sem sair da paleta */
+  --ambar-fundo: #8a5c1c;
+
+  /* Tipografia — Cinzel é a fonte da marca */
+  --display: "Cinzel", "Times New Roman", serif;
+  --texto:   "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:    "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* Métrica */
+  --medida:  66ch;
+  --gutter:  clamp(1.25rem, 5vw, 4rem);
+  --topo:    72px;
+
+  --transicao: 420ms cubic-bezier(.16,.84,.44,1);
+}
+
+/* --- 2. Base --------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--carvao);
+  color: var(--osso);
+  font-family: var(--texto);
+  font-size: clamp(1rem, .5vw + .9rem, 1.08rem);
+  font-weight: 350;
+  line-height: 1.72;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Grão fino — peso de papel, sem sujar a paleta */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: .03;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+img, svg { max-width: 100%; }
+img { display: block; }
+
+/* Âncoras não param sob o cabeçalho fixo */
+[id] { scroll-margin-top: calc(var(--topo) + 1.5rem); }
+
+a {
+  color: var(--ambar);
+  text-decoration-color: color-mix(in srgb, var(--ambar) 38%, transparent);
+  text-underline-offset: .22em;
+  transition: color var(--transicao), text-decoration-color var(--transicao);
+}
+a:hover { color: #e0a34a; text-decoration-color: currentColor; }
+
+:focus-visible {
+  outline: 2px solid var(--ambar);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection { background: color-mix(in srgb, var(--ambar) 32%, transparent); }
+
+/* --- 3. Utilitários tipográficos -------------------------- */
+.mono {
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--osso-fraco);
+  font-weight: 400;
+}
+
+.kicker {
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ambar);
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+}
+.kicker::before {
+  content: "";
+  width: 1.6rem;
+  height: 1px;
+  background: currentColor;
+  opacity: .75;
+}
+
+/* Cinzel é caixa-alta por desenho: minúscula vira versalete.
+   Por isso os títulos levam entrelinha curta e tracking aberto. */
+h1, h2, h3, h4 {
+  font-family: var(--display);
+  font-weight: 500;
+  line-height: 1.16;
+  letter-spacing: .015em;
+  margin: 0;
+  text-wrap: balance;
+  color: var(--gelo);
+}
+
+.wrap {
+  width: min(1280px, 100% - var(--gutter) * 2);
+  margin-inline: auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* --- 4. Cabeçalho ---------------------------------------- */
+.topbar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: var(--topo);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  background: color-mix(in srgb, var(--carvao) 82%, transparent);
+  backdrop-filter: blur(14px) saturate(130%);
+  border-bottom: 1px solid var(--linha);
+}
+.topbar .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+/* A marca é o arquivo oficial, em curvas. Nada de recolorir
+   as lentes: o âmbar nelas é a assinatura. */
+.marca {
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.marca svg {
+  height: 34px;
+  width: auto;
+  display: block;
+}
+.marca .selo {
+  font-family: var(--mono);
+  font-size: .56rem;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: var(--osso-fraco);
+  padding-left: .9rem;
+  border-left: 1px solid var(--linha-viva);
+}
+@media (max-width: 560px) {
+  .marca svg { height: 26px; }
+  .marca .selo { display: none; }
+}
+
+.nav-pilares {
+  display: flex;
+  gap: 1.6rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-pilares a {
+  font-family: var(--mono);
+  font-size: .66rem;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--osso-suave);
+  text-decoration: none;
+  padding-block: .35rem;
+  border-bottom: 1px solid transparent;
+  transition: color var(--transicao), border-color var(--transicao);
+}
+.nav-pilares a:hover { color: var(--gelo); border-color: var(--ambar); }
+
+@media (max-width: 900px) { .nav-pilares { display: none; } }
+
+/* --- 5. Barra de progresso de leitura --------------------- */
+.progresso {
+  position: fixed;
+  top: var(--topo);
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: var(--ambar);
+  z-index: 60;
+  transition: width 90ms linear;
+}
+
+/* --- 6. Revelação no scroll ------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 760ms var(--transicao), transform 760ms var(--transicao);
+}
+.reveal.visivel { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+
+/* --- 7. Tarja de confidencialidade ------------------------ */
+/* Metadados nascem cobertos e se revelam ao passar o cursor —
+   a quebra do sigilo como microinteração. */
+.tarja {
+  position: relative;
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: .66rem;
+  letter-spacing: .08em;
+  color: var(--osso-suave);
+  padding: .1rem .3rem;
+  cursor: default;
+}
+.tarja::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--linha-viva);
+  transition: transform var(--transicao), opacity var(--transicao);
+  transform-origin: left;
+}
+.tarja:hover::after,
+.tarja:focus-visible::after,
+.dossie-card:hover .tarja::after,
+.dossie-card:focus-within .tarja::after {
+  transform: scaleX(0);
+  opacity: 0;
+}
+
+/* --- 8. Hero --------------------------------------------- */
+.hero {
+  padding-top: calc(var(--topo) + clamp(3.5rem, 11vh, 8rem));
+  padding-bottom: clamp(4rem, 10vh, 8rem);
+  position: relative;
+  isolation: isolate;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(58rem 32rem at 76% -12%, color-mix(in srgb, var(--osso) 6%, transparent), transparent 66%),
+    radial-gradient(34rem 24rem at 6% 14%, color-mix(in srgb, var(--ambar) 8%, transparent), transparent 70%);
+}
+
+.hero h1 {
+  font-size: clamp(2.1rem, 5.4vw, 4.4rem);
+  line-height: 1.14;
+  letter-spacing: .01em;
+  margin: 1.7rem 0 0;
+  max-width: 19ch;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--ambar);
+}
+.hero .linha-fina {
+  margin: 2rem 0 0;
+  max-width: 54ch;
+  font-size: 1.08rem;
+  color: var(--osso-suave);
+  line-height: 1.7;
+}
+
+.hero-meta {
+  margin-top: 3.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.4rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--linha);
+}
+.hero-meta div { display: flex; flex-direction: column; gap: .45rem; }
+.hero-meta .rotulo {
+  font-family: var(--mono);
+  font-size: .6rem;
+  letter-spacing: .19em;
+  text-transform: uppercase;
+  color: var(--osso-fraco);
+}
+.hero-meta .valor {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.35rem;
+  letter-spacing: .04em;
+  color: var(--gelo);
+}
+.hero-meta .valor.viva { color: var(--ambar); }
+
+/* --- 9. Secções ------------------------------------------ */
+.secao { padding-block: clamp(4rem, 9vh, 7rem); }
+
+.secao-cabeca {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid var(--linha);
+}
+.secao-cabeca h2 {
+  font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+  margin-top: .9rem;
+  max-width: 24ch;
+}
+.secao-cabeca p {
+  margin: 0;
+  max-width: 40ch;
+  color: var(--osso-suave);
+  font-size: .95rem;
+}
+
+/* --- 10. Pilares ----------------------------------------- */
+.pilares {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1px;
+  background: var(--linha);
+  border: 1px solid var(--linha);
+}
+.pilar {
+  background: var(--carvao-2);
+  padding: 2rem 1.7rem 2.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: .9rem;
+  position: relative;
+  transition: background var(--transicao);
+}
+.pilar:hover { background: var(--carvao-3); }
+.pilar::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: var(--ambar);
+  transform: scaleX(.12);
+  transform-origin: left;
+  transition: transform var(--transicao);
+}
+.pilar:hover::before { transform: scaleX(1); }
+.pilar h3 {
+  font-size: 1.12rem;
+  letter-spacing: .05em;
+}
+.pilar p {
+  margin: 0;
+  font-size: .92rem;
+  line-height: 1.62;
+  color: var(--osso-suave);
+}
+.pilar .contagem {
+  margin-top: auto;
+  padding-top: 1.2rem;
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ambar);
+}
+
+/* --- 11. Bento grid dos dossiês --------------------------- */
+.bento {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+}
+.dossie-card {
+  grid-column: span 2;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: .95rem;
+  padding: 1.6rem 1.5rem 1.7rem;
+  background: var(--carvao-2);
+  border: 1px solid var(--linha);
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  transition: border-color var(--transicao), background var(--transicao), transform var(--transicao);
+}
+.dossie-card:hover,
+.dossie-card:focus-within {
+  border-color: var(--linha-viva);
+  background: var(--carvao-3);
+  transform: translateY(-3px);
+}
+.dossie-card .numero {
+  font-family: var(--mono);
+  font-size: .64rem;
+  letter-spacing: .17em;
+  color: var(--osso-fraco);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.dossie-card h3 {
+  font-size: 1.12rem;
+  line-height: 1.3;
+  letter-spacing: .035em;
+}
+.dossie-card p {
+  margin: 0;
+  font-size: .91rem;
+  line-height: 1.6;
+  color: var(--osso-suave);
+}
+.dossie-card .rodape-card {
+  margin-top: auto;
+  padding-top: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid var(--linha);
+}
+.dossie-card .selo-pilar {
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--osso-fraco);
+}
+
+/* Estados editoriais — âmbar é o acento, osso é a espera */
+.estado {
+  font-family: var(--mono);
+  font-size: .56rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  padding: .2rem .5rem;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+.estado.publicado { color: var(--ambar); }
+.estado.apuracao  { color: var(--osso-fraco); }
+
+/* O dossiê em linha ocupa metade da grade */
+.dossie-card.destaque {
+  grid-column: span 3;
+  grid-row: span 2;
+  background:
+    radial-gradient(34rem 20rem at 12% 0%, color-mix(in srgb, var(--ambar) 9%, transparent), transparent 68%),
+    var(--carvao-2);
+  padding: 2.2rem 2rem 2rem;
+}
+.dossie-card.destaque h3 { font-size: clamp(1.5rem, 2.6vw, 2.1rem); line-height: 1.2; }
+.dossie-card.destaque p  { font-size: 1rem; max-width: 44ch; }
+
+.dossie-card.largo { grid-column: span 3; }
+
+@media (max-width: 1000px) {
+  .bento { grid-template-columns: repeat(4, 1fr); }
+  .dossie-card, .dossie-card.largo { grid-column: span 2; }
+  .dossie-card.destaque { grid-column: span 4; grid-row: auto; }
+}
+@media (max-width: 620px) {
+  .bento { grid-template-columns: 1fr; }
+  .dossie-card, .dossie-card.largo, .dossie-card.destaque { grid-column: span 1; }
+}
+
+/* --- 12. Página de dossiê: capa --------------------------- */
+.dossie-capa {
+  padding-top: calc(var(--topo) + clamp(3rem, 9vh, 6rem));
+  padding-bottom: clamp(3rem, 7vh, 5rem);
+  position: relative;
+  isolation: isolate;
+}
+.dossie-capa::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(48rem 28rem at 70% -5%, color-mix(in srgb, var(--osso) 6%, transparent), transparent 68%),
+    radial-gradient(30rem 20rem at 4% 20%, color-mix(in srgb, var(--ambar) 7%, transparent), transparent 72%);
+}
+.dossie-capa h1 {
+  font-size: clamp(1.9rem, 4.6vw, 3.6rem);
+  line-height: 1.16;
+  margin: 1.5rem 0 0;
+  max-width: 19ch;
+}
+.dossie-capa .subtitulo {
+  margin: 1.7rem 0 0;
+  max-width: 58ch;
+  font-size: 1.1rem;
+  color: var(--osso-suave);
+  line-height: 1.66;
+}
+
+.ficha {
+  margin: 3rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+  gap: 1px;
+  background: var(--linha);
+  border: 1px solid var(--linha);
+}
+.ficha > div {
+  background: var(--carvao-2);
+  padding: 1.1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: .45rem;
+}
+.ficha dt {
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: .19em;
+  text-transform: uppercase;
+  color: var(--osso-fraco);
+}
+.ficha dd {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: .84rem;
+  color: var(--gelo);
+}
+
+/* --- 13. Corpo do dossiê ---------------------------------- */
+.corpo {
+  width: min(var(--medida), 100% - var(--gutter) * 2);
+  margin-inline: auto;
+  padding-block: clamp(2.5rem, 6vh, 4.5rem);
+  font-size: 1.06rem;
+  line-height: 1.78;
+}
+.corpo > * + * { margin-top: 1.5rem; }
+.corpo p { margin-bottom: 0; }
+
+.corpo h2 {
+  font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+  letter-spacing: .05em;
+  margin-top: 3.8rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--linha);
+  position: relative;
+}
+.corpo h2 .indice {
+  position: absolute;
+  top: 1.6rem;
+  left: -3.4rem;
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: .12em;
+  color: var(--ambar);
+}
+@media (max-width: 900px) {
+  .corpo h2 .indice { position: static; display: block; margin-bottom: .55rem; }
+}
+
+.corpo h3 {
+  font-family: var(--texto);
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: .01em;
+  line-height: 1.5;
+  margin-top: 2.4rem;
+  color: var(--gelo);
+}
+
+.abertura {
+  font-size: 1.16rem;
+  line-height: 1.7;
+  color: var(--gelo);
+}
+.abertura::first-letter {
+  float: left;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 3.6rem;
+  line-height: .9;
+  padding: .12rem .5rem .1rem 0;
+  color: var(--ambar);
+}
+
+.corpo blockquote {
+  margin: 2.6rem 0;
+  padding: 0 0 0 1.6rem;
+  border-left: 2px solid var(--ambar);
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.28rem;
+  line-height: 1.38;
+  letter-spacing: .03em;
+  color: var(--gelo);
+}
+.corpo blockquote cite {
+  display: block;
+  margin-top: 1rem;
+  font-family: var(--mono);
+  font-size: .62rem;
+  font-style: normal;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--osso-fraco);
+}
+
+.nota {
+  font-size: .95rem;
+  line-height: 1.7;
+  color: var(--osso-suave);
+  background: var(--carvao-2);
+  border: 1px solid var(--linha);
+  border-left: 2px solid var(--ambar);
+  padding: 1.2rem 1.4rem;
+}
+.nota strong {
+  display: block;
+  font-family: var(--mono);
+  color: var(--ambar);
+  font-size: .6rem;
+  font-weight: 500;
+  letter-spacing: .19em;
+  text-transform: uppercase;
+  margin-bottom: .6rem;
+}
+
+/* --- 14. Cronologia --------------------------------------- */
+.cronologia {
+  list-style: none;
+  margin: 2.4rem 0 0;
+  padding: 0;
+  border-left: 1px solid var(--linha);
+}
+.cronologia li {
+  position: relative;
+  padding: 0 0 1.9rem 1.8rem;
+}
+.cronologia li::before {
+  content: "";
+  position: absolute;
+  left: -4px;
+  top: .6rem;
+  width: 7px;
+  height: 7px;
+  background: var(--carvao);
+  border: 1px solid var(--ambar);
+  border-radius: 50%;
+}
+.cronologia li:last-child { padding-bottom: 0; }
+.cronologia .quando {
+  display: block;
+  font-family: var(--mono);
+  font-size: .66rem;
+  letter-spacing: .13em;
+  color: var(--ambar);
+  margin-bottom: .35rem;
+}
+.cronologia .oque {
+  font-size: .96rem;
+  line-height: 1.64;
+  color: var(--osso-suave);
+}
+
+/* --- 15. Evidências e teorias ----------------------------- */
+.evidencias {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+  gap: 1px;
+  background: var(--linha);
+  border: 1px solid var(--linha);
+  margin-top: 2.4rem;
+}
+.evidencia {
+  background: var(--carvao-2);
+  padding: 1.5rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+}
+.evidencia .medida {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.9rem;
+  line-height: 1.1;
+  letter-spacing: .02em;
+  color: var(--ambar);
+}
+.evidencia .legenda {
+  font-size: .9rem;
+  line-height: 1.58;
+  color: var(--osso-suave);
+}
+.evidencia .legenda strong { color: var(--gelo); font-weight: 600; }
+
+.teoria {
+  background: var(--carvao-2);
+  border: 1px solid var(--linha);
+  padding: 1.6rem 1.5rem;
+  margin-top: 1.2rem;
+}
+.teoria h3 {
+  margin: 0 0 .9rem;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.16rem;
+  letter-spacing: .04em;
+  line-height: 1.32;
+}
+.teoria p { font-size: .96rem; line-height: 1.66; color: var(--osso-suave); margin: 0; }
+.teoria p + p { margin-top: .85rem; }
+
+/* Medidor de peso de evidência: o comprimento carrega o dado,
+   o rótulo o nomeia. Sem semáforo de cores. */
+.medidor {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  margin-bottom: 1.1rem;
+  font-family: var(--mono);
+  font-size: .56rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--osso-fraco);
+}
+.medidor .barra {
+  flex: 1;
+  height: 3px;
+  background: var(--linha-viva);
+  position: relative;
+  max-width: 130px;
+}
+.medidor .barra::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--nivel, 50%);
+  background: var(--cor-nivel, var(--ambar));
+}
+.medidor .peso { color: var(--osso-suave); }
+
+/* --- 16. Fontes ------------------------------------------- */
+.fontes {
+  list-style: none;
+  margin: 1.8rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: .95rem;
+}
+.fontes li {
+  font-size: .9rem;
+  line-height: 1.62;
+  color: var(--osso-suave);
+  padding-left: 1.5rem;
+  position: relative;
+}
+.fontes li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--osso-fraco);
+}
+
+/* --- 17. Rodapé ------------------------------------------- */
+.rodape {
+  border-top: 1px solid var(--linha);
+  margin-top: clamp(4rem, 10vh, 7rem);
+  padding-block: 3.2rem 2.4rem;
+  background: var(--carvao-2);
+}
+.rodape .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.4rem;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.rodape p {
+  margin: 1rem 0 0;
+  max-width: 42ch;
+  font-size: .92rem;
+  color: var(--osso-suave);
+}
+.rodape .creditos {
+  width: 100%;
+  margin-top: 2.4rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--linha);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+/* --- 18. Navegação entre dossiês -------------------------- */
+.proximo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding: 1.8rem 1.7rem;
+  background: var(--carvao-2);
+  border: 1px solid var(--linha);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color var(--transicao), background var(--transicao);
+}
+.proximo:hover { border-color: var(--ambar); background: var(--carvao-3); }
+.proximo strong {
+  display: block;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.22rem;
+  letter-spacing: .04em;
+  line-height: 1.3;
+  margin-top: .55rem;
+  color: var(--gelo);
+}
+.proximo .seta { font-family: var(--mono); color: var(--ambar); font-size: 1.1rem; }
+
+/* ============================================================
+   20. PAINEL DA HOME — molde do Viagem na Lupa
+   Hero com foto à esquerda, coluna de apoio à direita,
+   e abaixo a grade de quadros, um por curiosidade.
+   ============================================================ */
+.painel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 1.5rem;
+  align-items: start;
+  padding-top: calc(var(--topo) + 2rem);
+}
+@media (max-width: 1000px) {
+  .painel { grid-template-columns: 1fr; }
+}
+
+/* --- Hero com fotografia --------------------------------- */
+.hero-foto {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid var(--linha);
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(1.6rem, 3vw, 2.6rem);
+}
+.hero-foto > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+.hero-foto::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--carvao) 55%, transparent) 0%, transparent 34%),
+    linear-gradient(0deg, var(--carvao) 4%, color-mix(in srgb, var(--carvao) 72%, transparent) 46%, transparent 78%);
+}
+.hero-foto h1 {
+  font-size: clamp(1.7rem, 3.3vw, 2.9rem);
+  line-height: 1.16;
+  margin: 1.1rem 0 0;
+  max-width: 17ch;
+}
+.hero-foto h1 em { font-style: normal; color: var(--ambar); }
+.hero-foto .linha-fina {
+  margin: 1.1rem 0 0;
+  max-width: 50ch;
+  font-size: 1rem;
+  color: var(--osso-suave);
+  line-height: 1.64;
+}
+.hero-foto .hero-meta {
+  margin-top: 1.9rem;
+  gap: 2rem;
+  padding-top: 1.2rem;
+}
+
+/* --- Coluna de apoio -------------------------------------- */
+.apoio { display: grid; gap: 1.5rem; }
+.caixa {
+  background: var(--carvao-2);
+  border: 1px solid var(--linha);
+  padding: 1.4rem 1.4rem 1.5rem;
+}
+.caixa h2 {
+  font-size: 1.05rem;
+  letter-spacing: .05em;
+  margin-bottom: 1rem;
+}
+.caixa p {
+  margin: 0;
+  font-size: .9rem;
+  line-height: 1.62;
+  color: var(--osso-suave);
+}
+.caixa .selo-metodo {
+  display: block;
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: .19em;
+  text-transform: uppercase;
+  color: var(--ambar);
+  margin-bottom: .9rem;
+}
+
+/* Filtro por pilar */
+.filtros { display: flex; flex-wrap: wrap; gap: .5rem; }
+.filtros button {
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--osso-suave);
+  background: transparent;
+  border: 1px solid var(--linha-viva);
+  border-radius: 999px;
+  padding: .42rem .85rem;
+  cursor: pointer;
+  transition: color var(--transicao), border-color var(--transicao), background var(--transicao);
+}
+.filtros button:hover { color: var(--gelo); border-color: var(--osso-fraco); }
+.filtros button[aria-pressed="true"] {
+  background: var(--ambar);
+  border-color: var(--ambar);
+  color: var(--carvao);
+  font-weight: 500;
+}
+.contador {
+  display: block;
+  margin-top: 1rem;
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--osso-fraco);
+}
+
+/* --- Grade de quadros ------------------------------------- */
+.quadros {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.quadro {
+  display: flex;
+  flex-direction: column;
+  background: var(--carvao-2);
+  border: 1px solid var(--linha);
+  overflow: hidden;
+  transition: border-color var(--transicao);
+}
+.quadro:hover { border-color: var(--linha-viva); }
+.quadro[hidden] { display: none; }
+
+/* Foto com a legenda por cima */
+.quadro-foto {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background: var(--carvao-3);
+}
+.quadro-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 900ms var(--transicao), filter var(--transicao);
+}
+.quadro:hover .quadro-foto img { transform: scale(1.035); }
+.quadro-foto::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, color-mix(in srgb, var(--carvao) 92%, transparent) 2%, color-mix(in srgb, var(--carvao) 55%, transparent) 38%, transparent 68%);
+}
+.quadro-legenda {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  z-index: 1;
+  padding: 1.1rem 1.2rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.quadro-legenda h3 {
+  font-size: 1.28rem;
+  letter-spacing: .04em;
+  line-height: 1.2;
+  margin: 0;
+}
+.quadro-legenda .origem {
+  display: block;
+  margin-top: .4rem;
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--osso-suave);
+}
+
+/* Etiqueta de honestidade: imagem gerada nunca passa por foto do sítio */
+.recriacao {
+  position: absolute;
+  top: .8rem;
+  right: .8rem;
+  z-index: 1;
+  font-family: var(--mono);
+  font-size: .52rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--osso-suave);
+  background: color-mix(in srgb, var(--carvao) 76%, transparent);
+  backdrop-filter: blur(4px);
+  border: 1px solid var(--linha-viva);
+  padding: .18rem .45rem;
+  border-radius: 2px;
+}
+
+/* Quadro ainda sem imagem — carvão e o símbolo da marca apagado */
+.quadro-foto.sem-imagem {
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(22rem 14rem at 50% 30%, color-mix(in srgb, var(--ambar) 7%, transparent), transparent 70%),
+    var(--carvao-3);
+}
+.quadro-foto.sem-imagem .aguardando {
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--osso-fraco);
+  border: 1px dashed var(--linha-viva);
+  padding: .5rem .9rem;
+  transform: translateY(-1.4rem);
+}
+
+/* Faixa de dados */
+.quadro-dados {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--linha);
+  border-block: 1px solid var(--linha);
+}
+.quadro-dados > div {
+  background: var(--carvao-2);
+  padding: .85rem 1.2rem .95rem;
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+  min-width: 0;
+}
+.quadro-dados .rot {
+  font-family: var(--mono);
+  font-size: .54rem;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  color: var(--osso-fraco);
+}
+.quadro-dados .val {
+  font-family: var(--mono);
+  font-size: .95rem;
+  color: var(--ambar);
+  line-height: 1.3;
+}
+.quadro-dados .val.neutro { color: var(--gelo); }
+
+/* Texto e chips */
+.quadro-texto {
+  padding: 1.2rem 1.2rem 0;
+  font-size: .94rem;
+  line-height: 1.64;
+  color: var(--osso-suave);
+  flex: 1;
+}
+.quadro-texto p { margin: 0; }
+.quadro-texto strong { color: var(--gelo); font-weight: 600; }
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  padding: 1.2rem;
+}
+.chips a, .chips span {
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: .1em;
+  color: var(--osso-suave);
+  border: 1px solid var(--linha-viva);
+  padding: .42rem .8rem;
+  text-decoration: none;
+  transition: color var(--transicao), border-color var(--transicao);
+}
+.chips a:hover { color: var(--ambar); border-color: var(--ambar); }
+.chips span { color: var(--osso-fraco); border-style: dashed; }
+
+/* --- Figura dentro do dossiê ------------------------------ */
+.figura { margin: 2.6rem 0; }
+.figura img { width: 100%; height: auto; border: 1px solid var(--linha); }
+.figura figcaption {
+  margin-top: .7rem;
+  font-family: var(--mono);
+  font-size: .64rem;
+  line-height: 1.6;
+  letter-spacing: .04em;
+  color: var(--osso-fraco);
+}
+.figura figcaption b {
+  color: var(--osso-suave);
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-size: .56rem;
+}
+
+/* ============================================================
+   21. FIGURAS DENTRO DO DOSSIÊ
+   A imagem entra junto do trecho que ela ilustra, e não em
+   galeria no fim. Três larguras, para o texto não virar régua.
+   ============================================================ */
+
+/* Revelação: a imagem chega desfocada e abre — a mesma quebra
+   de sigilo das tarjas, aplicada ao material visual. */
+.figura img {
+  cursor: zoom-in;
+  filter: blur(14px);
+  opacity: .35;
+  transform: scale(1.015);
+  transition: filter 900ms var(--transicao), opacity 900ms var(--transicao), transform 900ms var(--transicao);
+}
+.figura.visivel img { filter: none; opacity: 1; transform: none; }
+
+/* Larga: escapa da coluna de leitura para dar fôlego */
+.figura.larga {
+  width: min(94vw, 1000px);
+  margin-inline: calc(50% - min(47vw, 500px));
+}
+
+/* Lado: acompanha o texto em telas grandes */
+.figura.lado {
+  float: right;
+  width: 46%;
+  margin: .4rem 0 1.4rem 1.8rem;
+}
+.figura.lado + * { clear: none; }
+@media (max-width: 860px) {
+  .figura.lado { float: none; width: 100%; margin: 2.2rem 0; }
+  .figura.larga { width: 100%; margin-inline: 0; }
+}
+
+/* Clareia a legenda quando a figura é a única coisa na linha */
+.figura figcaption { max-width: 62ch; }
+
+/* --- Lupa: ampliar a imagem sem sair da página ------------- */
+.lupa {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  place-items: center;
+  padding: clamp(1rem, 4vw, 3rem);
+  background: color-mix(in srgb, var(--carvao) 94%, transparent);
+  backdrop-filter: blur(6px);
+}
+.lupa[open], .lupa.aberta { display: grid; }
+.lupa figure { margin: 0; max-width: min(1200px, 100%); }
+.lupa img {
+  width: 100%;
+  height: auto;
+  max-height: 78vh;
+  object-fit: contain;
+  border: 1px solid var(--linha-viva);
+}
+.lupa figcaption {
+  margin-top: .9rem;
+  font-family: var(--mono);
+  font-size: .68rem;
+  line-height: 1.6;
+  color: var(--osso-suave);
+  max-width: 70ch;
+}
+.lupa .fechar {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.4rem;
+  background: transparent;
+  border: 1px solid var(--linha-viva);
+  color: var(--osso);
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: .5rem .9rem;
+  cursor: pointer;
+}
+.lupa .fechar:hover { border-color: var(--ambar); color: var(--ambar); }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Cidades amazônicas reveladas por laser",
+  "description": "Dossiê investigativo sobre o urbanismo pré-colombiano da Amazônia revelado por levantamentos lidar: vale do Upano, Llanos de Mojos, geoglifos do sudoeste amazônico e terra preta.",
+  "inLanguage": "pt-BR",
+  "datePublished": "2026-09-19",
+  "dateModified": "2026-09-19",
+  "articleSection": "Descoberto Ontem",
+  "keywords": "Amazônia, lidar, urbanismo de baixa densidade, Upano, Casarabe, Llanos de Mojos, geoglifos, terra preta, arqueologia",
+  "author": { "@type": "Organization", "name": "Vestígio Oculto" },
+  "publisher": { "@type": "Organization", "name": "Vestígio Oculto" },
+  "about": {
+    "@type": "Place",
+    "name": "Vale do Upano",
+    "description": "Vale no sopé leste dos Andes, na província de Morona-Santiago, Equador, onde levantamentos lidar revelaram cerca de seis mil plataformas de terra ligadas por estradas retas.",
+    "geo": { "@type": "GeoCoordinates", "latitude": -2.13167, "longitude": -78.10528 },
+    "containedInPlace": { "@type": "AdministrativeArea", "name": "Morona-Santiago, Equador" }
+  },
+  "temporalCoverage": "-0500/1400"
+}
+</script>
+</head>
+<body>
+
+<div class="progresso" id="progresso" role="presentation"></div>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="marca" href="../index.html" aria-label="Vestígio Oculto — início">
+      <svg role="img" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0.0 -2003.7 10717.5 2080.2"> <defs><clipPath id="crownclip"><path d="M 4971.8 -900.2 C 4971.8 -1693.8 6336.7 -1693.8 6336.7 -900.2 Z"/></clipPath></defs> <g fill="#D9CBB3"><path d="M368 -20 68 627Q52 661 27.5 675.5Q3 690 -20 690H-28V700H290V690H281Q262 690 247.5 673.5Q233 657 244 627L413 214L589 627Q602 657 586.0 673.5Q570 690 551 690H542V700H756V690H747Q725 690 700.5 675.5Q676 661 660 627H659L426 111Q424 105 416.5 88.5Q409 72 400.0 51.0Q391 30 384.5 10.5Q378 -9 377 -20Z" transform="translate(90.0,0) scale(1,-1)"/><path d="M606 205 560 0H42V10H55Q81 10 99.5 28.5Q118 47 119 73V627Q118 653 99.5 671.5Q81 690 55 690H42V700H423Q445 700 469.5 703.0Q494 706 515.0 710.0Q536 714 545 718V543H535V555Q535 601 508 629Q484 653 447 657H269V366H401Q438 367 462.0 391.5Q486 416 486 453V460H496V230H486V238Q486 275 462.0 299.0Q438 323 401 324H269V43H400Q450 43 488.0 62.5Q526 82 553.0 118.5Q580 155 596 205Z" transform="translate(888.0,0) scale(1,-1)"/><path d="M277 714Q297 714 326.5 712.0Q356 710 388 707Q399 705 409 704H476L475 692Q475 692 475 692L463 557H453Q453 609 414.5 640.5Q376 672 312 672Q254 672 218.5 644.0Q183 616 181 576Q180 546 200.0 524.0Q220 502 251 483L442 359Q488 333 511.5 291.0Q535 249 532 193Q527 95 457.0 40.5Q387 -14 267 -14Q223 -14 181.5 -6.5Q140 1 108.0 14.5Q76 28 57 47Q49 69 50.0 100.0Q51 131 59.5 163.0Q68 195 81 216H90Q86 165 108.5 121.5Q131 78 174.5 52.5Q218 27 278 28Q344 29 380.0 61.5Q416 94 416 140Q416 171 397.5 196.0Q379 221 337 244L162 360Q109 390 85.0 437.0Q61 484 66 539Q71 591 97.0 630.5Q123 670 168.5 692.0Q214 714 277 714Z" transform="translate(1590.0,0) scale(1,-1)"/><path d="M654 719V544L644 545V556Q644 603 616.5 630.5Q589 658 542 659H409V73Q410 47 428.5 28.5Q447 10 473 10H486V0H182V10H195Q221 10 239.5 28.5Q258 47 259 73V659H125Q79 658 51.5 630.5Q24 603 24 556V545L14 544V719Q24 715 44.5 711.0Q65 707 90.0 704.0Q115 701 136 701H532Q554 701 578.5 704.0Q603 707 624.0 711.0Q645 715 654 719Z" transform="translate(2238.0,0) scale(1,-1)"/><path d="M119 73V627Q118 653 99.5 671.5Q81 690 55 690H42V700H346V690H333Q307 690 288.5 671.5Q270 653 269 627V73Q270 47 288.5 28.5Q307 10 333 10H346V0H42V10H55Q81 10 99.5 28.5Q118 47 119 73ZM177 769Q194 798 219.0 829.0Q244 860 271.5 887.0Q299 914 320 934Q347 919 363.0 899.0Q379 879 389 852Q359 833 323.5 815.5Q288 798 252.5 784.0Q217 770 184 762Z" transform="translate(2975.0,0) scale(1,-1)"/><path d="M755 280V115Q731 85 683.5 55.0Q636 25 570.0 5.5Q504 -14 423 -14Q309 -14 224.0 30.5Q139 75 92.0 157.0Q45 239 45.0 351.0Q45 463 91.5 544.0Q138 625 224.5 669.5Q311 714 429 714Q484 714 536.0 706.5Q588 699 632.0 687.0Q676 675 705 659L707 488H698Q679 556 643.0 596.5Q607 637 559.5 654.5Q512 672 459 672Q378 672 321.5 632.5Q265 593 236.5 520.0Q208 447 208 345Q208 249 234.5 177.5Q261 106 312.0 67.5Q363 29 436 28Q473 28 507.5 39.5Q542 51 568.0 73.0Q594 95 605 127L606 280Q606 325 555 325H539V335H820V325H805Q775 325 763 310Q754 299 755 280Z" transform="translate(3432.0,0) scale(1,-1)"/><path d="M119 73V627Q118 653 99.5 671.5Q81 690 55 690H42V700H346V690H333Q307 690 288.5 671.5Q270 653 269 627V73Q270 47 288.5 28.5Q307 10 333 10H346V0H42V10H55Q81 10 99.5 28.5Q118 47 119 73Z" transform="translate(4338.0,0) scale(1,-1)"/><path d="M722 292 731 120Q709 83 672.0 53.0Q635 23 580.0 4.5Q525 -14 450 -14Q328 -13 236.5 30.5Q145 74 95.0 155.0Q45 236 45 351Q45 463 94.0 544.5Q143 626 234.5 670.0Q326 714 453 714Q533 714 596.5 698.0Q660 682 703 659L704 488H695Q668 587 607.0 629.5Q546 672 464 672Q384 672 327.0 633.0Q270 594 239.0 523.0Q208 452 208 353Q208 254 237.5 182.0Q267 110 321.5 70.0Q376 30 450 28Q527 28 580.0 53.0Q633 78 665.5 136.0Q698 194 714 292Z" transform="translate(6513.5,0) scale(1,-1)"/><path d="M326 700V690H310Q288 690 272.5 676.0Q257 662 257 640V260Q257 189 280.5 137.0Q304 85 347.5 57.0Q391 29 451 29Q512 29 556.5 55.5Q601 82 625.0 131.0Q649 180 649 247V640Q649 662 633.5 676.0Q618 690 596 690H580V700H790V690H774Q752 690 736.5 676.0Q721 662 721 640V253Q721 171 686.5 111.0Q652 51 587.5 18.5Q523 -14 432 -14Q326 -14 253.0 18.5Q180 51 143.5 110.5Q107 170 107 252V640Q107 662 91.5 676.0Q76 690 54 690H38V700Z" transform="translate(7363.5,0) scale(1,-1)"/><path d="M606 205 560 0H42V10H55Q81 10 99.5 28.5Q118 47 119 73V627Q118 653 99.5 671.5Q81 690 55 690H42V700H346V690H333Q307 690 288.5 671.5Q270 653 269 627V43H400Q450 43 488.0 62.5Q526 82 553.0 118.5Q580 155 596 205Z" transform="translate(8254.5,0) scale(1,-1)"/><path d="M654 719V544L644 545V556Q644 603 616.5 630.5Q589 658 542 659H409V73Q410 47 428.5 28.5Q447 10 473 10H486V0H182V10H195Q221 10 239.5 28.5Q258 47 259 73V659H125Q79 658 51.5 630.5Q24 603 24 556V545L14 544V719Q24 715 44.5 711.0Q65 707 90.0 704.0Q115 701 136 701H532Q554 701 578.5 704.0Q603 707 624.0 711.0Q645 715 654 719Z" transform="translate(8941.5,0) scale(1,-1)"/><path d="M442 714Q562 714 650.5 669.5Q739 625 787.5 544.0Q836 463 836 350Q836 238 787.5 156.5Q739 75 650.5 30.5Q562 -14 442 -14Q322 -14 233.5 30.5Q145 75 97.0 156.0Q49 237 49 350Q49 462 97.0 543.5Q145 625 233.5 669.5Q322 714 442 714ZM442 28Q513 28 564.0 67.5Q615 107 643.0 179.0Q671 251 671 350Q671 449 643.0 521.0Q615 593 564.0 632.5Q513 672 442 672Q372 672 320.5 632.5Q269 593 241.0 521.0Q213 449 213 350Q213 251 241.0 179.0Q269 107 320.5 67.5Q372 28 442 28Z" transform="translate(9678.5,0) scale(1,-1)"/></g> <g fill="#D9CBB3"><path d="M 4703.1 -793.7 C 5159.7 -1029.2 6148.8 -1029.2 6605.4 -793.7 C 6148.8 -739.8 5159.7 -739.8 4703.1 -793.7 Z"/><path d="M 5014.9 -1208.2 C 4983.2 -1454.9 4964.0 -1548.5 5175.8 -1633.6 C 5387.5 -1548.5 5470.3 -1454.9 5438.5 -1208.2 Z"/><path d="M 5870.0 -1208.2 C 5838.2 -1454.9 5921.0 -1548.5 6132.7 -1633.6 C 6344.5 -1548.5 6325.3 -1454.9 6293.6 -1208.2 Z"/><path d="M 4971.8 -900.2 C 4971.8 -1693.8 6336.7 -1693.8 6336.7 -900.2 Z"/><path d="M 5654.2 -1586.6 C 5510.1 -1753.3 5462.1 -1713.3 5462.1 -1613.2 C 5462.1 -1493.2 5548.5 -1473.2 5654.2 -1586.6 Z"/><path d="M 5654.2 -1586.6 C 5798.4 -1753.3 5846.4 -1713.3 5846.4 -1613.2 C 5846.4 -1493.2 5760.0 -1473.2 5654.2 -1586.6 Z"/><circle cx="5654.2" cy="-1586.6" r="82.4"/></g> <g><circle cx="5262.2" cy="-350.0" r="332.5" fill="none" stroke="#C8862A" stroke-width="59.5"/><circle cx="6046.2" cy="-350.0" r="332.5" fill="none" stroke="#C8862A" stroke-width="59.5"/><path d="M 5612.6 -388.5 C 5654.2 -451.5 5654.2 -451.5 5695.9 -388.5" fill="none" stroke="#C8862A" stroke-width="47.6" stroke-linecap="round"/><path d="M 5612.6 -297.5 C 5654.2 -339.5 5654.2 -339.5 5695.9 -297.5" fill="none" stroke="#C8862A" stroke-width="47.6" stroke-linecap="round"/></g> </svg>
+      <span class="selo">Dossiê 002</span>
+    </a>
+    <nav aria-label="Seções">
+      <ul class="nav-pilares">
+        <li><a href="../index.html#dossies">Dossiês</a></li>
+        <li><a href="../index.html#pilares">Pilares</a></li>
+        <li><a href="../index.html#metodo">Método</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <article>
+  <header class="dossie-capa">
+    <div class="wrap">
+      <span class="kicker">Dossiê 002 · Descoberto Ontem · Em aberto</span>
+      <h1>Cidades amazônicas reveladas por laser</h1>
+      <p class="subtitulo">
+        Durante quase um século a arqueologia sustentou que a floresta não
+        comportava cidades, e tinha uma prova que parecia definitiva: ninguém
+        nunca havia encontrado ruína alguma. A prova tinha um defeito — ela
+        dependia de alguém conseguir enxergar o chão.
+      </p>
+
+      <dl class="ficha">
+        <div><dt>Onde</dt><dd>Upano · Mojos · Acre · Xingu</dd></div>
+        <div><dt>Período</dt><dd>c. 500 a.C. – 1400 d.C.</dd></div>
+        <div><dt>Técnica</dt><dd>Lidar aerotransportado</dd></div>
+        <div><dt>Bacia varrida</dt><dd>&lt; 1%</dd></div>
+        <div><dt>Estruturas mapeadas</dt><dd>+ de 20 mil no sudoeste</dd></div>
+        <div><dt>Status</dt><dd>Levantamento em curso</dd></div>
+      </dl>
+    </div>
+  </header>
+
+  <div class="corpo">
+
+    <p class="abertura">
+      Em agosto de 1542, uma tripulação faminta descia um rio que não sabia
+      nomear. Francisco de Orellana tinha saído de Quito atrás de canela e
+      ouro, se separara da expedição principal e agora seguia a correnteza
+      porque voltar contra ela era impossível. O frei Gaspar de Carvajal ia a
+      bordo, escrevendo. E o que ele descreveu naquelas páginas não foi
+      floresta vazia. Foi margem povoada por léguas seguidas, aldeias coladas
+      umas nas outras, caminhos entrando terra adentro, cerâmica fina, gente
+      demais para contar.
+    </p>
+
+    <figure class="figura larga reveal-fig">
+      <img src="../assets/img/am-01-orellana.jpg" loading="lazy" width="1200" height="675" alt="Recriação de um barco de madeira com tripulação descendo um rio largo de água barrenta, margens de floresta densa">
+      <figcaption><b>Recriação</b> — 1542. A expedição de Orellana desce o rio sem poder voltar contra a correnteza. O que o frei Gaspar de Carvajal descreveu nas margens foi lido como exagero por quatro séculos.</figcaption>
+    </figure>
+
+    <p>
+      O relato de Carvajal foi lido por quatrocentos anos como o que parecia
+      ser: exagero de náufrago. Havia motivo para desconfiar — o mesmo texto
+      descreve mulheres guerreiras, e foi delas que veio o nome do rio. Se o
+      cronista inventou as amazonas, por que acreditar no resto?
+    </p>
+
+    <p>
+      Quando os europeus voltaram em número, um século depois, não havia mais
+      nada parecido com aquilo. A varíola e o sarampo tinham chegado antes
+      deles, subindo os rios mais rápido do que qualquer expedição. O que
+      encontraram foram grupos pequenos e dispersos, exatamente como a teoria
+      previa. A ausência virou prova.
+    </p>
+
+    <h2 id="paraiso"><span class="indice">01</span>O paraíso falsificado</h2>
+
+    <p>
+      A tese tinha fundamento, e é importante dizer isso antes de desmontá-la.
+      O solo da Amazônia é, em boa parte, pobre. A floresta tropical guarda
+      quase toda a sua reserva de nutrientes na biomassa viva — nas próprias
+      árvores — e não na terra. Derrubado um trecho e plantada a primeira
+      roça, o chão se esgota em poucos anos. É uma limitação real, medida em
+      campo, não um preconceito.
+    </p>
+
+    <p>
+      Em 1971, a arqueóloga norte-americana Betty Meggers deu a essa limitação
+      um nome que pegou: <em>counterfeit paradise</em>, o paraíso falsificado.
+      A exuberância da floresta enganaria o observador; por baixo dela haveria
+      um ambiente incapaz de sustentar populações densas. E de um ambiente
+      assim decorreria tudo o mais — grupos pequenos, móveis, sem hierarquia
+      estável, sem monumento.
+    </p>
+
+    <p>
+      O modelo dominou a arqueologia amazônica por décadas. Ele explicava os
+      dados disponíveis, e os dados disponíveis eram, em grande parte, a
+      ausência de achados. O problema é que essa ausência tinha uma causa
+      trivial que ninguém pesava: debaixo do dossel fechado, a visibilidade no
+      solo é de poucos metros. É perfeitamente possível atravessar uma praça
+      de terra batida e registrar no caderno que se subiu um morro.
+    </p>
+
+    <blockquote>
+      Os europeus procuravam pedra, porque pedra era o que eles chamavam de
+      civilização.
+      <cite>O viés que atravessa quatro séculos de registro</cite>
+    </blockquote>
+
+    <h2 id="lidar"><span class="indice">02</span>O laser que atravessa a árvore</h2>
+
+    <p>
+      O instrumento que mudou a conta se chama lidar, e o princípio cabe em
+      duas frases. Uma aeronave voa baixo e dispara centenas de milhares de
+      pulsos de laser por segundo contra o chão, registrando quanto tempo cada
+      um leva para voltar. A copa de uma árvore não é uma parede: é uma
+      peneira. A maioria dos pulsos bate em folha, mas uma fração escorrega
+      pelos vãos, toca o solo e retorna.
+    </p>
+
+    <p>
+      O resto é processamento. O programa recebe milhões de retornos, descarta
+      tudo o que voltou da vegetação e conserva apenas o último eco de cada
+      pulso — aquele que veio do ponto mais baixo. Com isso se monta um modelo
+      digital de terreno: a superfície do chão, sem floresta em cima.
+    </p>
+
+    <figure class="figura lado reveal-fig">
+      <img src="../assets/img/am-02-lidar.jpg" loading="lazy" width="1200" height="675" alt="Recriação de um pequeno avião voando baixo sobre um dossel de floresta coberto de névoa">
+      <figcaption><b>Recriação</b> — O voo é baixo e lento. A maioria dos pulsos bate em folha; a fração que escorrega pelos vãos e toca o solo é a que interessa.</figcaption>
+    </figure>
+
+    <p>
+      Nada nesse método é exótico. O lidar é usado há décadas em engenharia e
+      cartografia. O que mudou foi o custo do voo e a capacidade de processar o
+      volume de dados — e, sobretudo, alguém ter decidido apontar o
+      equipamento para trechos de floresta que a teoria dizia estarem vazios.
+    </p>
+
+    <h2 id="upano"><span class="indice">03</span>O vale do Upano</h2>
+
+    <p>
+      Em 12 de janeiro de 2024, a revista <em>Science</em> publicou o resultado
+      de um levantamento desses sobre o vale do rio Upano, no sopé leste dos
+      Andes equatorianos, província de Morona-Santiago. A equipe era liderada
+      pelo arqueólogo francês Stéphen Rostain, que já trabalhava na região
+      havia mais de vinte anos — escavando, aliás, algumas daquelas plataformas
+      sem conseguir enxergar o conjunto de que faziam parte.
+    </p>
+
+    <p>
+      O modelo de terreno trouxe cerca de <strong>seis mil plataformas de
+      terra</strong> distribuídas por aproximadamente 300 km². Não são
+      elevações naturais: são retângulos regulares, em média com 20 por 10
+      metros de área e dois a três metros de altura, construídos com terra
+      transportada e socada. Sobre cada um havia uma construção de madeira e
+      palha que o clima apagou; a plataforma ficou.
+    </p>
+
+    <p>
+      Elas não estão espalhadas ao acaso. Agrupam-se em conjuntos em torno de
+      pátios quadrados, e os conjuntos se somam em bairros. Uma das plataformas
+      escavadas em Kilamope mede 140 por 40 metros, dimensão que não se explica
+      por moradia familiar. A ocupação vai de cerca de 500 a.C. ao intervalo
+      entre 300 e 600 d.C.
+    </p>
+
+    <figure class="figura larga reveal-fig">
+      <img src="../assets/img/am-03-upano.jpg" loading="lazy" width="1200" height="675" alt="Recriação de plataformas retangulares de terra dispostas em torno de um pátio quadrado, vistas do alto">
+      <figcaption><b>Recriação</b> — O padrão que o modelo de terreno revelou: plataformas retangulares agrupadas em torno de pátios quadrados, e os conjuntos somando bairros.</figcaption>
+    </figure>
+
+    <h3>As ruas que não entortam</h3>
+
+    <p>
+      O que mais desestabilizou a leitura anterior, porém, não foram as
+      plataformas. Foram as vias. O levantamento revelou estradas escavadas no
+      terreno, com margens elevadas, algumas medindo de dez a vinte metros de
+      largura. Uma delas segue <strong>reta por cerca de 25 quilômetros</strong>.
+    </p>
+
+    <p>
+      Vale demorar nesse detalhe, porque é ele que carrega o argumento. Um
+      caminho de caça entorta: contorna o afloramento, desvia da árvore grossa,
+      acompanha o veio d'água. Uma via reta por 25 quilômetros não contorna
+      nada — ela atravessa. E várias delas se cruzam em ângulo de noventa
+      graus.
+    </p>
+
+    <p>
+      Disso decorrem três coisas, e nenhuma é pequena: alguém definiu o traçado
+      antes de abrir o primeiro metro; alguém tinha autoridade suficiente para
+      decidir por onde ele passaria, inclusive sobre terreno de terceiros; e
+      alguém conseguiu reunir e sustentar mão de obra para cavar. Traçado,
+      autoridade e trabalho coordenado são, juntos, a definição mínima de
+      organização política.
+    </p>
+
+    <figure class="figura larga reveal-fig">
+      <img src="../assets/img/am-04-estrada-reta.jpg" loading="lazy" width="1200" height="675" alt="Recriação de uma estrada de terra escavada, com margens altas, atravessando reta uma floresta densa">
+      <figcaption><b>Recriação</b> — Via escavada no terreno, com margens elevadas. Um caminho de caça contorna; este atravessa — e é o traçado, não a largura, que exige decisão prévia.</figcaption>
+    </figure>
+
+    <div class="nota">
+      <strong>O vulcão que guardou o segredo</strong>
+      O vale do Upano fica na sombra do Sangay, um dos vulcões mais ativos do
+      continente. As camadas de cinza que a pesquisa associa às erupções
+      ajudaram a selar o terreno e a preservar o relevo construído sob a
+      floresta — e provavelmente contribuíram para o abandono da região. O
+      mesmo fenômeno que tirou aquelas comunidades do mapa é parte do motivo de
+      o desenho delas ainda existir para ser encontrado.
+    </div>
+
+    <figure class="figura lado reveal-fig">
+      <img src="../assets/img/am-05-cinza-sangay.jpg" loading="lazy" width="1200" height="675" alt="Recriação de um corte no solo mostrando uma camada clara de cinza vulcânica selando terra escura">
+      <figcaption><b>Recriação</b> — A camada clara de cinza sela o terreno construído. Foi ela que preservou o relevo sob a floresta por dois mil anos.</figcaption>
+    </figure>
+
+    <h2 id="mojos"><span class="indice">04</span>As pirâmides que são de terra</h2>
+
+    <p>
+      Dois anos antes, em maio de 2022, a <em>Nature</em> havia publicado um
+      levantamento equivalente sobre os Llanos de Mojos, planície alagável do
+      norte da Bolívia. A equipe, liderada pelo arqueólogo alemão Heiko
+      Prümers, do Instituto Arqueológico Alemão, com Carla Jaimes Betancourt,
+      da Universidade de Bonn, mapeou 200 km² da área ocupada pela cultura
+      Casarabe, que floresceu entre aproximadamente 500 e 1400 d.C.
+    </p>
+
+    <p>
+      Apareceram dois assentamentos grandes, Cotoca e Landívar. Cotoca ocupa
+      cerca de 315 hectares, com uma extensão de um quilômetro e meio no
+      sentido norte-sul. No centro, uma plataforma escalonada de terra com uma
+      estrutura cônica no topo: do solo ao ponto mais alto, <strong>22
+      metros</strong> — um prédio de sete andares, feito de terra carregada.
+      Em volta, cercas em anéis concêntricos; saindo dela, calçadas elevadas
+      atravessando a planície alagada em linha reta, e canais para mover água e
+      canoa.
+    </p>
+
+    <figure class="figura larga reveal-fig">
+      <img src="../assets/img/002-amazonia-lidar.jpg" loading="lazy" width="1200" height="675" alt="Recriação de uma plataforma escalonada de terra com estrutura cônica no topo, numa planície alagada">
+      <figcaption><b>Recriação</b> — A plataforma escalonada de Cotoca chega a 22 metros do solo ao topo — um prédio de sete andares, feito de terra transportada.</figcaption>
+    </figure>
+
+    <h3>Por que ninguém viu antes</h3>
+
+    <p>
+      A pergunta é inevitável: como algo de 22 metros fica escondido? A
+      resposta está no material. Uma pirâmide de pedra continua sendo uma
+      pirâmide de pedra — resiste, reflete a luz, aparece no horizonte. Uma
+      pirâmide de terra, em clima tropical úmido, é um morro. Em poucos anos
+      está coberta de capim; em algumas décadas tem árvore adulta em cima; em
+      cinco séculos é paisagem.
+    </p>
+
+    <p>
+      Some-se a isso o viés do observador. Quem chegou procurando alvenaria
+      anotou floresta ao passar por cima de urbanismo. O engano não foi de
+      percepção, foi de categoria.
+    </p>
+
+    <h2 id="terra-preta"><span class="indice">05</span>A terra que eles fabricaram</h2>
+
+    <p>
+      Há um segundo rastro, e ele não é monumental — está sob os pés. Espalhados
+      pela bacia existem trechos de solo escuro, muito mais férteis do que a
+      terra em volta, que os ribeirinhos chamam de terra preta. Não é uma
+      formação natural. É resíduo de ocupação humana: carvão, osso, caco de
+      cerâmica, restos de alimento e dejeto, acumulados no mesmo lugar por
+      séculos até constituírem um solo novo.
+    </p>
+
+    <p>
+      E aqui está o dado que desmonta o paraíso falsificado sem negar sua
+      premissa. Esses trechos permanecem férteis até hoje, séculos depois de
+      quem os produziu ter desaparecido. O carvão dá ao solo uma estrutura que
+      retém nutrientes em vez de deixá-los lavar com a chuva.
+    </p>
+
+    <figure class="figura larga reveal-fig">
+      <img src="../assets/img/am-07-terra-preta.jpg" loading="lazy" width="1200" height="675" alt="Recriação de um corte de solo com uma faixa escura carregada de carvão e cacos de cerâmica sobre barro claro">
+      <figcaption><b>Recriação</b> — Terra preta: carvão, osso e caco de cerâmica acumulados por séculos até virarem solo novo. Continua fértil hoje, séculos depois.</figcaption>
+    </figure>
+
+    <p>
+      Meggers não errou ao dizer que o solo amazônico era pobre. Errou ao supor
+      que as pessoas aceitariam o solo do jeito que ele veio.
+    </p>
+
+    <p>
+      O argumento tem um complemento vivo. Levantamentos de composição
+      florestal mostram que espécies úteis ao ser humano — castanheira, cacau,
+      açaí, pupunha, entre outras — aparecem em concentrações que o acaso não
+      explica, e justamente nas proximidades de sítios arqueológicos. Em certas
+      manchas, a densidade é alta demais para ser espontânea. O que se chama de
+      floresta intocada é, em boa parte dela, um pomar de dois mil anos que
+      ficou sem jardineiro.
+    </p>
+
+    <h2 id="teorias"><span class="indice">06</span>As teorias, da mais sóbria à mais improvável</h2>
+
+    <div class="teoria">
+      <div class="medidor" style="--nivel: 90%"><span>Peso de evidência</span><span class="barra"></span><span class="peso">Alto</span></div>
+      <h3>Urbanismo de baixa densidade</h3>
+      <p>
+        É a leitura que organiza praticamente toda a literatura recente. Não se
+        trata de cidades compactas à maneira europeia ou mesoamericana: o padrão
+        é de núcleos residenciais dispersos, com roça, pomar e floresta manejada
+        entre eles, articulados por estradas e organizados em torno de praças e
+        montículos. O termo não é uma concessão — descreve uma forma urbana com
+        regras próprias, documentada também no Sudeste Asiático.
+      </p>
+      <p>
+        Uma cidade que se atravessa a pé em meia hora sem sair dela e sem nunca
+        deixar de ver árvore. Não é uma cidade menor: é outra ideia do que uma
+        cidade é.
+      </p>
+    </div>
+
+    <div class="teoria">
+      <div class="medidor" style="--nivel: 84%"><span>Peso de evidência</span><span class="barra"></span><span class="peso">Alto</span></div>
+      <h3>A memória oral estava certa, e não foi tratada como fonte</h3>
+      <p>
+        No Alto Xingu, o arqueólogo norte-americano Michael Heckenberger
+        trabalhou durante anos com os Kuikuro. Havia gerações eles descreviam
+        aldeias antigas maiores que as atuais, ligadas por caminhos largos e
+        organizadas em torno de praças centrais. Aquilo circulava como tradição
+        oral — narrativa respeitável, sem valor probatório.
+      </p>
+      <p>
+        As escavações e o mapeamento, publicados na <em>Science</em> em 2003 e
+        2008, encontraram no chão o que vinha sendo descrito: conjuntos de
+        aldeias, vias largas, praças. A informação nunca esteve perdida. Estava
+        sendo transmitida esse tempo todo por gente que o método não
+        classificava como fonte.
+      </p>
+    </div>
+
+    <div class="teoria">
+      <div class="medidor" style="--nivel: 48%"><span>Peso de evidência</span><span class="barra"></span><span class="peso">Em disputa</span></div>
+      <h3>Quanta gente vivia ali</h3>
+      <p>
+        É o ponto mais aberto do dossiê. Para o Upano, um dos coautores estimou
+        entre 15 e 30 mil pessoas no auge; outras leituras divulgadas na
+        imprensa chegaram a ultrapassar 100 mil. Em julho de 2026, um estudo
+        publicado na <em>Nature</em> por uma equipe liderada por Martti
+        Pärssinen, com Risto Kalliola e Alceu Ranzi, combinou voos de lidar e
+        imagem de satélite sobre cerca de 183 mil km² do sudoeste amazônico —
+        Acre, Amazonas, e partes da Bolívia e do Peru — e catalogou algo entre
+        24 e 30 mil estruturas de terra, propondo para a região o nome de
+        civilização Aquiry e uma população de 1,25 a 3 milhões de pessoas entre
+        100 e 300 d.C.
+      </p>
+      <p>
+        O número é impressionante e merece o cuidado que qualquer número assim
+        merece: ele vem de um modelo de densidade aplicado a estruturas
+        mapeadas, não de uma contagem. Estimativas populacionais na arqueologia
+        dependem de quantas pessoas se supõe por unidade habitacional e de
+        quanto tempo se supõe que as unidades foram ocupadas ao mesmo tempo —
+        duas suposições que mudam o resultado em ordens de grandeza. O que as
+        estruturas sustentam com firmeza é a existência e a extensão; a
+        aritmética populacional continua em discussão.
+      </p>
+    </div>
+
+    <div class="teoria">
+      <div class="medidor" style="--nivel: 30%; --cor-nivel: var(--ambar-fundo)"><span>Peso de evidência</span><span class="barra"></span><span class="peso">Superada</span></div>
+      <h3>O paraíso falsificado</h3>
+      <p>
+        A tese de Meggers está hoje minoritária, mas descartá-la inteiramente
+        seria injusto e impreciso. A observação de base — que o solo amazônico é
+        pobre e a fertilidade está na biomassa — permanece correta. O que caiu
+        foi a inferência: a de que uma limitação ambiental determina o teto de
+        complexidade social de quem vive nela. A terra preta é a
+        contraprova material.
+      </p>
+    </div>
+
+    <div class="teoria">
+      <div class="medidor" style="--nivel: 5%; --cor-nivel: var(--ambar-fundo)"><span>Peso de evidência</span><span class="barra"></span><span class="peso">Nula</span></div>
+      <h3>Eldorado, Atlântida amazônica, civilização perdida avançada</h3>
+      <p>
+        A tentação de ler esses achados como confirmação das cidades douradas
+        que os cronistas coloniais procuravam é compreensível e está errada. Não
+        há ouro, não há alvenaria, não há escrita, não há metalurgia de
+        ferramenta. O que existe é terra movida em escala industrial, cerâmica,
+        estradas planejadas e manejo florestal — coisas que os povos de lá
+        fizeram com as técnicas que tinham, e que bastam.
+      </p>
+      <p>
+        A versão mística é menos interessante do que o fato, e faz um estrago
+        específico: transfere para uma civilização imaginária e desaparecida o
+        crédito que pertence aos ancestrais de povos que continuam vivos e
+        continuam disputando a posse daquele território.
+      </p>
+    </div>
+
+    <h2 id="cronologia"><span class="indice">07</span>Cronologia</h2>
+
+    <ul class="cronologia">
+      <li><span class="quando">c. 500 a.C.</span><span class="oque">Começa a ocupação registrada no vale do Upano, com as primeiras plataformas de terra.</span></li>
+      <li><span class="quando">c. 100 – 300 d.C.</span><span class="oque">Período ao qual o estudo de 2026 atribui o auge populacional do sudoeste amazônico.</span></li>
+      <li><span class="quando">c. 300 – 600 d.C.</span><span class="oque">Abandono do vale do Upano, associado à atividade do vulcão Sangay.</span></li>
+      <li><span class="quando">c. 500 – 1400 d.C.</span><span class="oque">Florescimento da cultura Casarabe nos Llanos de Mojos, com Cotoca e Landívar.</span></li>
+      <li><span class="quando">1542</span><span class="oque">A expedição de Francisco de Orellana desce o rio. Frei Gaspar de Carvajal descreve margens densamente povoadas.</span></li>
+      <li><span class="quando">séculos XVI – XVII</span><span class="oque">Epidemias europeias sobem os rios à frente dos europeus. Quando as expedições seguintes chegam, a paisagem humana já é outra.</span></li>
+      <li><span class="quando">1971</span><span class="oque">Betty Meggers publica <em>Amazonia: Man and Culture in a Counterfeit Paradise</em>. O modelo do paraíso falsificado se torna dominante.</span></li>
+      <li><span class="quando">2003 e 2008</span><span class="oque">Michael Heckenberger publica na <em>Science</em> o mapeamento do Alto Xingu, confirmando no solo o que a tradição kuikuro descrevia.</span></li>
+      <li><span class="quando">maio de 2022</span><span class="oque">Prümers e equipe publicam na <em>Nature</em> o lidar dos Llanos de Mojos: Cotoca, Landívar e a plataforma de 22 metros.</span></li>
+      <li><span class="quando">outubro de 2023</span><span class="oque">Vinicius Peripato e colaboradores publicam na <em>Science</em> a modelagem que projeta mais de dez mil estruturas de terra ainda não localizadas.</span></li>
+      <li><span class="quando">janeiro de 2024</span><span class="oque">Rostain e equipe publicam na <em>Science</em> o vale do Upano: seis mil plataformas, 300 km² e a via reta de 25 quilômetros.</span></li>
+      <li><span class="quando">julho de 2026</span><span class="oque">Pärssinen, Kalliola, Ranzi e equipe publicam na <em>Nature</em> o levantamento do sudoeste amazônico, com mais de vinte mil estruturas catalogadas.</span></li>
+    </ul>
+
+    <h2 id="aberto"><span class="indice">08</span>O que continua em aberto</h2>
+
+    <p>
+      Tudo o que está neste dossiê veio de uma fração mínima da área possível. A
+      bacia amazônica tem mais de seis milhões de quilômetros quadrados. A
+      superfície varrida por lidar até hoje, somando todos os levantamentos
+      publicados, não chega a um por cento dela — o estudo de 2026, o maior até
+      agora, cobriu cerca de 4.500 km² de voo sobre uma área de interesse de
+      183 mil.
+    </p>
+
+    <p>
+      A formulação honesta, portanto, não é que se descobriram as cidades da
+      Amazônia. É que se descobriram as que estavam sob os primeiros trechos em
+      que alguém apontou o laser. E em quase todo trecho onde apontaram,
+      encontraram alguma coisa.
+    </p>
+
+    <figure class="figura larga reveal-fig">
+      <img src="../assets/img/am-06-geoglifo.jpg" loading="lazy" width="1200" height="675" alt="Recriação de um geoglifo quadrangular escavado no solo, visto do alto em terreno desmatado">
+      <figcaption><b>Recriação</b> — Geoglifo quadrangular no sudoeste amazônico. Estruturas como esta foram identificadas justamente onde a floresta caiu.</figcaption>
+    </figure>
+
+    <p>
+      Em outubro de 2023, uma equipe liderada por Vinicius Peripato tentou
+      estimar o tamanho do que falta. Combinando os levantamentos existentes com
+      variáveis ambientais — temperatura, precipitação, tipo de solo, distância
+      até a água —, o modelo projetou algo entre dez e vinte e quatro mil
+      estruturas de terra ainda não localizadas, com valor central em torno de
+      dezesseis mil. É uma projeção estatística, com a incerteza que o próprio
+      intervalo declara. Mas o piso do intervalo já é maior do que tudo o que
+      foi catalogado em um século de trabalho de campo.
+    </p>
+
+    <div class="nota">
+      <strong>A corrida</strong>
+      Existe uma ironia difícil nessa história. Uma das razões de se estar
+      encontrando tanta coisa agora é que a floresta está sendo derrubada: onde
+      a árvore cai, o desenho aparece — os geoglifos do Acre foram identificados
+      exatamente assim. Só que a mesma lâmina que revela é a que apaga. Uma
+      plataforma de terra não resiste a maquinário pesado: uma estrutura que
+      atravessou dois mil anos sob a floresta some numa tarde. A conta é essa —
+      estamos descobrindo que a Amazônia foi construída à medida que ela é
+      desmontada.
+    </div>
+
+    <figure class="figura lado reveal-fig">
+      <img src="../assets/img/am-08-lamina.jpg" loading="lazy" width="1200" height="675" alt="Recriação da lâmina de um trator raspando o solo, com cacos de cerâmica expostos na terra revolvida">
+      <figcaption><b>Recriação</b> — A mesma lâmina que revela é a que apaga. Uma plataforma de terra não resiste a maquinário pesado.</figcaption>
+    </figure>
+
+    <p>
+      Três perguntas permanecem abertas, e nenhuma por falta de tecnologia.
+      <strong>Quantos eram</strong> — a aritmética populacional depende de
+      suposições que mudam o resultado em ordens de grandeza.
+      <strong>Como se governavam</strong> — traçado planejado e obra coletiva
+      indicam autoridade, mas não dizem se era hereditária, rotativa,
+      religiosa ou negociada, e não há escrita para consultar.
+      <strong>Por que terminaram</strong> — no Upano o vulcão oferece uma
+      explicação local; em Mojos e no sudoeste, o colapso é anterior ao contato
+      europeu em boa parte dos sítios, e a causa continua sem resposta.
+    </p>
+
+    <p>
+      O que mudou definitivamente foi o ponto de partida. A pergunta deixou de
+      ser se havia cidades na Amazônia e passou a ser quantas ainda estão sob
+      os noventa e nove por cento que ninguém mapeou.
+    </p>
+
+    <h2 id="fontes"><span class="indice">09</span>Fontes consultadas</h2>
+
+    <p class="mono" style="text-transform: none; letter-spacing: 0; line-height: 1.7;">
+      Este dossiê é texto autoral. As fontes abaixo foram consultadas para
+      apuração de datas, medidas e atribuições; nenhuma foi reproduzida.
+    </p>
+
+    <ul class="fontes">
+      <li>Rostain, S. et al. — <em>Two thousand years of garden urbanism in the Upper Amazon</em>. Science, 12 de janeiro de 2024.</li>
+      <li>Prümers, H.; Jaimes Betancourt, C.; Iriarte, J.; Robinson, M.; Schaich, M. — <em>Lidar reveals pre-Hispanic low-density urbanism in the Bolivian Amazon</em>. Nature, maio de 2022.</li>
+      <li>Peripato, V. et al. — <em>More than 10,000 pre-Columbian earthworks are still hidden throughout Amazonia</em>. Science, outubro de 2023.</li>
+      <li>Pärssinen, M.; Kalliola, R.; Ranzi, A. et al. — levantamento do sudoeste amazônico. Nature, julho de 2026.</li>
+      <li>Heckenberger, M. et al. — trabalhos sobre o Alto Xingu publicados na Science em 2003 e 2008.</li>
+      <li>Meggers, B. — <em>Amazonia: Man and Culture in a Counterfeit Paradise</em>, 1971. É a tese que este dossiê contradiz.</li>
+      <li>Material de divulgação institucional da Universidade de Bonn e da Universidade de Utrecht sobre os dois levantamentos, e a ficha enciclopédica consolidada dos sítios do vale do Upano.</li>
+    </ul>
+
+  </div>
+  </article>
+
+  <section class="wrap" style="padding-bottom: 2rem;">
+    <a class="proximo" href="gobekli-tepe.html">
+      <span>
+        <span class="mono">No arquivo · Dossiê 001</span>
+        <strong>Göbekli Tepe — o templo enterrado de propósito</strong>
+      </span>
+      <span class="seta">→</span>
+    </a>
+  </section>
+
+</main>
+
+<div class="lupa" id="lupa" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
+  <button class="fechar" type="button" id="lupa-fechar">Fechar ✕</button>
+  <figure>
+    <img id="lupa-img" alt="">
+    <figcaption id="lupa-legenda"></figcaption>
+  </figure>
+</div>
+
+<footer class="rodape">
+  <div class="wrap">
+    <div>
+      <a class="marca" href="../index.html" aria-label="Vestígio Oculto — início"><svg role="img" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0.0 -2003.7 10717.5 2080.2"> <defs><clipPath id="crownclip"><path d="M 4971.8 -900.2 C 4971.8 -1693.8 6336.7 -1693.8 6336.7 -900.2 Z"/></clipPath></defs> <g fill="#D9CBB3"><path d="M368 -20 68 627Q52 661 27.5 675.5Q3 690 -20 690H-28V700H290V690H281Q262 690 247.5 673.5Q233 657 244 627L413 214L589 627Q602 657 586.0 673.5Q570 690 551 690H542V700H756V690H747Q725 690 700.5 675.5Q676 661 660 627H659L426 111Q424 105 416.5 88.5Q409 72 400.0 51.0Q391 30 384.5 10.5Q378 -9 377 -20Z" transform="translate(90.0,0) scale(1,-1)"/><path d="M606 205 560 0H42V10H55Q81 10 99.5 28.5Q118 47 119 73V627Q118 653 99.5 671.5Q81 690 55 690H42V700H423Q445 700 469.5 703.0Q494 706 515.0 710.0Q536 714 545 718V543H535V555Q535 601 508 629Q484 653 447 657H269V366H401Q438 367 462.0 391.5Q486 416 486 453V460H496V230H486V238Q486 275 462.0 299.0Q438 323 401 324H269V43H400Q450 43 488.0 62.5Q526 82 553.0 118.5Q580 155 596 205Z" transform="translate(888.0,0) scale(1,-1)"/><path d="M277 714Q297 714 326.5 712.0Q356 710 388 707Q399 705 409 704H476L475 692Q475 692 475 692L463 557H453Q453 609 414.5 640.5Q376 672 312 672Q254 672 218.5 644.0Q183 616 181 576Q180 546 200.0 524.0Q220 502 251 483L442 359Q488 333 511.5 291.0Q535 249 532 193Q527 95 457.0 40.5Q387 -14 267 -14Q223 -14 181.5 -6.5Q140 1 108.0 14.5Q76 28 57 47Q49 69 50.0 100.0Q51 131 59.5 163.0Q68 195 81 216H90Q86 165 108.5 121.5Q131 78 174.5 52.5Q218 27 278 28Q344 29 380.0 61.5Q416 94 416 140Q416 171 397.5 196.0Q379 221 337 244L162 360Q109 390 85.0 437.0Q61 484 66 539Q71 591 97.0 630.5Q123 670 168.5 692.0Q214 714 277 714Z" transform="translate(1590.0,0) scale(1,-1)"/><path d="M654 719V544L644 545V556Q644 603 616.5 630.5Q589 658 542 659H409V73Q410 47 428.5 28.5Q447 10 473 10H486V0H182V10H195Q221 10 239.5 28.5Q258 47 259 73V659H125Q79 658 51.5 630.5Q24 603 24 556V545L14 544V719Q24 715 44.5 711.0Q65 707 90.0 704.0Q115 701 136 701H532Q554 701 578.5 704.0Q603 707 624.0 711.0Q645 715 654 719Z" transform="translate(2238.0,0) scale(1,-1)"/><path d="M119 73V627Q118 653 99.5 671.5Q81 690 55 690H42V700H346V690H333Q307 690 288.5 671.5Q270 653 269 627V73Q270 47 288.5 28.5Q307 10 333 10H346V0H42V10H55Q81 10 99.5 28.5Q118 47 119 73ZM177 769Q194 798 219.0 829.0Q244 860 271.5 887.0Q299 914 320 934Q347 919 363.0 899.0Q379 879 389 852Q359 833 323.5 815.5Q288 798 252.5 784.0Q217 770 184 762Z" transform="translate(2975.0,0) scale(1,-1)"/><path d="M755 280V115Q731 85 683.5 55.0Q636 25 570.0 5.5Q504 -14 423 -14Q309 -14 224.0 30.5Q139 75 92.0 157.0Q45 239 45.0 351.0Q45 463 91.5 544.0Q138 625 224.5 669.5Q311 714 429 714Q484 714 536.0 706.5Q588 699 632.0 687.0Q676 675 705 659L707 488H698Q679 556 643.0 596.5Q607 637 559.5 654.5Q512 672 459 672Q378 672 321.5 632.5Q265 593 236.5 520.0Q208 447 208 345Q208 249 234.5 177.5Q261 106 312.0 67.5Q363 29 436 28Q473 28 507.5 39.5Q542 51 568.0 73.0Q594 95 605 127L606 280Q606 325 555 325H539V335H820V325H805Q775 325 763 310Q754 299 755 280Z" transform="translate(3432.0,0) scale(1,-1)"/><path d="M119 73V627Q118 653 99.5 671.5Q81 690 55 690H42V700H346V690H333Q307 690 288.5 671.5Q270 653 269 627V73Q270 47 288.5 28.5Q307 10 333 10H346V0H42V10H55Q81 10 99.5 28.5Q118 47 119 73Z" transform="translate(4338.0,0) scale(1,-1)"/><path d="M722 292 731 120Q709 83 672.0 53.0Q635 23 580.0 4.5Q525 -14 450 -14Q328 -13 236.5 30.5Q145 74 95.0 155.0Q45 236 45 351Q45 463 94.0 544.5Q143 626 234.5 670.0Q326 714 453 714Q533 714 596.5 698.0Q660 682 703 659L704 488H695Q668 587 607.0 629.5Q546 672 464 672Q384 672 327.0 633.0Q270 594 239.0 523.0Q208 452 208 353Q208 254 237.5 182.0Q267 110 321.5 70.0Q376 30 450 28Q527 28 580.0 53.0Q633 78 665.5 136.0Q698 194 714 292Z" transform="translate(6513.5,0) scale(1,-1)"/><path d="M326 700V690H310Q288 690 272.5 676.0Q257 662 257 640V260Q257 189 280.5 137.0Q304 85 347.5 57.0Q391 29 451 29Q512 29 556.5 55.5Q601 82 625.0 131.0Q649 180 649 247V640Q649 662 633.5 676.0Q618 690 596 690H580V700H790V690H774Q752 690 736.5 676.0Q721 662 721 640V253Q721 171 686.5 111.0Q652 51 587.5 18.5Q523 -14 432 -14Q326 -14 253.0 18.5Q180 51 143.5 110.5Q107 170 107 252V640Q107 662 91.5 676.0Q76 690 54 690H38V700Z" transform="translate(7363.5,0) scale(1,-1)"/><path d="M606 205 560 0H42V10H55Q81 10 99.5 28.5Q118 47 119 73V627Q118 653 99.5 671.5Q81 690 55 690H42V700H346V690H333Q307 690 288.5 671.5Q270 653 269 627V43H400Q450 43 488.0 62.5Q526 82 553.0 118.5Q580 155 596 205Z" transform="translate(8254.5,0) scale(1,-1)"/><path d="M654 719V544L644 545V556Q644 603 616.5 630.5Q589 658 542 659H409V73Q410 47 428.5 28.5Q447 10 473 10H486V0H182V10H195Q221 10 239.5 28.5Q258 47 259 73V659H125Q79 658 51.5 630.5Q24 603 24 556V545L14 544V719Q24 715 44.5 711.0Q65 707 90.0 704.0Q115 701 136 701H532Q554 701 578.5 704.0Q603 707 624.0 711.0Q645 715 654 719Z" transform="translate(8941.5,0) scale(1,-1)"/><path d="M442 714Q562 714 650.5 669.5Q739 625 787.5 544.0Q836 463 836 350Q836 238 787.5 156.5Q739 75 650.5 30.5Q562 -14 442 -14Q322 -14 233.5 30.5Q145 75 97.0 156.0Q49 237 49 350Q49 462 97.0 543.5Q145 625 233.5 669.5Q322 714 442 714ZM442 28Q513 28 564.0 67.5Q615 107 643.0 179.0Q671 251 671 350Q671 449 643.0 521.0Q615 593 564.0 632.5Q513 672 442 672Q372 672 320.5 632.5Q269 593 241.0 521.0Q213 449 213 350Q213 251 241.0 179.0Q269 107 320.5 67.5Q372 28 442 28Z" transform="translate(9678.5,0) scale(1,-1)"/></g> <g fill="#D9CBB3"><path d="M 4703.1 -793.7 C 5159.7 -1029.2 6148.8 -1029.2 6605.4 -793.7 C 6148.8 -739.8 5159.7 -739.8 4703.1 -793.7 Z"/><path d="M 5014.9 -1208.2 C 4983.2 -1454.9 4964.0 -1548.5 5175.8 -1633.6 C 5387.5 -1548.5 5470.3 -1454.9 5438.5 -1208.2 Z"/><path d="M 5870.0 -1208.2 C 5838.2 -1454.9 5921.0 -1548.5 6132.7 -1633.6 C 6344.5 -1548.5 6325.3 -1454.9 6293.6 -1208.2 Z"/><path d="M 4971.8 -900.2 C 4971.8 -1693.8 6336.7 -1693.8 6336.7 -900.2 Z"/><path d="M 5654.2 -1586.6 C 5510.1 -1753.3 5462.1 -1713.3 5462.1 -1613.2 C 5462.1 -1493.2 5548.5 -1473.2 5654.2 -1586.6 Z"/><path d="M 5654.2 -1586.6 C 5798.4 -1753.3 5846.4 -1713.3 5846.4 -1613.2 C 5846.4 -1493.2 5760.0 -1473.2 5654.2 -1586.6 Z"/><circle cx="5654.2" cy="-1586.6" r="82.4"/></g> <g><circle cx="5262.2" cy="-350.0" r="332.5" fill="none" stroke="#C8862A" stroke-width="59.5"/><circle cx="6046.2" cy="-350.0" r="332.5" fill="none" stroke="#C8862A" stroke-width="59.5"/><path d="M 5612.6 -388.5 C 5654.2 -451.5 5654.2 -451.5 5695.9 -388.5" fill="none" stroke="#C8862A" stroke-width="47.6" stroke-linecap="round"/><path d="M 5612.6 -297.5 C 5654.2 -339.5 5654.2 -339.5 5695.9 -297.5" fill="none" stroke="#C8862A" stroke-width="47.6" stroke-linecap="round"/></g> </svg></a>
+      <p>Um arquivo aberto sobre o que a história começou e não terminou de contar.</p>
+    </div>
+    <div>
+      <span class="mono">Pilares</span>
+      <p>Pedra e Poeira · Descoberto Ontem · Arquivo Selado · Últimos Isolados</p>
+    </div>
+    <div class="creditos">
+      <span class="mono">© 2026 Vestígio Oculto</span>
+      <span class="mono">Dossiê 002 · revisado em set 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var barra = document.getElementById('progresso');
+  function atualiza() {
+    var h = document.documentElement;
+    var total = h.scrollHeight - h.clientHeight;
+    barra.style.width = (total > 0 ? (h.scrollTop / total) * 100 : 0) + '%';
+  }
+  document.addEventListener('scroll', atualiza, { passive: true });
+  atualiza();
+
+  var figs = document.querySelectorAll('.reveal-fig');
+  if (!('IntersectionObserver' in window) ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    figs.forEach(function (f) { f.classList.add('visivel'); });
+  } else {
+    var obs = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('visivel'); obs.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    figs.forEach(function (f) { obs.observe(f); });
+  }
+
+  var lupa = document.getElementById('lupa');
+  var img = document.getElementById('lupa-img');
+  var leg = document.getElementById('lupa-legenda');
+  var btn = document.getElementById('lupa-fechar');
+  var ultimo = null;
+
+  function abrir(fig) {
+    var origem = fig.querySelector('img');
+    img.src = origem.src; img.alt = origem.alt;
+    leg.textContent = fig.querySelector('figcaption').textContent.trim();
+    lupa.classList.add('aberta');
+    document.body.style.overflow = 'hidden';
+    ultimo = origem; btn.focus();
+  }
+  function fechar() {
+    lupa.classList.remove('aberta');
+    document.body.style.overflow = '';
+    if (ultimo) ultimo.focus();
+  }
+
+  figs.forEach(function (fig) {
+    var alvo = fig.querySelector('img');
+    alvo.tabIndex = 0;
+    alvo.addEventListener('click', function () { abrir(fig); });
+    alvo.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); abrir(fig); }
+    });
+  });
+  btn.addEventListener('click', fechar);
+  lupa.addEventListener('click', function (e) { if (e.target === lupa) fechar(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && lupa.classList.contains('aberta')) fechar();
+  });
+})();
+</script>
+
+</body>
+</html>

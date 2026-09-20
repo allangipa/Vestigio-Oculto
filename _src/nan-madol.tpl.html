@@ -588,7 +588,9 @@
   var ultimo = null;
 
   function abrir(origem, legenda) {
-    img.src = origem.src; img.alt = origem.alt;
+    // currentSrc é o arquivo que o navegador de fato escolheu. Sem isso, num
+    // <picture> a lupa baixaria o PNG de fallback em vez do WebP já em cache.
+    img.src = origem.currentSrc || origem.src; img.alt = origem.alt;
     leg.textContent = legenda;
     lupa.classList.add('aberta');
     document.body.style.overflow = 'hidden';

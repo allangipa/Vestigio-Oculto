@@ -137,8 +137,41 @@ def variantes_de_imagem() -> None:
             im.resize((L, alt), Image.LANCZOS).save(
                 destino, "JPEG", quality=80, progressive=True, optimize=True)
             feitas += 1
+
+    feitas += webp_dos_png(img, Image)
     if feitas:
         print(f"  ✓ {feitas} variante(s) de imagem")
+
+
+def webp_dos_png(img, Image) -> int:
+    """Converte para WebP todo PNG que algum <picture> referencia.
+
+    Só os PNG valem a conversão. Os JPEG do acervo já estão em q82 e o WebP não
+    tira nada deles — alguns até crescem. Nos dois PNG de figura científica o
+    ganho é de 87%: o formato guarda cor chapada e linha fina sem o desperdício
+    do PNG, e o canal alfa dos dois é 100% opaco, peso morto puro.
+
+    O PNG continua no repositório como fallback do <picture>. Ele não é baixado
+    por nenhum navegador lançado depois de 2020.
+    """
+    alvos = set()
+    for tpl in SRC.glob("*.tpl.html"):
+        texto = tpl.read_text(encoding="utf-8")
+        for nome in re.findall(r'srcset="[^"]*assets/img/([^"]+)\.webp"', texto):
+            alvos.add(nome + ".png")
+
+    feitas = 0
+    for nome in sorted(alvos):
+        origem = img / nome
+        destino = origem.with_suffix(".webp")
+        if not origem.exists():
+            print(f"  ! PNG ausente para o WebP referenciado: {nome}")
+            continue
+        if destino.exists() and destino.stat().st_mtime >= origem.stat().st_mtime:
+            continue
+        Image.open(origem).convert("RGB").save(destino, "WEBP", quality=82, method=6)
+        feitas += 1
+    return feitas
 
 
 def main() -> None:

@@ -1939,8 +1939,11 @@ h1, h2, h3, h4 {
     </p>
 
     <figure class="figura lado reveal-fig">
-      <img src="../assets/img/am-02-lidar-real.png" loading="lazy" width="960" height="429"
-           alt="Modelo de elevação obtido por lidar mostrando geoglifos e estradas sob a floresta, ao lado do desenho interpretado">
+      <picture>
+        <source srcset="../assets/img/am-02-lidar-real.webp" type="image/webp">
+        <img src="../assets/img/am-02-lidar-real.png" loading="lazy" width="960" height="429"
+             alt="Modelo de elevação obtido por lidar mostrando geoglifos e estradas sob a floresta, ao lado do desenho interpretado">
+      </picture>
       <figcaption>
         <b class="acervo-linha">Acervo</b> — o dado de lidar publicado. À esquerda, o modelo de elevação em sombreamento; à direita, o traçado interpretado dos geoglifos e das estradas. <span class="acervo-fonte">Pärssinen, M.; Kalliola, R.; Ranzi, A. et al., <i>Over 20,000 precolonial earthworks in the Southwest Amazonia</i>, Nature (2026), CC BY 4.0.</span>
       </figcaption>
@@ -2257,8 +2260,11 @@ h1, h2, h3, h4 {
     </p>
 
     <figure class="figura larga reveal-fig">
-      <img src="../assets/img/am-06-aquiry-mapa-real.png" loading="lazy" width="891" height="875"
-           alt="Mapa da área do Aquiry com a distribuição dos geoglifos e aterros já localizados">
+      <picture>
+        <source srcset="../assets/img/am-06-aquiry-mapa-real.webp" type="image/webp">
+        <img src="../assets/img/am-06-aquiry-mapa-real.png" loading="lazy" width="891" height="875"
+             alt="Mapa da área do Aquiry com a distribuição dos geoglifos e aterros já localizados">
+      </picture>
       <figcaption>
         <b class="acervo-linha">Acervo</b> — a distribuição dos geoglifos e aterros localizados até 2026 no alto rio Acre. Cada ponto é uma estrutura confirmada. <span class="acervo-fonte">Pärssinen et al., Nature (2026), CC BY 4.0.</span>
       </figcaption>
@@ -2429,7 +2435,9 @@ h1, h2, h3, h4 {
 
   function abrir(fig) {
     var origem = fig.querySelector('img');
-    img.src = origem.src; img.alt = origem.alt;
+    // currentSrc é o arquivo que o navegador de fato escolheu. Sem isso, num
+    // <picture> a lupa baixaria o PNG de fallback em vez do WebP já em cache.
+    img.src = origem.currentSrc || origem.src; img.alt = origem.alt;
     leg.textContent = fig.querySelector('figcaption').textContent.trim();
     lupa.classList.add('aberta');
     document.body.style.overflow = 'hidden';

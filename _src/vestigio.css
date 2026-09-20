@@ -61,7 +61,10 @@ body {
   font-weight: 350;
   line-height: 1.72;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  /* clip, não hidden: 'hidden' transformaria o body em contêiner de rolagem
+     e mataria o position:sticky da barra de filtros. 'clip' corta o
+     transbordo horizontal sem criar rolagem. */
+  overflow-x: clip;
 }
 
 /* Grão fino — peso de papel, sem sujar a paleta */
@@ -866,7 +869,9 @@ h1, h2, h3, h4 {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 340px;
   gap: 1.5rem;
-  align-items: start;
+  /* Sem align-items: start. As duas colunas esticam juntas, então a foto
+     acompanha a altura da coluna de apoio e não sobra buraco embaixo dela,
+     qualquer que seja o conteúdo das caixas. */
   padding-top: calc(var(--topo) + 2rem);
 }
 @media (max-width: 1000px) {
@@ -898,9 +903,16 @@ h1, h2, h3, h4 {
   position: absolute;
   inset: 0;
   z-index: -1;
+  /* O hero agora acompanha a altura da coluna de apoio, então o bloco de
+     texto começa mais alto na foto. O véu de baixo sobe junto, senão o
+     kicker cai em cima do céu claro e some. */
   background:
-    linear-gradient(180deg, color-mix(in srgb, var(--carvao) 55%, transparent) 0%, transparent 34%),
-    linear-gradient(0deg, var(--carvao) 4%, color-mix(in srgb, var(--carvao) 72%, transparent) 46%, transparent 78%);
+    linear-gradient(180deg, color-mix(in srgb, var(--carvao) 55%, transparent) 0%, transparent 30%),
+    linear-gradient(0deg,
+      var(--carvao) 2%,
+      color-mix(in srgb, var(--carvao) 82%, transparent) 38%,
+      color-mix(in srgb, var(--carvao) 52%, transparent) 66%,
+      transparent 94%);
 }
 .hero-foto h1 {
   font-size: clamp(1.7rem, 3.3vw, 2.9rem);
@@ -950,7 +962,31 @@ h1, h2, h3, h4 {
   margin-bottom: .9rem;
 }
 
-/* Filtro por pilar */
+/* Filtro por pilar — barra presa ao topo, acima da grade que ela filtra */
+.barra-filtros {
+  position: sticky;
+  top: var(--topo);
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem .9rem;
+  margin-top: 2.6rem;
+  padding: .9rem 0;
+  background: var(--carvao);
+  border-bottom: 1px solid var(--linha);
+}
+.barra-filtros::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 100%;
+  height: 1.1rem;
+  background: linear-gradient(var(--carvao), transparent);
+  pointer-events: none;
+}
+.barra-filtros .contador { margin-top: 0; }
+
 .filtros { display: flex; flex-wrap: wrap; gap: .5rem; }
 .filtros button {
   font-family: var(--mono);
@@ -987,7 +1023,7 @@ h1, h2, h3, h4 {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr));
   gap: 1.5rem;
-  margin-top: 1.5rem;
+  margin-top: 1.6rem;
 }
 .quadro {
   display: flex;
@@ -1552,4 +1588,22 @@ h1, h2, h3, h4 {
   letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--osso-fraco);
+}
+
+/* ============================================================
+   24b. ESQUEMAS — diagramas próprios, desenhados em SVG
+   Entram onde não existe (nem deve existir) fotografia. Não
+   levam etiqueta de Recriação nem de Acervo: não são imagem do
+   lugar, são desenho nosso, e a legenda diz isso.
+   ============================================================ */
+.figura.esquema svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--linha);
+  background: var(--carvao-2);
+}
+.figura.esquema figcaption b {
+  color: var(--osso);
+  border-color: var(--osso-fraco);
 }

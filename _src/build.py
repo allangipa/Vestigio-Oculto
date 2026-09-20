@@ -50,6 +50,7 @@ PAGINAS = {
     "amazonia-lidar.tpl.html": "dossies/amazonia-lidar.html",
     "manuscrito-voynich.tpl.html": "dossies/manuscrito-voynich.html",
     "denisovanos.tpl.html": "dossies/denisovanos.html",
+    "sentinela-do-norte.tpl.html": "dossies/sentinela-do-norte.html",
     "grande-piramide.tpl.html": "dossies/grande-piramide.html",
 }
 

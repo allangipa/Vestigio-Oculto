@@ -83,7 +83,10 @@ body {
   font-weight: 350;
   line-height: 1.72;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  /* clip, não hidden: 'hidden' transformaria o body em contêiner de rolagem
+     e mataria o position:sticky da barra de filtros. 'clip' corta o
+     transbordo horizontal sem criar rolagem. */
+  overflow-x: clip;
 }
 
 /* Grão fino — peso de papel, sem sujar a paleta */
@@ -888,7 +891,9 @@ h1, h2, h3, h4 {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 340px;
   gap: 1.5rem;
-  align-items: start;
+  /* Sem align-items: start. As duas colunas esticam juntas, então a foto
+     acompanha a altura da coluna de apoio e não sobra buraco embaixo dela,
+     qualquer que seja o conteúdo das caixas. */
   padding-top: calc(var(--topo) + 2rem);
 }
 @media (max-width: 1000px) {
@@ -920,9 +925,16 @@ h1, h2, h3, h4 {
   position: absolute;
   inset: 0;
   z-index: -1;
+  /* O hero agora acompanha a altura da coluna de apoio, então o bloco de
+     texto começa mais alto na foto. O véu de baixo sobe junto, senão o
+     kicker cai em cima do céu claro e some. */
   background:
-    linear-gradient(180deg, color-mix(in srgb, var(--carvao) 55%, transparent) 0%, transparent 34%),
-    linear-gradient(0deg, var(--carvao) 4%, color-mix(in srgb, var(--carvao) 72%, transparent) 46%, transparent 78%);
+    linear-gradient(180deg, color-mix(in srgb, var(--carvao) 55%, transparent) 0%, transparent 30%),
+    linear-gradient(0deg,
+      var(--carvao) 2%,
+      color-mix(in srgb, var(--carvao) 82%, transparent) 38%,
+      color-mix(in srgb, var(--carvao) 52%, transparent) 66%,
+      transparent 94%);
 }
 .hero-foto h1 {
   font-size: clamp(1.7rem, 3.3vw, 2.9rem);
@@ -972,7 +984,31 @@ h1, h2, h3, h4 {
   margin-bottom: .9rem;
 }
 
-/* Filtro por pilar */
+/* Filtro por pilar — barra presa ao topo, acima da grade que ela filtra */
+.barra-filtros {
+  position: sticky;
+  top: var(--topo);
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem .9rem;
+  margin-top: 2.6rem;
+  padding: .9rem 0;
+  background: var(--carvao);
+  border-bottom: 1px solid var(--linha);
+}
+.barra-filtros::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 100%;
+  height: 1.1rem;
+  background: linear-gradient(var(--carvao), transparent);
+  pointer-events: none;
+}
+.barra-filtros .contador { margin-top: 0; }
+
 .filtros { display: flex; flex-wrap: wrap; gap: .5rem; }
 .filtros button {
   font-family: var(--mono);
@@ -1009,7 +1045,7 @@ h1, h2, h3, h4 {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr));
   gap: 1.5rem;
-  margin-top: 1.5rem;
+  margin-top: 1.6rem;
 }
 .quadro {
   display: flex;
@@ -1575,6 +1611,24 @@ h1, h2, h3, h4 {
   text-transform: uppercase;
   color: var(--osso-fraco);
 }
+
+/* ============================================================
+   24b. ESQUEMAS — diagramas próprios, desenhados em SVG
+   Entram onde não existe (nem deve existir) fotografia. Não
+   levam etiqueta de Recriação nem de Acervo: não são imagem do
+   lugar, são desenho nosso, e a legenda diz isso.
+   ============================================================ */
+.figura.esquema svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--linha);
+  background: var(--carvao-2);
+}
+.figura.esquema figcaption b {
+  color: var(--osso);
+  border-color: var(--osso-fraco);
+}
 </style>
 <script type="application/ld+json">
 {
@@ -1616,34 +1670,22 @@ h1, h2, h3, h4 {
       <img src="assets/img/001-gobekli-tepe-capa.jpg"
            alt="Recriação da colina de Göbekli Tepe ao anoitecer, no sudeste da Turquia"
            width="1600" height="900" fetchpriority="high">
-      <span class="kicker">Arquivo aberto · 10 dossiês</span>
+      <span class="kicker">Arquivo aberto · 21 dossiês</span>
       <h1>Nem tudo que foi enterrado <em>queria</em> ser encontrado.</h1>
       <p class="linha-fina">
-        Dez investigações sobre lugares, documentos e povos que a ciência
-        alcançou pela metade. Cada dossiê reúne o que existe de material, o que
+        Vinte e uma investigações sobre lugares, documentos e povos que a
+        ciência alcançou pela metade. Cada dossiê reúne o que existe de material, o que
         se disputa academicamente e o que continua sem resposta.
       </p>
       <div class="hero-meta">
-        <div><span class="rotulo">Dossiês</span><span class="valor">10</span></div>
-        <div><span class="rotulo">Publicados</span><span class="valor viva">05</span></div>
+        <div><span class="rotulo">Dossiês</span><span class="valor">21</span></div>
+        <div><span class="rotulo">Publicados</span><span class="valor viva">06</span></div>
         <div><span class="rotulo">Pilares</span><span class="valor">04</span></div>
         <div><span class="rotulo">Atualizado</span><span class="valor">Set 2026</span></div>
       </div>
     </section>
 
     <aside class="apoio">
-      <div class="caixa">
-        <h2>O que você procura?</h2>
-        <div class="filtros" role="group" aria-label="Filtrar dossiês por pilar">
-          <button type="button" data-pilar="todos" aria-pressed="true">Todos</button>
-          <button type="button" data-pilar="pedra">Pedra e Poeira</button>
-          <button type="button" data-pilar="ontem">Descoberto Ontem</button>
-          <button type="button" data-pilar="selado">Arquivo Selado</button>
-          <button type="button" data-pilar="isolados">Últimos Isolados</button>
-        </div>
-        <span class="contador" id="contador">10 dossiês</span>
-      </div>
-
       <div class="caixa">
         <span class="selo-metodo">✓ Método</span>
         <h2>Quando não há resposta, o dossiê diz isso.</h2>
@@ -1677,6 +1719,18 @@ h1, h2, h3, h4 {
 
   <!-- ========== QUADROS ========== -->
   <section class="wrap" id="dossies">
+
+    <div class="barra-filtros">
+      <div class="filtros" role="group" aria-label="Filtrar dossiês por pilar">
+        <button type="button" data-pilar="todos" aria-pressed="true">Todos</button>
+        <button type="button" data-pilar="pedra">Pedra e Poeira</button>
+        <button type="button" data-pilar="ontem">Descoberto Ontem</button>
+        <button type="button" data-pilar="selado">Arquivo Selado</button>
+        <button type="button" data-pilar="isolados">Últimos Isolados</button>
+      </div>
+      <span class="contador" id="contador">21 dossiês</span>
+    </div>
+
     <div class="quadros" id="quadros">
 
       <!-- 001 -->
@@ -1795,18 +1849,18 @@ h1, h2, h3, h4 {
 
       <!-- 005 -->
       <article class="quadro" data-pilar="isolados">
-        <a class="quadro-foto sem-imagem" href="#dossies">
-          <span class="aguardando">Imagem em produção</span>
+        <a class="quadro-foto sem-imagem" href="dossies/sentinela-do-norte.html">
+          <span class="aguardando">Sem fotografia</span>
           <span class="quadro-legenda">
             <span>
               <h3>Sentinela do Norte</h3>
               <span class="origem">Últimos Isolados · Andamão, Índia</span>
             </span>
-            <span class="estado apuracao">Apuração</span>
+            <span class="estado publicado">Publicado</span>
           </span>
         </a>
         <div class="quadro-dados">
-          <div><span class="rot">Área</span><span class="val">≈ 60 km²</span></div>
+          <div><span class="rot">Área</span><span class="val">59,67 km²</span></div>
           <div><span class="rot">Contato</span><span class="val neutro">proibido por lei</span></div>
         </div>
         <div class="quadro-texto">
@@ -1816,7 +1870,11 @@ h1, h2, h3, h4 {
           o que decidimos não perguntar, e quanto a nossa curiosidade já custou
           a eles.</p>
         </div>
-        <div class="chips"><span>Em apuração</span></div>
+        <div class="chips">
+          <a href="dossies/sentinela-do-norte.html">Dossiê completo</a>
+          <a href="dossies/sentinela-do-norte.html#teorias">Teorias</a>
+          <a href="dossies/sentinela-do-norte.html#cronologia">Cronologia</a>
+        </div>
       </article>
 
       <!-- 006 -->
@@ -1958,6 +2016,259 @@ h1, h2, h3, h4 {
         </div>
       </article>
 
+      <!-- 011 -->
+      <article class="quadro" data-pilar="pedra">
+        <a class="quadro-foto sem-imagem" href="#dossies">
+          <span class="aguardando">Imagem em produção</span>
+          <span class="quadro-legenda">
+            <span>
+              <h3>As Linhas de Nazca</h3>
+              <span class="origem">Pedra e Poeira · Pampa de Nazca, Peru</span>
+            </span>
+            <span class="estado apuracao">Apuração</span>
+          </span>
+        </a>
+        <div class="quadro-dados">
+          <div><span class="rot">Extensão</span><span class="val">≈ 450 km²</span></div>
+          <div><span class="rot">Legíveis</span><span class="val neutro">só do alto</span></div>
+        </div>
+        <div class="quadro-texto">
+          <p><strong>Desenhos grandes demais para quem os fez enxergar.</strong>
+          Traçados de até trezentos metros riscados no deserto entre os séculos V a.C. e V d.C. Quem os abriu nunca viu o resultado inteiro — e a discussão sobre função, calendário e água continua tão viva quanto as linhas.</p>
+        </div>
+        <div class="chips"><span>Em apuração</span></div>
+      </article>
+
+      <!-- 012 -->
+      <article class="quadro" data-pilar="pedra">
+        <a class="quadro-foto sem-imagem" href="#dossies">
+          <span class="aguardando">Imagem em produção</span>
+          <span class="quadro-legenda">
+            <span>
+              <h3>Puma Punku</h3>
+              <span class="origem">Pedra e Poeira · Altiplano, Bolívia</span>
+            </span>
+            <span class="estado apuracao">Apuração</span>
+          </span>
+        </a>
+        <div class="quadro-dados">
+          <div><span class="rot">Material</span><span class="val">andesito e arenito</span></div>
+          <div><span class="rot">Ângulos</span><span class="val neutro">cortes em H repetidos</span></div>
+        </div>
+        <div class="quadro-texto">
+          <p><strong>Peças que encaixam como se tivessem sido fabricadas em série.</strong>
+          Blocos com faces planas, ângulos internos e furos alinhados, a quase quatro mil metros de altitude. É o sítio que mais alimenta teoria improvável na internet — e é justamente por isso que merece apuração sóbria.</p>
+        </div>
+        <div class="chips"><span>Em apuração</span></div>
+      </article>
+
+      <!-- 013 -->
+      <article class="quadro" data-pilar="pedra">
+        <a class="quadro-foto sem-imagem" href="#dossies">
+          <span class="aguardando">Imagem em produção</span>
+          <span class="quadro-legenda">
+            <span>
+              <h3>Os moais da Ilha de Páscoa</h3>
+              <span class="origem">Pedra e Poeira · Rapa Nui, Chile</span>
+            </span>
+            <span class="estado apuracao">Apuração</span>
+          </span>
+        </a>
+        <div class="quadro-dados">
+          <div><span class="rot">Estátuas</span><span class="val">quase 900</span></div>
+          <div><span class="rot">Maior erguido</span><span class="val neutro">≈ 10 m</span></div>
+        </div>
+        <div class="quadro-texto">
+          <p><strong>Estátuas de dezenas de toneladas atravessaram a ilha inteira.</strong>
+          A pedreira de Rano Raraku ainda guarda moais pela metade, presos à rocha. Como foram movidos, por que pararam de ser feitos e o que realmente aconteceu com a população são três perguntas distintas — e costumam ser confundidas numa só.</p>
+        </div>
+        <div class="chips"><span>Em apuração</span></div>
+      </article>
+
+      <!-- 014 -->
+      <article class="quadro" data-pilar="ontem">
+        <a class="quadro-foto sem-imagem" href="#dossies">
+          <span class="aguardando">Imagem em produção</span>
+          <span class="quadro-legenda">
+            <span>
+              <h3>O mecanismo de Anticítera</h3>
+              <span class="origem">Descoberto Ontem · Egeu, Grécia</span>
+            </span>
+            <span class="estado apuracao">Apuração</span>
+          </span>
+        </a>
+        <div class="quadro-dados">
+          <div><span class="rot">Recuperado em</span><span class="val">1901</span></div>
+          <div><span class="rot">Engrenagens</span><span class="val neutro">ao menos 30</span></div>
+        </div>
+        <div class="quadro-texto">
+          <p><strong>Um calculador astronômico de bronze com dois mil anos.</strong>
+          Saiu de um naufrágio como um bloco verde e disforme. Foram necessários raios-X, tomografia e um século de trabalho para descobrir que ali dentro havia um trem de engrenagens capaz de prever eclipses.</p>
+        </div>
+        <div class="chips"><span>Em apuração</span></div>
+      </article>
+
+      <!-- 015 -->
+      <article class="quadro" data-pilar="ontem">
+        <a class="quadro-foto sem-imagem" href="#dossies">
+          <span class="aguardando">Imagem em produção</span>
+          <span class="quadro-legenda">
+            <span>
+              <h3>A anomalia do mar Báltico</h3>
+              <span class="origem">Descoberto Ontem · Golfo de Bótnia</span>
+            </span>
+            <span class="estado apuracao">Apuração</span>
+          </span>
+        </a>
+        <div class="quadro-dados">
+          <div><span class="rot">Sonar</span><span class="val">2011</span></div>
+          <div><span class="rot">Profundidade</span><span class="val neutro">≈ 90 m</span></div>
+        </div>
+        <div class="quadro-texto">
+          <p><strong>Uma forma circular no fundo do mar, achada por acaso.</strong>
+          Um levantamento em busca de naufrágios devolveu uma imagem de sonar redonda demais para ser ignorada. Geólogos falam em depósito glacial; a internet falou em outra coisa. O dossiê separa o eco do sonar da leitura do eco.</p>
+        </div>
+        <div class="chips"><span>Em apuração</span></div>
+      </article>
+
+      <!-- 016 -->
+      <article class="quadro" data-pilar="ontem">
+        <a class="quadro-foto sem-imagem" href="#dossies">
+          <span class="aguardando">Imagem em produção</span>
+          <span class="quadro-legenda">
+            <span>
+              <h3>O DNA fantasma da África Ocidental</h3>
+              <span class="origem">Descoberto Ontem · Genética de populações</span>
+            </span>
+            <span class="estado apuracao">Apuração</span>
+          </span>
+        </a>
+        <div class="quadro-dados">
+          <div><span class="rot">Detectado em</span><span class="val">2020</span></div>
+          <div><span class="rot">Fósseis</span><span class="val neutro">nenhum</span></div>
+        </div>
+        <div class="quadro-texto">
+          <p><strong>Uma linhagem humana conhecida apenas por vestígio genético.</strong>
+          Populações atuais da África Ocidental carregam trechos de DNA que não batem com sapiens, neandertais nem denisovanos. O grupo que os deixou nunca foi encontrado — é o caso dos denisovanos, mas sem o osso.</p>
+        </div>
+        <div class="chips"><span>Em apuração</span></div>
+      </article>
+
+      <!-- 017 -->
+      <article class="quadro" data-pilar="selado">
+        <a class="quadro-foto sem-imagem" href="#dossies">
+          <span class="aguardando">Imagem em produção</span>
+          <span class="quadro-legenda">
+            <span>
+              <h3>O incidente da passagem Dyatlov</h3>
+              <span class="origem">Arquivo Selado · Urais, URSS, 1959</span>
+            </span>
+            <span class="estado apuracao">Apuração</span>
+          </span>
+        </a>
+        <div class="quadro-dados">
+          <div><span class="rot">Mortos</span><span class="val">9</span></div>
+          <div><span class="rot">Barraca</span><span class="val neutro">cortada por dentro</span></div>
+        </div>
+        <div class="quadro-texto">
+          <p><strong>Nove esquiadores saíram da barraca no escuro, a vinte e cinco graus negativos.</strong>
+          O inquérito soviético encerrou o caso atribuindo as mortes a uma força natural irresistível e selou os autos. Desde então vieram avalanche de placa, infrassom e uma dúzia de hipóteses — nenhuma explica tudo.</p>
+        </div>
+        <div class="chips"><span>Em apuração</span></div>
+      </article>
+
+      <!-- 018 -->
+      <article class="quadro" data-pilar="selado">
+        <a class="quadro-foto sem-imagem" href="#dossies">
+          <span class="aguardando">Imagem em produção</span>
+          <span class="quadro-legenda">
+            <span>
+              <h3>A colônia perdida de Roanoke</h3>
+              <span class="origem">Arquivo Selado · Carolina do Norte, 1590</span>
+            </span>
+            <span class="estado apuracao">Apuração</span>
+          </span>
+        </a>
+        <div class="quadro-dados">
+          <div><span class="rot">Colonos</span><span class="val">117</span></div>
+          <div><span class="rot">Deixado para trás</span><span class="val neutro">uma palavra</span></div>
+        </div>
+        <div class="quadro-texto">
+          <p><strong>Um assentamento inteiro desapareceu sem sinal de luta.</strong>
+          Quando o navio de suprimentos voltou, três anos atrasado, a paliçada estava vazia e havia CROATOAN entalhado num poste. A pista mais óbvia da história colonial americana nunca foi seguida até o fim.</p>
+        </div>
+        <div class="chips"><span>Em apuração</span></div>
+      </article>
+
+      <!-- 019 -->
+      <article class="quadro" data-pilar="selado">
+        <a class="quadro-foto sem-imagem" href="#dossies">
+          <span class="aguardando">Imagem em produção</span>
+          <span class="quadro-legenda">
+            <span>
+              <h3>Kryptos</h3>
+              <span class="origem">Arquivo Selado · Langley, Virgínia</span>
+            </span>
+            <span class="estado apuracao">Apuração</span>
+          </span>
+        </a>
+        <div class="quadro-dados">
+          <div><span class="rot">Instalada em</span><span class="val">1990</span></div>
+          <div><span class="rot">Trechos abertos</span><span class="val neutro">3 de 4</span></div>
+        </div>
+        <div class="quadro-texto">
+          <p><strong>Há trinta e seis anos uma escultura na CIA guarda um texto que ninguém leu.</strong>
+          Jim Sanborn cravou quase duas mil letras numa lâmina de cobre ondulada no pátio da agência. Três seções caíram. A quarta, de noventa e sete caracteres, resiste a criptógrafos profissionais e a três pistas dadas pelo próprio autor.</p>
+        </div>
+        <div class="chips"><span>Em apuração</span></div>
+      </article>
+
+      <!-- 020 -->
+      <article class="quadro" data-pilar="isolados">
+        <a class="quadro-foto sem-imagem" href="#dossies">
+          <span class="aguardando">Imagem em produção</span>
+          <span class="quadro-legenda">
+            <span>
+              <h3>O povo mashco piro</h3>
+              <span class="origem">Últimos Isolados · Madre de Dios, Peru</span>
+            </span>
+            <span class="estado apuracao">Apuração</span>
+          </span>
+        </a>
+        <div class="quadro-dados">
+          <div><span class="rot">População estimada</span><span class="val">≈ 750</span></div>
+          <div><span class="rot">Aparições</span><span class="val neutro">cada vez mais frequentes</span></div>
+        </div>
+        <div class="quadro-texto">
+          <p><strong>Eles estão aparecendo nas margens — e isso é um sintoma.</strong>
+          Um dos maiores grupos isolados da Amazônia peruana vem sendo empurrado para fora da mata pela extração de madeira. Cada avistamento registrado mede menos a curiosidade deles do que a pressão sobre o território.</p>
+        </div>
+        <div class="chips"><span>Em apuração</span></div>
+      </article>
+
+      <!-- 021 -->
+      <article class="quadro" data-pilar="isolados">
+        <a class="quadro-foto sem-imagem" href="#dossies">
+          <span class="aguardando">Imagem em produção</span>
+          <span class="quadro-legenda">
+            <span>
+              <h3>A tribo korowai</h3>
+              <span class="origem">Últimos Isolados · Papua, Indonésia</span>
+            </span>
+            <span class="estado apuracao">Apuração</span>
+          </span>
+        </a>
+        <div class="quadro-dados">
+          <div><span class="rot">Casas</span><span class="val">até 20 m do chão</span></div>
+          <div><span class="rot">Contato</span><span class="val neutro">anos 1970</span></div>
+        </div>
+        <div class="quadro-texto">
+          <p><strong>Casas de árvore altas o bastante para enxergar o inimigo chegando.</strong>
+          Até a década de 1970 havia clãs korowai que não sabiam da existência de gente fora do próprio vale. O que se conta sobre eles hoje passou por tanta televisão que separar etnografia de encenação virou parte do trabalho.</p>
+        </div>
+        <div class="chips"><span>Em apuração</span></div>
+      </article>
+
     </div>
   </section>
 
@@ -1976,25 +2287,25 @@ h1, h2, h3, h4 {
     </div>
 
     <div class="pilares">
-      <article class="pilar">
+      <article class="pilar" id="pedra-e-poeira">
         <h3>Pedra e Poeira</h3>
         <p>Arquitetura e engenharia que não cabem na cronologia aceita. O que foi construído antes de existir quem, em tese, soubesse construir.</p>
-        <span class="contagem">03 dossiês</span>
+        <span class="contagem">06 dossiês</span>
       </article>
-      <article class="pilar">
+      <article class="pilar" id="descoberto-ontem">
         <h3>Descoberto Ontem</h3>
         <p>Achados que só apareceram porque a tecnologia mudou. Lidar, tomografia, sequenciamento — instrumentos novos relendo evidências antigas.</p>
-        <span class="contagem">04 dossiês</span>
+        <span class="contagem">07 dossiês</span>
       </article>
-      <article class="pilar">
+      <article class="pilar" id="arquivo-selado">
         <h3>Arquivo Selado</h3>
         <p>Documentos sem decifração e expedições sem desfecho. Casos em que o registro existe, está preservado — e continua ilegível.</p>
-        <span class="contagem">02 dossiês</span>
+        <span class="contagem">05 dossiês</span>
       </article>
-      <article class="pilar">
+      <article class="pilar" id="ultimos-isolados">
         <h3>Últimos Isolados</h3>
         <p>Territórios e povos fora do alcance do mundo contemporâneo — e o que a nossa curiosidade custa a eles.</p>
-        <span class="contagem">01 dossiê</span>
+        <span class="contagem">03 dossiês</span>
       </article>
     </div>
   </section>

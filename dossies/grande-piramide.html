@@ -17,6 +17,8 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="google-adsense-account" content="ca-pub-4401770243539507">
+<link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -1629,6 +1631,68 @@ h1, h2, h3, h4 {
   color: var(--osso);
   border-color: var(--osso-fraco);
 }
+
+/* ============================================================
+   25. FAIXA DE CONSENTIMENTO
+   Fica presa embaixo, ocupa pouco e não cobre o texto. Some
+   assim que a pessoa responde — e não volta a perguntar.
+   ============================================================ */
+.consentimento {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 60;
+  background: var(--carvao-2);
+  border-top: 1px solid var(--linha-viva);
+  box-shadow: 0 -18px 40px rgba(0, 0, 0, .5);
+}
+.consentimento[hidden] { display: none; }
+.consentimento .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 1.6rem;
+  padding-block: 1rem;
+}
+.consentimento p {
+  margin: 0;
+  max-width: 68ch;
+  font-size: .88rem;
+  line-height: 1.6;
+  color: var(--osso-suave);
+}
+.consentimento a { color: var(--ambar); }
+.consentimento .botoes { display: flex; gap: .6rem; flex-shrink: 0; }
+.consentimento button {
+  font-family: var(--mono);
+  font-size: .64rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: .6rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid var(--linha-viva);
+  background: transparent;
+  color: var(--osso-suave);
+  cursor: pointer;
+  transition: color var(--transicao), border-color var(--transicao), background var(--transicao);
+}
+.consentimento button:hover { color: var(--gelo); border-color: var(--osso-fraco); }
+.consentimento button.principal {
+  background: var(--ambar);
+  border-color: var(--ambar);
+  color: var(--carvao);
+  font-weight: 500;
+}
+.consentimento button.principal:hover { background: #d9973b; border-color: #d9973b; color: var(--carvao); }
+
+/* O rodapé ganhou um link; que ele não fique igual ao texto morto ao lado. */
+.rodape .creditos a { color: var(--osso-suave); text-decoration: none; }
+.rodape .creditos a:hover { color: var(--ambar); text-decoration: underline; }
+
+@media (max-width: 560px) {
+  .consentimento .wrap { flex-direction: column; align-items: stretch; }
+  .consentimento .botoes button { flex: 1; }
+}
 </style>
 <script type="application/ld+json">
 {
@@ -1796,12 +1860,10 @@ h1, h2, h3, h4 {
     </p>
 
     <figure class="figura larga reveal-fig">
-      <img src="../assets/img/006-grande-piramide.jpg" loading="lazy" width="1200" height="675"
-           alt="Recriação de uma pirâmide de pedra no deserto ao entardecer">
+      <img src="../assets/img/006-grande-piramide-real.jpg" loading="lazy" width="960" height="540"
+           alt="Fotografia da Grande Pirâmide de Gizé ao fim da tarde, com as fiadas de pedra expostas até o topo">
       <figcaption>
-        <b>Recriação</b> — imagem de ambiente, não é fotografia de Gizé. A
-        Grande Pirâmide perdeu quase todo o revestimento de calcário de Tura, e
-        hoje o que se vê são as fiadas do núcleo.
+        <b class="acervo-linha">Acervo</b> — Grande Pirâmide de Gizé. Repare nas fiadas expostas até o ápice: é assim que se distingue Quéops de Quéfren, que conserva um capuz liso de calcário no topo. <span class="acervo-fonte">Foto Gary Todd, CC0.</span>
       </figcaption>
     </figure>
 
@@ -2036,6 +2098,7 @@ h1, h2, h3, h4 {
     </div>
     <div class="creditos">
       <span class="mono">© 2026 Vestígio Oculto</span>
+      <span class="mono"><a href="../privacidade.html">Política de privacidade</a></span>
       <span class="mono">Dossiê 006 · revisado em set 2026</span>
     </div>
   </div>
@@ -2099,6 +2162,72 @@ h1, h2, h3, h4 {
   });
 })();
 </script>
+
+<div class="consentimento" id="consentimento" role="dialog" aria-live="polite"
+     aria-label="Aviso de cookies" hidden>
+  <div class="wrap">
+    <p>
+      Este site usa cookies do Google AdSense para exibir anúncios e medir
+      audiência. Não coletamos cadastro, não pedimos e-mail e não temos
+      formulário. Detalhes na
+      <a href="../privacidade.html">política de privacidade</a>.
+    </p>
+    <div class="botoes">
+      <button type="button" data-consent="recusar">Recusar anúncios</button>
+      <button type="button" data-consent="aceitar" class="principal">Entendi</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var CHAVE = 'vo-consentimento';
+  var PUB = 'pub-4401770243539507';
+  var BLOQUEIA = false;   // true = só carrega anúncio após "Entendi"
+
+  function ler() {
+    try { return localStorage.getItem(CHAVE); } catch (e) { return null; }
+  }
+  function gravar(v) {
+    try { localStorage.setItem(CHAVE, v); } catch (e) { /* modo privado: segue sem gravar */ }
+  }
+
+  var escolha = ler();
+
+  // O script do AdSense não fica no HTML: entra por aqui, e só quando pode.
+  function carregaAnuncios() {
+    if (!PUB || document.getElementById('vo-ads')) return;
+    var s = document.createElement('script');
+    s.id = 'vo-ads';
+    s.async = true;
+    s.crossOrigin = 'anonymous';
+    s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-' + PUB;
+    document.head.appendChild(s);
+  }
+
+  if (escolha === 'aceitar' || (escolha === null && !BLOQUEIA)) carregaAnuncios();
+
+  var caixa = document.getElementById('consentimento');
+  if (escolha === null && caixa) {
+    caixa.hidden = false;
+    caixa.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-consent]');
+      if (!b) return;
+      var v = b.dataset.consent;
+      gravar(v);
+      caixa.hidden = true;
+      if (v === 'aceitar') carregaAnuncios();
+      else {
+        // Recusou: se o script já havia entrado, tira da próxima navegação.
+        var s = document.getElementById('vo-ads');
+        if (s) s.remove();
+      }
+    });
+  }
+})();
+</script>
+
 
 </body>
 </html>

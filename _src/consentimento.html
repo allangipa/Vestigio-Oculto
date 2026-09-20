@@ -1,0 +1,64 @@
+<div class="consentimento" id="consentimento" role="dialog" aria-live="polite"
+     aria-label="Aviso de cookies" hidden>
+  <div class="wrap">
+    <p>
+      Este site usa cookies do Google AdSense para exibir anúncios e medir
+      audiência. Não coletamos cadastro, não pedimos e-mail e não temos
+      formulário. Detalhes na
+      <a href="{{RAIZ}}privacidade.html">política de privacidade</a>.
+    </p>
+    <div class="botoes">
+      <button type="button" data-consent="recusar">Recusar anúncios</button>
+      <button type="button" data-consent="aceitar" class="principal">Entendi</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var CHAVE = 'vo-consentimento';
+  var PUB = '{{ADSENSE_PUB}}';
+  var BLOQUEIA = {{CONSENTIMENTO_BLOQUEIA}};   // true = só carrega anúncio após "Entendi"
+
+  function ler() {
+    try { return localStorage.getItem(CHAVE); } catch (e) { return null; }
+  }
+  function gravar(v) {
+    try { localStorage.setItem(CHAVE, v); } catch (e) { /* modo privado: segue sem gravar */ }
+  }
+
+  var escolha = ler();
+
+  // O script do AdSense não fica no HTML: entra por aqui, e só quando pode.
+  function carregaAnuncios() {
+    if (!PUB || document.getElementById('vo-ads')) return;
+    var s = document.createElement('script');
+    s.id = 'vo-ads';
+    s.async = true;
+    s.crossOrigin = 'anonymous';
+    s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-' + PUB;
+    document.head.appendChild(s);
+  }
+
+  if (escolha === 'aceitar' || (escolha === null && !BLOQUEIA)) carregaAnuncios();
+
+  var caixa = document.getElementById('consentimento');
+  if (escolha === null && caixa) {
+    caixa.hidden = false;
+    caixa.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-consent]');
+      if (!b) return;
+      var v = b.dataset.consent;
+      gravar(v);
+      caixa.hidden = true;
+      if (v === 'aceitar') carregaAnuncios();
+      else {
+        // Recusou: se o script já havia entrado, tira da próxima navegação.
+        var s = document.getElementById('vo-ads');
+        if (s) s.remove();
+      }
+    });
+  }
+})();
+</script>

@@ -90,7 +90,60 @@ PAGINAS = {
 }
 
 
+def variantes_de_imagem() -> None:
+    """Gera as versões reduzidas usadas pelo srcset da home.
+
+    Os quadros são exibidos entre ~358 px (celular) e 628 px (duas colunas a
+    partir de 1280). Servir sempre o arquivo grande fazia a home baixar 2,2 MB
+    mesmo em tela comum. Com 640 e 800 no srcset, o navegador escolhe o menor
+    que serve — e a home cai para cerca de 700 KB em 1x.
+
+    É idempotente: só regera o que está faltando ou desatualizado.
+    """
+    try:
+        from PIL import Image
+    except ImportError:
+        print("  ! Pillow ausente: variantes de imagem não geradas")
+        return
+
+    img = RAIZ / "assets" / "img"
+    if not img.is_dir():
+        return
+
+    # quais arquivos a home usa, e em que larguras
+    alvo = {}
+    home = SRC / "index.tpl.html"
+    if home.exists():
+        for nome in re.findall(r'<img src="assets/img/([^"]+)"', home.read_text(encoding="utf-8")):
+            if re.search(r"-(640|800|960|1280)\.", nome):
+                continue
+            alvo[nome] = (640, 800, 960, 1280) if nome.startswith("001-gobekli-tepe-capa") else (640, 800)
+
+    feitas = 0
+    for nome, larguras in alvo.items():
+        origem = img / nome
+        if not origem.exists():
+            continue
+        im = None
+        for L in larguras:
+            destino = img / f"{origem.stem}-{L}{origem.suffix}"
+            if destino.exists() and destino.stat().st_mtime >= origem.stat().st_mtime:
+                continue
+            if im is None:
+                im = Image.open(origem).convert("RGB")
+            if L >= im.width:
+                continue
+            alt = int(round(im.height * L / im.width))
+            im.resize((L, alt), Image.LANCZOS).save(
+                destino, "JPEG", quality=80, progressive=True, optimize=True)
+            feitas += 1
+    if feitas:
+        print(f"  ✓ {feitas} variante(s) de imagem")
+
+
 def main() -> None:
+    variantes_de_imagem()
+
     for template, destino in PAGINAS.items():
         origem = SRC / template
         if not origem.exists():

@@ -157,6 +157,7 @@ PAGINAS = {
     "404.tpl.html": "404.html",
     "gobekli-tepe.tpl.html": "dossies/gobekli-tepe.html",
     "amazonia-lidar.tpl.html": "dossies/amazonia-lidar.html",
+    "nadadores-do-saara.tpl.html": "dossies/nadadores-do-saara.html",
     "serra-da-capivara.tpl.html": "dossies/serra-da-capivara.html",
     "papiros-herculano.tpl.html": "dossies/papiros-herculano.html",
     "percy-fawcett.tpl.html": "dossies/percy-fawcett.html",

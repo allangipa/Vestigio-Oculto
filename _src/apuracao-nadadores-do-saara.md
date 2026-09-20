@@ -46,6 +46,22 @@ rupestre mais rico e atraente do Deserto Líbio, se não de todo o Saara".
 
 Cerca de **8.000 figuras isoladas**, e várias dezenas das tais criaturas.
 
+### O projeto que documentou tudo
+
+A [página oficial do volume no Heinrich Barth Institut](https://hbi.uni-koeln.de/en/books/africa-praehistorica/details/wadi-sura-the-cave-of-beasts),
+consultada em 20/09/2026, registra:
+
+- Investigação interdisciplinar **iniciada em 2009**.
+- Financiada pelo **DFG**, o conselho alemão de pesquisa.
+- Volume de **545 páginas**, ISBN 978-3-927688-40-7.
+- Colaboradores: F. Bartz, E. Büttner, F. Darius, F. Förster,
+  L. Hermsdorf-Knauth, S. Krause, H. Leisen, H. Riemer, J. Seidel e A. Zboray.
+
+Esta entrada foi acrescentada depois de uma conferência cruzada entre o dossiê
+publicado e esta apuração: o ano de 2009 estava na cronologia da página sem
+estar registrado aqui. O dado era verdadeiro e conferido, mas afirmação
+publicada tem de ter a fonte escrita no lugar onde se confere.
+
 ---
 
 ## 2. A data — e como ela foi obtida

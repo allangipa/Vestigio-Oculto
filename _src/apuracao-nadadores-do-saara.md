@@ -204,7 +204,7 @@ um deles que achou a segunda caverna.
 | Rhotert foi o primeiro a ler as figuras como mortos | não achei no AP26; ao contrário, o volume diz que em 1952 ele **não reconheceu** o motivo da fera. Só com o original de Rhotert na mão |
 | Yasser Al-Laithy e o paralelo com o Livro dos Portões de Ramsés VI | só apareceu em enciclopédia aberta; nenhuma publicação localizada |
 | "Cerca de 8.000 anos" como idade redonda | é arredondamento de divulgação; temos a faixa real e o método |
-| Coordenadas exatas do sítio | ainda sem fonte citável — **pendente para o JSON-LD `geo`** |
+| Coordenadas exatas do sítio | sem fonte citável. **Decidido em 20/09/2026: o JSON-LD sai sem `geo`.** É o único dos onze assim, e a inconsistência é preferível a um número de origem desconhecida |
 
 ---
 

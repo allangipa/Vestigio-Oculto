@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Os corredores vazios da Grande Pirâmide | Vestígio Oculto</title>
-<meta name="description" content="Dossiê sobre a Grande Pirâmide de Gizé: a tomografia por múons cósmicos, o grande vazio de 2017, o corredor da face norte confirmado em 2023 e o diário do inspetor Merer.">
+<meta name="description" content="Partículas vindas do espaço mapearam cavidades que nenhuma escavação abriu. A planta da Grande Pirâmide segue incompleta.">
 <meta name="theme-color" content="#0B0B0C">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="canonical" href="https://vestigiooculto.com.br/dossies/grande-piramide.html">
@@ -1693,6 +1693,73 @@ h1, h2, h3, h4 {
   .consentimento .wrap { flex-direction: column; align-items: stretch; }
   .consentimento .botoes button { flex: 1; }
 }
+
+/* Retrato vertical: não estica para a medida do texto — uma foto de 500 px
+   ampliada para 66ch vira borrão. Fica centrada, no tamanho que aguenta. */
+.figura.retrato img { max-width: 340px; width: 100%; display: block; margin-inline: auto; }
+.figura.retrato figcaption { text-align: center; margin-inline: auto; }
+
+/* ============================================================
+   26. LEIA TAMBÉM
+   Liga os dossiês entre si. Antes, cada um tinha um único link de
+   saída — ruim para quem lê e ruim para o rastreamento do Google,
+   que mede a profundidade e a ligação das páginas.
+   ============================================================ */
+.relacionados {
+  margin-top: clamp(3rem, 6vh, 4.5rem);
+  padding-top: 2rem;
+  border-top: 1px solid var(--linha);
+}
+.relacionados > .mono {
+  display: block;
+  font-size: .6rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ambar);
+  margin-bottom: 1.2rem;
+}
+.relacionados ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 1px;
+  background: var(--linha);
+  border: 1px solid var(--linha);
+}
+.relacionados li { background: var(--carvao-2); }
+.relacionados a {
+  display: block;
+  padding: 1.2rem 1.3rem;
+  text-decoration: none;
+  transition: background var(--transicao);
+}
+.relacionados a:hover { background: var(--carvao-3); }
+.relacionados .num {
+  display: block;
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: .18em;
+  color: var(--osso-fraco);
+  margin-bottom: .5rem;
+}
+.relacionados strong {
+  display: block;
+  font-family: var(--display);
+  font-size: 1.02rem;
+  line-height: 1.25;
+  color: var(--gelo);
+  font-weight: 600;
+}
+.relacionados a:hover strong { color: var(--ambar); }
+.relacionados .porque {
+  display: block;
+  margin-top: .55rem;
+  font-size: .84rem;
+  line-height: 1.5;
+  color: var(--osso-suave);
+}
 </style>
 <script type="application/ld+json">
 {
@@ -1702,19 +1769,41 @@ h1, h2, h3, h4 {
   "description": "Dossiê investigativo sobre as cavidades detectadas na Grande Pirâmide de Gizé por tomografia de múons cósmicos, e sobre o que se sabe de quem a construiu.",
   "inLanguage": "pt-BR",
   "datePublished": "2026-09-19",
-  "dateModified": "2026-09-19",
+  "dateModified": "2026-09-20",
   "articleSection": "Pedra e Poeira",
   "keywords": "Grande Pirâmide, Gizé, Quéops, Khufu, múons, ScanPyramids, diário de Merer, arqueologia",
-  "author": { "@type": "Organization", "name": "Vestígio Oculto" },
-  "publisher": { "@type": "Organization", "name": "Vestígio Oculto" },
+  "author": {
+    "@type": "Organization",
+    "name": "Vestígio Oculto"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Vestígio Oculto",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://vestigiooculto.com.br/favicon.svg"
+    }
+  },
   "about": {
     "@type": "Place",
     "name": "Grande Pirâmide de Gizé",
     "description": "Pirâmide construída para o faraó Quéops na IV dinastia egípcia, no planalto de Gizé, e o único dos monumentos da lista clássica das sete maravilhas que permanece de pé.",
-    "geo": { "@type": "GeoCoordinates", "latitude": 29.9792, "longitude": 31.1342 },
-    "containedInPlace": { "@type": "AdministrativeArea", "name": "Gizé, Egito" }
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 29.9792,
+      "longitude": 31.1342
+    },
+    "containedInPlace": {
+      "@type": "AdministrativeArea",
+      "name": "Gizé, Egito"
+    }
   },
-  "temporalCoverage": "-2560/2026"
+  "temporalCoverage": "-2560/2026",
+  "image": "https://vestigiooculto.com.br/assets/img/og-vestigio-oculto.jpg",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://vestigiooculto.com.br/dossies/grande-piramide.html"
+  }
 }
 </script>
 </head>
@@ -1799,10 +1888,14 @@ h1, h2, h3, h4 {
     </p>
 
     <p>
-      A primeira anomalia apareceu em outubro de 2016, atrás dos chevrons — as
-      grandes pedras em V que aliviam o peso sobre a entrada original, na face
-      norte. A termografia mostrou um comportamento térmico que não batia com o
-      resto da face. Ficou anotado como suspeita.
+      A primeira pista apareceu em novembro de 2015: a termografia
+      infravermelha registrou, atrás dos chevrons — as grandes pedras em V que
+      aliviam o peso sobre a entrada original, na face norte —, um comportamento
+      térmico que não batia com o resto da face. Foi o bastante para a equipe
+      instalar filmes de emulsão nuclear no Corredor Descendente, apontados para
+      aquela região. Em 15 de outubro de 2016, depois de sessenta e sete dias de
+      exposição, veio o anúncio: havia ali um excesso de múons com significância
+      de cinco sigma — ou seja, um vazio alongado de pelo menos cinco metros.
     </p>
 
     <h2 id="vazio"><span class="indice">02</span>O grande vazio</h2>
@@ -1837,11 +1930,12 @@ h1, h2, h3, h4 {
     <h2 id="corredor"><span class="indice">03</span>O corredor da face norte</h2>
 
     <p>
-      A suspeita de 2016 levou mais tempo, e terminou melhor. Em março de 2023,
-      a <em>Nature Communications</em> publicou a caracterização precisa da
-      estrutura atrás dos chevrons: um corredor situado entre dezessete e vinte
-      e três metros acima do nível do solo, a menos de dois metros da
-      superfície da face norte.
+      O achado de 2016 levou mais tempo para ser medido, e terminou melhor. Em
+      março de 2023, a <em>Nature Communications</em> publicou a caracterização
+      precisa da estrutura atrás dos chevrons: um corredor de nove metros de
+      comprimento e seção de cerca de dois por dois metros, horizontal, com o
+      piso a aproximadamente vinte metros acima da base — uns sete metros acima
+      da entrada original — e a menos de um metro da face externa do chevron.
     </p>
 
     <p>
@@ -1949,8 +2043,9 @@ h1, h2, h3, h4 {
       <p>
         A ideia é engenhosa e explica bem o problema logístico de erguer blocos
         acima dos cem metros. O que falta é confirmação: a muografia não
-        desenhou nenhuma espiral, e o único vazio grande localizado até agora
-        não tem a posição que o modelo previa.
+        desenhou nenhuma espiral, e a posição do único vazio grande localizado
+        até agora — no eixo central, acima da Galeria — não é a que uma rampa em
+        espiral exigiria, ainda que Houdin sustente o contrário.
       </p>
     </div>
 
@@ -1994,12 +2089,13 @@ h1, h2, h3, h4 {
 
     <ul class="cronologia">
       <li><span class="quando">c. 2560 a.C.</span><span class="oque">Construção da pirâmide para o faraó Quéops, na IV dinastia. Altura original de 146,6 metros.</span></li>
-      <li><span class="quando">c. 2566 – 2589 a.C.</span><span class="oque">Período coberto pelo diário do inspetor Merer, que registra o transporte de calcário de Tura ao canteiro.</span></li>
+      <li><span class="quando">anos 26 e 27 do reinado</span><span class="oque">Período coberto pelo diário do inspetor Merer: cerca de quatro meses, de julho a novembro, registrando o transporte de calcário de Tura ao canteiro.</span></li>
       <li><span class="quando">séculos IX – XIX</span><span class="oque">Aberturas, escavações e sondagens sucessivas. As câmaras conhecidas já haviam sido esvaziadas.</span></li>
       <li><span class="quando">anos 1990</span><span class="oque">Escavação da vila dos trabalhadores e das tumbas dos construtores no planalto de Gizé.</span></li>
       <li><span class="quando">2013</span><span class="oque">A missão de Pierre Tallet e Gregory Marouard encontra os papiros de Wadi al-Jarf, os mais antigos com texto já achados.</span></li>
       <li><span class="quando">outubro de 2015</span><span class="oque">Começa o ScanPyramids, com o compromisso de não tocar nos monumentos.</span></li>
-      <li><span class="quando">outubro de 2016</span><span class="oque">Termografia registra a primeira anomalia atrás dos chevrons, na face norte.</span></li>
+      <li><span class="quando">novembro de 2015</span><span class="oque">A termografia infravermelha registra uma anomalia térmica atrás dos chevrons, na face norte.</span></li>
+      <li><span class="quando">15 de outubro de 2016</span><span class="oque">A muografia confirma ali um vazio de pelo menos cinco metros, com significância de cinco sigma.</span></li>
       <li><span class="quando">2 de novembro de 2017</span><span class="oque">A <em>Nature</em> publica o grande vazio acima da Grande Galeria, confirmado por três equipes com tecnologias independentes.</span></li>
       <li><span class="quando">março de 2023</span><span class="oque">A <em>Nature Communications</em> caracteriza o corredor da face norte. Um endoscópio entra por uma junta existente e confirma a estrutura, vazia.</span></li>
     </ul>
@@ -2059,6 +2155,22 @@ h1, h2, h3, h4 {
       <li>Literatura de referência sobre a vila dos trabalhadores e as tumbas dos construtores no planalto de Gizé.</li>
     </ul>
 
+
+    <nav class="relacionados" aria-label="Dossiês relacionados">
+      <span class="mono">Leia também</span>
+      <ul>
+        <li><a href="nan-madol.html">
+          <span class="num">Dossiê 009</span>
+          <strong>Nan Madol — a cidade sobre o recife</strong>
+          <span class="porque">Outra obra megalítica cujo transporte ninguém explicou.</span>
+        </a></li>
+        <li><a href="gobekli-tepe.html">
+          <span class="num">Dossiê 001</span>
+          <strong>Göbekli Tepe — o templo enterrado de propósito</strong>
+          <span class="porque">Seis mil anos mais velho, e noventa por cento ainda enterrado.</span>
+        </a></li>
+      </ul>
+    </nav>
   </div>
   </article>
 

@@ -76,13 +76,17 @@ CONSENTIMENTO = (CONSENTIMENTO
 PAGINAS = {
     "index.tpl.html": "index.html",
     "privacidade.tpl.html": "privacidade.html",
+    "404.tpl.html": "404.html",
     "gobekli-tepe.tpl.html": "dossies/gobekli-tepe.html",
     "amazonia-lidar.tpl.html": "dossies/amazonia-lidar.html",
     "serra-da-capivara.tpl.html": "dossies/serra-da-capivara.html",
+    "papiros-herculano.tpl.html": "dossies/papiros-herculano.html",
+    "percy-fawcett.tpl.html": "dossies/percy-fawcett.html",
     "manuscrito-voynich.tpl.html": "dossies/manuscrito-voynich.html",
     "denisovanos.tpl.html": "dossies/denisovanos.html",
     "sentinela-do-norte.tpl.html": "dossies/sentinela-do-norte.html",
     "grande-piramide.tpl.html": "dossies/grande-piramide.html",
+    "nan-madol.tpl.html": "dossies/nan-madol.html",
 }
 
 
@@ -121,6 +125,38 @@ def main() -> None:
     if FAVICON.exists():
         shutil.copyfile(FAVICON, RAIZ / "favicon.svg")
         print("  ✓ favicon.svg")
+
+    # sitemap.xml e robots.txt: o Google precisa dos dois para rastrear bem.
+    # São gerados a partir de PAGINAS, então nunca ficam desatualizados.
+    from datetime import date
+    hoje = date.today().isoformat()
+    urls = []
+    for destino in PAGINAS.values():
+        if destino == "404.html":
+            continue  # página de erro não se indexa
+        loc = f"{DOMINIO.rstrip('/')}/{destino}"
+        # a home responde na raiz; o Google prefere a forma canônica
+        if destino == "index.html":
+            loc = DOMINIO.rstrip("/") + "/"
+        prioridade = "1.0" if destino == "index.html" else ("0.3" if destino == "privacidade.html" else "0.8")
+        urls.append(
+            f"  <url>\n    <loc>{loc}</loc>\n"
+            f"    <lastmod>{hoje}</lastmod>\n"
+            f"    <changefreq>monthly</changefreq>\n"
+            f"    <priority>{prioridade}</priority>\n  </url>")
+    (RAIZ / "sitemap.xml").write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        + "\n".join(urls) + "\n</urlset>\n", encoding="utf-8")
+    print(f"  ✓ sitemap.xml  ({len(urls)} URLs)")
+
+    (RAIZ / "robots.txt").write_text(
+        "# Vestígio Oculto\n"
+        "User-agent: *\n"
+        "Allow: /\n"
+        "Disallow: /_src/\n\n"
+        f"Sitemap: {DOMINIO.rstrip('/')}/sitemap.xml\n", encoding="utf-8")
+    print("  ✓ robots.txt")
 
     # ads.txt precisa ficar na RAIZ do domínio, nunca numa subpasta.
     ads = RAIZ / "ads.txt"

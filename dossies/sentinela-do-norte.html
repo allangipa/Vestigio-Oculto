@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>As flechas da Sentinela do Norte | Vestígio Oculto</title>
-<meta name="description" content="Dossiê sobre a ilha Sentinela do Norte e os sentineleses: o inventário dos contatos desde 1771, o colapso demográfico de Andamão, o terremoto de 2004, o caso John Allen Chau e por que a Índia decidiu não insistir.">
+<meta name="description" content="Sessenta quilômetros quadrados no golfo de Bengala onde ninguém entra. O único mistério deste arquivo que não devemos resolver.">
 <meta name="theme-color" content="#0B0B0C">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="canonical" href="https://vestigiooculto.com.br/dossies/sentinela-do-norte.html">
@@ -1693,6 +1693,73 @@ h1, h2, h3, h4 {
   .consentimento .wrap { flex-direction: column; align-items: stretch; }
   .consentimento .botoes button { flex: 1; }
 }
+
+/* Retrato vertical: não estica para a medida do texto — uma foto de 500 px
+   ampliada para 66ch vira borrão. Fica centrada, no tamanho que aguenta. */
+.figura.retrato img { max-width: 340px; width: 100%; display: block; margin-inline: auto; }
+.figura.retrato figcaption { text-align: center; margin-inline: auto; }
+
+/* ============================================================
+   26. LEIA TAMBÉM
+   Liga os dossiês entre si. Antes, cada um tinha um único link de
+   saída — ruim para quem lê e ruim para o rastreamento do Google,
+   que mede a profundidade e a ligação das páginas.
+   ============================================================ */
+.relacionados {
+  margin-top: clamp(3rem, 6vh, 4.5rem);
+  padding-top: 2rem;
+  border-top: 1px solid var(--linha);
+}
+.relacionados > .mono {
+  display: block;
+  font-size: .6rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ambar);
+  margin-bottom: 1.2rem;
+}
+.relacionados ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 1px;
+  background: var(--linha);
+  border: 1px solid var(--linha);
+}
+.relacionados li { background: var(--carvao-2); }
+.relacionados a {
+  display: block;
+  padding: 1.2rem 1.3rem;
+  text-decoration: none;
+  transition: background var(--transicao);
+}
+.relacionados a:hover { background: var(--carvao-3); }
+.relacionados .num {
+  display: block;
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: .18em;
+  color: var(--osso-fraco);
+  margin-bottom: .5rem;
+}
+.relacionados strong {
+  display: block;
+  font-family: var(--display);
+  font-size: 1.02rem;
+  line-height: 1.25;
+  color: var(--gelo);
+  font-weight: 600;
+}
+.relacionados a:hover strong { color: var(--ambar); }
+.relacionados .porque {
+  display: block;
+  margin-top: .55rem;
+  font-size: .84rem;
+  line-height: 1.5;
+  color: var(--osso-suave);
+}
 </style>
 <script type="application/ld+json">
 {
@@ -1702,19 +1769,41 @@ h1, h2, h3, h4 {
   "description": "Dossiê investigativo sobre a ilha Sentinela do Norte, no arquipélago de Andamão, e sobre a decisão indiana de encerrar todas as tentativas de contato com os sentineleses.",
   "inLanguage": "pt-BR",
   "datePublished": "2026-09-19",
-  "dateModified": "2026-09-19",
+  "dateModified": "2026-09-20",
   "articleSection": "Últimos Isolados",
   "keywords": "Sentinela do Norte, sentineleses, Andamão, Nicobar, povos isolados, John Allen Chau, Triloknath Pandit, Survival International",
-  "author": { "@type": "Organization", "name": "Vestígio Oculto" },
-  "publisher": { "@type": "Organization", "name": "Vestígio Oculto" },
+  "author": {
+    "@type": "Organization",
+    "name": "Vestígio Oculto"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Vestígio Oculto",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://vestigiooculto.com.br/favicon.svg"
+    }
+  },
   "about": {
     "@type": "Place",
     "name": "Ilha Sentinela do Norte",
     "description": "Ilha de cerca de 60 km² no arquipélago de Andamão, golfo de Bengala, território da Índia, habitada por um povo que recusa contato e cuja aproximação é proibida por lei.",
-    "geo": { "@type": "GeoCoordinates", "latitude": 11.5776, "longitude": 92.2444 },
-    "containedInPlace": { "@type": "AdministrativeArea", "name": "Andamão e Nicobar, Índia" }
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 11.5776,
+      "longitude": 92.2444
+    },
+    "containedInPlace": {
+      "@type": "AdministrativeArea",
+      "name": "Andamão e Nicobar, Índia"
+    }
   },
-  "temporalCoverage": "1771/2026"
+  "temporalCoverage": "1771/2026",
+  "image": "https://vestigiooculto.com.br/assets/img/og-vestigio-oculto.jpg",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://vestigiooculto.com.br/dossies/sentinela-do-norte.html"
+  }
 }
 </script>
 </head>
@@ -1806,8 +1895,8 @@ h1, h2, h3, h4 {
       Sobre a população, é preciso ser honesto quanto ao método. Todos os
       números que circulam foram obtidos por contagem a distância, de barco ou
       de helicóptero, somando as pessoas visíveis na orla num dia específico. O
-      censo indiano de 2001 registrou 39 pessoas; o de 2011 registrou 15 — e o
-      próprio relatório descreve o número como estimativa grosseira. Uma
+      censo indiano de 2001 registrou 39 pessoas; o de 2011 registrou 15 —
+      número que a imprensa indiana descreveu, com razão, como um palpite. Uma
       circum-navegação de 2014 contou 16. O manual do <em>Anthropological
       Survey of India</em> de 2016 trabalha com uma faixa de 100 a 150. A
       literatura mais cautelosa fala em algo entre 50 e 200.
@@ -1838,7 +1927,7 @@ h1, h2, h3, h4 {
       </div>
       <div class="evidencia">
         <span class="medida">1991</span>
-        <span class="legenda">Ano do <strong>último contato pacífico</strong> documentado. O programa oficial de visitas foi encerrado poucos anos depois.</span>
+        <span class="legenda">Ano do <strong>primeiro contato pacífico</strong> documentado. O programa oficial de visitas foi encerrado poucos anos depois.</span>
       </div>
     </div>
 
@@ -1864,52 +1953,51 @@ h1, h2, h3, h4 {
     <figure class="figura larga esquema">
       <svg viewBox="0 0 640 360" role="img" aria-labelledby="mapa-titulo mapa-desc" preserveAspectRatio="xMidYMid meet">
         <title id="mapa-titulo">Esquema da ilha Sentinela do Norte e da zona de exclusão</title>
-        <desc id="mapa-desc">Diagrama esquemático mostrando a ilha, quase quadrada, com cerca de 7,8 por 7,0 quilômetros, cercada por um recife e por uma zona de exclusão legal de aproximadamente cinco quilômetros, e a direção de Port Blair, a cerca de cinquenta quilômetros a leste.</desc>
+        <desc id="mapa-desc">Diagrama esquemático mostrando a ilha, quase quadrada, com cerca de 7,8 por 7,0 quilômetros, cercada por um recife e por uma zona de exclusão legal de cinco milhas náuticas, cerca de 9,3 quilômetros. Uma seta indica a direção de Port Blair, a cerca de cinquenta quilômetros a leste, fora de escala.</desc>
 
         <rect x="0" y="0" width="640" height="360" fill="#121213"></rect>
 
-        <!-- zona de exclusão -->
-        <circle cx="230" cy="180" r="126" fill="none" stroke="#C8862A" stroke-width="1" stroke-dasharray="5 6" opacity="0.75"></circle>
-        <circle cx="230" cy="180" r="126" fill="#C8862A" opacity="0.045"></circle>
+        <!-- zona de exclusão: 9,26 km além da costa, a 8 px por km -->
+        <circle cx="230" cy="180" r="105" fill="none" stroke="#C8862A" stroke-width="1" stroke-dasharray="5 6" opacity="0.75"></circle>
+        <circle cx="230" cy="180" r="105" fill="#C8862A" opacity="0.045"></circle>
 
         <!-- recife -->
-        <path d="M168 118 q62 -14 126 2 q18 44 2 122 q-64 16 -130 -2 q-16 -60 2 -122 z"
+        <path d="M194 147 q36 -9 72 1 q10 26 1 70 q-37 9 -74 -1 q-9 -35 1 -70 z"
               fill="none" stroke="#756e62" stroke-width="1" stroke-dasharray="2 4"></path>
 
-        <!-- ilha -->
-        <path d="M176 126 q56 -12 112 2 q15 40 2 108 q-58 14 -116 -2 q-14 -54 2 -108 z"
+        <!-- ilha: 7,8 x 7,0 km -->
+        <path d="M199 152 q31 -7 62 1 q8 23 1 60 q-32 8 -64 -1 q-8 -30 1 -60 z"
               fill="#191919" stroke="#D9CBB3" stroke-width="1.4"></path>
 
-        <!-- eixo leste -->
-        <line x1="356" y1="180" x2="560" y2="180" stroke="#3a3630" stroke-width="1" stroke-dasharray="4 5"></line>
+        <!-- eixo leste, fora de escala -->
+        <line x1="345" y1="180" x2="560" y2="180" stroke="#3a3630" stroke-width="1" stroke-dasharray="4 5"></line>
         <path d="M560 180 l-9 -4.5 l0 9 z" fill="#756e62"></path>
 
-        <!-- rótulos -->
-        <text x="230" y="176" text-anchor="middle" fill="#F2F0EA" font-family="Cinzel, serif" font-size="14" letter-spacing="1.5">SENTINELA</text>
-        <text x="230" y="194" text-anchor="middle" fill="#F2F0EA" font-family="Cinzel, serif" font-size="14" letter-spacing="1.5">DO NORTE</text>
-        <text x="230" y="214" text-anchor="middle" fill="#a79c8a" font-family="ui-monospace, monospace" font-size="9" letter-spacing="1.2">7,8 × 7,0 km</text>
+        <line x1="230" y1="212" x2="230" y2="228" stroke="#756e62" stroke-width="1"></line>
+        <text x="230" y="244" text-anchor="middle" fill="#F2F0EA" font-family="Cinzel, serif" font-size="13" letter-spacing="1.4">SENTINELA DO NORTE</text>
+        <text x="230" y="260" text-anchor="middle" fill="#a79c8a" font-family="ui-monospace, monospace" font-size="9" letter-spacing="1.1">7,8 × 7,0 km · 59,67 km²</text>
 
-        <text x="230" y="42" text-anchor="middle" fill="#C8862A" font-family="ui-monospace, monospace" font-size="9.5" letter-spacing="2">ZONA DE EXCLUSÃO · ≈ 5 km</text>
-        <text x="230" y="330" text-anchor="middle" fill="#756e62" font-family="ui-monospace, monospace" font-size="9" letter-spacing="1.4">recife de coral</text>
+        <text x="230" y="48" text-anchor="middle" fill="#C8862A" font-family="ui-monospace, monospace" font-size="9.5" letter-spacing="1.6">ZONA DE EXCLUSÃO · 5 MILHAS NÁUTICAS (9,3 km)</text>
+        <text x="378" y="300" text-anchor="start" fill="#756e62" font-family="ui-monospace, monospace" font-size="9" letter-spacing="1.4">— contorno tracejado: recife de coral</text>
 
-        <text x="458" y="170" text-anchor="middle" fill="#a79c8a" font-family="ui-monospace, monospace" font-size="9.5" letter-spacing="1.4">≈ 50 km</text>
-        <text x="458" y="199" text-anchor="middle" fill="#F2F0EA" font-family="ui-monospace, monospace" font-size="10" letter-spacing="1.6">PORT BLAIR</text>
+        <text x="452" y="170" text-anchor="middle" fill="#a79c8a" font-family="ui-monospace, monospace" font-size="9.5" letter-spacing="1.4">≈ 50 km · fora de escala</text>
+        <text x="452" y="199" text-anchor="middle" fill="#F2F0EA" font-family="ui-monospace, monospace" font-size="10" letter-spacing="1.6">PORT BLAIR</text>
 
-        <!-- escala -->
-        <line x1="60" y1="318" x2="130" y2="318" stroke="#D9CBB3" stroke-width="1.2"></line>
+        <!-- escala: 5 km = 40 px -->
+        <line x1="60" y1="318" x2="100" y2="318" stroke="#D9CBB3" stroke-width="1.2"></line>
         <line x1="60" y1="313" x2="60" y2="323" stroke="#D9CBB3" stroke-width="1.2"></line>
-        <line x1="130" y1="313" x2="130" y2="323" stroke="#D9CBB3" stroke-width="1.2"></line>
-        <text x="95" y="337" text-anchor="middle" fill="#a79c8a" font-family="ui-monospace, monospace" font-size="9" letter-spacing="1.2">5 km</text>
+        <line x1="100" y1="313" x2="100" y2="323" stroke="#D9CBB3" stroke-width="1.2"></line>
+        <text x="80" y="337" text-anchor="middle" fill="#a79c8a" font-family="ui-monospace, monospace" font-size="9" letter-spacing="1.2">5 km</text>
 
-        <!-- norte -->
         <path d="M596 52 l7 20 l-7 -6 l-7 6 z" fill="#D9CBB3"></path>
         <text x="596" y="88" text-anchor="middle" fill="#a79c8a" font-family="ui-monospace, monospace" font-size="9" letter-spacing="1.2">N</text>
       </svg>
       <figcaption>
-        <b>Esquema</b> — diagrama próprio. As dimensões da ilha, o raio da zona
-        de exclusão e a distância até Port Blair estão em escala; o contorno da
-        costa e o traçado do recife são simplificados e não devem ser lidos
-        como carta náutica.
+        <b>Esquema</b> — diagrama próprio. As dimensões da ilha e o raio da
+        zona de exclusão estão em escala, a 8 px por quilômetro; a direção de
+        Port Blair é indicada, não desenhada em escala. O contorno da costa e o
+        traçado do recife são simplificados e não devem ser lidos como carta
+        náutica.
       </figcaption>
     </figure>
 
@@ -2059,11 +2147,13 @@ h1, h2, h3, h4 {
     <p>
       Foi esse raciocínio, e não sensibilidade abstrata, que encerrou o
       programa. As visitas oficiais foram interrompidas em meados dos anos
-      1990, e a política passou a ser descrita por seus próprios executores
+      1990 — entre 1994 e 1997, conforme a fonte —, e a política passou a ser
+      descrita por seus próprios executores
       como <em>hands-off, eyes-on</em>: mãos fora, olhos em cima. A
       <em>Andaman and Nicobar Islands (Protection of Aboriginal Tribes)
       Regulation</em>, de 1956, proíbe a viagem à ilha e a aproximação a menos
-      de cerca de cinco quilômetros. A Marinha e a Guarda Costeira patrulham o
+      de cinco milhas náuticas — cerca de 9,3 quilômetros. A Marinha e a Guarda
+      Costeira patrulham o
       perímetro.
     </p>
 
@@ -2119,8 +2209,9 @@ h1, h2, h3, h4 {
 
     <p>
       Em outubro de 2018 ele se instalou em Port Blair e pagou vinte e cinco
-      mil rupias a dois pescadores para levá-lo até as imediações da ilha. Nos
-      dias 14 a 16 de novembro fez aproximações de caiaque levando uma Bíblia
+      mil rupias a dois pescadores para levá-lo até as imediações da ilha. Foi
+      levado no fim da noite de 14 de novembro e nos dias 15 e 16 fez
+      aproximações de caiaque levando uma Bíblia
       impermeável, cartões com desenhos, um peixe e uma bola de futebol como
       presentes. Tentou falar, cantou hinos e experimentou palavras em xhosa.
       Num dos avanços, um menino sentinelês disparou uma flecha que atravessou
@@ -2130,9 +2221,9 @@ h1, h2, h3, h4 {
     <p>
       Ele voltou ao barco, escreveu no diário que talvez aquela ilha fosse o
       último reduto de Satã na Terra, ponderou se estava enlouquecendo, e
-      decidiu tentar de novo. Em 17 de novembro mandou os pescadores irem
-      embora sem ele. No dia seguinte, do mar, eles viram o corpo ser arrastado
-      pela praia e enterrado na areia.
+      decidiu tentar de novo. Na última ida mandou os pescadores irem embora
+      sem ele. Em 17 de novembro, do mar, eles viram o corpo ser arrastado pela
+      praia e enterrado na areia.
     </p>
 
     <p>
@@ -2158,7 +2249,7 @@ h1, h2, h3, h4 {
       indianos — Sunder Raj e Pandit Tiwari — pescavam caranguejo ilegalmente
       perto da ilha quando o barco derivou para a praia durante a noite; foram
       mortos, e o helicóptero enviado para recolher os corpos recuou sob
-      flechas. Em dezembro de 2022, três pescadores desapareceram e o barco
+      flechas — há relatos de que apenas um dos dois foi resgatado. Em dezembro de 2022, três pescadores desapareceram e o barco
       deles foi avistado na Sentinela. Em março de 2025, outro cidadão
       americano desembarcou sozinho, deixou na areia uma lata de refrigerante e
       um coco, recolheu amostras de areia e foi preso ao voltar.
@@ -2286,7 +2377,7 @@ h1, h2, h3, h4 {
       Três perguntas seguem em aberto, e apenas uma delas é sobre eles.
       <strong>Se o isolamento é sustentável</strong> — a pressão de pescadores,
       turistas e missionários só cresceu desde 2018, e a fiscalização de um
-      perímetro de cinco quilômetros em mar aberto é limitada.
+      perímetro de nove quilômetros em mar aberto é limitada.
       <strong>O que o soerguimento de 2004 fez à ilha no longo prazo</strong> —
       um recife morto e lagunas secas alteram a base alimentar de uma população
       pequena, e ninguém tem como medir isso sem chegar perto.
@@ -2323,6 +2414,22 @@ h1, h2, h3, h4 {
       <li>National Geographic — reportagem sobre o isolamento da ilha e sobre a pressão externa contemporânea.</li>
     </ul>
 
+
+    <nav class="relacionados" aria-label="Dossiês relacionados">
+      <span class="mono">Leia também</span>
+      <ul>
+        <li><a href="percy-fawcett.html">
+          <span class="num">Dossiê 007</span>
+          <strong>Percy Fawcett e a expedição que não voltou</strong>
+          <span class="porque">Outro caso em que entrar custou caro a quem entrou.</span>
+        </a></li>
+        <li><a href="amazonia-lidar.html">
+          <span class="num">Dossiê 002</span>
+          <strong>Cidades amazônicas reveladas por laser</strong>
+          <span class="porque">O que havia de gente na floresta, antes de as epidemias chegarem.</span>
+        </a></li>
+      </ul>
+    </nav>
   </div>
   </article>
 

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Denisovanos — a espécie descoberta num dedo | Vestígio Oculto</title>
-<meta name="description" content="Dossiê sobre os denisovanos: a falange de uma menina numa caverna siberiana, o genoma que revelou uma linhagem humana inteira, e os fósseis que estavam guardados em museus o tempo todo.">
+<meta name="description" content="Uma linhagem humana inteira saiu do DNA de um pedaço de falange numa caverna siberiana. Em 2026 ela finalmente ganhou um sítio próprio.">
 <meta name="theme-color" content="#0B0B0C">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="canonical" href="https://vestigiooculto.com.br/dossies/denisovanos.html">
@@ -1693,6 +1693,73 @@ h1, h2, h3, h4 {
   .consentimento .wrap { flex-direction: column; align-items: stretch; }
   .consentimento .botoes button { flex: 1; }
 }
+
+/* Retrato vertical: não estica para a medida do texto — uma foto de 500 px
+   ampliada para 66ch vira borrão. Fica centrada, no tamanho que aguenta. */
+.figura.retrato img { max-width: 340px; width: 100%; display: block; margin-inline: auto; }
+.figura.retrato figcaption { text-align: center; margin-inline: auto; }
+
+/* ============================================================
+   26. LEIA TAMBÉM
+   Liga os dossiês entre si. Antes, cada um tinha um único link de
+   saída — ruim para quem lê e ruim para o rastreamento do Google,
+   que mede a profundidade e a ligação das páginas.
+   ============================================================ */
+.relacionados {
+  margin-top: clamp(3rem, 6vh, 4.5rem);
+  padding-top: 2rem;
+  border-top: 1px solid var(--linha);
+}
+.relacionados > .mono {
+  display: block;
+  font-size: .6rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ambar);
+  margin-bottom: 1.2rem;
+}
+.relacionados ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 1px;
+  background: var(--linha);
+  border: 1px solid var(--linha);
+}
+.relacionados li { background: var(--carvao-2); }
+.relacionados a {
+  display: block;
+  padding: 1.2rem 1.3rem;
+  text-decoration: none;
+  transition: background var(--transicao);
+}
+.relacionados a:hover { background: var(--carvao-3); }
+.relacionados .num {
+  display: block;
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: .18em;
+  color: var(--osso-fraco);
+  margin-bottom: .5rem;
+}
+.relacionados strong {
+  display: block;
+  font-family: var(--display);
+  font-size: 1.02rem;
+  line-height: 1.25;
+  color: var(--gelo);
+  font-weight: 600;
+}
+.relacionados a:hover strong { color: var(--ambar); }
+.relacionados .porque {
+  display: block;
+  margin-top: .55rem;
+  font-size: .84rem;
+  line-height: 1.5;
+  color: var(--osso-suave);
+}
 </style>
 <script type="application/ld+json">
 {
@@ -1702,19 +1769,41 @@ h1, h2, h3, h4 {
   "description": "Dossiê investigativo sobre os denisovanos: descoberta, genoma, herança genética em populações vivas e a identificação recente de fósseis guardados em coleções.",
   "inLanguage": "pt-BR",
   "datePublished": "2026-09-19",
-  "dateModified": "2026-09-19",
+  "dateModified": "2026-09-20",
   "articleSection": "Descoberto Ontem",
   "keywords": "denisovanos, Caverna Denisova, Altai, paleogenética, Homo longi, Harbin, Xiahe, EPAS1",
-  "author": { "@type": "Organization", "name": "Vestígio Oculto" },
-  "publisher": { "@type": "Organization", "name": "Vestígio Oculto" },
+  "author": {
+    "@type": "Organization",
+    "name": "Vestígio Oculto"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Vestígio Oculto",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://vestigiooculto.com.br/favicon.svg"
+    }
+  },
   "about": {
     "@type": "Place",
     "name": "Caverna Denisova",
     "description": "Caverna nas montanhas Altai, sul da Sibéria, onde em 2008 foi recuperado o fragmento de falange que levou à identificação dos denisovanos.",
-    "geo": { "@type": "GeoCoordinates", "latitude": 51.3975, "longitude": 84.6761 },
-    "containedInPlace": { "@type": "AdministrativeArea", "name": "Altai, Rússia" }
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 51.3975,
+      "longitude": 84.6761
+    },
+    "containedInPlace": {
+      "@type": "AdministrativeArea",
+      "name": "Altai, Rússia"
+    }
   },
-  "temporalCoverage": "-198000/2026"
+  "temporalCoverage": "-198000/2026",
+  "image": "https://vestigiooculto.com.br/assets/img/og-vestigio-oculto.jpg",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://vestigiooculto.com.br/dossies/denisovanos.html"
+  }
 }
 </script>
 </head>
@@ -1767,8 +1856,10 @@ h1, h2, h3, h4 {
 
     <p class="abertura">
       A caverna fica numa encosta do vale do rio Anui, nas montanhas Altai, sul
-      da Sibéria. A entrada é ampla e seca, voltada para o norte, com um teto
-      alto o bastante para caber em pé. Foi ocupada por gente durante
+      da Sibéria. A entrada se abre na encosta sudoeste, a uns trinta metros
+      acima do leito do rio, e é seca. Era uma fenda de sete metros por um e
+      setenta antes das escavações; hoje o pé-direito chega a seis metros e dá
+      para entrar em pé. Foi ocupada por gente durante
       centenas de milhares de anos, em camadas: sedimento sobre sedimento, cada
       um com suas lascas de pedra, seus ossos de animal comido, seu carvão de
       fogueira. No verão de 2008, uma equipe do Instituto de Arqueologia e
@@ -1806,8 +1897,10 @@ h1, h2, h3, h4 {
       pertencia a uma população que havia divergido do tronco comum centenas de
       milhares de anos antes, que conviveu com neandertais e com humanos
       modernos, e sobre a qual a paleoantropologia não tinha absolutamente
-      nenhuma informação. Nem um dente catalogado, nem uma ferramenta
-      atribuída, nem um nome.
+      nenhuma informação. Nem sequer se sabia que um molar escavado ali em
+      2000, guardado como "humano arcaico indeterminado", era da mesma gente —
+      coisa que só o genoma nuclear revelaria. Nem uma ferramenta atribuída, nem
+      um nome.
     </p>
 
     <p>
@@ -1874,8 +1967,9 @@ h1, h2, h3, h4 {
     <p>
       Em populações de Melanésia e da Papua-Nova Guiné, a ancestralidade
       denisovana chega a cerca de <strong>5%</strong>. Entre aborígenes
-      australianos, a proporção é semelhante. Em alguns grupos negritos das
-      Filipinas, também. No continente asiático e nas Américas, cai para algo
+      australianos, a proporção é semelhante. E o recorde não está em nenhum dos
+      dois: os Ayta Magbukon, um grupo negrito das Filipinas, carregam a maior
+      ancestralidade denisovana já medida — de 30% a 40% acima dos papuásios. No continente asiático e nas Américas, cai para algo
       em torno de 0,2% — pequeno, mas presente.
     </p>
 
@@ -1898,8 +1992,9 @@ h1, h2, h3, h4 {
 
     <p>
       Definido o grupo pela genética, faltava encontrá-lo. E o mais notável é
-      onde ele foi encontrado: em coleções, gavetas e depósitos. Praticamente
-      nenhuma das descobertas seguintes exigiu uma escavação nova.
+      onde ele foi encontrado: em coleções, gavetas e depósitos. Por quinze anos,
+      quase nenhuma das descobertas exigiu escavação nova — até setembro de 2026,
+      quando a caverna de Bianfu quebrou o padrão. Ela fecha esta seção.
     </p>
 
     <h3>Xiahe, 1980</h3>
@@ -1941,7 +2036,9 @@ h1, h2, h3, h4 {
       O crânio é espetacular: enorme, com arcada supraciliar pesada e órbitas
       largas, e em estado de conservação que nenhum outro fóssil arcaico
       asiático tem. Em 2021 foi descrito como uma espécie nova,
-      <em>Homo longi</em> — o Homem Dragão, do rio Songhua.
+      <em>Homo longi</em> — o Homem Dragão. O epíteto não vem do Songhua, onde
+      o crânio apareceu, e sim de Heilongjiang, a província de Harbin, cujo nome
+      quer dizer "rio do dragão negro".
     </p>
 
     <p>
@@ -2031,8 +2128,10 @@ h1, h2, h3, h4 {
     <h2 id="cronologia"><span class="indice">06</span>Cronologia</h2>
 
     <ul class="cronologia">
-      <li><span class="quando">≈ 200 mil anos atrás</span><span class="oque">Limite mais antigo estimado para a presença denisovana registrada na Ásia.</span></li>
+      <li><span class="quando">≈ 217 mil anos atrás</span><span class="oque">DNA denisovano recuperado do próprio sedimento da caverna Denisova, mais fundo que qualquer fóssil. O fóssil mais antigo, um molar identificado em 2024, fica perto de 200 mil.</span></li>
       <li><span class="quando">&gt; 160 mil anos atrás</span><span class="oque">Idade da mandíbula de Xiahe, na caverna de Baishiya, no platô tibetano.</span></li>
+      <li><span class="quando">≈ 190 – 70 mil anos atrás</span><span class="oque">Período de ocupação intermitente da caverna de Bianfu, em Yunnan, no sudoeste da China.</span></li>
+      <li><span class="quando">≈ 167 – 134 mil anos atrás</span><span class="oque">Idade dos fósseis denisovanos de Bianfu: quatro dentes, dois fragmentos de crânio e um rádio.</span></li>
       <li><span class="quando">≈ 76 – 51 mil anos atrás</span><span class="oque">Intervalo revisto para a falange da caverna Denisova.</span></li>
       <li><span class="quando">≈ 48 – 32 mil anos atrás</span><span class="oque">Idade de um fragmento de costela de Baishiya identificado em 2024 — o registro denisovano mais recente conhecido.</span></li>
       <li><span class="quando">1933</span><span class="oque">O crânio de Harbin é encontrado em obras de uma ponte e escondido num poço, segundo o relato da família.</span></li>
@@ -2045,30 +2144,35 @@ h1, h2, h3, h4 {
       <li><span class="quando">2019</span><span class="oque">A mandíbula de Xiahe é identificada como denisovana por paleoproteômica — o primeiro fóssil do grupo fora da Sibéria.</span></li>
       <li><span class="quando">2021</span><span class="oque">O crânio de Harbin é descrito como espécie nova, <em>Homo longi</em>.</span></li>
       <li><span class="quando">junho de 2025</span><span class="oque">Proteínas do osso e DNA mitocondrial extraído do tártaro dentário identificam o crânio de Harbin como denisovano. No mesmo ano, a mandíbula de Penghu também.</span></li>
+      <li><span class="quando">9 de setembro de 2026</span><span class="oque">A caverna de Bianfu, em Yunnan, entrega quatro dentes, dois fragmentos de crânio e um rádio denisovanos, com indústria lítica, uso extensivo de osso e caça especializada de presas de médio e grande porte. É a primeira vez que o grupo aparece com repertório material próprio — e veio de escavação, não de gaveta.</span></li>
     </ul>
 
     <h2 id="aberto"><span class="indice">07</span>O que continua em aberto</h2>
 
     <p>
       A pergunta mais simples continua sem resposta: <strong>como eles
-      eram</strong>. Até 2025 não havia crânio; agora há um, e um só. Um
-      indivíduo não descreve uma população, e não se sabe quanto do que se vê
-      em Harbin é típico e quanto é particular daquele homem.
+      eram</strong>. Até 2025 não havia crânio; agora há um inteiro, mais os
+      fragmentos cranianos de Bianfu. Um indivíduo não descreve uma população, e
+      não se sabe quanto do que se vê em Harbin é típico e quanto é particular
+      daquele homem.
     </p>
 
     <p>
-      <strong>O que eles faziam</strong> também está quase vazio. A caverna
-      Denisova foi ocupada alternadamente por denisovanos, neandertais e
-      humanos modernos, e separar quem fez qual ferramenta em qual camada é
-      difícil. Há ornamentos e uma pulseira de clorita trabalhada nas camadas
-      denisovanas, mas a atribuição é discutida. Não existe nada comparável ao
-      repertório que se conhece dos neandertais.
+      <strong>O que eles faziam</strong> ficou menos vazio em 2026, mas
+      continua raso. Na caverna Denisova o problema é de atribuição: o sítio foi
+      ocupado alternadamente por denisovanos, neandertais e humanos modernos, e
+      separar quem fez qual ferramenta em qual camada é difícil — há ornamentos
+      e uma pulseira de clorita trabalhada nas camadas denisovanas, mas a
+      autoria é discutida. Bianfu mudou o patamar ao entregar indústria lítica e
+      uso de osso associados diretamente a fósseis denisovanos. Ainda assim, é
+      um sítio; não existe nada comparável ao repertório acumulado que se
+      conhece dos neandertais.
     </p>
 
     <p>
       <strong>Por que terminaram</strong> é a terceira. O registro mais recente
-      fica em torno de 32 mil anos atrás, mais ou menos quando os neandertais
-      também desaparecem. Competição, doença, mudança climática, absorção por
+      fica em torno de 32 mil anos atrás — alguns milênios depois de os
+      neandertais terem sumido da Europa, o que aconteceu por volta de 40 mil. Competição, doença, mudança climática, absorção por
       cruzamento — todas as hipóteses estão sobre a mesa e nenhuma tem
       evidência decisiva. A herança genética em populações vivas sugere que
       "desaparecer" é a palavra errada para pelo menos parte do processo.
@@ -2101,14 +2205,32 @@ h1, h2, h3, h4 {
 
     <ul class="fontes">
       <li>Verbete enciclopédico consolidado sobre os denisovanos — descoberta, datações, fósseis atribuídos e percentuais de ancestralidade.</li>
-      <li>Krause, J.; Pääbo, S. et al. — DNA mitocondrial do fóssil da caverna Denisova, 2010, e o genoma nuclear publicado no mesmo ano.</li>
+      <li>Krause, J.; Pääbo, S. et al. — DNA mitocondrial do fóssil da caverna Denisova. <em>Nature</em>, março de 2010.</li>
+      <li>Reich, D. et al. — o primeiro genoma nuclear denisovano. <em>Nature</em>, dezembro de 2010, que também identificou o molar Denisova 4 como um segundo indivíduo.</li>
       <li>Slon, V. et al. — Denisova 11, o indivíduo de primeira geração com mãe neandertal e pai denisovano, 2018.</li>
       <li>Chen, F. et al. — identificação por paleoproteômica da mandíbula de Xiahe, caverna de Baishiya, 2019; e o fragmento de costela do mesmo sítio, 2024.</li>
       <li>Identificação do crânio de Harbin como denisovano por proteoma e por DNA mitocondrial de tártaro dentário, publicada em <em>Science</em> e em <em>Cell</em> em junho de 2025.</li>
       <li>Identificação da mandíbula de Penghu, estreito de Taiwan, por análise de proteínas, 2025.</li>
+      <li>Ruan, Q.; Li, H.; Chen, F. et al. — <em>Denisovans from southwestern China and their subsistence strategies</em>. Nature, 9 de setembro de 2026.</li>
       <li>Huerta-Sánchez, E. et al. — origem denisovana da variante do EPAS1 em populações tibetanas, 2014.</li>
     </ul>
 
+
+    <nav class="relacionados" aria-label="Dossiês relacionados">
+      <span class="mono">Leia também</span>
+      <ul>
+        <li><a href="serra-da-capivara.html">
+          <span class="num">Dossiê 003</span>
+          <strong>A data que não fecha</strong>
+          <span class="porque">Outra data que a ciência precisou reescrever.</span>
+        </a></li>
+        <li><a href="papiros-herculano.html">
+          <span class="num">Dossiê 004</span>
+          <strong>Os papiros de Herculano</strong>
+          <span class="porque">O que estava guardado, esperando o instrumento certo.</span>
+        </a></li>
+      </ul>
+    </nav>
   </div>
   </article>
 

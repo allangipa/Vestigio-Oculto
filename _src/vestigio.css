@@ -1669,3 +1669,70 @@ h1, h2, h3, h4 {
   .consentimento .wrap { flex-direction: column; align-items: stretch; }
   .consentimento .botoes button { flex: 1; }
 }
+
+/* Retrato vertical: não estica para a medida do texto — uma foto de 500 px
+   ampliada para 66ch vira borrão. Fica centrada, no tamanho que aguenta. */
+.figura.retrato img { max-width: 340px; width: 100%; display: block; margin-inline: auto; }
+.figura.retrato figcaption { text-align: center; margin-inline: auto; }
+
+/* ============================================================
+   26. LEIA TAMBÉM
+   Liga os dossiês entre si. Antes, cada um tinha um único link de
+   saída — ruim para quem lê e ruim para o rastreamento do Google,
+   que mede a profundidade e a ligação das páginas.
+   ============================================================ */
+.relacionados {
+  margin-top: clamp(3rem, 6vh, 4.5rem);
+  padding-top: 2rem;
+  border-top: 1px solid var(--linha);
+}
+.relacionados > .mono {
+  display: block;
+  font-size: .6rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ambar);
+  margin-bottom: 1.2rem;
+}
+.relacionados ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 1px;
+  background: var(--linha);
+  border: 1px solid var(--linha);
+}
+.relacionados li { background: var(--carvao-2); }
+.relacionados a {
+  display: block;
+  padding: 1.2rem 1.3rem;
+  text-decoration: none;
+  transition: background var(--transicao);
+}
+.relacionados a:hover { background: var(--carvao-3); }
+.relacionados .num {
+  display: block;
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: .18em;
+  color: var(--osso-fraco);
+  margin-bottom: .5rem;
+}
+.relacionados strong {
+  display: block;
+  font-family: var(--display);
+  font-size: 1.02rem;
+  line-height: 1.25;
+  color: var(--gelo);
+  font-weight: 600;
+}
+.relacionados a:hover strong { color: var(--ambar); }
+.relacionados .porque {
+  display: block;
+  margin-top: .55rem;
+  font-size: .84rem;
+  line-height: 1.5;
+  color: var(--osso-suave);
+}

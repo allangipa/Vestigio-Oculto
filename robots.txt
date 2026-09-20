@@ -1,0 +1,6 @@
+# Vestígio Oculto
+User-agent: *
+Allow: /
+Disallow: /_src/
+
+Sitemap: https://vestigiooculto.com.br/sitemap.xml

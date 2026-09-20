@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>A data que não fecha — Serra da Capivara | Vestígio Oculto</title>
-<meta name="description" content="Dossiê sobre a Serra da Capivara: as datações de Niède Guidon em Pedra Furada, a objeção de 1994, os macacos-prego que lascam pedra dentro do próprio parque e a baliza do povoamento das Américas que se moveu.">
+<meta name="description" content="Se o carvão do Piauí for de fogo humano, alguém chegou às Américas antes do aceito. E o melhor argumento contra a tese mora no próprio parque.">
 <meta name="theme-color" content="#0B0B0C">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="canonical" href="https://vestigiooculto.com.br/dossies/serra-da-capivara.html">
@@ -1693,6 +1693,73 @@ h1, h2, h3, h4 {
   .consentimento .wrap { flex-direction: column; align-items: stretch; }
   .consentimento .botoes button { flex: 1; }
 }
+
+/* Retrato vertical: não estica para a medida do texto — uma foto de 500 px
+   ampliada para 66ch vira borrão. Fica centrada, no tamanho que aguenta. */
+.figura.retrato img { max-width: 340px; width: 100%; display: block; margin-inline: auto; }
+.figura.retrato figcaption { text-align: center; margin-inline: auto; }
+
+/* ============================================================
+   26. LEIA TAMBÉM
+   Liga os dossiês entre si. Antes, cada um tinha um único link de
+   saída — ruim para quem lê e ruim para o rastreamento do Google,
+   que mede a profundidade e a ligação das páginas.
+   ============================================================ */
+.relacionados {
+  margin-top: clamp(3rem, 6vh, 4.5rem);
+  padding-top: 2rem;
+  border-top: 1px solid var(--linha);
+}
+.relacionados > .mono {
+  display: block;
+  font-size: .6rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ambar);
+  margin-bottom: 1.2rem;
+}
+.relacionados ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 1px;
+  background: var(--linha);
+  border: 1px solid var(--linha);
+}
+.relacionados li { background: var(--carvao-2); }
+.relacionados a {
+  display: block;
+  padding: 1.2rem 1.3rem;
+  text-decoration: none;
+  transition: background var(--transicao);
+}
+.relacionados a:hover { background: var(--carvao-3); }
+.relacionados .num {
+  display: block;
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: .18em;
+  color: var(--osso-fraco);
+  margin-bottom: .5rem;
+}
+.relacionados strong {
+  display: block;
+  font-family: var(--display);
+  font-size: 1.02rem;
+  line-height: 1.25;
+  color: var(--gelo);
+  font-weight: 600;
+}
+.relacionados a:hover strong { color: var(--ambar); }
+.relacionados .porque {
+  display: block;
+  margin-top: .55rem;
+  font-size: .84rem;
+  line-height: 1.5;
+  color: var(--osso-suave);
+}
 </style>
 <script type="application/ld+json">
 {
@@ -1702,19 +1769,41 @@ h1, h2, h3, h4 {
   "description": "Dossiê investigativo sobre as datações contestadas do Boqueirão da Pedra Furada, no Parque Nacional Serra da Capivara, e sobre o que mudou no debate do povoamento das Américas.",
   "inLanguage": "pt-BR",
   "datePublished": "2026-09-19",
-  "dateModified": "2026-09-19",
+  "dateModified": "2026-09-20",
   "articleSection": "Descoberto Ontem",
   "keywords": "Serra da Capivara, Pedra Furada, Niède Guidon, povoamento das Américas, Clóvis, White Sands, Monte Verde, arte rupestre, Piauí",
-  "author": { "@type": "Organization", "name": "Vestígio Oculto" },
-  "publisher": { "@type": "Organization", "name": "Vestígio Oculto" },
+  "author": {
+    "@type": "Organization",
+    "name": "Vestígio Oculto"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Vestígio Oculto",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://vestigiooculto.com.br/favicon.svg"
+    }
+  },
   "about": {
     "@type": "Place",
     "name": "Parque Nacional Serra da Capivara",
     "description": "Parque nacional de 1.291,4 km² no sudeste do Piauí, Brasil, com mais de mil sítios arqueológicos com pintura rupestre, inscrito na lista do Patrimônio Mundial da UNESCO em 1991.",
-    "geo": { "@type": "GeoCoordinates", "latitude": -8.8333, "longitude": -42.5667 },
-    "containedInPlace": { "@type": "AdministrativeArea", "name": "Piauí, Brasil" }
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -8.8333,
+      "longitude": -42.5667
+    },
+    "containedInPlace": {
+      "@type": "AdministrativeArea",
+      "name": "Piauí, Brasil"
+    }
   },
-  "temporalCoverage": "-60000/2026"
+  "temporalCoverage": "-60000/2026",
+  "image": "https://vestigiooculto.com.br/assets/img/og-vestigio-oculto.jpg",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://vestigiooculto.com.br/dossies/serra-da-capivara.html"
+  }
 }
 </script>
 </head>
@@ -1780,8 +1869,9 @@ h1, h2, h3, h4 {
       Debaixo do piso de um desses abrigos — o Boqueirão da Pedra Furada —
       existe uma sequência de camadas com carvão e com pedras lascadas. Em 1986,
       a arqueóloga Niède Guidon publicou na <em>Nature</em> que o carvão dessas
-      camadas tinha entre 32 e 48 mil anos. Análises posteriores chegaram a
-      falar em 60 mil.
+      camadas formava uma sequência contínua que ia de 6.160 a 32.160 anos AP.
+      Publicações e declarações posteriores da equipe chegaram a falar em 48 mil,
+      depois em 60 mil.
     </p>
 
     <p>
@@ -1802,8 +1892,9 @@ h1, h2, h3, h4 {
     </p>
 
     <p>
-      O número de sítios catalogados passa de 1.200, e em 2012 já eram 1.028 os
-      que tinham pintura. As cenas são narrativas, não decorativas: há caça de
+      O cadastro da FUMDHAM passa de 1.200 sítios; a ficha da UNESCO trabalha
+      com número bem menor de sítios formalmente inscritos, e a divergência
+      entre os dois é uma questão de critério, não de contagem errada. As cenas são narrativas, não decorativas: há caça de
       tatu, onça cravada de flechas, preparação de armadilha, dança coletiva,
       árvore cultuada, execução de prisioneiro, parto assistido, sexo. Aparecem
       capivaras, veados, emas e macacos. Os especialistas separam o conjunto em
@@ -1824,7 +1915,7 @@ h1, h2, h3, h4 {
     <h2 id="guidon"><span class="indice">02</span>A pergunta de Niède Guidon</h2>
 
     <p>
-      Niède Guidon nasceu em Jaú, no interior paulista, em 1932. Formou-se em
+      Niède Guidon nasceu em Jaú, no interior paulista, em 1933. Formou-se em
       história natural pela USP em 1959, entrou para o Museu Paulista em 1963 e
       deixou o Brasil em 1964, depois do golpe militar, sob acusação falsa de
       subversão. Doutorou-se em arqueologia pré-histórica na Sorbonne em 1975.
@@ -1878,7 +1969,7 @@ h1, h2, h3, h4 {
       </div>
       <div class="evidencia">
         <span class="medida">1986</span>
-        <span class="legenda">Ano do artigo de <strong>Guidon e Delibrias na <i>Nature</i></strong>, com carvão datado entre 32.000 e 48.000 anos AP.</span>
+        <span class="legenda">Ano do artigo de <strong>Guidon e Delibrias na <i>Nature</i></strong>, com carvão datado até <strong>32.160 ± 100 anos AP</strong>.</span>
       </div>
       <div class="evidencia">
         <span class="medida">113</span>
@@ -1902,9 +1993,10 @@ h1, h2, h3, h4 {
     <h2 id="objecao"><span class="indice">04</span>A visita de 1994</h2>
 
     <p>
-      Em 1994, três arqueólogos americanos foram ao Piauí ver o sítio: David
-      Meltzer, James Adovasio e Tom Dillehay. Publicaram o resultado na
-      <em>Antiquity</em>, e Guidon respondeu na mesma revista. A troca é o
+      Em dezembro de 1993, três arqueólogos americanos foram ao Piauí ver o
+      sítio: David Meltzer, James Adovasio e Tom Dillehay. Publicaram o
+      resultado na <em>Antiquity</em> no fim do ano seguinte, e a equipe de
+      Guidon respondeu na mesma revista dois anos depois. A troca é o
       documento fundador da controvérsia, e as objeções foram duas.
     </p>
 
@@ -1937,11 +2029,6 @@ h1, h2, h3, h4 {
       </figcaption>
     </figure>
 
-    <blockquote>
-      O material de Pedra Furada não chega nem ao padrão dos macacos-prego.
-      <cite>James Adovasio, sobre as peças lascadas do sítio</cite>
-    </blockquote>
-
     <p>
       Guidon respondeu ao primeiro ponto com um argumento de lugar: o carvão não
       aparece espalhado pela paisagem, aparece dentro dos abrigos, e não existe
@@ -1955,8 +2042,9 @@ h1, h2, h3, h4 {
 
     <p>
       Em 2016, a <em>Nature</em> publicou uma observação feita dentro do Parque
-      Nacional Serra da Capivara. A equipe de Tiago Falótico e Tomos Proffitt
-      filmou macacos-prego-barbados — <i>Sapajus libidinosus</i>, que vivem
+      Nacional Serra da Capivara. A equipe liderada por Tomos Proffitt
+      e Michael Haslam, com os brasileiros Tiago Falótico e Eduardo Ottoni, da
+      USP, filmou macacos-prego-barbados — <i>Sapajus libidinosus</i>, que vivem
       ali — batendo pedra contra pedra.
     </p>
 
@@ -1972,6 +2060,11 @@ h1, h2, h3, h4 {
       contexto africano de três milhões de anos, seria lido como indústria
       lítica antiga.
     </p>
+
+    <blockquote>
+      O material de Pedra Furada não chega nem ao padrão dos macacos-prego.
+      <cite>James Adovasio à <em>Scientific American</em>, em 2017, depois do estudo dos macacos</cite>
+    </blockquote>
 
     <div class="nota">
       <strong>Por que isso é devastador, e por que não encerra o caso</strong>
@@ -2003,7 +2096,12 @@ h1, h2, h3, h4 {
       A parede caiu, e não foi no Piauí. Foi em Monte Verde, no sul do Chile,
       escavado justamente por Tom Dillehay — um dos autores da crítica de 1994.
       O sítio, com cerca de 14.500 anos, foi validado por uma comitiva de
-      céticos em 1997 e quebrou o Clóvis. Depois vieram as pegadas de White
+      céticos em 1997 e quebrou o Clóvis — ainda que, em março de 2026, uma
+      equipe dirigida por Todd Surovell tenha publicado na <em>Science</em> um
+      reexame estratigráfico propondo idade holocênica para a ocupação e
+      atribuindo as datas antigas a madeira redepositada. Dillehay contesta. O
+      caso que derrubou o Clóvis está, ele próprio, reaberto. Depois vieram as
+      pegadas de White
       Sands, no Novo México: datadas em 2021 por sementes em cerca de 23 mil
       anos, contestadas em 2022 por causa do efeito de reservatório de água
       dura, e reconfirmadas em 2023 por dois métodos independentes — radiocarbono
@@ -2021,7 +2119,7 @@ h1, h2, h3, h4 {
     <figure class="figura larga esquema">
       <svg viewBox="0 0 640 360" role="img" aria-labelledby="reg-t reg-d" preserveAspectRatio="xMidYMid meet">
         <title id="reg-t">Idades propostas para a presença humana nas Américas</title>
-        <desc id="reg-d">Gráfico de faixas comparando quatro sítios. Monte Verde, no Chile, cerca de 14.500 anos, em consenso. White Sands, nos Estados Unidos, entre 21.000 e 23.000 anos, em consenso. Toca da Tira Peia, no Piauí, cerca de 22.000 anos, contestado. Boqueirão da Pedra Furada, no Piauí, entre 32.000 e 60.000 anos, contestado. Uma linha vertical marca a antiga barreira Clóvis, em 13.000 anos.</desc>
+        <desc id="reg-d">Gráfico de faixas comparando quatro sítios. Monte Verde, no Chile, cerca de 14.500 anos, bem sustentado e reaberto em 2026. White Sands, nos Estados Unidos, entre 21.000 e 23.000 anos, bem sustentado. Toca da Tira Peia, no Piauí, cerca de 22.000 anos, contestado. Boqueirão da Pedra Furada, no Piauí, entre 32.000 e 60.000 anos, contestado. Uma linha vertical marca a antiga barreira Clóvis, em 13.000 anos.</desc>
 
         <rect x="0" y="0" width="640" height="360" fill="#121213"></rect>
 
@@ -2072,7 +2170,7 @@ h1, h2, h3, h4 {
         <!-- legenda -->
         <g font-family="ui-monospace, monospace" font-size="9.5">
           <rect x="158" y="341" width="11" height="11" rx="3" fill="#C8862A"></rect>
-          <text x="175" y="350" fill="#a79c8a">Consenso</text>
+          <text x="175" y="350" fill="#a79c8a">Bem sustentado</text>
           <rect x="249" y="341" width="11" height="11" rx="3" fill="#756e62"></rect>
           <text x="266" y="350" fill="#a79c8a">Contestado</text>
         </g>
@@ -2080,8 +2178,9 @@ h1, h2, h3, h4 {
       <figcaption>
         <b>Esquema</b> — gráfico próprio, montado a partir das datações
         publicadas. A barreira Clóvis, de 13 mil anos, era o consenso quando
-        Guidon publicou em 1986; hoje dois sítios a ultrapassam sem
-        controvérsia. A distância entre a faixa aceita e a reivindicada em
+        Guidon publicou em 1986; hoje há sítios que a ultrapassam com
+        sustentação independente — e Monte Verde, o primeiro deles, voltou a ser
+        discutido em 2026. A distância entre a faixa aceita e a reivindicada em
         Pedra Furada é o que este dossiê chama de <em>a data que não fecha</em>.
       </figcaption>
     </figure>
@@ -2093,7 +2192,7 @@ h1, h2, h3, h4 {
       <h3>Houve gente no Piauí bem antes de Clóvis, dentro da nova baliza</h3>
       <p>
         A leitura que mais material sustenta. A Toca da Tira Peia, escavada por
-        equipe francesa e datada por luminescência em 2013, entregou 113 peças
+        equipe franco-brasileira e datada por luminescência em 2013, entregou 113 peças
         lascadas em camadas que vão de cerca de 4 mil a cerca de 22 mil anos. O
         sítio tem duas vantagens sobre Pedra Furada: não acumula seixos naturais
         confundíveis com peças trabalhadas, e o material foi encontrado em
@@ -2166,9 +2265,11 @@ h1, h2, h3, h4 {
     <ul class="cronologia">
       <li><span class="quando">1973</span><span class="oque">Niède Guidon chega ao sudeste do Piauí em missão franco-brasileira e localiza 55 sítios na primeira expedição.</span></li>
       <li><span class="quando">1979</span><span class="oque">Criação do Parque Nacional Serra da Capivara, com 1.291,4 km².</span></li>
-      <li><span class="quando">1986</span><span class="oque">Guidon e Delibrias publicam na <em>Nature</em> datas de 32.000 a 48.000 anos AP para o Boqueirão da Pedra Furada. No mesmo ano nasce a FUMDHAM.</span></li>
+      <li><span class="quando">1986</span><span class="oque">Guidon e Delibrias publicam na <em>Nature</em> uma sequência de 6.160 a 32.160 anos AP para o Boqueirão da Pedra Furada. No mesmo ano nasce a FUMDHAM.</span></li>
       <li><span class="quando">1991</span><span class="oque">O parque entra na lista do Patrimônio Mundial da UNESCO pelo critério cultural (iii).</span></li>
-      <li><span class="quando">1994</span><span class="oque">Meltzer, Adovasio e Dillehay visitam o sítio e publicam na <em>Antiquity</em> as objeções do fogo natural e do geofato. Guidon responde na mesma revista.</span></li>
+      <li><span class="quando">dezembro de 1993</span><span class="oque">Meltzer, Adovasio e Dillehay visitam o sítio a convite da própria equipe.</span></li>
+      <li><span class="quando">1994</span><span class="oque">Os três publicam na <em>Antiquity</em> as objeções do fogo natural e do geofato.</span></li>
+      <li><span class="quando">1996</span><span class="oque">Guidon, Pessis, Parenti, Fontugne e Guérin respondem na mesma revista.</span></li>
       <li><span class="quando">1997</span><span class="oque">Monte Verde, no Chile, com cerca de 14.500 anos, é validado por uma comitiva de céticos e derruba o modelo <em>Clovis first</em>.</span></li>
       <li><span class="quando">2013</span><span class="oque">Lahaye e equipe publicam a Toca da Tira Peia: 113 peças lascadas, com luminescência indicando até cerca de 22.000 anos.</span></li>
       <li><span class="quando">2016</span><span class="oque">A <em>Nature</em> publica a observação de macacos-prego produzindo lascas de gume vivo, sem intenção, dentro do próprio parque.</span></li>
@@ -2227,7 +2328,9 @@ h1, h2, h3, h4 {
 
     <ul class="fontes">
       <li>Guidon, N.; Delibrias, G. — datação do Boqueirão da Pedra Furada. <em>Nature</em>, 1986.</li>
-      <li>Meltzer, D.; Adovasio, J.; Dillehay, T. — avaliação crítica do sítio, e a réplica de Guidon e Parenti. <em>Antiquity</em>, 1994.</li>
+      <li>Meltzer, D.; Adovasio, J.; Dillehay, T. — avaliação crítica do sítio. <em>Antiquity</em> 68(261), dezembro de 1994.</li>
+      <li>Guidon, N.; Pessis, A.-M.; Parenti, F.; Fontugne, M.; Guérin, C. — réplica à avaliação crítica. <em>Antiquity</em> 70(268), 1996.</li>
+      <li>Surovell, T. et al. — reexame estratigráfico de Monte Verde. <em>Science</em>, março de 2026.</li>
       <li>Lahaye, C. et al. — <em>Human occupation in South America by 20,000 BC: the Toca da Tira Peia site, Piauí, Brazil</em>. Journal of Archaeological Science, 2013.</li>
       <li>Proffitt, T.; Falótico, T. et al. — <em>Wild monkeys flake stone tools</em>. Nature, 2016.</li>
       <li>Independent age estimates resolve the controversy of ancient human footprints at White Sands. <em>Science</em>, 2023.</li>
@@ -2235,6 +2338,22 @@ h1, h2, h3, h4 {
       <li>Ficha da UNESCO para o Parque Nacional Serra da Capivara, referência 606, e documentação pública do parque e da FUMDHAM.</li>
     </ul>
 
+
+    <nav class="relacionados" aria-label="Dossiês relacionados">
+      <span class="mono">Leia também</span>
+      <ul>
+        <li><a href="amazonia-lidar.html">
+          <span class="num">Dossiê 002</span>
+          <strong>Cidades amazônicas reveladas por laser</strong>
+          <span class="porque">O que o instrumento novo revelou quando a resposta estava mesmo lá.</span>
+        </a></li>
+        <li><a href="denisovanos.html">
+          <span class="num">Dossiê 010</span>
+          <strong>Denisovanos — a espécie descoberta num dedo</strong>
+          <span class="porque">Outra revisão da história humana feita por método, não por escavação.</span>
+        </a></li>
+      </ul>
+    </nav>
   </div>
   </article>
 

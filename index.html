@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vestígio Oculto — dossiês sobre o que a história não fechou</title>
-<meta name="description" content="Portal investigativo de enigmas antigos e contemporâneos. Dossiês autorais sobre arqueologia, descobertas recentes, arquivos sem decifração e os últimos povos isolados.">
+<meta name="description" content="Arquivo aberto de dossiês investigativos sobre enigmas da arqueologia e da história: o que existe de material, o que se disputa e o que segue sem resposta.">
 <meta name="theme-color" content="#0B0B0C">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="canonical" href="https://vestigiooculto.com.br/">
@@ -1693,6 +1693,73 @@ h1, h2, h3, h4 {
   .consentimento .wrap { flex-direction: column; align-items: stretch; }
   .consentimento .botoes button { flex: 1; }
 }
+
+/* Retrato vertical: não estica para a medida do texto — uma foto de 500 px
+   ampliada para 66ch vira borrão. Fica centrada, no tamanho que aguenta. */
+.figura.retrato img { max-width: 340px; width: 100%; display: block; margin-inline: auto; }
+.figura.retrato figcaption { text-align: center; margin-inline: auto; }
+
+/* ============================================================
+   26. LEIA TAMBÉM
+   Liga os dossiês entre si. Antes, cada um tinha um único link de
+   saída — ruim para quem lê e ruim para o rastreamento do Google,
+   que mede a profundidade e a ligação das páginas.
+   ============================================================ */
+.relacionados {
+  margin-top: clamp(3rem, 6vh, 4.5rem);
+  padding-top: 2rem;
+  border-top: 1px solid var(--linha);
+}
+.relacionados > .mono {
+  display: block;
+  font-size: .6rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ambar);
+  margin-bottom: 1.2rem;
+}
+.relacionados ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 1px;
+  background: var(--linha);
+  border: 1px solid var(--linha);
+}
+.relacionados li { background: var(--carvao-2); }
+.relacionados a {
+  display: block;
+  padding: 1.2rem 1.3rem;
+  text-decoration: none;
+  transition: background var(--transicao);
+}
+.relacionados a:hover { background: var(--carvao-3); }
+.relacionados .num {
+  display: block;
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: .18em;
+  color: var(--osso-fraco);
+  margin-bottom: .5rem;
+}
+.relacionados strong {
+  display: block;
+  font-family: var(--display);
+  font-size: 1.02rem;
+  line-height: 1.25;
+  color: var(--gelo);
+  font-weight: 600;
+}
+.relacionados a:hover strong { color: var(--ambar); }
+.relacionados .porque {
+  display: block;
+  margin-top: .55rem;
+  font-size: .84rem;
+  line-height: 1.5;
+  color: var(--osso-suave);
+}
 </style>
 <script type="application/ld+json">
 {
@@ -1702,7 +1769,10 @@ h1, h2, h3, h4 {
   "url": "https://vestigiooculto.com.br/",
   "inLanguage": "pt-BR",
   "description": "Portal investigativo de enigmas antigos e contemporâneos: arqueologia, descobertas recentes, arquivos sem decifração e povos isolados.",
-  "publisher": { "@type": "Organization", "name": "Vestígio Oculto" }
+  "publisher": {
+    "@type": "Organization",
+    "name": "Vestígio Oculto"
+  }
 }
 </script>
 </head>
@@ -1743,7 +1813,7 @@ h1, h2, h3, h4 {
       </p>
       <div class="hero-meta">
         <div><span class="rotulo">Dossiês</span><span class="valor">21</span></div>
-        <div><span class="rotulo">Publicados</span><span class="valor viva">07</span></div>
+        <div><span class="rotulo">Publicados</span><span class="valor viva">10</span></div>
         <div><span class="rotulo">Pilares</span><span class="valor">04</span></div>
         <div><span class="rotulo">Atualizado</span><span class="valor">Set 2026</span></div>
       </div>
@@ -1894,18 +1964,20 @@ h1, h2, h3, h4 {
 
       <!-- 004 -->
       <article class="quadro" data-pilar="ontem">
-        <a class="quadro-foto sem-imagem" href="#dossies">
-          <span class="aguardando">Imagem em produção</span>
+        <a class="quadro-foto" href="dossies/papiros-herculano.html">
+          <img src="assets/img/004-papiros-herculano-real.jpg" loading="lazy" width="960" height="540"
+               alt="Superfície de um rolo de Herculano com o texto grego recuperado digitalmente, marcado em vermelho">
+          <span class="acervo">Acervo</span>
           <span class="quadro-legenda">
             <span>
               <h3>Os papiros de Herculano</h3>
               <span class="origem">Descoberto Ontem · Vesúvio, 79 d.C.</span>
             </span>
-            <span class="estado apuracao">Apuração</span>
+            <span class="estado publicado">Publicado</span>
           </span>
         </a>
         <div class="quadro-dados">
-          <div><span class="rot">Rolos carbonizados</span><span class="val">≈ 1.800</span></div>
+          <div><span class="rot">Rolos carbonizados</span><span class="val">1.814</span></div>
           <div><span class="rot">Lidos sem abrir</span><span class="val neutro">desde 2023</span></div>
         </div>
         <div class="quadro-texto">
@@ -1914,7 +1986,11 @@ h1, h2, h3, h4 {
           destruíram dezenas deles. Foi a tomografia somada a aprendizado de
           máquina que começou a ler a tinta sem tocar no papiro.</p>
         </div>
-        <div class="chips"><span>Em apuração</span></div>
+        <div class="chips">
+          <a href="dossies/papiros-herculano.html">Dossiê completo</a>
+          <a href="dossies/papiros-herculano.html#tinta">O problema da tinta</a>
+          <a href="dossies/papiros-herculano.html#obras">As obras recuperadas</a>
+        </div>
       </article>
 
       <!-- 005 -->
@@ -1980,19 +2056,21 @@ h1, h2, h3, h4 {
 
       <!-- 007 -->
       <article class="quadro" data-pilar="selado">
-        <a class="quadro-foto sem-imagem" href="#dossies">
-          <span class="aguardando">Imagem em produção</span>
+        <a class="quadro-foto" href="dossies/percy-fawcett.html">
+          <img src="assets/img/007-fawcett-real.jpg" loading="lazy" width="960" height="540"
+               alt="Fotografia do rio Culuene, no Alto Xingu, com mata nas duas margens">
+          <span class="acervo">Acervo</span>
           <span class="quadro-legenda">
             <span>
               <h3>Percy Fawcett</h3>
               <span class="origem">Arquivo Selado · Mato Grosso, 1925</span>
             </span>
-            <span class="estado apuracao">Apuração</span>
+            <span class="estado publicado">Publicado</span>
           </span>
         </a>
         <div class="quadro-dados">
           <div><span class="rot">Desapareceu em</span><span class="val">1925</span></div>
-          <div><span class="rot">Expedições de busca</span><span class="val neutro">dezenas, nenhum corpo</span></div>
+          <div><span class="rot">Mortos nas buscas</span><span class="val neutro">um, não cem</span></div>
         </div>
         <div class="quadro-texto">
           <p><strong>Ele procurava uma cidade que chamava de “Z”.</strong>
@@ -2000,7 +2078,11 @@ h1, h2, h3, h4 {
           floresta fechou atrás dos três. Cem anos de buscas produziram ossos
           que não eram deles, boatos que não fecham e nenhuma resposta.</p>
         </div>
-        <div class="chips"><span>Em apuração</span></div>
+        <div class="chips">
+          <a href="dossies/percy-fawcett.html">Dossiê completo</a>
+          <a href="dossies/percy-fawcett.html#heckenberger">O que estava lá</a>
+          <a href="dossies/percy-fawcett.html#teorias">Teorias</a>
+        </div>
       </article>
 
       <!-- 008 -->
@@ -2032,7 +2114,7 @@ h1, h2, h3, h4 {
 
       <!-- 009 -->
       <article class="quadro" data-pilar="pedra">
-        <a class="quadro-foto" href="#dossies">
+        <a class="quadro-foto" href="dossies/nan-madol.html">
           <img src="assets/img/009-nan-madol-real.jpg" loading="lazy" width="960" height="540"
                alt="Fotografia das muralhas de colunas de basalto de Nan Madol, tomadas pela vegetação">
           <span class="acervo">Acervo</span>
@@ -2041,12 +2123,12 @@ h1, h2, h3, h4 {
               <h3>Nan Madol</h3>
               <span class="origem">Pedra e Poeira · Pohnpei, Micronésia</span>
             </span>
-            <span class="estado apuracao">Apuração</span>
+            <span class="estado publicado">Publicado</span>
           </span>
         </a>
         <div class="quadro-dados">
-          <div><span class="rot">Ilhotas artificiais</span><span class="val">≈ 90</span></div>
-          <div><span class="rot">Material</span><span class="val neutro">basalto colunar empilhado</span></div>
+          <div><span class="rot">Ilhotas artificiais</span><span class="val">92</span></div>
+          <div><span class="rot">Basalto no conjunto</span><span class="val neutro">≈ 750 mil toneladas</span></div>
         </div>
         <div class="quadro-texto">
           <p><strong>Uma cidade construída sobre um recife, com pedra que não é de lá.</strong>
@@ -2054,7 +2136,11 @@ h1, h2, h3, h4 {
           plataformas no mar. A dúvida não é quem morava — é como as pedras
           atravessaram a ilha.</p>
         </div>
-        <div class="chips"><span>Em apuração</span></div>
+        <div class="chips">
+          <a href="dossies/nan-madol.html">Dossiê completo</a>
+          <a href="dossies/nan-madol.html#pedra">A pedra</a>
+          <a href="dossies/nan-madol.html#teorias">Teorias</a>
+        </div>
       </article>
 
       <!-- 010 -->

@@ -213,6 +213,58 @@ um deles que achou a segunda caverna.
 
 ---
 
+## 5A. Auditoria do texto publicado — 20/09/2026
+
+Feita depois de o dossiê estar no ar, voltando ao **texto do volume**, não a
+esta apuração. O motivo do método: escrevi o dossiê a partir da mesma leitura
+que usaria para conferi-lo, então reler as minhas notas não acharia nada. Cada
+afirmação foi procurada no AP26 com a intenção de derrubá-la.
+
+### Dois erros, ambos publicados
+
+**"Um platô do tamanho da Suíça".** Inventado de cabeça, e errado por cerca de
+cinco vezes. O volume fala do *Deserto Líbio* inteiro como "do tamanho da
+Europa ocidental" — outra coisa, muito maior. Substituído pelo que o AP26 de
+fato mede: maciço chegando a quase 1.100 m, dois planaltos, superfície cerca de
+350 m acima da planície, e **uma única passagem** em toda a área estudada por
+onde se sobe sem prática de escalada.
+
+**A citação de Zboray.** Escrevi que ele observou que as figuras se movem
+"mais como se flutuassem no ar do que nadando". **Essa frase não está no
+volume.** Veio de resumo de busca em enciclopédia aberta. A dúvida em si é
+real e é do volume — os editores abrem a discussão perguntando "elas estão
+mesmo nadando?" e registram que a perspectiva "mudou um pouco" depois de 2002,
+com os nadadores aparecendo enfileirados em associação clara com as feras. O
+trecho foi reescrito para atribuir a dúvida a quem de fato a levantou.
+
+### Um enriquecimento
+
+A foto de domínio público que publicamos é da **Operação Salam**, a travessia
+de Almásy durante a guerra. O AP26 registra que aquela travessia foi o pano de
+fundo do filme de 1997, e que no meio da missão ele não resistiu e levou os
+companheiros para ver as pinturas. A legenda passou a contar isso.
+
+### Verificadas contra o volume, sem alteração
+
+Descoberta em outubro de 1933 com Frobenius, Rhotert e Pauli, guiados a
+gravuras de Patrick Clayton · a frase de Almásy · a cópia de 1935 e o motivo
+não reconhecido · "Wadi Sura" como "vale das pinturas" · 11 de maio de 2002,
+Massimo Foggini **e o filho** · as 8.000 figuras · os 10 km · as feras
+**únicas em todo o Saara**, restritas à região · 396 sítios, 74 com arte, 123
+com cerâmica, 95% · ~400 sítios e ~2.200 cacos, 98% · as fases Gilf A, B e C ·
+"altamente provável" e "não se pode excluir inteiramente" · Le Quellec, Nun,
+redes e ka · Bárta e a deusa que é fera macho · os três motivos da régua ·
+condição deplorável, fração da superfície, Barbara Barich.
+
+### O que esta auditoria não substitui
+
+Quem escreveu e quem conferiu são a mesma pessoa. Se eu tiver entendido errado
+um trecho do volume, vou entender errado de novo. O que este método alcança é
+o que **está escrito** contra o que **eu escrevi** — e foi suficiente para
+achar dois erros. Não alcança erro de leitura.
+
+---
+
 ## 6. Caiu — e por quê
 
 | Afirmação | Por que não entra |

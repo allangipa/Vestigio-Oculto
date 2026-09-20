@@ -78,6 +78,7 @@ PAGINAS = {
     "privacidade.tpl.html": "privacidade.html",
     "gobekli-tepe.tpl.html": "dossies/gobekli-tepe.html",
     "amazonia-lidar.tpl.html": "dossies/amazonia-lidar.html",
+    "serra-da-capivara.tpl.html": "dossies/serra-da-capivara.html",
     "manuscrito-voynich.tpl.html": "dossies/manuscrito-voynich.html",
     "denisovanos.tpl.html": "dossies/denisovanos.html",
     "sentinela-do-norte.tpl.html": "dossies/sentinela-do-norte.html",

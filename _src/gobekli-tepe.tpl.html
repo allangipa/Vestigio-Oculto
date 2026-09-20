@@ -18,9 +18,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 {{ADSENSE}}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+{{FONTES}}
 <style>{{CSS}}</style>
 <script type="application/ld+json">
 {
@@ -76,7 +74,7 @@
   <div class="wrap">
     <a class="marca" href="../index.html" aria-label="Vestígio Oculto — início">
       {{LOGO}}
-      <span class="selo">Dossiê 001</span>
+      <span class="selo">Dossiê {{NUM}}</span>
     </a>
     <nav aria-label="Pilares editoriais">
       <ul class="nav-pilares">
@@ -96,7 +94,7 @@
   <article>
   <header class="dossie-capa">
     <div class="wrap">
-      <span class="kicker">Dossiê 001 · Pedra e Poeira · Em aberto</span>
+      <span class="kicker">Dossiê {{NUM}} · Pedra e Poeira · Em aberto</span>
       <h1>Göbekli Tepe — o templo enterrado de propósito</h1>
       <p class="subtitulo">
         Caçadores-coletores ergueram pilares de calcário de cinco metros e meio
@@ -594,12 +592,12 @@
       <span class="mono">Leia também</span>
       <ul>
         <li><a href="grande-piramide.html">
-          <span class="num">Dossiê 006</span>
+          <span class="num">Dossiê {{NUM:grande-piramide}}</span>
           <strong>Os corredores vazios da Grande Pirâmide</strong>
           <span class="porque">Outro monumento cuja planta segue incompleta — lido por partículas cósmicas.</span>
         </a></li>
         <li><a href="serra-da-capivara.html">
-          <span class="num">Dossiê 003</span>
+          <span class="num">Dossiê {{NUM:serra-da-capivara}}</span>
           <strong>A data que não fecha</strong>
           <span class="porque">Outra datação que desestabilizou uma cronologia inteira.</span>
         </a></li>
@@ -621,7 +619,7 @@
 
     <a class="proximo" href="amazonia-lidar.html">
       <span>
-        <span class="mono">Próximo no arquivo · Dossiê 002</span>
+        <span class="mono">Próximo no arquivo · Dossiê {{NUM:amazonia-lidar}}</span>
         <strong>Cidades amazônicas reveladas por laser</strong>
       </span>
       <span class="seta">→</span>
@@ -656,7 +654,7 @@
     <div class="creditos">
       <span class="mono">© 2026 Vestígio Oculto</span>
       <span class="mono"><a href="{{RAIZ}}privacidade.html">Política de privacidade</a></span>
-      <span class="mono">Dossiê 001 · revisado em set 2026</span>
+      <span class="mono">Dossiê {{NUM}} · revisado em set 2026</span>
     </div>
   </div>
 </footer>

@@ -81,16 +81,36 @@ alteração se perde no próximo build.
 python3 _src/build.py     # a partir da raiz do projeto
 ```
 
-### Como criar o dossiê 002 em diante
+### Como criar um dossiê novo
 
 1. Duplique `_src/gobekli-tepe.tpl.html` com o novo nome.
 2. Mantenha `{{CSS}}`, `{{LOGO}}` e `{{DOMINIO}}` onde estão; troque título,
    meta tags, JSON-LD e conteúdo.
 3. Registre o par no dicionário `PAGINAS`, em `_src/build.py`.
-4. Na home, troque o `href="#dossies"` do quadro pelo caminho real, mude
+4. **Ponha o slug na lista `ARQUIVO`, na posição que ele ocupa na escada.**
+5. Na home, troque o `href="#dossies"` do quadro pelo caminho real, mude
    `<span class="estado apuracao">Apuração</span>` para
    `<span class="estado publicado">Publicado</span>` e acrescente os chips de
    navegação, como no quadro 001.
+
+### A numeração sai de um lugar só
+
+O número do dossiê não se escreve à mão. O template pede `{{NUM}}` para o
+próprio número e `{{NUM:slug}}` para citar outro, e os dois saem da lista
+`ARQUIVO` em `_src/build.py` — que é também a ordem do arquivo.
+
+A ordem segue a escada de "onde estava escondido", o mesmo fio do canal no
+YouTube: terra, floresta, areia, cinzas, pedra, água, DNA, consenso, à vista
+de todos, arquivo, zona de exclusão. Reordenar é editar essa lista; não há
+nada para caçar nos templates.
+
+Isso existe porque o número estava escrito à mão em 56 pontos, e os links
+entre dossiês são por slug. Um número errado não quebrava link nenhum — só
+mandava o leitor para o dossiê errado, em silêncio. Agora o build quebra se um
+template citar slug fora da lista.
+
+O `AUDITORIA.md` usa a numeração antiga de propósito, e tem a tabela de-para
+no topo: ele é registro do que foi corrigido, não índice.
 
 ---
 

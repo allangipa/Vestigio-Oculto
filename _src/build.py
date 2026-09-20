@@ -3,7 +3,8 @@
 Vestígio Oculto — build estático.
 
 Injeta nos templates .tpl.html:
-  {{CSS}}   → _src/vestigio.css
+  {{CSS}}    → _src/fontes.css + _src/vestigio.css
+  {{FONTES}} → preload das fontes hospedadas em assets/fontes/
   {{LOGO}}  → _src/marca/logo-horizontal-escuro-solido.svg (em curvas)
 
 e grava as páginas finais, autocontidas, na raiz do site. Também copia o
@@ -25,6 +26,16 @@ from pathlib import Path
 # canonical, og:url, og:image e JSON-LD saem todos daqui.
 DOMINIO = "https://vestigiooculto.com.br"
 
+# Preload só das três faces que toda página usa em português. As de grego,
+# cirílico e latin-ext ficam de fora de propósito: o unicode-range já garante
+# que só baixam na página que mostra um caractere delas, e dar preload nelas
+# forçaria o download em todas.
+FONTES = "\n".join(
+    f'<link rel="preload" href="{{{{RAIZ}}}}assets/fontes/{a}" as="font" type="font/woff2" crossorigin>'
+    for a in ("inter-latin-wght-normal.woff2",
+              "cinzel-latin-wght-normal.woff2",
+              "jetbrains-mono-latin-wght-normal.woff2"))
+
 # AdSense. ADSENSE_LIGADO = False tira o script de TODAS as páginas e
 # apaga o ads.txt — é o interruptor geral, uma linha só.
 ADSENSE_LIGADO = True
@@ -39,7 +50,10 @@ CONSENTIMENTO_BLOQUEIA = False
 RAIZ = Path(__file__).resolve().parent.parent
 SRC = RAIZ / "_src"
 
-CSS = (SRC / "vestigio.css").read_text(encoding="utf-8")
+# As fontes vêm primeiro: o @font-face precisa estar declarado antes de
+# qualquer regra que use a família. Arquivo gerado por _src/gerar-fontes.py.
+CSS = ((SRC / "fontes.css").read_text(encoding="utf-8") + "\n"
+       + (SRC / "vestigio.css").read_text(encoding="utf-8"))
 
 # A marca vai inline: nenhuma requisição extra e nada quebra se o caminho
 # mudar. Abaixo de 200 px a identidade pede a versão SÓLIDA, sem tweed.
@@ -73,6 +87,70 @@ CONSENTIMENTO = (CONSENTIMENTO
     .replace("{{CONSENTIMENTO_BLOQUEIA}}", "true" if CONSENTIMENTO_BLOQUEIA else "false"))
 
 # template  ->  caminho final, relativo à raiz do site
+# ---------------------------------------------------------------- numeração
+
+# A ordem do arquivo, e a única fonte dela.
+#
+# O número do dossiê aparecia escrito à mão em cerca de 55 pontos, entre o
+# selo, o kicker, os cartões de "Leia também", o bloco do próximo e o rodapé.
+# Reordenar significava reescrever um grafo, e errar uma entrada mandava o
+# leitor para o número de outro dossiê — sem quebrar link nenhum, porque os
+# links são por slug, o que torna o erro silencioso.
+#
+# Agora a ordem mora aqui. O template pede {{NUM}} para o próprio número e
+# {{NUM:slug}} para citar outro; a próxima reordenação é uma edição nesta
+# lista.
+#
+# A sequência é a escada de "onde estava escondido", que o canal usa como fio:
+# terra, floresta, areia, cinzas, pedra, água, DNA, consenso, à vista de
+# todos, arquivo, zona de exclusão.
+ARQUIVO = [
+    "gobekli-tepe",        # 001 · terra
+    "amazonia-lidar",      # 002 · floresta
+    "nadadores-do-saara",  # 003 · areia — reservado, ainda não escrito
+    "papiros-herculano",   # 004 · cinzas
+    "grande-piramide",     # 005 · pedra
+    "nan-madol",           # 006 · água
+    "denisovanos",         # 007 · nosso DNA
+    "serra-da-capivara",   # 008 · consenso
+    "manuscrito-voynich",  # 009 · à vista de todos
+    "percy-fawcett",       # 010 · arquivo
+    "sentinela-do-norte",  # 011 · zona de exclusão
+]
+
+NUMERO = {slug: f"{i:03d}" for i, slug in enumerate(ARQUIVO, start=1)}
+
+
+def resolver_numeros(html: str, slug: str) -> str:
+    """Troca {{NUM}} e {{NUM:slug}} pelos números da lista acima.
+
+    Quebra o build quando um template cita um slug que não está em ARQUIVO.
+    Sem isso o erro seria invisível: o marcador ficaria cru na página, e
+    "Dossiê {{NUM:nan-madol}}" só aparece para quem abrir a página pronta.
+    """
+    if slug in NUMERO:
+        html = html.replace("{{NUM}}", NUMERO[slug])
+
+    faltando = []
+
+    def troca(m):
+        alvo = m.group(1)
+        if alvo not in NUMERO:
+            faltando.append(alvo)
+            return m.group(0)
+        return NUMERO[alvo]
+
+    html = re.sub(r"\{\{NUM:([a-z0-9-]+)\}\}", troca, html)
+
+    if faltando:
+        raise SystemExit(
+            f"  ! {slug}: cita dossiê fora de ARQUIVO: {', '.join(sorted(set(faltando)))}"
+        )
+    if "{{NUM" in html:
+        raise SystemExit(f"  ! {slug}: sobrou marcador de número sem resolver")
+    return html
+
+
 PAGINAS = {
     "index.tpl.html": "index.html",
     "privacidade.tpl.html": "privacidade.html",
@@ -185,7 +263,7 @@ def main() -> None:
 
         html = origem.read_text(encoding="utf-8")
         raiz_rel = "../" if "/" in destino else ""
-        faltando = [m for m in ("{{CSS}}", "{{LOGO}}") if m not in html]
+        faltando = [m for m in ("{{CSS}}", "{{LOGO}}", "{{FONTES}}") if m not in html]
         if faltando:
             print(f"  ! {template}: marcador ausente {', '.join(faltando)}")
             continue
@@ -194,10 +272,13 @@ def main() -> None:
         # nunca na página publicada. Sem isto, markup comentado iria para o ar.
         html = re.sub(r"[ \t]*<!--\s*TROCA PRONTA:.*?-->\n?", "", html, flags=re.S)
 
+        html = resolver_numeros(html, template.replace(".tpl.html", ""))
+
         saida = RAIZ / destino
         saida.parent.mkdir(parents=True, exist_ok=True)
         saida.write_text(
             html.replace("{{CSS}}", CSS)
+                .replace("{{FONTES}}", FONTES)
                 .replace("{{LOGO}}", LOGO)
                 .replace("{{DOMINIO}}", DOMINIO.rstrip("/"))
                 .replace("{{VISOR}}", VISOR)

@@ -17,16 +17,26 @@ ErrorDocument 404 /404.html
   ExpiresByType image/jpeg      "access plus 1 year"
   ExpiresByType image/png       "access plus 1 year"
   ExpiresByType image/svg+xml   "access plus 1 year"
+  ExpiresByType image/webp      "access plus 1 year"
+  ExpiresByType font/woff2      "access plus 1 year"
   ExpiresByType text/css        "access plus 1 year"
   ExpiresByType text/html       "access plus 0 seconds"
 </IfModule>
 
-# Compressão: as páginas têm CSS embutido e comprimem muito bem
+# Alguns servidores ainda não conhecem estes dois de fábrica
+<IfModule mod_mime.c>
+  AddType font/woff2 .woff2
+  AddType image/webp .webp
+</IfModule>
+
+# Compressão: as páginas têm CSS embutido e comprimem muito bem.
+# woff2 e webp ficam de fora: já são comprimidos, e recomprimir só gasta CPU
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/css text/plain application/javascript image/svg+xml application/xml
 </IfModule>
 
-# O diretório de fontes não precisa ser servido
+# O diretório de código-fonte não é para ser servido
+# (as fontes tipográficas ficam em /assets/fontes/, essas sim públicas)
 <IfModule mod_rewrite.c>
   RewriteRule ^_src/ - [F,L]
 </IfModule>

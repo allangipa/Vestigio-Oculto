@@ -18,9 +18,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 {{ADSENSE}}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+{{FONTES}}
 <style>{{CSS}}</style>
 <script type="application/ld+json">
 {
@@ -67,7 +65,7 @@
   <div class="wrap">
     <a class="marca" href="../index.html" aria-label="Vestígio Oculto — início">
       {{LOGO}}
-      <span class="selo">Dossiê 004</span>
+      <span class="selo">Dossiê {{NUM}}</span>
     </a>
     <nav aria-label="Seções">
       <ul class="nav-pilares">
@@ -84,7 +82,7 @@
   <article>
   <header class="dossie-capa">
     <div class="wrap">
-      <span class="kicker">Dossiê 004 · Descoberto Ontem · Em aberto</span>
+      <span class="kicker">Dossiê {{NUM}} · Descoberto Ontem · Em aberto</span>
       <h1>Os papiros de Herculano</h1>
       <p class="subtitulo">
         A única biblioteca da Antiguidade clássica que chegou até nós inteira
@@ -496,12 +494,12 @@
       <span class="mono">Leia também</span>
       <ul>
         <li><a href="manuscrito-voynich.html">
-          <span class="num">Dossiê 008</span>
+          <span class="num">Dossiê {{NUM:manuscrito-voynich}}</span>
           <strong>O manuscrito Voynich</strong>
           <span class="porque">Outro documento que existe inteiro e não se deixa ler.</span>
         </a></li>
         <li><a href="grande-piramide.html">
-          <span class="num">Dossiê 006</span>
+          <span class="num">Dossiê {{NUM:grande-piramide}}</span>
           <strong>Os corredores vazios da Grande Pirâmide</strong>
           <span class="porque">Ler o interior sem tocar: o mesmo princípio, outro objeto.</span>
         </a></li>
@@ -513,7 +511,7 @@
   <section class="wrap" style="padding-bottom: 2rem;">
     <a class="proximo" href="manuscrito-voynich.html">
       <span>
-        <span class="mono">No arquivo · Dossiê 008</span>
+        <span class="mono">No arquivo · Dossiê {{NUM:manuscrito-voynich}}</span>
         <strong>O manuscrito Voynich</strong>
       </span>
       <span class="seta">→</span>

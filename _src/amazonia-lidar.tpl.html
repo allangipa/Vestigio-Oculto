@@ -18,9 +18,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 {{ADSENSE}}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+{{FONTES}}
 <style>{{CSS}}</style>
 <script type="application/ld+json">
 {
@@ -76,7 +74,7 @@
   <div class="wrap">
     <a class="marca" href="../index.html" aria-label="Vestígio Oculto — início">
       {{LOGO}}
-      <span class="selo">Dossiê 002</span>
+      <span class="selo">Dossiê {{NUM}}</span>
     </a>
     <nav aria-label="Seções">
       <ul class="nav-pilares">
@@ -93,7 +91,7 @@
   <article>
   <header class="dossie-capa">
     <div class="wrap">
-      <span class="kicker">Dossiê 002 · Descoberto Ontem · Em aberto</span>
+      <span class="kicker">Dossiê {{NUM}} · Descoberto Ontem · Em aberto</span>
       <h1>Cidades amazônicas reveladas por laser</h1>
       <p class="subtitulo">
         Durante quase um século a arqueologia sustentou que a floresta não
@@ -599,12 +597,12 @@
       <span class="mono">Leia também</span>
       <ul>
         <li><a href="percy-fawcett.html">
-          <span class="num">Dossiê 007</span>
+          <span class="num">Dossiê {{NUM:percy-fawcett}}</span>
           <strong>Percy Fawcett e a expedição que não voltou</strong>
           <span class="porque">Ele procurou essas cidades e morreu sem achá-las. Estavam lá.</span>
         </a></li>
         <li><a href="serra-da-capivara.html">
-          <span class="num">Dossiê 003</span>
+          <span class="num">Dossiê {{NUM:serra-da-capivara}}</span>
           <strong>A data que não fecha</strong>
           <span class="porque">A outra metade da pré-história americana em disputa.</span>
         </a></li>
@@ -625,7 +623,7 @@
 
     <a class="proximo" href="gobekli-tepe.html">
       <span>
-        <span class="mono">No arquivo · Dossiê 001</span>
+        <span class="mono">No arquivo · Dossiê {{NUM:gobekli-tepe}}</span>
         <strong>Göbekli Tepe — o templo enterrado de propósito</strong>
       </span>
       <span class="seta">→</span>
@@ -659,7 +657,7 @@
     <div class="creditos">
       <span class="mono">© 2026 Vestígio Oculto</span>
       <span class="mono"><a href="{{RAIZ}}privacidade.html">Política de privacidade</a></span>
-      <span class="mono">Dossiê 002 · revisado em set 2026</span>
+      <span class="mono">Dossiê {{NUM}} · revisado em set 2026</span>
     </div>
   </div>
 </footer>

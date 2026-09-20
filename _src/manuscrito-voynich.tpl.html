@@ -18,9 +18,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 {{ADSENSE}}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+{{FONTES}}
 <style>{{CSS}}</style>
 <script type="application/ld+json">
 {
@@ -73,7 +71,7 @@
   <div class="wrap">
     <a class="marca" href="../index.html" aria-label="Vestígio Oculto — início">
       {{LOGO}}
-      <span class="selo">Dossiê 008</span>
+      <span class="selo">Dossiê {{NUM}}</span>
     </a>
     <nav aria-label="Seções">
       <ul class="nav-pilares">
@@ -90,7 +88,7 @@
   <article>
   <header class="dossie-capa">
     <div class="wrap">
-      <span class="kicker">Dossiê 008 · Arquivo Selado · Em aberto</span>
+      <span class="kicker">Dossiê {{NUM}} · Arquivo Selado · Em aberto</span>
       <h1>O manuscrito Voynich</h1>
       <p class="subtitulo">
         O pergaminho é autêntico. A tinta é do período. A escrita obedece às
@@ -490,12 +488,12 @@
       <span class="mono">Leia também</span>
       <ul>
         <li><a href="papiros-herculano.html">
-          <span class="num">Dossiê 004</span>
+          <span class="num">Dossiê {{NUM:papiros-herculano}}</span>
           <strong>Os papiros de Herculano</strong>
           <span class="porque">Biblioteca ilegível por carbonização, em vez de por cifra.</span>
         </a></li>
         <li><a href="serra-da-capivara.html">
-          <span class="num">Dossiê 003</span>
+          <span class="num">Dossiê {{NUM:serra-da-capivara}}</span>
           <strong>A data que não fecha</strong>
           <span class="porque">Outro caso em que a evidência existe e a interpretação não fecha.</span>
         </a></li>
@@ -507,7 +505,7 @@
   <section class="wrap" style="padding-bottom: 2rem;">
     <a class="proximo" href="gobekli-tepe.html">
       <span>
-        <span class="mono">No arquivo · Dossiê 001</span>
+        <span class="mono">No arquivo · Dossiê {{NUM:gobekli-tepe}}</span>
         <strong>Göbekli Tepe — o templo enterrado de propósito</strong>
       </span>
       <span class="seta">→</span>
@@ -541,7 +539,7 @@
     <div class="creditos">
       <span class="mono">© 2026 Vestígio Oculto</span>
       <span class="mono"><a href="{{RAIZ}}privacidade.html">Política de privacidade</a></span>
-      <span class="mono">Dossiê 008 · revisado em set 2026</span>
+      <span class="mono">Dossiê {{NUM}} · revisado em set 2026</span>
     </div>
   </div>
 </footer>

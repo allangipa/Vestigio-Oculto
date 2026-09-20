@@ -18,9 +18,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 {{ADSENSE}}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+{{FONTES}}
 <style>{{CSS}}</style>
 <script type="application/ld+json">
 {
@@ -76,7 +74,7 @@
   <div class="wrap">
     <a class="marca" href="../index.html" aria-label="Vestígio Oculto — início">
       {{LOGO}}
-      <span class="selo">Dossiê 007</span>
+      <span class="selo">Dossiê {{NUM}}</span>
     </a>
     <nav aria-label="Seções">
       <ul class="nav-pilares">
@@ -93,7 +91,7 @@
   <article>
   <header class="dossie-capa">
     <div class="wrap">
-      <span class="kicker">Dossiê 007 · Arquivo Selado · Em aberto</span>
+      <span class="kicker">Dossiê {{NUM}} · Arquivo Selado · Em aberto</span>
       <h1>Percy Fawcett e a expedição que não voltou</h1>
       <p class="subtitulo">
         Ele procurava uma cidade de pedra, com arcos, estátua e inscrições — uma
@@ -531,12 +529,12 @@
       <span class="mono">Leia também</span>
       <ul>
         <li><a href="amazonia-lidar.html">
-          <span class="num">Dossiê 002</span>
+          <span class="num">Dossiê {{NUM:amazonia-lidar}}</span>
           <strong>Cidades amazônicas reveladas por laser</strong>
           <span class="porque">A cidade que ele procurava existia — e não tinha o formato que ele esperava.</span>
         </a></li>
         <li><a href="sentinela-do-norte.html">
-          <span class="num">Dossiê 005</span>
+          <span class="num">Dossiê {{NUM:sentinela-do-norte}}</span>
           <strong>As flechas da Sentinela do Norte</strong>
           <span class="porque">O outro dossiê sobre o preço de chegar perto.</span>
         </a></li>
@@ -548,7 +546,7 @@
   <section class="wrap" style="padding-bottom: 2rem;">
     <a class="proximo" href="amazonia-lidar.html">
       <span>
-        <span class="mono">No arquivo · Dossiê 002</span>
+        <span class="mono">No arquivo · Dossiê {{NUM:amazonia-lidar}}</span>
         <strong>Cidades amazônicas reveladas por laser</strong>
       </span>
       <span class="seta">→</span>

@@ -18,9 +18,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 {{ADSENSE}}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+{{FONTES}}
 <style>{{CSS}}</style>
 <script type="application/ld+json">
 {
@@ -76,7 +74,7 @@
   <div class="wrap">
     <a class="marca" href="../index.html" aria-label="Vestígio Oculto — início">
       {{LOGO}}
-      <span class="selo">Dossiê 006</span>
+      <span class="selo">Dossiê {{NUM}}</span>
     </a>
     <nav aria-label="Seções">
       <ul class="nav-pilares">
@@ -93,7 +91,7 @@
   <article>
   <header class="dossie-capa">
     <div class="wrap">
-      <span class="kicker">Dossiê 006 · Pedra e Poeira · Em aberto</span>
+      <span class="kicker">Dossiê {{NUM}} · Pedra e Poeira · Em aberto</span>
       <h1>Os corredores vazios da Grande Pirâmide</h1>
       <p class="subtitulo">
         É o monumento mais medido da história. Foi escalado, mapeado, sondado,
@@ -421,12 +419,12 @@
       <span class="mono">Leia também</span>
       <ul>
         <li><a href="nan-madol.html">
-          <span class="num">Dossiê 009</span>
+          <span class="num">Dossiê {{NUM:nan-madol}}</span>
           <strong>Nan Madol — a cidade sobre o recife</strong>
           <span class="porque">Outra obra megalítica cujo transporte ninguém explicou.</span>
         </a></li>
         <li><a href="gobekli-tepe.html">
-          <span class="num">Dossiê 001</span>
+          <span class="num">Dossiê {{NUM:gobekli-tepe}}</span>
           <strong>Göbekli Tepe — o templo enterrado de propósito</strong>
           <span class="porque">Seis mil anos mais velho, e noventa por cento ainda enterrado.</span>
         </a></li>
@@ -438,7 +436,7 @@
   <section class="wrap" style="padding-bottom: 2rem;">
     <a class="proximo" href="gobekli-tepe.html">
       <span>
-        <span class="mono">No arquivo · Dossiê 001</span>
+        <span class="mono">No arquivo · Dossiê {{NUM:gobekli-tepe}}</span>
         <strong>Göbekli Tepe — o templo enterrado de propósito</strong>
       </span>
       <span class="seta">→</span>
@@ -472,7 +470,7 @@
     <div class="creditos">
       <span class="mono">© 2026 Vestígio Oculto</span>
       <span class="mono"><a href="{{RAIZ}}privacidade.html">Política de privacidade</a></span>
-      <span class="mono">Dossiê 006 · revisado em set 2026</span>
+      <span class="mono">Dossiê {{NUM}} · revisado em set 2026</span>
     </div>
   </div>
 </footer>

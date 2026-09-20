@@ -3,6 +3,26 @@
 **Realizada em 20 de setembro de 2026.** Cobre os 10 dossiês publicados, a
 home, a política de privacidade e toda a infraestrutura técnica.
 
+> **Os números deste documento são os antigos.** Depois da auditoria, o
+> arquivo foi reordenado para acompanhar a escada do canal — "onde estava
+> escondido" —, e um dossiê novo entrou em 003. O texto abaixo ficou como
+> estava de propósito: é registro do que aconteceu, e reescrever a numeração
+> apagaria o que de fato foi corrigido em cada um. Use a tabela para traduzir.
+>
+> | Aqui | Hoje | Dossiê |
+> |---|---|---|
+> | 001 | 001 | Göbekli Tepe |
+> | 002 | 002 | Cidades da Amazônia |
+> | — | **003** | Nadadores do Saara *(novo)* |
+> | 004 | 004 | Papiros de Herculano |
+> | 006 | 005 | A Grande Pirâmide |
+> | 009 | 006 | Nan Madol |
+> | 010 | 007 | Denisovanos |
+> | 003 | 008 | Serra da Capivara |
+> | 008 | 009 | Manuscrito Voynich |
+> | 007 | 010 | Percy Fawcett |
+> | 005 | 011 | Sentinela do Norte |
+
 Método: cinco checagens de fatos independentes, uma por par de dossiês, cada
 uma conferindo toda afirmação verificável contra fontes primárias — artigos
 originais na *Nature*, *Science*, *Antiquity*, *Nature Communications*, fichas

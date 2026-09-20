@@ -18,9 +18,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 {{ADSENSE}}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+{{FONTES}}
 <style>{{CSS}}</style>
 <script type="application/ld+json">
 {
@@ -76,7 +74,7 @@
   <div class="wrap">
     <a class="marca" href="../index.html" aria-label="Vestígio Oculto — início">
       {{LOGO}}
-      <span class="selo">Dossiê 005</span>
+      <span class="selo">Dossiê {{NUM}}</span>
     </a>
     <nav aria-label="Seções">
       <ul class="nav-pilares">
@@ -93,7 +91,7 @@
   <article>
   <header class="dossie-capa">
     <div class="wrap">
-      <span class="kicker">Dossiê 005 · Últimos Isolados · Em aberto</span>
+      <span class="kicker">Dossiê {{NUM}} · Últimos Isolados · Em aberto</span>
       <h1>As flechas da Sentinela do Norte</h1>
       <p class="subtitulo">
         Todos os outros dossiês deste arquivo tratam de perguntas que ainda não
@@ -680,12 +678,12 @@
       <span class="mono">Leia também</span>
       <ul>
         <li><a href="percy-fawcett.html">
-          <span class="num">Dossiê 007</span>
+          <span class="num">Dossiê {{NUM:percy-fawcett}}</span>
           <strong>Percy Fawcett e a expedição que não voltou</strong>
           <span class="porque">Outro caso em que entrar custou caro a quem entrou.</span>
         </a></li>
         <li><a href="amazonia-lidar.html">
-          <span class="num">Dossiê 002</span>
+          <span class="num">Dossiê {{NUM:amazonia-lidar}}</span>
           <strong>Cidades amazônicas reveladas por laser</strong>
           <span class="porque">O que havia de gente na floresta, antes de as epidemias chegarem.</span>
         </a></li>
@@ -697,7 +695,7 @@
   <section class="wrap" style="padding-bottom: 2rem;">
     <a class="proximo" href="denisovanos.html">
       <span>
-        <span class="mono">No arquivo · Dossiê 010</span>
+        <span class="mono">No arquivo · Dossiê {{NUM:denisovanos}}</span>
         <strong>Denisovanos — a humanidade que saiu de uma gaveta</strong>
       </span>
       <span class="seta">→</span>
@@ -731,7 +729,7 @@
     <div class="creditos">
       <span class="mono">© 2026 Vestígio Oculto</span>
       <span class="mono"><a href="{{RAIZ}}privacidade.html">Política de privacidade</a></span>
-      <span class="mono">Dossiê 005 · revisado em set 2026</span>
+      <span class="mono">Dossiê {{NUM}} · revisado em set 2026</span>
     </div>
   </div>
 </footer>

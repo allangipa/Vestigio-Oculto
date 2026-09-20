@@ -18,9 +18,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 {{ADSENSE}}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+{{FONTES}}
 <style>{{CSS}}</style>
 <script type="application/ld+json">
 {
@@ -76,7 +74,7 @@
   <div class="wrap">
     <a class="marca" href="../index.html" aria-label="Vestígio Oculto — início">
       {{LOGO}}
-      <span class="selo">Dossiê 010</span>
+      <span class="selo">Dossiê {{NUM}}</span>
     </a>
     <nav aria-label="Seções">
       <ul class="nav-pilares">
@@ -93,7 +91,7 @@
   <article>
   <header class="dossie-capa">
     <div class="wrap">
-      <span class="kicker">Dossiê 010 · Descoberto Ontem · Em aberto</span>
+      <span class="kicker">Dossiê {{NUM}} · Descoberto Ontem · Em aberto</span>
       <h1>Denisovanos — a espécie descoberta num dedo</h1>
       <p class="subtitulo">
         Não foi um crânio, não foi um esqueleto, não foi um sítio de
@@ -481,12 +479,12 @@
       <span class="mono">Leia também</span>
       <ul>
         <li><a href="serra-da-capivara.html">
-          <span class="num">Dossiê 003</span>
+          <span class="num">Dossiê {{NUM:serra-da-capivara}}</span>
           <strong>A data que não fecha</strong>
           <span class="porque">Outra data que a ciência precisou reescrever.</span>
         </a></li>
         <li><a href="papiros-herculano.html">
-          <span class="num">Dossiê 004</span>
+          <span class="num">Dossiê {{NUM:papiros-herculano}}</span>
           <strong>Os papiros de Herculano</strong>
           <span class="porque">O que estava guardado, esperando o instrumento certo.</span>
         </a></li>
@@ -498,7 +496,7 @@
   <section class="wrap" style="padding-bottom: 2rem;">
     <a class="proximo" href="amazonia-lidar.html">
       <span>
-        <span class="mono">No arquivo · Dossiê 002</span>
+        <span class="mono">No arquivo · Dossiê {{NUM:amazonia-lidar}}</span>
         <strong>Cidades amazônicas reveladas por laser</strong>
       </span>
       <span class="seta">→</span>
@@ -532,7 +530,7 @@
     <div class="creditos">
       <span class="mono">© 2026 Vestígio Oculto</span>
       <span class="mono"><a href="{{RAIZ}}privacidade.html">Política de privacidade</a></span>
-      <span class="mono">Dossiê 010 · revisado em set 2026</span>
+      <span class="mono">Dossiê {{NUM}} · revisado em set 2026</span>
     </div>
   </div>
 </footer>

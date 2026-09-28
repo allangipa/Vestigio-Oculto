@@ -253,7 +253,56 @@ def webp_dos_png(img, Image) -> int:
     return feitas
 
 
+def conferir_ordem_da_home() -> None:
+    """A home tem de listar os dossiês na ordem dos episódios.
+
+    Os cartões da home são escritos à mão no index.tpl.html, e por isso
+    derrapam. Em 28/09/2026 a ordem publicada era 001, 002, 003, **008**, 004,
+    **011**, 005, **010**, **009**, 006, 007 — restos da renumeração de
+    20/09/2026, com os dossiês novos anexados no fim. Quem chegava ao site
+    vindo de um vídeo não achava o dossiê seguinte onde ele deveria estar.
+
+    A causa raiz foi um cartão inserido **sem o comentário de numeração** (o da
+    Serra da Capivara). Ele escondeu o desalinhamento de quem lesse só os
+    comentários, que continuavam em sequência.
+
+    ARQUIVO manda. Esta função só compara, e quebra o build quando divergir.
+    """
+    html = (SRC / "index.tpl.html").read_text(encoding="utf-8")
+    blocos = re.findall(r'<article class="quadro".*?</article>', html, re.S)
+
+    publicados = []
+    for bloco in blocos:
+        achou = re.search(r"dossies/([a-z-]+)[.]html", bloco)
+        if achou:
+            publicados.append(achou.group(1))
+
+    fora = [s for s in publicados if s not in NUMERO]
+    if fora:
+        raise SystemExit(f"  ! index.tpl.html: cartão fora de ARQUIVO: {fora}")
+
+    esperado = [s for s in ARQUIVO if s in publicados]
+    if publicados != esperado:
+        linhas = ["  ! index.tpl.html: os cartões não seguem a ordem de ARQUIVO"]
+        for i, (tem, devia) in enumerate(zip(publicados, esperado), start=1):
+            if tem != devia:
+                linhas.append(f"      posição {i}: está {tem}, deveria ser {devia}")
+        raise SystemExit("\n".join(linhas))
+
+    numerados = re.findall(r'<!-- ([0-9]{3}) -->\s*<article class="quadro"', html)
+    if len(numerados) != len(blocos):
+        raise SystemExit(
+            f"  ! index.tpl.html: {len(blocos)} cartões e {len(numerados)} "
+            "comentários de numeração. Cartão sem comentário foi exatamente "
+            "como a ordem se perdeu da última vez.")
+    if numerados != [f"{i:03d}" for i in range(1, len(blocos) + 1)]:
+        raise SystemExit(
+            "  ! index.tpl.html: os comentários de numeração não estão em "
+            "sequência")
+
+
 def main() -> None:
+    conferir_ordem_da_home()
     variantes_de_imagem()
 
     for template, destino in PAGINAS.items():

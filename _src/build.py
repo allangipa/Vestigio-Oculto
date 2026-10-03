@@ -126,6 +126,7 @@ ARQUIVO = [
     "colonia-roanoke",      # 019 · numa palavra entalhada
     "kryptos",              # 020 · num pátio fechado
     "mashco-piro",          # 021 · por escolha
+    "korowai",              # 022 · no alto das árvores
 ]
 
 NUMERO = {slug: f"{i:03d}" for i, slug in enumerate(ARQUIVO, start=1)}
@@ -188,6 +189,7 @@ PAGINAS = {
     "colonia-roanoke.tpl.html": "dossies/colonia-roanoke.html",
     "kryptos.tpl.html": "dossies/kryptos.html",
     "mashco-piro.tpl.html": "dossies/mashco-piro.html",
+    "korowai.tpl.html": "dossies/korowai.html",
 }
 
 

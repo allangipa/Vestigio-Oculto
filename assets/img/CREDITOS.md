@@ -18,6 +18,11 @@ está vendo uma reconstituição ou a coisa.
 
 | Arquivo | Origem | Onde entra |
 |---|---|---|
+| `022-korowai-real.jpg` (+ `-640`, `-800`) | Diapositivo "Een boomhuis van Kuruwai Papua's in Basman", Willem Theodoor (Wim) van Oijen, 14/07/1992, Nationaal Museum van Wereldculturen / Wereldmuseum TM-20041236, CC BY 4.0, via Wikimedia Commons — recorte 16:9 | quadro 022 da home |
+| `ko-01-casa-mbasman.jpg` | Mesmo diapositivo de Wim van Oijen, 1992, Wereldmuseum TM-20041236, CC BY 4.0, via Wikimedia Commons — quadro inteiro, reduzido | dossiê 022, seção 03 |
+| `ko-02-casa-alta.jpg` | "Korowai Treehouse 2", usuário do Flickr "♪ ~ from Jayapura, Indonesia", 23/07/2006, CC BY 2.0, via Wikimedia Commons — ampliada de 640 para 960 px | dossiê 022, seção 04 |
+| `ko-03-lorentz-1910.jpg` | "Verlaten Papua boomhuis langs de Lorentz-rivier", autor desconhecido, 1909–1910, Wereldmuseum TM-FV-0783-104, domínio público, via Wikimedia Commons — recorte da cópia montada (não é casa korowai; legenda diz isso) | dossiê 022, seção 04 |
+| `ko-04-mapa-1959.jpg` | U.S. Army Map Service, folha SB 54-1 "Eilanden River", série T401, 1:500.000, 1959, domínio público (governo dos EUA), via Wikimedia Commons — recorte, com marcação âmbar de Yaniruma acrescentada por nós | dossiê 022, seção 01 |
 | `021-mashco-piro-real.jpg` (e `-640`, `-800`) | *Las Piedras River Outlook*, Julio Araújo Flores e Patrick Champagne (ARCAmazon), 2018, recorte 16:9; CC BY-SA 4.0, Wikimedia Commons | quadro 021 da home |
 | `mp-01-rio-las-piedras.jpg` | mesma foto, inteira: Julio Araújo Flores e Patrick Champagne (ARCAmazon), 2018; CC BY-SA 4.0, Wikimedia Commons (*Las Piedras River Outlook.jpg*) | dossiê 021, seção 01 |
 | `mp-02-istmo-fitzcarrald.jpg` | *Plano del Istmo Fiscarrald*, Georg M. von Hassel, reduzido por Rafael E. Baluarte, Lima, 1903; domínio público, Wikimedia Commons (*Map depicting the Isthmus of Fitzcarrald, circa 1904.jpg*) | dossiê 021, seção 02 |

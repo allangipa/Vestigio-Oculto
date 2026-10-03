@@ -122,6 +122,10 @@ ARQUIVO = [
     "moais-rapa-nui",       # 015 · debaixo da encosta
     "anomalia-do-baltico",  # 016 · no sonar
     "dna-fantasma",         # 017 · dentro do genoma
+    "passagem-dyatlov",     # 018 · debaixo da neve
+    "colonia-roanoke",      # 019 · numa palavra entalhada
+    "kryptos",              # 020 · num pátio fechado
+    "mashco-piro",          # 021 · por escolha
 ]
 
 NUMERO = {slug: f"{i:03d}" for i, slug in enumerate(ARQUIVO, start=1)}
@@ -180,6 +184,10 @@ PAGINAS = {
     "moais-rapa-nui.tpl.html": "dossies/moais-rapa-nui.html",
     "anomalia-do-baltico.tpl.html": "dossies/anomalia-do-baltico.html",
     "dna-fantasma.tpl.html": "dossies/dna-fantasma.html",
+    "passagem-dyatlov.tpl.html": "dossies/passagem-dyatlov.html",
+    "colonia-roanoke.tpl.html": "dossies/colonia-roanoke.html",
+    "kryptos.tpl.html": "dossies/kryptos.html",
+    "mashco-piro.tpl.html": "dossies/mashco-piro.html",
 }
 
 

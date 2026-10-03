@@ -204,11 +204,11 @@ documento histórico para caber num quadro seria falsificá-lo.
 
 | Arquivo | Origem | Autor | Licença | Modificação | Onde entra |
 |---|---|---|---|---|---|
-| `012-anticitera-real.jpg` | Commons, *The Antikythera Mechanism (3209887483).jpg* (Flickr), vitrine do Museu Arqueológico Nacional de Atenas | Tilemahos Efthimiadis | CC BY 2.0 | recorte 16:9 | quadro 012 |
+| `012-anticitera-modelo.jpg` (e `-640`, `-800`) | Commons, *Reconstructing the Antikythera Mechanism exhibition at WA Museum Boola Bardip, 2023, 03.jpg* — réplica de Nick Andronis, vista de lado, exposta em Perth (Austrália) | Chris Olszewski (réplica: Nick Andronis) | CC BY-SA 4.0 | recorte 16:9 | quadro 012, etiqueta **Modelo** |
 | `ac-01-mykali-1901.jpg` | Commons, *Antikes Wrack von Antikythera 03.jpg*, 1900–1901 | autor desconhecido | domínio público (fotografia de mais de 120 anos) | sem recorte | dossiê, abertura |
-| `ac-02-fragmento-a.jpg` | Commons, *Antikythera Fragment A (Front).webp* | Logg Tandy | CC BY 4.0 | reduzida | dossiê, seção 01 |
-| `ac-03-fragmento-c.jpg` | Commons, *Antikythera Fragment C (Front).webp* | Logg Tandy | CC BY 4.0 | reduzida | dossiê, seção 04 |
-| `ac-04-fragmento-19.jpg` | Commons, *Antikythera Fragment 19 (Front).webp* | Logg Tandy | CC BY 4.0 | recortada a plaqueta do museu | dossiê, seção 02 |
+| `ac-02-modelo-roda-principal.jpg` | Commons, *41598 2021 84310 Fig5 HTML.jpg* — Freeth et al., *Scientific Reports* 11:5821 (2021), fig. 5a: reconstrução em computador da roda principal (b1) | T. Freeth, D. Higgon, A. Dacanalis et al. | CC BY 4.0 | recorte do painel (a), rótulo retirado, fundo branco ampliado para quadrado | dossiê, seção 01, etiqueta **Modelo** |
+| `ac-03-modelo-cosmos.jpg` | Commons, *41598 2021 84310 Fig7 HTML.jpg* — Freeth et al., *Scientific Reports* 11:5821 (2021), fig. 7: modelo em computador do mostrador da frente | T. Freeth, D. Higgon, A. Dacanalis et al. | CC BY 4.0 | reduzida | dossiê, seção 04, etiqueta **Modelo** |
+| `ac-04-modelo-inscricoes.jpg` | Commons, *Reconstructing the Antikythera Mechanism exhibition at WA Museum Boola Bardip, 2023, 04.jpg* — réplica de Nick Andronis, alto da placa da frente com texto em grego | Chris Olszewski (réplica: Nick Andronis) | CC BY-SA 4.0 | recorte | dossiê, seção 02, etiqueta **Modelo** |
 | `ac-05-modelo-verso.jpg` | Commons, *Antikythera mechanism frontview, 1st-2nd century BC, Greece (model).jpg* — réplica da Universidade Aristóteles de Tessalônica; a foto mostra a face de trás | Gts-tg | CC BY-SA 4.0 | recorte quadrado | dossiê, seção 03, etiqueta **Modelo**; base de `og/anticitera.jpg` |
 
 ## 013 · As Linhas de Nazca
@@ -320,12 +320,16 @@ documento histórico para caber num quadro seria falsificá-lo.
 
 ## Riscos registrados (decisão do dono)
 
-- **012 · peças do Museu Arqueológico Nacional de Atenas** (`012-anticitera-real`,
-  `ac-02`, `ac-03`, `ac-04`; `ac-01` com risco baixo): a lei grega (art. 46
+- **012 · peças do Museu Arqueológico Nacional de Atenas**: a lei grega (art. 46
   da Lei 3028/2002; DM 436630/2023) exige autorização para uso comercial de
-  imagem de bem cultural. **Mantidas** por decisão do dono em 03/10/2026.
-  Alternativas seguras, se mudar: `ac-05` (réplica), figuras CG de Freeth et
-  al. 2021 (CC BY 4.0), esquemas próprios.
+  imagem de bem cultural. **Resolvido por decisão do dono em 03/10/2026:**
+  as fotos das peças originais (`012-anticitera-real`, `ac-02-fragmento-a`,
+  `ac-03-fragmento-c`, `ac-04-fragmento-19`) saíram do site e foram para
+  `_src/imagens/descartadas/`; no lugar entraram réplicas fotografadas fora
+  da Grécia (Nick Andronis, Perth) e figuras de reconstrução em computador
+  de Freeth et al. 2021 (CC BY 4.0), todas com etiqueta **Modelo**. Ficam
+  `ac-01` (fotografia de 1900–1901 da operação no naufrágio, domínio
+  público; risco baixo) e `ac-05` (réplica de Tessalônica).
 - **001 · `gt-04` e `gt-05`**: peças do Museu de Şanlıurfa; a Turquia também
   pede autorização para uso comercial. Risco baixo; registrado.
 - **003 · `saara-almasy`**: a base PD-Egypt depende de a foto ser egípcia, e

@@ -43,6 +43,26 @@ PALAVRAS_DE_CREDITO_PT = {
     "Papiro", "Diapositivo", "Parque", "Nacional", "Marinha", "Estados",
     "Unidos", "Guarda", "Costeira", "Biblioteca", "Museu", "Arquivo",
     "Instituto", "Universidade", "Coleção", "Acervo", "Recriação",
+    # rótulos de licença e de autoria: a licença em si é conferida à parte
+    # (nome e link), e "autoria desconhecida" não é nome de ninguém
+    "Domínio", "Público", "Autoria", "Autor", "Desconhecido", "Desconhecida",
+    "Modelo", "Réplica", "Esquema",
+}
+
+# Nome de lugar, obra ou instituição que tem forma consagrada no idioma: no
+# crédito traduzido vale a forma do idioma, sem repetir a portuguesa entre
+# parênteses. Autor e licença NÃO entram aqui — continuam conferidos à letra.
+EQUIVALENTES_DE_CREDITO = {
+    "en": {
+        "Londres": "London",
+        "EUA": "U.S.",
+        "Papiro": "Papyrus",
+        "Herculano": "Herculaneum",
+        "Biblioteca": "Library",
+        "Congresso": "Congress",
+        "Procuradoria": "Procuracy",
+    },
+    "es": {},
 }
 
 T = {
@@ -222,10 +242,31 @@ T = {
             },
         },
         # Texto alternativo da prévia de compartilhamento (og:image). A imagem
-        # por enquanto é a mesma do português, com o título em português
-        # gravado nela; ver README, "Idiomas".
+        # é a de assets/img/og/en/<slug>.jpg, com o título em inglês gravado
+        # nela (o mesmo que fecha cada alt); ver README, "Idiomas".
         "og_alt": {
             "gobekli-tepe": "Excavated enclosure at Göbekli Tepe with T-shaped pillars, under the title Göbekli Tepe",
+            "amazonia-lidar": "Lidar relief with geometric earthen enclosures in the Amazon, under the title Cities of the Amazon",
+            "nadadores-do-saara": "Rock painting of a human figure in a swimming pose at Wadi Sura, under the title The Swimmers of the Sahara",
+            "papiros-herculano": "Carbonized papyrus scroll from Herculaneum, under the title The Herculaneum Papyri",
+            "grande-piramide": "The stone courses of the Great Pyramid of Giza up to the apex, under the title The Great Pyramid",
+            "nan-madol": "Columnar basalt walls of Nan Madol among the vegetation, under the title Nan Madol",
+            "denisovanos": "View from inside Denisova Cave, in the Altai, under the title The Denisovans",
+            "serra-da-capivara": "Sediment with pebbles and gravel at Serra da Capivara, under the title Serra da Capivara",
+            "manuscrito-voynich": "Folded leaf of the Voynich manuscript with circular diagrams, under the title The Voynich Manuscript",
+            "percy-fawcett": "Portrait of Percy Fawcett in 1911, under the title Percy Fawcett",
+            "sentinela-do-norte": "North Sentinel Island seen from an airplane window, under the title North Sentinel Island",
+            "anticitera": "Modern replica of the Antikythera mechanism, with its bronze dials exposed, under the title The Antikythera Mechanism",
+            "linhas-de-nazca": "The hummingbird of the Nazca Lines seen from above, under the title The Nazca Lines",
+            "puma-punku": "H-shaped stone blocks at Puma Punku, under the title Puma Punku",
+            "moais-rapa-nui": "Moai on the slope of Rano Raraku, on Easter Island, under the title The Moai of Easter Island",
+            "anomalia-do-baltico": "Satellite view of the Gulf of Bothnia, with ice on the Baltic Sea, under the title The Baltic Sea Anomaly",
+            "dna-fantasma": "Room of DNA sequencers, under the title Ghost DNA",
+            "passagem-dyatlov": "Auspiya River valley in the Urals, with snow on the trees, under the title The Dyatlov Pass",
+            "colonia-roanoke": "Theodor de Bry's 1590 map of Virginia, with Roanoke Island, under the title The Roanoke Colony",
+            "kryptos": "The Kryptos sculpture, by Jim Sanborn, under the title Kryptos",
+            "mashco-piro": "The Las Piedras River winding through the Amazon rainforest of Peru, under the title The Mashco Piro",
+            "korowai": "Silhouette of a tree house among palm trees, in Papua, under the title The Korowai",
         },
         "qtd": lambda n: f"{n} dossier" if n == 1 else f"{n} dossiers",
         "contagem_zero": "Coming soon in English",

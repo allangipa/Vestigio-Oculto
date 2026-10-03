@@ -1,0 +1,96 @@
+<!--
+  VISOR DE FÓLIOS (inglês) — mesma marcação de _src/visor-voynich.html; o build usa este nas páginas em /en/.
+  Depende do CSS da seção 23 de vestigio.css e do script no fim deste arquivo.
+  As imagens são as da pasta assets/img/vy-*.jpg.
+-->
+<div class="visor larga" id="visor-voynich">
+  <div class="visor-palco">
+    <button class="visor-nav ant" type="button" aria-label="Previous folio">‹</button>
+    <img src="../assets/img/vy-004.jpg" width="724" height="980" loading="lazy" decoding="async" class="ativo"
+         data-rotulo="Herbal section"
+         data-desc="The first illustrated page. The plant fills the top of the folio and the text runs below, in the same script that runs through the entire book."
+         alt="Folio of the Voynich manuscript with a plant with green and ochre leaves and text in the manuscript's script">
+    <img src="../assets/img/vy-025.jpg" width="685" height="980" loading="lazy" decoding="async"
+         data-rotulo="Herbal section"
+         data-desc="Broad leaves and a red root drawn with herbarium precision. None of the manuscript's plants corresponds with certainty to a known species."
+         alt="Folio of the Voynich manuscript with a broad-leaved plant and a red root">
+    <img src="../assets/img/vy-080.jpg" width="749" height="980" loading="lazy" decoding="async"
+         data-rotulo="Herbal section"
+         data-desc="One of the most elaborate pages: a blue and ochre crown, dense foliage, bulbs at the base. The drawing is confident — whoever made it was not improvising."
+         alt="Folio of the Voynich manuscript with a plant with a blue and ochre crown and bulbs at the base">
+    <img src="../assets/img/vy-125.jpg" width="727" height="980" loading="lazy" decoding="async"
+         data-rotulo="Astronomical section"
+         data-desc="A circular diagram divided into rays, with text running around the edge. The section is usually read as astronomical or calendrical, but nothing in it has been deciphered."
+         alt="Folio of the Voynich manuscript with a circular diagram divided into rays">
+    <img src="../assets/img/vy-158.jpg" width="1069" height="980" loading="lazy" decoding="async"
+         data-rotulo="Foldout leaf"
+         data-desc="A leaf larger than the book, folded into the binding: nine circular diagrams linked by ducts and figures. It is the most reproduced page of the manuscript."
+         alt="Foldout leaf of the Voynich manuscript with nine circular diagrams">
+    <img src="../assets/img/vy-163.jpg" width="1082" height="980" loading="lazy" decoding="async"
+         data-rotulo="Pharmaceutical section"
+         data-desc="Isolated roots and leaves, lined up beside decorated containers. The current reading is that of a book of remedies — a reading the script neither confirms nor refutes."
+         alt="Double folio of the Voynich manuscript with isolated roots and decorated containers">
+    <img src="../assets/img/vy-190.jpg" width="708" height="980" loading="lazy" decoding="async"
+         data-rotulo="Recipes section"
+         data-desc="Continuous text, without illustration, with a star marking the start of each paragraph. It is the densest part of the book in writing — and the one that has most frustrated cryptographers."
+         alt="Folio of the Voynich manuscript with continuous text and stars marking the paragraphs">
+    <button class="visor-nav prox" type="button" aria-label="Next folio">›</button>
+  </div>
+
+  <div class="visor-barra">
+    <div class="linha-topo">
+      <span class="rotulo" data-campo="rotulo">Herbal section</span>
+      <span class="contagem" data-campo="contagem">01 / 07</span>
+    </div>
+    <p class="descricao" data-campo="descricao"></p>
+    <div class="visor-pontos" role="group" aria-label="Choose folio"></div>
+    <p class="acervo-fonte">
+      Archive · Beinecke Rare Book &amp; Manuscript Library, Yale University — MS 408.
+      The manuscript dates from the early fifteenth century and is in the public domain.
+      <a href="https://collections.library.yale.edu/catalog/2002046" target="_blank" rel="noopener">Complete digitization, 213 images</a>.
+    </p>
+  </div>
+</div>
+
+<script>
+(function () {
+  var visor = document.getElementById('visor-voynich');
+  if (!visor) return;
+  var imgs = Array.prototype.slice.call(visor.querySelectorAll('.visor-palco img'));
+  var ant = visor.querySelector('.visor-nav.ant');
+  var prox = visor.querySelector('.visor-nav.prox');
+  var pontos = visor.querySelector('.visor-pontos');
+  var campo = {};
+  visor.querySelectorAll('[data-campo]').forEach(function (e) { campo[e.dataset.campo] = e; });
+  var i = 0;
+
+  imgs.forEach(function (im, n) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.textContent = String(n + 1).padStart(2, '0');
+    b.addEventListener('click', function () { mostrar(n); });
+    pontos.appendChild(b);
+  });
+  var botoes = Array.prototype.slice.call(pontos.children);
+
+  function mostrar(n) {
+    i = Math.max(0, Math.min(imgs.length - 1, n));
+    imgs.forEach(function (im, k) { im.classList.toggle('ativo', k === i); });
+    botoes.forEach(function (b, k) { b.setAttribute('aria-current', String(k === i)); });
+    campo.rotulo.textContent = imgs[i].dataset.rotulo;
+    campo.descricao.textContent = imgs[i].dataset.desc;
+    campo.contagem.textContent = String(i + 1).padStart(2, '0') + ' / ' + String(imgs.length).padStart(2, '0');
+    ant.disabled = i === 0;
+    prox.disabled = i === imgs.length - 1;
+  }
+
+  ant.addEventListener('click', function () { mostrar(i - 1); });
+  prox.addEventListener('click', function () { mostrar(i + 1); });
+  visor.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft') { mostrar(i - 1); }
+    if (e.key === 'ArrowRight') { mostrar(i + 1); }
+  });
+  visor.tabIndex = 0;
+  mostrar(0);
+})();
+</script>

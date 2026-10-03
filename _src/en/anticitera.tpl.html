@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Antikythera Mechanism: How It Worked · Vestígio Oculto</title>
+<meta name="description" content="The Antikythera mechanism is a Greek bronze astronomical calculator, found in a shipwreck in 1901, that predicted eclipses and counted years of the games.">
+<meta name="theme-color" content="#0B0B0C">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="canonical" href="{{BASE}}/dossies/anticitera.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Antikythera mechanism — gears from the bottom of the sea">
+<meta property="og:description" content="It came out of the sea as a green lump. A century of radiography and tomography revealed a gear train that predicted eclipses and counted the years of the Greek games.">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="{{BASE}}/dossies/anticitera.html">
+<meta property="og:image" content="{{DOMINIO}}/assets/img/og-vestigio-oculto.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+{{ADSENSE}}
+{{FONTES}}
+<style>{{CSS}}</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Antikythera mechanism — gears from the bottom of the sea",
+  "description": "Investigative dossier on the Antikythera mechanism: the 1900–1901 shipwreck, Derek de Solla Price's radiography, the 2005 tomography, the inscriptions read, the 2021 reconstruction, the disagreement over dates and the studies of 2025 and 2026.",
+  "inLanguage": "en",
+  "datePublished": "2026-10-02",
+  "dateModified": "2026-10-03",
+  "articleSection": "Discovered Yesterday",
+  "keywords": "Antikythera mechanism, Antikythera shipwreck, Derek de Solla Price, Antikythera Mechanism Research Project, tomography, Metonic cycle, saros, lunar calendar, Hipparchus",
+  "author": {
+    "@type": "Organization",
+    "name": "Vestígio Oculto"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Vestígio Oculto",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{DOMINIO}}/assets/img/logo-vestigio-oculto.png", "width": 512, "height": 512
+    }
+  },
+  "about": {
+    "@type": "Thing",
+    "name": "Antikythera mechanism",
+    "description": "Greek bronze astronomical calculator, with gears, recovered from the Antikythera shipwreck in 1901 and kept at the National Archaeological Museum in Athens.",
+    "location": {
+      "@type": "Place",
+      "name": "Antikythera shipwreck, island of Antikythera, Greece",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 35.87,
+        "longitude": 23.31
+      }
+    }
+  },
+  "temporalCoverage": "-205/2026",
+  "image": "{{DOMINIO}}/assets/img/og/anticitera.jpg",
+  "translationOfWork": {
+    "@type": "Article",
+    "@id": "{{DOMINIO}}/dossies/anticitera.html",
+    "inLanguage": "pt-BR"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{BASE}}/dossies/anticitera.html"
+  }
+}
+</script>
+</head>
+<body>
+
+<div class="progresso" id="progresso" role="presentation"></div>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="marca" href="../index.html" aria-label="Vestígio Oculto — home">
+      {{LOGO}}
+      <span class="selo">Dossier {{NUM}}</span>
+    </a>
+    <nav aria-label="Editorial pillars">
+      <ul class="nav-pilares">
+        <li><a href="../index.html#pedra-e-poeira">Stone and Dust</a></li>
+        <li><a href="../index.html#descoberto-ontem">Discovered Yesterday</a></li>
+        <li><a href="../index.html#arquivo-selado">Sealed Archive</a></li>
+        <li><a href="../index.html#ultimos-isolados">The Last Isolated</a></li>
+        <li><a href="{{RAIZ}}sobre.html">About</a></li>
+        <li class="nav-canal"><a href="https://www.youtube.com/@VestigoOcultoBrasil" target="_blank" rel="noopener">YouTube</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <article>
+  <header class="dossie-capa">
+    <div class="wrap">
+      <span class="kicker">Dossier {{NUM}} · Discovered Yesterday · Open case</span>
+      <h1>The Antikythera mechanism — gears from the bottom of the sea</h1>
+      <p class="subtitulo">
+        It came out of a shipwreck as a green lump of bronze and wood, and sat
+        for months in a crate while the museum attended to the statues. Inside
+        were gear teeth a little over a millimeter and a half apart. It took a
+        century of radiography and tomography to understand what they did —
+        and not everything is known yet.
+      </p>
+
+      <dl class="ficha">
+        <div><dt>Where</dt><dd>Antikythera shipwreck, Greece</dd></div>
+        <div><dt>Recovered</dt><dd>1901</dd></div>
+        <div><dt>Shipwreck</dt><dd>≈ 70 – 60 BC</dd></div>
+        <div><dt>Proposed dates</dt><dd>they diverge: ≈ 205 to 87 BC</dd></div>
+        <div><dt>Fragments</dt><dd>82</dd></div>
+        <div><dt>Surviving gears</dt><dd>30</dd></div>
+      </dl>
+    </div>
+  </header>
+
+  <div class="corpo">
+
+    <p class="abertura">
+      Antikythera is a small, high island between Kythira and Crete, at the
+      point where the Aegean meets the open sea. In the spring of 1900, a boat
+      of sponge divers from the island of Symi, captained by Dimitrios Kontos,
+      stopped there to wait for the weather to improve. One of the men went
+      down, and came back to the surface saying he had seen bodies on the
+      bottom. They were statues — of bronze and of marble, scattered among
+      amphorae on the slope, some forty-five to fifty-five meters deep,
+      depending on which measurement is used.
+    </p>
+
+    <p>
+      The Greek government joined the operation with Navy ships, and between
+      the end of 1900 and the autumn of 1901 the same divers, in helmet
+      diving suits and with no decompression tables at all, brought up from
+      the sea the cargo of a ship that sank in the first century before
+      Christ. It is considered the first major state-sponsored underwater
+      excavation. The cost showed up in the bodies of those who worked: one
+      diver died and two were paralyzed by decompression sickness.
+    </p>
+
+    <p>
+      Along with the statues came a lump that nobody thought worth a second
+      look. It was taken to the National Archaeological Museum, in Athens,
+      and waited.
+    </p>
+
+    <figure class="figura larga reveal-fig">
+      <img src="../assets/img/ac-01-mykali-1901.jpg" loading="lazy" width="783" height="800"
+           alt="Black-and-white photograph from 1900 or 1901: sailors, officials and sponge divers on the deck of a ship, around a large piece just brought up from the sea, held by nets">
+      <figcaption>
+        <b class="acervo-linha">Archive</b> — government representatives,
+        crew and sponge divers on the deck of the Greek Navy ship during the
+        1900–1901 operation, with a piece just hoisted from the wreck. This is
+        the excavation the mechanism came out of.
+        <span class="acervo-fonte">Photograph by an unknown author, 1900–1901, public domain, via Wikimedia Commons.</span>
+      </figcaption>
+    </figure>
+
+    <h2 id="bloco"><span class="indice">01</span>The lump that had a wheel</h2>
+
+    <p>
+      The bronze, after two thousand years in the sea, had turned into
+      something else: copper salts that cracked and shrank as they dried. The
+      lump broke apart. On May 17, 1902, the archaeologist Valerios Stais,
+      examining the pieces, saw a toothed wheel on one of the faces. The idea
+      that it was an astronomical instrument came up quickly — and was met
+      with suspicion, because nothing from that period had gears so fine. One
+      school of thought even suggested that the object was much more recent
+      and had fallen onto the wreck by chance. The rest of the cargo, however,
+      was consistent, and the mechanism lay in the middle of it.
+    </p>
+
+    <p>
+      The German philologist Albert Rehm was the first to argue, in the early
+      decades of the twentieth century, that it was an astronomical
+      calculator. But the person who took the object out of the drawer for
+      good was the historian of science Derek J. de Solla Price, who began
+      studying it in the 1950s. In 1959 he published a popular article
+      titled, bluntly, "An Ancient Greek Computer." In 1971, with the
+      Greek nuclear physicist Charalampos Karakalos, he made gamma-ray and
+      X-ray radiographs of the fragments — for the first time one could see
+      what lay inside the crust. The result came out in 1974 in a monograph
+      called <em>Gears from the Greeks</em>, with a tooth count and a first
+      diagram of the gear train.
+    </p>
+
+    <p>
+      Price got the nature of the object right and part of the mechanism
+      wrong — which is normal for someone working with flat images, in which
+      several layers of bronze overlap in a single shadow. In the following
+      decades, Michael Wright, a curator at the Science Museum in London,
+      redid the study with linear tomography and built models that worked.
+      The piece was changing category: from curiosity to document.
+    </p>
+
+    <figure class="figura larga reveal-fig">
+      <img src="../assets/img/ac-02-modelo-roda-principal.jpg" loading="lazy" width="960" height="960"
+           alt="Computer reconstruction of the main wheel of the Antikythera mechanism, on a white background: a large bronze-colored gear with four spokes, tiny teeth on the rim, protruding pins and an axle at the center">
+      <figcaption>
+        <b>Model</b> — the main wheel, the four-spoked one, in the computer
+        reconstruction by Tony Freeth's team at UCL, published in 2021. It is
+        the main gear of the mechanism, which drove everything else; it
+        originally had 223 teeth and was about thirteen centimeters across,
+        and what is left of it is in fragment A, the largest.
+        <span class="acervo-fonte">Figure by T. Freeth and colleagues, <em>Scientific Reports</em> 11:5821 (2021), <a href="https://creativecommons.org/licenses/by/4.0/deed.en" target="_blank" rel="license noopener">CC BY 4.0</a>, via Wikimedia Commons; cropped, without the original label.</span>
+      </figcaption>
+    </figure>
+
+    <div class="evidencias">
+      <div class="evidencia">
+        <span class="medida">82</span>
+        <span class="legenda">Fragments known today. <strong>Seven</strong> hold most of the gears and inscriptions; the others are chips.</span>
+      </div>
+      <div class="evidencia">
+        <span class="medida">30</span>
+        <span class="legenda">Gears that <strong>survived</strong>, according to the UCL team. The museum label says 32; the reconstructions need many more.</span>
+      </div>
+      <div class="evidencia">
+        <span class="medida">≈ 1/3</span>
+        <span class="legenda">Fraction of the original device that has come down to us. <strong>Two thirds</strong> were lost to the sea or to disintegration.</span>
+      </div>
+      <div class="evidencia">
+        <span class="medida">≈ 1.6 mm</span>
+        <span class="legenda">Average pitch between the teeth, which are <strong>triangular</strong> and cut by hand — not all the same size.</span>
+      </div>
+    </div>
+
+    <h2 id="tomografia"><span class="indice">02</span>What the tomography read</h2>
+
+    <p>
+      In 2005, a consortium called the <em>Antikythera Mechanism Research
+      Project</em> — with Cardiff University, the universities of Athens and
+      Thessaloniki and the museum itself — brought to Athens a high-resolution
+      X-ray tomography scanner weighing several tons — the machine went to the
+      piece, because the piece cannot leave the museum. In parallel, a
+      variable-lighting technique photographed the surfaces so as to bring out
+      engraved letters almost invisible to the naked eye.
+    </p>
+
+    <p>
+      The tomography separated the layers that Price's radiography had
+      stacked, and did two things. It counted teeth with a precision that had
+      not existed before, making it possible to reconstruct the gear train at
+      the back. And it revealed text: the mechanism was covered in
+      inscriptions, in Greek, on the plates and on the doors of the case, most
+      of it hidden under the crust. Thousands of characters were read, in
+      fragments of sentences, which work as a user's manual and a legend for
+      the dials.
+    </p>
+
+    <p>
+      That is how the papers published in <em>Nature</em> in 2006 and 2008
+      described two of the device's most ingenious solutions. The first: a
+      pair of stacked gears, linked by a pin running in a slot, made the Moon
+      pointer speed up and slow down over the month — the mechanical way of
+      representing the Moon's variable speed across the sky, the same one
+      Hipparchus's lunar theory described in the second century before
+      Christ. The second: the names of the months on the back dial belonged
+      to a Corinthian-type calendar, and a smaller dial counted the years of
+      the great Greek games.
+    </p>
+
+    <figure class="figura larga reveal-fig">
+      <img src="../assets/img/ac-04-modelo-inscricoes.jpg" loading="lazy" width="960" height="781"
+           alt="Modern replica of the Antikythera mechanism: a brass plate with two columns of engraved Greek letters at the top and, below, the upper part of the front dial, with graduated rings and pointers">
+      <figcaption>
+        <b>Model</b> — a replica built by Nick Andronis, on display in 2023 at
+        the WA Museum Boola Bardip, in Perth, Australia: the top of the front
+        plate, with Greek text engraved in the brass, and the start of the
+        dial. On the original pieces, the passage of the "manual" in which the
+        numbers 76, 19 and 223 were read — the cycles of Callippus, of Meton
+        and of the saros — is on fragment 19, a chip from the back door.
+        <span class="acervo-fonte">Photo Chris Olszewski, <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en" target="_blank" rel="license noopener">CC BY-SA 4.0</a>, via Wikimedia Commons; cropped.</span>
+      </figcaption>
+    </figure>
+
+    <p>
+      In 2016, the team published, in an entire issue of the journal
+      <em>Almagest</em>, the complete edition of the known inscriptions. Among
+      them is a passage from the front cover that lists periods of the planets
+      — with the numbers 462 and 442, tied to cycles of Venus and Saturn. It
+      is the textual proof that the front showed, in some way, the five
+      planets visible to the naked eye. The gears that would have done this
+      did not survive.
+    </p>
+
+    <h2 id="lido"><span class="indice">03</span>What it calculated: what was read and what was reconstructed</h2>
+
+    <p>
+      This is the distinction most often lost when the mechanism becomes a
+      headline. There are functions that are in the pieces — engraved in text,
+      or demonstrated by gears that exist. And there are functions that are in
+      the reconstructions, for good reasons, but without the piece to check
+      them against.
+    </p>
+
+    <h3>Read on the pieces</h3>
+
+    <ul class="fontes">
+      <li><strong>Metonic cycle.</strong> The large upper dial on the back is a five-turn spiral divided into 235 lunar months — the interval that almost coincides with 19 solar years, the basis for reconciling lunar and solar calendars. The names of the months are engraved in the cells.</li>
+      <li><strong>Saros and eclipse prediction.</strong> The lower dial is a spiral of 223 months, the cycle over which eclipses repeat. In 51 of the cells there are signs indicating an eclipse of the Sun or the Moon, with the hour.</li>
+      <li><strong>Exeligmos and Callippic cycle.</strong> Smaller dials correct the third of a day left over in the saros and count the 76-year cycle.</li>
+      <li><strong>The games.</strong> A four-sector dial bears the names of the Isthmian, Olympic, Nemean and Pythian games, plus two minor festivals — those of Dodona and the Halieia of Rhodes. It is the only pointer that turns the opposite way.</li>
+      <li><strong>Sun and Moon in the zodiac, and the phase of the Moon.</strong> On the front, the signs and a ring of days. The Moon got its variable speed from the pin in the slot, and a half-light, half-dark sphere showed the phase.</li>
+    </ul>
+
+    <h3>Reconstructed, on strong grounds but without the gear</h3>
+
+    <ul class="fontes">
+      <li><strong>The five planets.</strong> The inscriptions say they were there; the mechanism that moved them was lost. Several schemes have been proposed, all consistent with the text, none confirmable from the piece.</li>
+      <li><strong>The "true Sun."</strong> A pointer that would show the Sun's variable speed, like the Moon's. It is plausible from the logic of the design; there is no material proof.</li>
+      <li><strong>The draconic gear.</strong> The cycle that determines whether a new Moon becomes an eclipse. The group of Voulgaris, Mouratidis and Vossinakis proposes a gear for it; it is a proposal.</li>
+    </ul>
+
+    <figure class="figura larga reveal-fig">
+      <img src="../assets/img/ac-05-modelo-verso.jpg" loading="lazy" width="960" height="960"
+           alt="Modern replica of the mechanism in a wooden case with a gilded brass plate: on the right, the two large spiral dials; on the open door, Greek text">
+      <figcaption>
+        <b>Model</b> — a modern replica of the back face, made by the
+        Aristotle University of Thessaloniki and on display at the city's
+        Museum of Technology. At the top, the Metonic cycle spiral; at the
+        bottom, the saros spiral. It is not the ancient object: it is a
+        reading of it, in new brass.
+        <span class="acervo-fonte">Photo Gts-tg, CC BY-SA 4.0, via Wikimedia Commons.</span>
+      </figcaption>
+    </figure>
+
+    <p>
+      In March 2021, Tony Freeth's team at University College London published
+      in <em>Scientific Reports</em> the most complete reconstruction of the
+      front face: a cosmos of concentric rings with the planets, the Sun, the
+      Moon and the lunar nodes, each on a ring, driven by compact gear trains
+      consistent with the numbers in the inscription and with the pieces left
+      in fragment D. The team itself opens the paper by recalling that only a
+      third of the original survived. It is the best model available, and it
+      is a model — the authors themselves say the next step is to build it to
+      see whether it works.
+    </p>
+
+    <div class="nota">
+      <strong>Computer, in the right sense</strong>
+      Calling the mechanism a "computer" is correct if the word is understood
+      as an analog calculator: it did not store data or execute instructions.
+      One turned a crank, and the gears turned the passing of days into
+      positions and cycles, according to fixed ratios chosen by whoever
+      designed it. All the "programming" is in the tooth count.
+    </div>
+
+    <h2 id="data"><span class="indice">04</span>The date no one can pin down</h2>
+
+    <p>
+      The shipwreck is the fixed point. The amphorae, pottery and coins
+      collected at the site — including those Jacques Cousteau's team found in
+      the 1970s — place the sinking around 70 to 60 before Christ. The
+      mechanism is necessarily older. How much older is where the sources
+      diverge, and this dossier records the versions without choosing:
+    </p>
+
+    <ul class="fontes">
+      <li><strong>About 150 to 100 BC</strong> — estimate from the first tomography studies, based on the letterforms of the inscriptions.</li>
+      <li><strong>About 205 BC</strong> — proposal by Christián Carman and James Evans, in 2014, based on the eclipses on the saros dial: the pattern fits a cycle that begins just after the new Moon of April 28, 205 BC. Freeth arrived at a similar starting date.</li>
+      <li><strong>A generation before the shipwreck</strong> — Paul Iversen, in 2017, from an analysis of the calendar and the games, argues that this example was made shortly before the first century BC, perhaps for a client in Epirus.</li>
+      <li><strong>About 87 BC</strong> — a later dating that appears in popular literature.</li>
+      <li><strong>December 23, 178 BC</strong> — proposal by Voulgaris's group, in 2022, for the initial calibration date; other authors prefer 204 BC.</li>
+    </ul>
+
+    <p>
+      There is a trap in that list. <strong>The starting date of a cycle is not
+      the date of manufacture.</strong> An eclipse dial may have been computed
+      from an old epoch and engraved decades later, just as an almanac may
+      start its count in a year that has already passed. Part of the
+      disagreement is about facts; part is about what each date is measuring.
+    </p>
+
+    <p>
+      And there is a new datum that should not be misread. In the 2025
+      campaign, the hull timber recovered at the site was given a preliminary
+      date of around 235 BC. That speaks of the tree, not the shipwreck: ships
+      were built and repaired with wood cut earlier, and used for decades.
+    </p>
+
+    <figure class="figura larga reveal-fig">
+      <img src="../assets/img/ac-03-modelo-cosmos.jpg" loading="lazy" width="960" height="960"
+           alt="Computer reconstruction of the front dial of the Antikythera mechanism: golden concentric rings with markings and Greek letters, small colored spheres as markers and a sphere at the center">
+      <figcaption>
+        <b>Model</b> — the front dial in the computer reconstruction by
+        Freeth's team, from 2021: at the center, the Earth and the phase of the
+        Moon; around it, the rings of the planets; at the edge, the scales of
+        the zodiac and the calendar. On the piece, a stretch of the calendar
+        ring survives on fragment C, and it is under this ring that the holes
+        lie whose count, redone from 2020 onward, pointed to a 354-day year.
+        <span class="acervo-fonte">Figure by T. Freeth and colleagues, <em>Scientific Reports</em> 11:5821 (2021), <a href="https://creativecommons.org/licenses/by/4.0/deed.en" target="_blank" rel="license noopener">CC BY 4.0</a>, via Wikimedia Commons; reduced.</span>
+      </figcaption>
+    </figure>
+
+    <h2 id="calendario"><span class="indice">05</span>The 354-day ring</h2>
+
+    <p>
+      For a century, the outer ring on the front was read as an Egyptian solar
+      calendar of 365 days, because it bears the names of Egyptian months
+      transcribed into Greek. Beneath it, in a channel, there is a row of small
+      holes into which the ring fitted. Only a stretch survived, and the
+      question was how many holes there were in the full circle.
+    </p>
+
+    <p>
+      In 2020, Chris Budiselic and colleagues measured the position of the
+      holes in the tomography images and concluded that the most likely number
+      was 354 — the length of a lunar year, not a solar one. Then two groups
+      redid the calculation using different statistical methods: Graham Woan
+      and Joseph Bayley, of the University of Glasgow, in 2024, arrived at 354
+      or 355 and considered 365 implausible; Malin and Dickens arrived at an
+      estimate of around 352, with a margin that includes 354 and leaves 365
+      with less than a one-in-ten-thousand chance. If the reading holds, the
+      ring was a lunar calendar with Egyptian names — a rare combination,
+      which changes how one imagines the device's everyday use.
+    </p>
+
+    <p>
+      The mechanical consequence is still being worked out. In March 2026, a
+      study by Jian-Liang Lin in the journal <em>Results in Engineering</em>
+      proposed three gear schemes capable of moving a pointer over a ring of
+      354 divisions. These are engineering solutions compatible with the
+      pieces, not discoveries of a new piece.
+    </p>
+
+    <h2 id="ontem"><span class="indice">06</span>Discovered yesterday: what changed in 2025 and 2026</h2>
+
+    <h3>The uncomfortable question: did it work?</h3>
+
+    <p>
+      In April 2025, Esteban Szigety and Gustavo Arenas, from Argentina,
+      released as a preprint a simulation of the effect of the triangular
+      teeth and of manufacturing inaccuracies on the pointers. The conclusion
+      is cautious and was badly summarized in many headlines: the triangular
+      shape, on its own, causes almost no error; the problem is the
+      inaccuracies measured in earlier studies, which, if real, would make the
+      gears jam or slip. The authors themselves write that "either the
+      mechanism never functioned or its actual errors were smaller than
+      those reported" — and give reasons to prefer the second, because the
+      measurements come from pieces deformed by two thousand years of
+      corrosion. The idea that the mechanism was a "toy" circulated in the
+      press; it is not the conclusion of the paper.
+    </p>
+
+    <h3>The hull, for the first time</h3>
+
+    <p>
+      The site is still being excavated. Since 2014, Greece's Ephorate of
+      Underwater Antiquities has worked there with technical diving,
+      photogrammetry and robots, and since 2021 with the Swiss School of
+      Archaeology in Greece. In 2016, human bones from a crew member were
+      recovered. In the campaign from May 23 to June 20, 2025, announced by the
+      Greek Ministry of Culture in July, the team raised for the first time an
+      articulated section of the hull — three planks attached to a cross
+      member —, along with amphorae from Chios, a ceramic mortar and the base
+      of a marble statue. No new fragment of the mechanism had turned up as of
+      the 2025 campaign.
+    </p>
+
+    <h3>The eclipse gear, revised</h3>
+
+    <p>
+      In August 2026 a study came out in volume 17 of the journal
+      <em>Almagest</em>, which specializes in the history of science:
+      Aristeidis Voulgaris, Christophoros Mouratidis and Andreas Vossinakis
+      revise the draconic gear missing from the mechanism. They take into
+      account the deformation and shrinkage of the pieces after two millennia
+      in the sea, and argue that, with this gear, all the eclipses on the dial
+      — those preserved and those lost — can be recalculated from the
+      alignment of three pointers. The conclusion they draw is strong: the
+      engraved eclipses would have been <strong>calculated
+      mechanically</strong>, not copied from observations. It is one group's
+      thesis, published with peer review, which other researchers have yet to
+      discuss.
+    </p>
+
+    <div class="nota">
+      <strong>Why this dossier is in the Discovered Yesterday pillar</strong>
+      The mechanism was found in 1901, but almost everything known about it
+      dates from this century: the tomography is from 2005, the complete
+      inscriptions from 2016, the reconstructed front from 2021, the 354-day
+      ring from 2020 to 2024, and the debate over tolerances and eclipses from
+      2025 and 2026. The object is ancient; the reading of it is recent.
+    </div>
+
+    <h2 id="teorias"><span class="indice">07</span>The readings, from the most sober to the most improbable</h2>
+
+    <div class="teoria">
+      <div class="medidor" style="--nivel: 90%"><span>Weight of evidence</span><span class="barra"></span><span class="peso">High</span></div>
+      <h3>A Greek astronomical instrument, from a tradition that was lost</h3>
+      <p>
+        It is the reading the pieces impose. The text is in Greek; the months
+        are from a Greek calendar; the cycles are those of the Babylonian
+        astronomy the Greeks inherited; the irregularity of the Moon follows
+        Hipparchus's theory. And it is not alone in the written record: Cicero,
+        in the first century BC, describes mechanical spheres attributed to
+        Archimedes and to Posidonius, which showed the motion of the Sun, the
+        Moon and the planets.
+      </p>
+      <p>
+        What is extraordinary is the survival, not the existence. Bronze was
+        reused; a device like this, outside a shipwreck, would have been
+        melted down. The quality of the work suggests workshops with practice
+        — and therefore other devices, which have not come down to us.
+      </p>
+    </div>
+
+    <div class="teoria">
+      <div class="medidor" style="--nivel: 50%"><span>Weight of evidence</span><span class="barra"></span><span class="peso">Disputed</span></div>
+      <h3>Rhodes, Corinth or Syracuse: where it came from</h3>
+      <p>
+        The Corinthian calendar led to the hypothesis of a Corinthian colony —
+        Syracuse, the city of Archimedes, was proposed at one point, and then
+        ruled out for this specific calendar in 2017. The lunar theory and the
+        presence of the games of Rhodes point to the school of Hipparchus and
+        Posidonius on Rhodes. The games of Dodona and the names of the months
+        suggest a client in Epirus. A conciliatory reading holds that the
+        design may be Rhodian and the example commissioned for northwestern
+        Greece. No proof settles it.
+      </p>
+    </div>
+
+    <div class="teoria">
+      <div class="medidor" style="--nivel: 45%"><span>Weight of evidence</span><span class="barra"></span><span class="peso">Disputed</span></div>
+      <h3>A complete planetary display on the front</h3>
+      <p>
+        The inscriptions call for the five planets, and the 2021 reconstruction
+        shows that they fit in the available space with gears of the type the
+        piece already uses. But none of the planetary gears survived, and more
+        than one scheme is compatible with the text. It is the gap between "it
+        was there" and "it worked like this."
+      </p>
+    </div>
+
+    <div class="teoria">
+      <div class="medidor" style="--nivel: 18%"><span>Weight of evidence</span><span class="barra"></span><span class="peso">Low</span></div>
+      <h3>It never worked properly</h3>
+      <p>
+        It is the extreme reading of the 2025 study on tolerances. It depends
+        on the manufacturing errors measured on the corroded pieces being the
+        original errors — which the authors themselves doubt. A device with
+        usage inscriptions, pointers, a manual and calendar adjustments was
+        made to be used; whether it was accurate, and how accurate, is a
+        legitimate question.
+      </p>
+    </div>
+
+    <div class="teoria">
+      <div class="medidor" style="--nivel: 3%; --cor-nivel: var(--ambar-fundo)"><span>Weight of evidence</span><span class="barra"></span><span class="peso">None</span></div>
+      <h3>Alien technology, or that of a lost civilization</h3>
+      <p>
+        The mechanism is one of the favorite pieces of the "out-of-place
+        artifact" literature, and the argument is always the same: too complex
+        for its time. The pieces say the opposite. The teeth are triangular and
+        uneven, cut by hand; the metal is ordinary bronze; the cycles are those
+        of the astronomy of the time, with the errors of the time; the text is
+        Greek, with the names of Greek festivals. There is not a single element
+        that cannot be explained by documented Hellenistic knowledge.
+      </p>
+      <p>
+        What the mechanism overturns is not history: it is the idea that the
+        Greeks only theorized and did not build. It shows a real mechanical
+        tradition that disappeared and only reappears, with comparable
+        complexity, in the astronomical clocks of fourteenth-century Europe.
+      </p>
+    </div>
+
+    <h2 id="cronologia"><span class="indice">08</span>Chronology</h2>
+
+    <ul class="cronologia">
+      <li><span class="quando">≈ 205 – 87 BC</span><span class="oque">Range of the proposed dates for the design, the calibration or the construction of the mechanism. The sources diverge.</span></li>
+      <li><span class="quando">≈ 70 – 60 BC</span><span class="oque">The ship sinks off Antikythera, loaded with statues, pottery, glass, coins — and the mechanism.</span></li>
+      <li><span class="quando">spring 1900</span><span class="oque">Sponge divers from Symi, with captain Dimitrios Kontos, find the wreck while sheltering from bad weather.</span></li>
+      <li><span class="quando">1900 – 1901</span><span class="oque">Salvage operation with the Greek Navy. One diver dies and two are paralyzed. The mechanism comes out of the sea in 1901.</span></li>
+      <li><span class="quando">May 17, 1902</span><span class="oque">Valerios Stais notices a toothed wheel on one of the pieces, at the National Archaeological Museum.</span></li>
+      <li><span class="quando">1959</span><span class="oque">Derek de Solla Price calls the object an "ancient Greek computer" in a popular article.</span></li>
+      <li><span class="quando">1971</span><span class="oque">Price and Charalampos Karakalos radiograph the fragments with gamma rays and X-rays.</span></li>
+      <li><span class="quando">1974</span><span class="oque"><em>Gears from the Greeks</em> comes out, the first detailed diagram of the gear train.</span></li>
+      <li><span class="quando">1976</span><span class="oque">Jacques Cousteau's team returns to the wreck and collects, among other things, coins used in dating it.</span></li>
+      <li><span class="quando">2005</span><span class="oque">The <em>Antikythera Mechanism Research Project</em> carries out the X-ray tomography and surface imaging in Athens.</span></li>
+      <li><span class="quando">2006 and 2008</span><span class="oque">Papers in <em>Nature</em>: the pin in the slot that reproduces the Moon's variable speed; the Corinthian-type calendar and the games dial.</span></li>
+      <li><span class="quando">2014</span><span class="oque">Carman and Evans propose 205 BC as the starting epoch of the saros dial. A new series of dives at the site begins.</span></li>
+      <li><span class="quando">2016</span><span class="oque">Complete edition of the inscriptions in the journal <em>Almagest</em>. Human bones of a crew member are recovered from the wreck.</span></li>
+      <li><span class="quando">2020</span><span class="oque">Budiselic and colleagues count the holes under the calendar ring: 354, a lunar year.</span></li>
+      <li><span class="quando">March 2021</span><span class="oque">Tony Freeth's team at UCL publishes the reconstruction of the front in <em>Scientific Reports</em>.</span></li>
+      <li><span class="quando">2024</span><span class="oque">Woan and Bayley, in Glasgow, redo the hole count by another method: 354 or 355. A third analysis, by Malin and Dickens, comes close to 352. The 365 is practically ruled out.</span></li>
+      <li><span class="quando">April 2025</span><span class="oque">Szigety and Arenas release the preprint on triangular teeth and tolerances.</span></li>
+      <li><span class="quando">May – June 2025</span><span class="oque">A campaign at the wreck recovers, for the first time, an articulated section of the hull.</span></li>
+      <li><span class="quando">March 2026</span><span class="oque">Jian-Liang Lin proposes, in <em>Results in Engineering</em>, three gear schemes for the 354-division ring.</span></li>
+      <li><span class="quando">August 2026</span><span class="oque">Voulgaris, Mouratidis and Vossinakis publish in <em>Almagest</em> the revision of the draconic gear and the thesis that the eclipses on the dial were calculated mechanically.</span></li>
+    </ul>
+
+    <h2 id="aberto"><span class="indice">09</span>What remains open</h2>
+
+    <p>
+      <strong>Who made it, where and when.</strong> There are three strong
+      candidates for its origin and a range of more than a century for the
+      date, and part of the disagreement comes from each date measuring
+      something different — the starting epoch of a cycle, the letterforms, a
+      client's calendar.
+    </p>
+
+    <p>
+      <strong>What the front looked like.</strong> The planets were there, the
+      text says. How they moved is reconstruction, and there is more than one
+      that respects the numbers. The same goes for the true-Sun pointer and
+      for the draconic gear.
+    </p>
+
+    <p>
+      <strong>How well it worked.</strong> It depends on how much of the
+      inaccuracy measured today is corrosion and how much is manufacture — a
+      question that only a replica made with the methods of the period, and
+      not with modern machines, can begin to answer.
+    </p>
+
+    <p>
+      <strong>Whether there are more pieces on the bottom.</strong> Fragment F
+      was found in 2005 in a crate in the museum itself, not in the sea. The
+      site is still being excavated, and a second cargo some two hundred
+      meters away has not yet been explained. A new piece of the mechanism
+      would settle disputes that the text and the tomography cannot.
+    </p>
+
+    <h2 id="perguntas"><span class="indice">10</span>Frequently asked questions</h2>
+
+    <div class="perguntas">
+      <h3>What is the Antikythera mechanism?</h3>
+      <p>It is a Greek bronze astronomical calculator, with gears, recovered in 1901 from a ship that sank off the island of Antikythera around 70 to 60 before Christ. There remain 82 fragments and 30 gears, about a third of the original device.</p>
+
+      <h3>How did the Antikythera mechanism work?</h3>
+      <p>One turned a crank, and the gears turned the passing of days into positions and cycles: the Sun and the Moon in the zodiac, the phase of the Moon, the Metonic cycle, the saros of eclipses and the years of the Greek games. All the “programming” is in the tooth count. The planets were there, according to the inscriptions, but the gears that moved them were lost and are <a href="#lido">reconstruction</a>.</p>
+
+      <h3>Who made the Antikythera mechanism?</h3>
+      <p>No one knows. The lunar theory follows that of Hipparchus, and the hypotheses about its origin point to Rhodes, to a Corinthian colony or to a client in Epirus; Cicero describes mechanical spheres attributed to Archimedes and to Posidonius. <a href="#teorias">No proof settles it</a>.</p>
+
+      <h3>How old is the Antikythera mechanism?</h3>
+      <p>It is older than the shipwreck, of around 70 to 60 BC. How much older, the sources disagree: the proposals range from about 205 to 87 BC, and part of the disagreement comes from each date measuring something different — <a href="#data">the starting epoch of a cycle, the letterforms or the calendar</a>.</p>
+
+      <h3>Where is the Antikythera mechanism now?</h3>
+      <p>At the National Archaeological Museum, in Athens, where it was taken after the salvage. The piece cannot leave the museum: in 2005, it was the tomography scanner that went to it.</p>
+    </div>
+
+    <h2 id="fontes"><span class="indice">11</span>Sources consulted</h2>
+
+    <p class="mono" style="text-transform: none; letter-spacing: 0; line-height: 1.7;">
+      This dossier is original writing. The sources below were consulted to
+      verify dates, measurements and attributions; none was reproduced.
+    </p>
+
+    <ul class="fontes">
+      <li>Consolidated encyclopedic entries on the mechanism and on the Antikythera shipwreck — discovery, fragments, dials, proposed datings.</li>
+      <li>Price, D. J. de S. — <em>Gears from the Greeks: The Antikythera Mechanism, a Calendar Computer from ca. 80 B.C.</em> Transactions of the American Philosophical Society, 1974.</li>
+      <li>Freeth, T. et al. — <em>Decoding the ancient Greek astronomical calculator known as the Antikythera Mechanism</em>. Nature, 2006.</li>
+      <li>Freeth, T. et al. — <em>Calendars with Olympiad display and eclipse prediction on the Antikythera Mechanism</em>. Nature, 2008.</li>
+      <li>Carman, C.; Evans, J. — on the starting epoch of the saros dial. Archive for History of Exact Sciences, 2014.</li>
+      <li>Jones, A.; Bitsakis, Y. et al. — edition of the mechanism's inscriptions. Almagest, vol. 7, 2016.</li>
+      <li>Iversen, P. — the mechanism's calendar and Epirus. Hesperia, 2017.</li>
+      <li>Freeth, T.; Higgon, D.; Dacanalis, A.; MacDonald, L.; Georgakopoulou, M.; Wojcik, A. — <em>A Model of the Cosmos in the ancient Greek Antikythera Mechanism</em>. Scientific Reports, March 12, 2021.</li>
+      <li>Budiselic, C. et al. — count of the calendar ring holes, 2020; Woan, G.; Bayley, J. — <em>An improved calendar ring hole-count for the Antikythera mechanism</em>, 2024; Malin, D.; Dickens, J. — independent estimate of the number of holes.</li>
+      <li>Szigety, E. G.; Arenas, G. F. — <em>The Impact of Triangular-Toothed Gears on the Functionality of the Antikythera Mechanism</em>. Preprint, April 2025.</li>
+      <li>Hellenic Ministry of Culture and Swiss School of Archaeology in Greece — results of the 2025 campaign at the Antikythera shipwreck, July 2025.</li>
+      <li>Lin, J.-L. — <em>New reconstruction designs based on the Re-decrypt calendar dial on the front plate of Antikythera mechanism</em>. Results in Engineering, vol. 29, March 2026.</li>
+      <li>Voulgaris, A.; Mouratidis, C.; Vossinakis, A. — <em>Revising the Draconic Gearing of the Antikythera Mechanism, the Eclipse Events of the Saros Spiral, and Their Classification</em>. Almagest, vol. 17, no. 1, 2026.</li>
+    </ul>
+
+
+    <nav class="relacionados" aria-label="Related dossiers">
+      <span class="mono">Read also</span>
+      <ul>
+        <li><a href="papiros-herculano.html">
+          <span class="num">Dossier {{NUM:papiros-herculano}}</span>
+          <strong>The Herculaneum papyri</strong>
+          <span class="porque">Another text that only tomography managed to read.</span>
+        </a></li>
+        <li><a href="denisovanos.html">
+          <span class="num">Dossier {{NUM:denisovanos}}</span>
+          <strong>Denisovans — the lineage discovered in a finger</strong>
+          <span class="porque">Another discovery that happened in the laboratory, decades after the find.</span>
+        </a></li>
+      </ul>
+    </nav>
+  </div>
+  </article>
+
+  <section class="wrap" style="padding-bottom: 2rem;">
+    {{PROXIMO}}
+  </section>
+
+</main>
+
+<div class="lupa" id="lupa" role="dialog" aria-modal="true" aria-label="Enlarged image">
+  <button class="fechar" type="button" id="lupa-fechar">Close ✕</button>
+  <figure>
+    <img id="lupa-img" alt="">
+    <figcaption id="lupa-legenda"></figcaption>
+  </figure>
+</div>
+
+<footer class="rodape">
+  <div class="wrap">
+    <div>
+      <a class="marca" href="../index.html" aria-label="Vestígio Oculto — home">{{LOGO}}</a>
+      <p>An open archive of what history began to tell and never finished.</p>
+    </div>
+    <div>
+      <span class="mono">Pillars</span>
+      <p><a href="../index.html#pedra-e-poeira">Stone and Dust</a> · <a href="../index.html#descoberto-ontem">Discovered Yesterday</a> · <a href="../index.html#arquivo-selado">Sealed Archive</a> · <a href="../index.html#ultimos-isolados">The Last Isolated</a></p>
+    </div>
+    <div>
+      <span class="mono">Channel</span>
+      <p><a class="canal-handle" href="https://www.youtube.com/@VestigoOcultoBrasil" target="_blank" rel="noopener">@VestigoOcultoBrasil</a></p>
+    </div>
+    <div class="creditos">
+      <span class="mono">© 2026 Vestígio Oculto</span>
+      <span class="mono"><a href="{{RAIZ}}sobre.html">About</a> · <a href="{{RAIZ}}contato.html">Contact</a> · <a href="{{RAIZ}}privacidade.html">Privacy policy</a></span>
+      <span class="mono">Dossier {{NUM}} · revised Oct 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var barra = document.getElementById('progresso');
+  function atualiza() {
+    var h = document.documentElement;
+    var total = h.scrollHeight - h.clientHeight;
+    barra.style.width = (total > 0 ? (h.scrollTop / total) * 100 : 0) + '%';
+  }
+  document.addEventListener('scroll', atualiza, { passive: true });
+  atualiza();
+
+  var figs = document.querySelectorAll('.reveal-fig');
+  if (!('IntersectionObserver' in window) ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    figs.forEach(function (f) { f.classList.add('visivel'); });
+  } else {
+    var obs = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('visivel'); obs.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    figs.forEach(function (f) { obs.observe(f); });
+  }
+
+  var lupa = document.getElementById('lupa');
+  var img = document.getElementById('lupa-img');
+  var leg = document.getElementById('lupa-legenda');
+  var btn = document.getElementById('lupa-fechar');
+  var ultimo = null;
+
+  function abrir(origem, legenda) {
+    img.src = origem.currentSrc || origem.src; img.alt = origem.alt;
+    leg.textContent = legenda;
+    lupa.classList.add('aberta');
+    document.body.style.overflow = 'hidden';
+    ultimo = origem; btn.focus();
+  }
+  function fechar() {
+    lupa.classList.remove('aberta');
+    document.body.style.overflow = '';
+    if (ultimo) ultimo.focus();
+  }
+
+  figs.forEach(function (fig) {
+    var alvo = fig.querySelector('img');
+    if (!alvo) return;
+    alvo.tabIndex = 0;
+    alvo.addEventListener('click', function () { abrir(alvo, fig.querySelector('figcaption').textContent.trim()); });
+    alvo.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); alvo.click(); }
+    });
+  });
+  btn.addEventListener('click', fechar);
+  lupa.addEventListener('click', function (e) { if (e.target === lupa) fechar(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && lupa.classList.contains('aberta')) fechar();
+  });
+})();
+</script>
+
+{{CONSENTIMENTO}}
+
+</body>
+</html>

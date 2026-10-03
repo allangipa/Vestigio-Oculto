@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kryptos: The CIA's Encrypted Sculpture · Vestígio Oculto</title>
+<meta name="description" content="Kryptos, the encrypted sculpture at CIA headquarters since 1990: three of its four messages have been solved; K4, at 97 letters, has no public solution.">
+<meta name="theme-color" content="#0B0B0C">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="canonical" href="{{BASE}}/dossies/kryptos.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kryptos — the text the CIA never read">
+<meta property="og:description" content="Four encrypted messages on a copper sheet in the CIA courtyard. Three have fallen. The fourth has an owner, a price and a checker — but no one has deciphered it.">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="{{BASE}}/dossies/kryptos.html">
+<meta property="og:image" content="{{DOMINIO}}/assets/img/og-vestigio-oculto.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+{{ADSENSE}}
+{{FONTES}}
+<style>{{CSS}}</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Kryptos — the text the CIA never read",
+  "description": "Investigative dossier on Kryptos, Jim Sanborn's encrypted sculpture at CIA headquarters: the commission, the cryptographer Ed Scheidt, the solutions of K1 to K3 by the NSA, by David Stein and by Jim Gillogly, the K4 clues, the find at the Smithsonian in 2025, the auction and the 2026 checker.",
+  "inLanguage": "en",
+  "datePublished": "2026-10-03",
+  "dateModified": "2026-10-03",
+  "articleSection": "Sealed Archive",
+  "keywords": "Kryptos, K4, Jim Sanborn, Ed Scheidt, CIA, Langley, cryptography, Vigenère cipher, Jim Gillogly, David Stein, NSA, RR Auction, Smithsonian, Paradigm",
+  "author": {
+    "@type": "Organization",
+    "name": "Vestígio Oculto"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Vestígio Oculto",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{DOMINIO}}/assets/img/logo-vestigio-oculto.png", "width": 512, "height": 512
+    }
+  },
+  "about": {
+    "@type": "CreativeWork",
+    "name": "Kryptos",
+    "creator": {
+      "@type": "Person",
+      "name": "Jim Sanborn"
+    },
+    "dateCreated": "1990",
+    "description": "Sculpture of copper, granite, petrified wood and water with four encrypted messages, dedicated on November 3, 1990 in the courtyard of the CIA's New Headquarters Building.",
+    "locationCreated": {
+      "@type": "Place",
+      "name": "CIA headquarters, Langley, Virginia, United States",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 38.9523,
+        "longitude": -77.1457
+      }
+    }
+  },
+  "temporalCoverage": "1988/2026",
+  "image": "{{DOMINIO}}/assets/img/020-kryptos-real.jpg",
+  "translationOfWork": {
+    "@type": "Article",
+    "@id": "{{DOMINIO}}/dossies/kryptos.html",
+    "inLanguage": "pt-BR"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{BASE}}/dossies/kryptos.html"
+  }
+}
+</script>
+</head>
+<body>
+
+<div class="progresso" id="progresso" role="presentation"></div>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="marca" href="../index.html" aria-label="Vestígio Oculto — home">
+      {{LOGO}}
+      <span class="selo">Dossier {{NUM}}</span>
+    </a>
+    <nav aria-label="Editorial pillars">
+      <ul class="nav-pilares">
+        <li><a href="../index.html#pedra-e-poeira">Stone and Dust</a></li>
+        <li><a href="../index.html#descoberto-ontem">Discovered Yesterday</a></li>
+        <li><a href="../index.html#arquivo-selado">Sealed Archive</a></li>
+        <li><a href="../index.html#ultimos-isolados">The Last Isolated</a></li>
+        <li><a href="{{RAIZ}}sobre.html">About</a></li>
+        <li class="nav-canal"><a href="https://www.youtube.com/@VestigoOcultoBrasil" target="_blank" rel="noopener">YouTube</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <article>
+  <header class="dossie-capa">
+    <div class="wrap">
+      <span class="kicker">Dossier {{NUM}} · Sealed Archive · Open case</span>
+      <h1>Kryptos — the text the CIA never read</h1>
+      <p class="subtitulo">
+        Since 1990, a copper sheet cut through with letters has stood in the
+        inner courtyard of the best-known spy agency in the world. Three of its
+        four messages fell in less than ten years. The fourth has 97
+        characters; it was found by chance in an archive, sold for almost a
+        million dollars and locked away again — and it still has not been
+        deciphered.
+      </p>
+
+      <dl class="ficha">
+        <div><dt>Where</dt><dd>CIA headquarters, Langley, Virginia</dd></div>
+        <div><dt>Dedicated</dt><dd>November 3, 1990</dd></div>
+        <div><dt>Artist</dt><dd>Jim Sanborn, with Ed Scheidt</dd></div>
+        <div><dt>Ciphertext</dt><dd>869 characters, in four sections</dd></div>
+        <div><dt>Solved</dt><dd>K1, K2 and K3 (1992–1999)</dd></div>
+        <div><dt>Unsolved</dt><dd>K4 — 97 characters</dd></div>
+      </dl>
+    </div>
+  </header>
+
+  <div class="corpo">
+
+    <p class="abertura">
+      In the late 1980s, the CIA expanded its Langley headquarters, in
+      Virginia, with a second large building, and set aside part of the budget
+      for art on the grounds — as many American public works do. The
+      Washington sculptor Jim Sanborn, born in 1945, won the commission in
+      1988, for 250 thousand dollars. He proposed a work about the house's own
+      trade: gathering information, hiding information, revealing
+      information.
+    </p>
+
+    <p>
+      The result was finished in 1990 and dedicated on November 3, in the
+      northwest corner of the courtyard of the New Headquarters Building,
+      outside the cafeteria. It is called <em>Kryptos</em> — "hidden," in
+      Greek. Those who work there pass it every day. Those who do not cannot
+      get in: the courtyard lies inside one of the most heavily guarded areas
+      in the United States. That is why this dossier is in the Sealed Archive
+      pillar. The work is public only in the sense that its text has been
+      photographed and circulates; the place is not.
+    </p>
+
+    <figure class="figura larga reveal-fig">
+      <img src="../assets/img/kr-01-escultura.jpg" loading="lazy" width="640" height="512"
+           alt="The Kryptos sculpture in the courtyard of CIA headquarters: a vertical sheet of greenish copper, curved in an S, cut through with letters, resting on a reddish stone slab, with a petrified wood log behind it and glass buildings in the background">
+      <figcaption>
+        <b class="acervo-linha">Archive</b> — <em>Kryptos</em> in the courtyard
+        of the CIA's New Headquarters Building, shortly after installation. The
+        curved sheet carries the ciphertext on the left and a table of
+        alphabets on the right; in front, the red granite slab; behind, the
+        petrified wood log.
+        <span class="acervo-fonte">Photo provided by Jim Sanborn, 1991, CC BY-SA 3.0 (the author's permission recorded with Wikimedia), via Wikimedia Commons.</span>
+      </figcaption>
+    </figure>
+
+    <h2 id="obra"><span class="indice">01</span>The sculptor and the cryptographer</h2>
+
+    <p>
+      Sanborn was not a cryptographer. To encrypt the text, the agency put him
+      in touch with Edward Scheidt, who headed the CIA's Cryptographic Center
+      and was retiring in 1989. Scheidt taught the sculptor classical cipher
+      systems, "going back to Caesar," in his words, and Sanborn chose a few.
+      The two agreed to compartmentalize the work: the plaintext messages were
+      written by Sanborn, and the final encryption was also done by him.
+      Scheidt knows the methods; it is not known whether he knows the full
+      text of the fourth part. At the time, Scheidt rated the difficulty a
+      nine on a scale of ten and estimated that the whole thing would fall in
+      five to ten years.
+    </p>
+
+    <p>
+      The centerpiece is an S-shaped copper screen, reminiscent of a sheet
+      coming out of a printer, perforated letter by letter. Around it, Sanborn
+      placed water, plants, red and green granite, white quartz and the
+      petrified wood log. Outside the entrance of the new building there are
+      more elements: granite slabs with copper plates between them, on which
+      phrases in Morse code can be read, and an engraved compass rose that
+      points to a lodestone. No one has shown that these pieces help decipher
+      the fourth message, but they are part of the work.
+    </p>
+
+    <div class="evidencias">
+      <div class="evidencia">
+        <span class="medida">869</span>
+        <span class="legenda">Characters on the encrypted side of the screen: <strong>865 letters</strong> and four question marks.</span>
+      </div>
+      <div class="evidencia">
+        <span class="medida">4</span>
+        <span class="legenda">Sections, called <strong>K1 to K4</strong>, each with a different method or key.</span>
+      </div>
+      <div class="evidencia">
+        <span class="medida">97</span>
+        <span class="legenda">Characters in <strong>K4</strong>, the only part that has never been publicly deciphered.</span>
+      </div>
+      <div class="evidencia">
+        <span class="medida">24</span>
+        <span class="legenda">Letters of K4 that Sanborn himself has handed out as <strong>clues</strong>, between 2010 and 2020.</span>
+      </div>
+    </div>
+
+    <h2 id="texto"><span class="indice">02</span>What is engraved</h2>
+
+    <p>
+      The screen has two halves. The right one is a table of 26 shifted
+      alphabets, a tool of the kind used in the Vigenère cipher, built on an
+      alphabet that begins with the word KRYPTOS and continues with the
+      remaining letters. It is the work's crudest clue, and it is genuine: the
+      first two sections were encrypted with that alphabet.
+    </p>
+
+    <p>
+      The left half is the ciphertext, with no visible break between the
+      sections. Today it is known how it divides. K1 and K2 use the Vigenère
+      cipher with the KRYPTOS alphabet and two keywords, PALIMPSEST and
+      ABSCISSA. K3 is a transposition: the right letters are there, out of
+      order. K4 takes up the last lines, and this is where the method changes
+      in nature — Sanborn and Scheidt have said, in interviews, that there was
+      a deliberate change of methodology in the last part.
+    </p>
+
+    <div class="nota">
+      <strong>K4, as it appears on the screen</strong>
+      <span class="mono" style="display: block; text-transform: none; letter-spacing: 0.18em; line-height: 1.9; word-break: break-all; margin-top: 0.6rem;">OBKRUOXOGHULBSOLIFBBWFLRV<br>QQPRNGKSSOTWTQSJQSSEKZZWA<br>TJKLUDIAWINFBNYPVTTMZFPKW<br>GDKZXTJCDIGKUHUAUEKCAR</span>
+      There are 97 letters. Sanborn's four clues sit at positions 22 to 25
+      (FLRV), 26 to 34 (QQPRNGKSS), 64 to 69 (NYPVTT) and 70 to 74 (MZFPK).
+      The transcription is text, reproduced here as a card, not a photograph
+      of the work.
+    </div>
+
+    <p>
+      There are also errors, and they are part of the legend. The deciphered
+      text has IQLUSION instead of <em>illusion</em>, UNDERGRUUND instead of
+      <em>underground</em> and DESPARATLY instead of <em>desperately</em>; the
+      keyword itself appears encrypted as PALIMPCEST in one stretch of the
+      table. Sanborn says the misspellings are deliberate, and that much of
+      what he does is full of intentional errors. Whether any of them is a
+      clue to K4, no one has shown.
+    </p>
+
+    <p>
+      One error, however, was not deliberate. In April 2006, Sanborn admitted
+      that he had left out a letter S when cutting K2. The omission changed
+      the end of the message: the stretch read for seven years as ID BY ROWS
+      became X LAYER TWO. He noted that, with about 1,800 letters cut by hand
+      into the metal, a mistake could not be fixed once made.
+    </p>
+
+    <h2 id="solucoes"><span class="indice">03</span>Three sections fall — and who got there first</h2>
+
+    <p>
+      The first solution was not public, which is why the story of who
+      deciphered what has three versions that are best shown side by side.
+    </p>
+
+    <ul class="fontes">
+      <li><strong>NSA, 1992–1993.</strong> A small team at the National Security Agency, led by Ken Miller and including Dennis McDaniels, solved K1, K2 and K3 at the end of 1992, according to later accounts. The agency only said, in March 2000, that its employees had solved the three parts. In 2013, a Freedom of Information Act request by the researcher Elonka Dunin released documents that date the complete solution to <strong>June 1993</strong>. The two dates describe the same work, at different stages.</li>
+      <li><strong>David Stein, CIA, 1998.</strong> An analyst at the CIA itself deciphered the three parts with pencil and paper, without a computer, and published the result in an internal intelligence-community journal. The public only learned of it in <strong>July 1999</strong>.</li>
+      <li><strong>Jim Gillogly, 1999.</strong> A computer scientist from Southern California solved the three parts with the help of a computer and announced it in <strong>June 1999</strong>. It was the first solution made public outside the government — his announcement is what led the CIA to reveal Stein's work.</li>
+    </ul>
+
+    <p>
+      By any criterion, the first solution belongs to the NSA, and the first
+      public one to Gillogly. None of them made headway on K4, and Gillogly
+      himself became one of the most cited students of the fourth part.
+    </p>
+
+    <h2 id="mensagens"><span class="indice">04</span>What the first three say</h2>
+
+    <p>
+      <strong>K1</strong> is a short, poetic sentence about the boundary
+      between subtle shading and the absence of light, where "the nuance of
+      iqlusion" lies. It conveys no information; it sets the tone.
+    </p>
+
+    <p>
+      <strong>K2</strong> is the part that most fuels speculation. It speaks of
+      something totally invisible, of information transmitted through the
+      Earth's magnetic field and buried in an unknown location, asks whether
+      Langley knows about it and says that only "WW" knows the exact location
+      — the common reading: William Webster, the CIA director who dedicated
+      the work. It ends with geographic coordinates that, read with a modern
+      datum, fall about 50 meters southeast of the sculpture itself, on the
+      headquarters grounds, and with the words corrected in 2006, "layer
+      two."
+    </p>
+
+    <p>
+      <strong>K3</strong> is a paraphrase, with altered spelling, of Howard
+      Carter's account of November 26, 1922, when he opened a small breach in
+      the door of Tutankhamun's tomb, held up a candle and, asked whether he
+      could see anything, answered yes. The choice is not arbitrary: it is
+      archaeology's most famous scene about looking, for the first time, at
+      what was hidden behind a wall.
+    </p>
+
+    <figure class="figura larga reveal-fig">
+      <img src="../assets/img/kr-03-carter.jpg" loading="lazy" width="960" height="1080"
+           alt="Black-and-white photograph: Howard Carter, kneeling, opens the doors of a gilded shrine covered in hieroglyphs inside Tutankhamun's tomb, watched by two men">
+      <figcaption>
+        <b class="acervo-linha">Archive</b> — Howard Carter, kneeling, with an
+        Egyptian worker and Arthur Callender, opens the doors of the shrines in
+        Tutankhamun's burial chamber. The photo is from January 1924, a year
+        after the scene paraphrased in K3; it is from the same tomb and the
+        same team.
+        <span class="acervo-fonte">Photograph by Harry Burton, 1924, public domain, via Wikimedia Commons (vertical crop).</span>
+      </figcaption>
+    </figure>
+
+    <h2 id="pistas"><span class="indice">05</span>The artist's clues</h2>
+
+    <p>
+      Twenty years after the dedication, with no solution to K4 in sight,
+      Sanborn began handing out pieces of the plaintext, always with the exact
+      position. Each clue narrows the search space, and none has been enough.
+    </p>
+
+    <ul class="cronologia">
+      <li><span class="quando">November 2010</span><span class="oque">To the <em>New York Times</em>, on the work's 20th anniversary: letters 64 to 69, NYPVTT, decipher as <strong>BERLIN</strong>.</span></li>
+      <li><span class="quando">November 2014</span><span class="oque">Also to the <em>Times</em>: letters 70 to 74, MZFPK, are <strong>CLOCK</strong>. Together, BERLIN CLOCK. In 2025, Sanborn confirmed the reference is to the Berlin world clock.</span></li>
+      <li><span class="quando">January 29, 2020</span><span class="oque">Letters 26 to 34, QQPRNGKSS, are <strong>NORTHEAST</strong>.</span></li>
+      <li><span class="quando">August 2020</span><span class="oque">Letters 22 to 25, FLRV, are <strong>EAST</strong>. In sequence, that gives EAST NORTHEAST — a compass direction.</span></li>
+    </ul>
+
+    <figure class="figura larga reveal-fig">
+      <img src="../assets/img/kr-04-relogio.jpg" loading="lazy" width="960" height="640"
+           alt="The world clock at Alexanderplatz, in Berlin, at night: a column with a cylinder of panels bearing city names and times, topped by a metal structure of moving orbits">
+      <figcaption>
+        <b class="acervo-linha">Archive</b> — the Urania world clock, at
+        Alexanderplatz, in Berlin, inaugurated in 1969 in the eastern side of
+        the city. It is the "Berlin clock" Sanborn associated with the words
+        BERLIN CLOCK in K4.
+        <span class="acervo-fonte">Photo Diego Delso, 2016, CC BY-SA 4.0, via Wikimedia Commons (reduced).</span>
+      </figcaption>
+    </figure>
+
+    <div class="nota">
+      <strong>What the clues allow, and what they do not</strong>
+      With 24 letters known in fixed positions, any candidate method can be
+      tested: if it does not turn those cipher letters into those plain
+      letters, it is wrong. This has knocked down thousands of proposals. But
+      knowing part of the text does not reveal the method, because Sanborn and
+      Scheidt have said that K4 has layers — and K2 itself speaks of "layer
+      two."
+    </div>
+
+    <h2 id="leilao"><span class="indice">06</span>Found in the archive, sold at auction</h2>
+
+    <p>
+      The turn that brings this dossier into the present begins in August
+      2025. Nearing his 80th birthday, Sanborn announced that he would put up
+      for sale, through the American auction house RR Auction, his private
+      archive on the work — including the K4 solution and the encryption
+      system. In a letter, he explained that he no longer had the physical,
+      mental or financial resources to go on being the keeper of the secret,
+      and acknowledged that the decision would upset many people.
+    </p>
+
+    <p>
+      While the auction was being prepared, the unexpected happened. On
+      September 3, 2025, the writer Jarett Kobek and the journalist and
+      playwright Richard Byrne went to the Smithsonian's Archives of American
+      Art, in Washington, where Sanborn had deposited papers from his career
+      about two years earlier. Among them were five pages of scrambled text
+      that the sculptor prepared in 1990 to show the CIA's history office
+      that the message contained nothing offensive: sentences cut into strips
+      and reassembled out of order. Using the public clues, the two
+      reconstructed the K4 plaintext. Sanborn confirmed that it was correct.
+      The story ran in the <em>New York Times</em> on October 16, 2025.
+    </p>
+
+    <p>
+      What came next is the less-known part. The Smithsonian restricted access
+      to that material until 2075. Kobek and Byrne turned down a paid
+      confidentiality agreement, said they do not intend to release the text
+      and were warned by lawyers that releasing it could lead to a lawsuit.
+      The two insist on a point this dossier considers central: <strong>they
+      found the text, they did not break the cipher</strong>. The method — how
+      the 97 plaintext letters became the 97 letters in the copper — remains
+      unknown to them.
+    </p>
+
+    <p>
+      The auction closed on November 20, 2025. The estimate was 300 thousand
+      to 500 thousand dollars; the lot sold for <strong>962,500
+      dollars</strong>, to an anonymous buyer. It included the handwritten K4
+      plaintext, the encryption systems, alternative versions from 1988, the
+      scrambled pages shown to the CIA and an afternoon with the artist to
+      explain everything. Sanborn said he hoped the buyer would keep the
+      fourth part secret.
+    </p>
+
+    <p>
+      On June 12, 2026, the buyer came forward: Paradigm, a cryptocurrency and
+      technology investment firm. It announced that it has not read the answer
+      and does not intend to. According to the company itself, Sanborn typed
+      the plaintext into a new computer, which computed from it a one-way
+      cryptographic fingerprint (a SHA-256 <em>hash</em>) and turned it, with
+      a key held in a Google cloud service, into a verification tag; the text
+      never left the device, which was then wiped. Anyone can submit a guess,
+      at a cost of one dollar each, and the system says only whether it
+      matches. The company also launched ten practice challenges, with prizes
+      totaling 10 thousand dollars, and says it intends to release a K5 in the
+      future — a fifth message of 97 characters that Sanborn says is linked
+      to K4.
+    </p>
+
+    <div class="nota">
+      <strong>Where K4 stands in October 2026</strong>
+      The plaintext exists and is known to Sanborn and the two journalists;
+      the method, to Sanborn and Ed Scheidt. The company that owns the archive
+      says it knows neither. No public cryptographic solution — someone who
+      starts from the copper and arrives at the text by a demonstrable method
+      — had been confirmed as of October 2026.
+    </div>
+
+    <figure class="figura larga reveal-fig">
+      <img src="../assets/img/kr-02-sede.jpg" loading="lazy" width="960" height="427"
+           alt="Aerial view of CIA headquarters in Langley: low, wide concrete-and-glass buildings surrounded by woods, with large parking lots on the right and in the background">
+      <figcaption>
+        <b class="acervo-linha">Archive</b> — CIA headquarters in Langley, seen
+        from above. The original building, from 1961, is in front; the New
+        Headquarters Building, from 1988, with its two towers, is behind, and
+        <em>Kryptos</em> is in the courtyard between them — too small to show
+        at this scale.
+        <span class="acervo-fonte">Photograph by Carol M. Highsmith, public domain (Library of Congress), via Wikimedia Commons (reduced).</span>
+      </figcaption>
+    </figure>
+
+    <h2 id="leituras"><span class="indice">07</span>The readings, from the most sober to the most improbable</h2>
+
+    <div class="teoria">
+      <div class="medidor" style="--nivel: 85%"><span>Weight of evidence</span><span class="barra"></span><span class="peso">High</span></div>
+      <h3>K4 uses a different, layered method that no one has reconstructed</h3>
+      <p>
+        This is what both creators say and what the facts confirm: the
+        techniques that opened K1 to K3 do not open K4, and the 24 clue letters
+        rule out simple variations of Vigenère and transposition. Scheidt has
+        spoken of a "masking" technique applied before the cipher, to hide the
+        pattern of the text. What is not known is the recipe.
+      </p>
+    </div>
+
+    <div class="teoria">
+      <div class="medidor" style="--nivel: 55%"><span>Weight of evidence</span><span class="barra"></span><span class="peso">Medium</span></div>
+      <h3>The K4 text talks about Berlin, the Wall and a direction</h3>
+      <p>
+        The known words — EAST NORTHEAST, BERLIN CLOCK — the confirmation that
+        the clock is the one at Alexanderplatz, in the former East Berlin, and
+        the date — the Wall fell a year before the dedication — lead many
+        students of the work to read there a text about the end of the Cold
+        War. It is a reading of the content, not of the cipher, and it remains
+        incomplete without the other 73 letters.
+      </p>
+    </div>
+
+    <div class="teoria">
+      <div class="medidor" style="--nivel: 30%"><span>Weight of evidence</span><span class="barra"></span><span class="peso">Low</span></div>
+      <h3>The key lies in the work's other elements</h3>
+      <p>
+        The K2 coordinates, the compass rose, the lodestone and the Morse
+        phrases at the entrance suggest to many amateurs that the solution
+        requires being physically at Langley. There is no demonstration that
+        any of these pieces enters into the encryption method.
+      </p>
+    </div>
+
+    <div class="teoria">
+      <div class="medidor" style="--nivel: 15%"><span>Weight of evidence</span><span class="barra"></span><span class="peso">Low</span></div>
+      <h3>The 2025 find "solved" Kryptos</h3>
+      <p>
+        It was the headline in many outlets, and the discoverers themselves
+        reject it. They recovered the plaintext from scrambled drafts; they did
+        not retrace the path from the copper to the text. For cryptography, the
+        problem the work poses still stands.
+      </p>
+    </div>
+
+    <div class="teoria">
+      <div class="medidor" style="--nivel: 3%; --cor-nivel: var(--ambar-fundo)"><span>Weight of evidence</span><span class="barra"></span><span class="peso">None</span></div>
+      <h3>A secret message from the CIA itself, planted in the sculpture</h3>
+      <p>
+        The text is Sanborn's, not the agency's. The CIA did not receive the
+        solution: what the sculptor showed in 1990 were the scrambled pages,
+        made precisely to prove the message was not offensive without
+        revealing it in full.
+      </p>
+    </div>
+
+    <h2 id="cronologia"><span class="indice">08</span>Chronology</h2>
+
+    <ul class="cronologia">
+      <li><span class="quando">1988</span><span class="oque">The CIA commissions the work from Jim Sanborn, for 250 thousand dollars. Ed Scheidt, of the Cryptographic Center, teaches him the cipher systems.</span></li>
+      <li><span class="quando">1989</span><span class="oque">Scheidt retires as head of the Cryptographic Center. In November, the Berlin Wall falls.</span></li>
+      <li><span class="quando">November 3, 1990</span><span class="oque"><em>Kryptos</em> is dedicated in the courtyard of the New Headquarters Building, in Langley.</span></li>
+      <li><span class="quando">late 1992 – June 1993</span><span class="oque">An NSA team solves K1, K2 and K3, without disclosing it.</span></li>
+      <li><span class="quando">1998</span><span class="oque">David Stein, a CIA analyst, solves the three parts with pencil and paper and publishes in an internal journal.</span></li>
+      <li><span class="quando">June 1999</span><span class="oque">Jim Gillogly publicly announces the solution of K1 to K3, done by computer.</span></li>
+      <li><span class="quando">July 1999</span><span class="oque">The CIA reveals Stein's solution.</span></li>
+      <li><span class="quando">March 2000</span><span class="oque">The NSA says its employees had already solved the three parts.</span></li>
+      <li><span class="quando">April 2006</span><span class="oque">Sanborn reveals the letter left out of K2: the ending becomes X LAYER TWO.</span></li>
+      <li><span class="quando">November 2010</span><span class="oque">First K4 clue: BERLIN.</span></li>
+      <li><span class="quando">2013</span><span class="oque">NSA documents released at the request of Elonka Dunin date the solution to June 1993.</span></li>
+      <li><span class="quando">November 2014</span><span class="oque">Second clue: CLOCK.</span></li>
+      <li><span class="quando">January 29, 2020</span><span class="oque">Third clue: NORTHEAST.</span></li>
+      <li><span class="quando">August 2020</span><span class="oque">Fourth clue: EAST.</span></li>
+      <li><span class="quando">August 2025</span><span class="oque">Sanborn announces the auction of the archive and of the K4 solution.</span></li>
+      <li><span class="quando">September 3, 2025</span><span class="oque">Jarett Kobek and Richard Byrne find, at the Smithsonian's Archives of American Art, the scrambled pages that lead to the plaintext.</span></li>
+      <li><span class="quando">October 16, 2025</span><span class="oque">The <em>New York Times</em> publishes the find; the auction opens the same day. The Smithsonian restricts the material until 2075.</span></li>
+      <li><span class="quando">November 20, 2025</span><span class="oque">The archive is sold for 962,500 dollars to an anonymous buyer.</span></li>
+      <li><span class="quando">June 12, 2026</span><span class="oque">Paradigm comes forward as the buyer, launches a checker that does not reveal the answer and announces it will release K5.</span></li>
+    </ul>
+
+    <h2 id="aberto"><span class="indice">09</span>What remains open</h2>
+
+    <p>
+      <strong>The K4 method.</strong> It is the question the work asked in 1990
+      and that no archival find has answered. A real solution will need to show
+      the path, not just the destination — and now there is a checker to
+      confirm the destination.
+    </p>
+
+    <p>
+      <strong>The plaintext, publicly.</strong> It is in a digital vault, in an
+      archive restricted until 2075 and in the memory of a few people. Whether
+      or when it will be published depends on decisions by those who bought it
+      and those who found it — not on cryptography.
+    </p>
+
+    <p>
+      <strong>K5.</strong> Sanborn says there is a fifth message, also of 97
+      characters, linked to K4 and scattered across other works of his. Nothing
+      of it had been shown as of October 2026.
+    </p>
+
+    <p>
+      <strong>The errors.</strong> Which misspellings are deliberate, and
+      whether any of them carries information, only the artist knows. To date,
+      none has been shown to be a clue.
+    </p>
+
+    <div class="nota">
+      <strong>Why there are no more photos of the sculpture in this dossier</strong>
+      <em>Kryptos</em> is the work of a living artist, protected by copyright,
+      and the United States has no freedom of panorama for sculptures:
+      photographing the work does not give the photographer the right to
+      publish it freely, even when the photo is in the public domain. That is
+      why we use only the photograph provided by Sanborn himself under a free
+      license, and reproduce K4 as text.
+    </div>
+
+    <h2 id="perguntas"><span class="indice">10</span>Frequently asked questions</h2>
+
+    <div class="perguntas">
+      <h3>What is Kryptos?</h3>
+      <p>A sculpture by Jim Sanborn dedicated on November 3, 1990 in the courtyard of the CIA's New Headquarters Building, in Langley, Virginia. The centerpiece is a copper screen with 869 encrypted characters, divided into four sections, K1 to K4. See <a href="#obra">the sculptor and the cryptographer</a>.</p>
+
+      <h3>Has Kryptos been solved?</h3>
+      <p>Three parts have: K1, K2 and K3 were solved by the NSA in 1992–1993, by David Stein, of the CIA, in 1998, and publicly by Jim Gillogly in 1999. K4 has not: in 2025 its plaintext was found in an archive, but the method remains unknown, and no public cryptographic solution had been confirmed as of October 2026. See <a href="#leilao">found in the archive, sold at auction</a>.</p>
+
+      <h3>What is known about K4?</h3>
+      <p>It has 97 characters and uses a different, layered method from the other parts. Sanborn handed out 24 letters as clues, between 2010 and 2020: EAST NORTHEAST and BERLIN CLOCK — and the clock, he confirmed in 2025, is the Berlin world clock. See <a href="#pistas">the artist's clues</a>.</p>
+
+      <h3>What do the deciphered messages say?</h3>
+      <p>K1 is a poetic sentence about the boundary between shading and the absence of light. K2 speaks of information buried in an unknown location and ends with coordinates near the sculpture itself. K3 paraphrases Howard Carter opening Tutankhamun's tomb. See <a href="#mensagens">what the first three say</a>.</p>
+    </div>
+
+    <h2 id="fontes"><span class="indice">11</span>Sources consulted</h2>
+
+    <p class="mono" style="text-transform: none; letter-spacing: 0; line-height: 1.7;">
+      This dossier is original writing. The sources below were consulted to
+      verify dates, figures and attributions; none was reproduced.
+    </p>
+
+    <ul class="fontes">
+      <li>Consolidated encyclopedia entries on <em>Kryptos</em>, Jim Sanborn and Edward Scheidt — commission, components, methods of K1 to K3, solutions, clues and the 2006 correction.</li>
+      <li>National Security Agency (NSA) — documents on the solution of K1 to K3, released in 2013 at the request of Elonka Dunin.</li>
+      <li>The New York Times — reports on the clues BERLIN (November 2010), CLOCK (November 2014) and NORTHEAST (January 2020), and on the find at the Smithsonian (October 16, 2025).</li>
+      <li>Smithsonian Magazine — reports on the 2020 clues and on the auction announcement, 2025.</li>
+      <li>RR Auction — catalog of the <em>Decoding History</em> auction (October 16 to November 20, 2025); note on the result; note "Kryptos K4: Discovered, Not Solved".</li>
+      <li>Puzzculture — <em>The Kryptos Solution is Auctioned Off… But the Mystery is Far From Over!</em>, December 16, 2025.</li>
+      <li>Robinson, D.; Huang, M. — <em>Project Kryptos</em>, Paradigm, June 12, 2026, and the pages on the checker and on the history of the work on the same site.</li>
+      <li>Carter, H.; Mace, A. C. — <em>The Tomb of Tut.ankh.Amen</em>, vol. 1, 1923 — the account paraphrased in K3.</li>
+    </ul>
+
+
+    <nav class="relacionados" aria-label="Related dossiers">
+      <span class="mono">Read also</span>
+      <ul>
+        <li><a href="manuscrito-voynich.html">
+          <span class="num">Dossier {{NUM:manuscrito-voynich}}</span>
+          <strong>The Voynich manuscript</strong>
+          <span class="porque">Another text in plain sight that no one can read.</span>
+        </a></li>
+        <li><a href="percy-fawcett.html">
+          <span class="num">Dossier {{NUM:percy-fawcett}}</span>
+          <strong>Percy Fawcett and the expedition that never returned</strong>
+          <span class="porque">Another mystery whose key was kept in an archive.</span>
+        </a></li>
+      </ul>
+    </nav>
+  </div>
+  </article>
+
+  <section class="wrap" style="padding-bottom: 2rem;">
+    {{PROXIMO}}
+  </section>
+
+</main>
+
+<div class="lupa" id="lupa" role="dialog" aria-modal="true" aria-label="Enlarged image">
+  <button class="fechar" type="button" id="lupa-fechar">Close ✕</button>
+  <figure>
+    <img id="lupa-img" alt="">
+    <figcaption id="lupa-legenda"></figcaption>
+  </figure>
+</div>
+
+<footer class="rodape">
+  <div class="wrap">
+    <div>
+      <a class="marca" href="../index.html" aria-label="Vestígio Oculto — home">{{LOGO}}</a>
+      <p>An open archive of what history began to tell and never finished.</p>
+    </div>
+    <div>
+      <span class="mono">Pillars</span>
+      <p><a href="../index.html#pedra-e-poeira">Stone and Dust</a> · <a href="../index.html#descoberto-ontem">Discovered Yesterday</a> · <a href="../index.html#arquivo-selado">Sealed Archive</a> · <a href="../index.html#ultimos-isolados">The Last Isolated</a></p>
+    </div>
+    <div>
+      <span class="mono">Channel</span>
+      <p><a class="canal-handle" href="https://www.youtube.com/@VestigoOcultoBrasil" target="_blank" rel="noopener">@VestigoOcultoBrasil</a></p>
+    </div>
+    <div class="creditos">
+      <span class="mono">© 2026 Vestígio Oculto</span>
+      <span class="mono"><a href="{{RAIZ}}sobre.html">About</a> · <a href="{{RAIZ}}contato.html">Contact</a> · <a href="{{RAIZ}}privacidade.html">Privacy policy</a></span>
+      <span class="mono">Dossier {{NUM}} · revised Oct 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var barra = document.getElementById('progresso');
+  function atualiza() {
+    var h = document.documentElement;
+    var total = h.scrollHeight - h.clientHeight;
+    barra.style.width = (total > 0 ? (h.scrollTop / total) * 100 : 0) + '%';
+  }
+  document.addEventListener('scroll', atualiza, { passive: true });
+  atualiza();
+
+  var figs = document.querySelectorAll('.reveal-fig');
+  if (!('IntersectionObserver' in window) ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    figs.forEach(function (f) { f.classList.add('visivel'); });
+  } else {
+    var obs = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('visivel'); obs.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    figs.forEach(function (f) { obs.observe(f); });
+  }
+
+  var lupa = document.getElementById('lupa');
+  var img = document.getElementById('lupa-img');
+  var leg = document.getElementById('lupa-legenda');
+  var btn = document.getElementById('lupa-fechar');
+  var ultimo = null;
+
+  function abrir(origem, legenda) {
+    img.src = origem.currentSrc || origem.src; img.alt = origem.alt;
+    leg.textContent = legenda;
+    lupa.classList.add('aberta');
+    document.body.style.overflow = 'hidden';
+    ultimo = origem; btn.focus();
+  }
+  function fechar() {
+    lupa.classList.remove('aberta');
+    document.body.style.overflow = '';
+    if (ultimo) ultimo.focus();
+  }
+
+  figs.forEach(function (fig) {
+    var alvo = fig.querySelector('img');
+    alvo.tabIndex = 0;
+    alvo.addEventListener('click', function () { abrir(alvo, fig.querySelector('figcaption').textContent.trim()); });
+    alvo.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); alvo.click(); }
+    });
+  });
+  btn.addEventListener('click', fechar);
+  lupa.addEventListener('click', function (e) { if (e.target === lupa) fechar(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && lupa.classList.contains('aberta')) fechar();
+  });
+})();
+</script>
+
+{{CONSENTIMENTO}}
+
+</body>
+</html>

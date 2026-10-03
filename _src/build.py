@@ -62,7 +62,7 @@ SRC = RAIZ / "_src"
 
 sys.path.insert(0, str(SRC))
 from idiomas import (IDIOMAS, HREFLANG, OG_LOCALE, MARCA_SUB, T,  # noqa: E402
-                     PALAVRAS_DE_CREDITO_PT, CHAVES_OBRIGATORIAS)
+                     PALAVRAS_DE_CREDITO_PT, EQUIVALENTES_DE_CREDITO, CHAVES_OBRIGATORIAS)
 
 # As fontes vêm primeiro: o @font-face precisa estar declarado antes de
 # qualquer regra que use a família. Arquivo gerado por _src/gerar-fontes.py.
@@ -251,14 +251,21 @@ OG_ALT = {
 }
 
 
+def og_do_idioma(slug: str, idioma: str = "pt") -> str:
+    """Caminho da prévia do dossiê, relativo a assets/img/."""
+    return f"og/{slug}.jpg" if idioma == "pt" else f"og/{idioma}/{slug}.jpg"
+
+
 def imagem_de_compartilhamento(html: str, slug: str, template: str, idioma: str = "pt") -> str:
     """Aponta og:image, twitter:image e o "image" do JSON-LD para a prévia do
     dossiê, com 1200 x 630 e alt. Para se o arquivo apontado não existir.
 
-    A prévia é a mesma em todos os idiomas por enquanto (o título gravado nela
-    está em português); o alt é traduzido, em idiomas.py."""
+    Fora do português a prévia é a do idioma, assets/img/og/<idioma>/<slug>.jpg,
+    com o título traduzido gravado nela (gerada pelo mesmo script das
+    portuguesas); o alt é traduzido, em idiomas.py. Falta a imagem do idioma,
+    o build para: prévia com título em outra língua não sai."""
     if slug in OG_ALT:
-        nome = f"og/{slug}.jpg"
+        nome = og_do_idioma(slug, idioma)
         if not (RAIZ / "assets" / "img" / nome).is_file():
             raise SystemExit(f"  ! {slug}: prévia de compartilhamento ausente: assets/img/{nome}")
         url = f"{{{{DOMINIO}}}}/assets/img/{nome}"
@@ -922,7 +929,7 @@ def tema_template(chave: str, idioma: str = "pt") -> str:
         blocos.append("      " + b)
     com_pagina = temas_do_idioma(idioma)
     outros = [(k, texto_do_tema(k, idioma)) for k in TEMAS if k != chave]
-    og = f"{dom}/assets/img/og/{cartoes[0][0]}.jpg"
+    og = f"{dom}/assets/img/{og_do_idioma(cartoes[0][0], idioma)}"
     ld = {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
@@ -1441,7 +1448,8 @@ def comparar_com_original(original: str, traducao: str, idioma: str, nome: str) 
             nomes = [w for w in re.findall(r"[^\W\d_][\w'’.\-]*", c_o)
                      if w[0].isupper() and w.rstrip(".") not in PALAVRAS_DE_CREDITO_PT
                      and w not in ("CC", "BY", "BY-SA", "SA")]
-            faltam = [w for w in nomes if w not in c_t]
+            eq = EQUIVALENTES_DE_CREDITO.get(idioma, {})
+            faltam = [w for w in nomes if w not in c_t and not (eq.get(w) and eq[w] in c_t)]
             if faltam:
                 erros.append(f"crédito sem {faltam}: {' '.join(c_t.split())[:80]}")
     if _rotulos(original, "pt") != _rotulos(traducao, idioma):
@@ -1536,6 +1544,14 @@ def main() -> None:
             if "{{RAIZ}}assets/" in html:
                 raise SystemExit(f"  ! {template}: use ../assets/ no template, não {{{{RAIZ}}}}assets/")
             html = html.replace("{{RAIZ}}", raiz_rel)
+            # o visor do Voynich é texto do dossiê: vai na versão do idioma
+            # (_src/<idioma>/visor-voynich.html) e entra ANTES de subir os
+            # caminhos, para as imagens dele ganharem o ../ da pasta
+            visor = pasta(idioma) / "visor-voynich.html"
+            if "{{VISOR}}" in html and not visor.is_file():
+                raise SystemExit(f"  ! {template}: falta {visor.relative_to(RAIZ)}")
+            if "{{VISOR}}" in html:
+                html = html.replace("{{VISOR}}", visor.read_text(encoding="utf-8"))
             html = ligar_ao_original(html, chave, idioma, existe)
             html = subir_recursos(html, idioma)
         elif chave == "404.html":

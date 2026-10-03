@@ -78,6 +78,17 @@ cada uma é a da imagem-base. Nenhuma usa recriação.
 | `og/mashco-piro.jpg` | `mp-01-rio-las-piedras.jpg` | Julio Araújo Flores e Patrick Champagne (ARCAmazon) | CC BY-SA 4.0 | — (paisagem; nenhuma pessoa) |
 | `og/korowai.jpg` | `ko-02-casa-alta.jpg` ("Korowai Treehouse 2") | usuário do Flickr "♪ ~ from Jayapura, Indonesia" | CC BY 2.0 | — (casa em silhueta; nenhuma pessoa) |
 
+### Prévias em inglês (`assets/img/og/en/<slug>.jpg`)
+
+Desde 03/10/2026, as 22 prévias das páginas em inglês. **Mesma imagem-base,
+mesmo recorte e mesma composição** da prévia portuguesa de mesmo nome (tabela
+acima: autor, licença e modificação são os mesmos, linha a linha); muda só o
+título gravado, em inglês (ex.: `og/en/papiros-herculano.jpg` → "The
+Herculaneum Papyri"). Geradas pelo mesmo script das portuguesas
+(`_src/_og_tmp/gerar_og.py --en`, com a conferência de glifo da Cinzel). O
+`build.py` aponta as páginas em `/en/` para elas (`og_do_idioma`) e para se
+faltar o arquivo.
+
 Os quadros da home usam as imagens de abertura dos dossiês; cada linha abaixo
 diz "quadro NNN" quando o arquivo aparece lá.
 

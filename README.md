@@ -145,8 +145,8 @@ irmãos, que também passaram para `.com`).
 e fica na raiz, com os caminhos de sempre**; inglês sai em `/en/`, espanhol em
 `/es/`, com os mesmos nomes de arquivo (`/en/dossies/gobekli-tepe.html`). Um
 idioma fica **ativo** quando tem home traduzida e ao menos um dossiê; antes
-disso o build o ignora. Hoje: pt e en ativos (en com um dossiê, Göbekli Tepe),
-es inativo.
+disso o build o ignora. Hoje: pt e en ativos (en com os 22 dossiês e as
+quatro páginas de pilar, desde 03/10/2026), es inativo.
 
 **Uma página só sai num idioma se a tradução existir.** Dois lugares:
 
@@ -203,10 +203,11 @@ mesmos alternates. **Seletor de idioma** (PT · EN) no cabeçalho, visível
 também no celular: leva à mesma página no outro idioma ou, se ela não foi
 traduzida, à home dele.
 
-**Pendente:** a prévia de compartilhamento (`assets/img/og/<slug>.jpg`) é a
-mesma em todos os idiomas, com o título em português gravado na imagem. Em
-Göbekli Tepe o título é o próprio nome, então não destoa; nos próximos
-dossiês traduzidos vale gerar `og/en/<slug>.jpg` com o título em inglês.
+**Prévia de compartilhamento por idioma:** as páginas em inglês apontam para
+`assets/img/og/en/<slug>.jpg` (mesma imagem-base e composição da portuguesa,
+título em inglês), geradas por `_src/_og_tmp/gerar_og.py --en` (títulos em
+`TITULO_EN`). O build para se faltar a do idioma. Origem em
+`assets/img/CREDITOS.md`.
 
 **Espanhol:** para ativar, crie `_src/es/index.tpl.html`, as outras páginas
 de interface e um dossiê; os textos curtos já estão em `T["es"]` (marca:

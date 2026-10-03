@@ -3,11 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Moais de Rapa Nui: os corpos sob a encosta · Vestígio Oculto</title>
-<meta name="description" content="As cabeças de Rano Raraku têm corpo inteiro debaixo da terra. Como os moais foram feitos e movidos, e o que houve de fato com a população de Rapa Nui.">
+<title>Moais da Ilha de Páscoa: quem fez e como · Vestígio Oculto</title>
+<meta name="description" content="Os moais da Ilha de Páscoa foram quase todos esculpidos pelos rapanui no vulcão Rano Raraku. Como foram feitos e movidos, e o que houve com o povo.">
 <meta name="theme-color" content="#0B0B0C">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="canonical" href="https://vestigiooculto.com.br/dossies/moais-rapa-nui.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Os moais da Ilha de Páscoa — os corpos debaixo da encosta">
 <meta property="og:description" content="Quase mil estátuas, uma pedreira com centenas pela metade e três perguntas que costumam virar uma só: como foram movidas, por que pararam e o que aconteceu com quem as fez.">
@@ -23,8 +24,6 @@
 <meta name="google-adsense-account" content="ca-pub-4401770243539507">
 <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
 <link rel="preload" href="../assets/fontes/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="../assets/fontes/cinzel-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="../assets/fontes/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>/* ==========================================================================
    FONTES — hospedadas aqui, não no Google
    Gerado por _src/gerar-fontes.py. Não editar à mão.
@@ -193,9 +192,9 @@
   --ambar-fundo: #8a5c1c;
 
   /* Tipografia — Cinzel é a fonte da marca */
-  --display: "Cinzel", "Times New Roman", serif;
-  --texto:   "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --mono:    "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --display: "Cinzel", "Cinzel Fallback", "Times New Roman", serif;
+  --texto:   "Inter", "Inter Fallback", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:    "JetBrains Mono", "JetBrains Mono Fallback", ui-monospace, "SFMono-Regular", Menlo, monospace;
 
   /* Métrica */
   --medida:  66ch;
@@ -1911,6 +1910,67 @@ h1, h2, h3, h4 {
   line-height: 1.5;
   color: var(--osso-suave);
 }
+
+/* ============================================================
+   Páginas de pilar (temas/*.html), perguntas frequentes e a
+   linha do pilar no "Leia também" — gerados pelo build.
+   ============================================================ */
+.dossie-capa .kicker a { color: inherit; text-decoration: none; }
+.dossie-capa .kicker a:hover { color: var(--ambar); }
+.tema-intro { padding-bottom: 1rem; }
+.tema-lista {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  letter-spacing: .05em;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--linha);
+}
+#dossies .relacionados { margin-bottom: clamp(3rem, 6vh, 4.5rem); }
+.pilar h3 a { color: inherit; text-decoration: none; }
+.pilar h3 a::after { content: ""; position: absolute; inset: 0; }
+.pilar h3 a:hover { color: var(--ambar); }
+.relacionados .tema-link {
+  margin-top: 1rem;
+  font-size: .9rem;
+  color: var(--osso-suave);
+}
+.perguntas h3 { margin-top: 2rem; }
+.perguntas h3:first-child { margin-top: 0; }
+.perguntas p { margin-top: .6rem; }
+
+/* ============================================================
+   Fallback com métricas da fonte da web (03/10/2026).
+   Com font-display: swap o texto aparece primeiro na fonte do
+   sistema; sem ajuste, a troca muda a largura das linhas e empurra
+   a ficha da capa. O PSI no computador media CLS 0,105 em Göbekli
+   Tepe, todo ele de troca de fonte. Os números saem das tabelas
+   hmtx/hhea das próprias fontes (Inter × Arial, Cinzel × Times New
+   Roman, JetBrains Mono × Courier New), medidos sobre texto do site.
+   Liberation é a métrica-compatível do Arial/Times no Linux.
+   ============================================================ */
+@font-face {
+  font-family: "Inter Fallback";
+  src: local("Arial"), local("ArialMT"), local("Liberation Sans"), local("Helvetica");
+  size-adjust: 106.67%;
+  ascent-override: 90.82%;
+  descent-override: 22.61%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Cinzel Fallback";
+  src: local("Times New Roman"), local("TimesNewRomanPSMT"), local("Liberation Serif"), local("Times");
+  size-adjust: 102.32%;
+  ascent-override: 95.39%;
+  descent-override: 36.36%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "JetBrains Mono Fallback";
+  src: local("Courier New"), local("CourierNewPSMT"), local("Liberation Mono"), local("Courier");
+  size-adjust: 100%;
+  ascent-override: 102.02%;
+  descent-override: 30%;
+  line-gap-override: 0%;
+}
 </style>
 <script type="application/ld+json">
 {
@@ -2059,7 +2119,7 @@ h1, h2, h3, h4 {
     </p>
 
     <figure class="figura larga reveal-fig">
-      <img src="../assets/img/mo-01-rano-raraku.jpg" loading="lazy" width="960" height="640"
+      <img src="../assets/img/mo-01-rano-raraku.jpg" srcset="../assets/img/mo-01-rano-raraku-640.jpg 640w, ../assets/img/mo-01-rano-raraku.jpg 960w" sizes="(max-width: 860px) calc(100vw - 2.5rem), (min-width: 1064px) 1000px, 94vw" data-full="../assets/img/mo-01-rano-raraku.jpg" loading="lazy" width="960" height="640"
            alt="A encosta do vulcão Rano Raraku sob céu azul: o paredão de rocha escura no alto, recortado por nichos de extração, e na grama da encosta dezenas de moais de pé, só com cabeça e ombros acima do chão">
       <figcaption>
         <b class="acervo-linha">Acervo</b> — a encosta externa de Rano Raraku.
@@ -2138,7 +2198,7 @@ h1, h2, h3, h4 {
     </p>
 
     <figure class="figura larga reveal-fig">
-      <img src="../assets/img/mo-03-inacabado.jpg" loading="lazy" width="960" height="641"
+      <img src="../assets/img/mo-03-inacabado.jpg" srcset="../assets/img/mo-03-inacabado-640.jpg 640w, ../assets/img/mo-03-inacabado.jpg 960w" sizes="(max-width: 860px) calc(100vw - 2.5rem), (min-width: 1064px) 1000px, 94vw" data-full="../assets/img/mo-03-inacabado.jpg" loading="lazy" width="960" height="641"
            alt="Moai inacabado deitado na rocha da pedreira de Rano Raraku: o perfil do rosto, com nariz e queixo, esculpido de lado numa saliência do paredão, ainda preso à pedra, com outro bloco trabalhado em primeiro plano sobre a grama">
       <figcaption>
         <b class="acervo-linha">Acervo</b> — um moai inacabado na pedreira,
@@ -2328,7 +2388,7 @@ h1, h2, h3, h4 {
     </p>
 
     <figure class="figura larga reveal-fig">
-      <img src="../assets/img/mo-04-ahu-tongariki.jpg" loading="lazy" width="960" height="640"
+      <img src="../assets/img/mo-04-ahu-tongariki.jpg" srcset="../assets/img/mo-04-ahu-tongariki-640.jpg 640w, ../assets/img/mo-04-ahu-tongariki.jpg 960w" sizes="(max-width: 860px) calc(100vw - 2.5rem), (min-width: 1064px) 1000px, 94vw" data-full="../assets/img/mo-04-ahu-tongariki.jpg" loading="lazy" width="960" height="640"
            alt="Ahu Tongariki: uma fila de quinze moais de pé sobre uma longa plataforma de pedra, de costas para o mar, um deles com o cilindro de pedra vermelha na cabeça, sob céu azul">
       <figcaption>
         <b class="acervo-linha">Acervo</b> — Ahu Tongariki, a maior
@@ -2382,7 +2442,7 @@ h1, h2, h3, h4 {
     <h3>As estátuas fora da ilha</h3>
 
     <figure class="figura lado reveal-fig">
-      <img src="../assets/img/mo-05-hoa-hakananaia.jpg" loading="lazy" width="960" height="1546"
+      <img src="../assets/img/mo-05-hoa-hakananaia.jpg" srcset="../assets/img/mo-05-hoa-hakananaia-640.jpg 640w, ../assets/img/mo-05-hoa-hakananaia.jpg 960w" sizes="(max-width: 860px) calc(100vw - 2.5rem), 340px" data-full="../assets/img/mo-05-hoa-hakananaia.jpg" loading="lazy" width="960" height="1546"
            alt="Hoa Hakananai'a, moai de basalto escuro, exposto em pedestal numa galeria do Museu Britânico, visto de baixo, com o rosto alongado e as mãos esculpidas no ventre">
       <figcaption>
         <b class="acervo-linha">Acervo</b> — Hoa Hakananai'a, no Museu
@@ -2587,7 +2647,26 @@ h1, h2, h3, h4 {
       ainda guarda peças que ninguém viu.
     </p>
 
-    <h2 id="fontes"><span class="indice">12</span>Fontes consultadas</h2>
+    <h2 id="perguntas"><span class="indice">12</span>Perguntas frequentes</h2>
+
+    <div class="perguntas">
+      <h3>O que são os moais?</h3>
+      <p>São figuras humanas de pedra, de cabeça grande, nariz longo e queixo marcado, erguidas sobre plataformas cerimoniais chamadas <em>ahu</em>, em geral de costas para o mar. Os próprios rapanui as leem como representações de ancestrais. São cerca de 900 a 1.000, conforme o inventário.</p>
+
+      <h3>Onde fica a Ilha de Páscoa, e de que país é?</h3>
+      <p>Rapa Nui, a Ilha de Páscoa, fica no meio do Pacífico, a uns 3.500 quilômetros da costa do Chile, país que a anexou em 1888. É um dos lugares mais isolados que os seres humanos já povoaram.</p>
+
+      <h3>Quem fez os moais?</h3>
+      <p>Os rapanui, descendentes dos navegadores polinésios que povoaram a ilha — quando, exatamente, as fontes divergem: entre cerca de 800 e 1200 depois de Cristo. A tradição oral, a língua e o genoma são polinésios, e os descendentes dos construtores vivem na ilha e administram o parque nacional desde 2017.</p>
+
+      <h3>Como os moais foram construídos?</h3>
+      <p>Cerca de 95% foram esculpidos em Rano Raraku, um vulcão de tufo macio, com ferramentas de basalto, as <em>toki</em>. As estátuas eram talhadas deitadas, presas ao paredão, e soltas por último; centenas ficaram pela metade, em todas as etapas. Ver <a href="#pedreira">A pedreira</a>.</p>
+
+      <h3>Como os moais foram transportados?</h3>
+      <p>A leitura mais bem sustentada hoje é que foram “caminhados” de pé, balançados por cordas, como diz a tradição oral do <em>mana</em>: em 2012, dezoito pessoas moveram assim uma réplica de 4,35 toneladas por cem metros. Não há registro direto de uma estátua sendo movida, e para os maiores não há teste. Ver <a href="#movidos">Como foram movidos</a>.</p>
+    </div>
+
+    <h2 id="fontes"><span class="indice">13</span>Fontes consultadas</h2>
 
     <p class="mono" style="text-transform: none; letter-spacing: 0; line-height: 1.7;">
       Este dossiê é texto autoral. As fontes abaixo foram consultadas para
@@ -2627,6 +2706,7 @@ h1, h2, h3, h4 {
           <span class="porque">Outro caso em que a pergunta não é quem fez, e sim como a pedra foi movida.</span>
         </a></li>
       </ul>
+      <p class="tema-link">Este dossiê é do pilar <a href="../temas/pedra-e-poeira.html">Pedra e Poeira</a> — veja os 7 dossiês dele.</p>
     </nav>
   </div>
   </article>
@@ -2659,7 +2739,7 @@ h1, h2, h3, h4 {
     </div>
     <div>
       <span class="mono">Pilares</span>
-      <p>Pedra e Poeira · Descoberto Ontem · Arquivo Selado · Últimos Isolados</p>
+      <p><a href="../temas/pedra-e-poeira.html">Pedra e Poeira</a> · <a href="../temas/descoberto-ontem.html">Descoberto Ontem</a> · <a href="../temas/arquivo-selado.html">Arquivo Selado</a> · <a href="../temas/ultimos-isolados.html">Últimos Isolados</a></p>
     </div>
     <div>
       <span class="mono">Canal</span>
@@ -2713,7 +2793,7 @@ document.querySelectorAll('[data-rever-cookies]').forEach(function (a) {
   var ultimo = null;
 
   function abrir(origem, legenda) {
-    img.src = origem.currentSrc || origem.src; img.alt = origem.alt;
+    img.src = origem.dataset.full || origem.currentSrc || origem.src; img.alt = origem.alt;
     leg.textContent = legenda;
     lupa.classList.add('aberta');
     document.body.style.overflow = 'hidden';

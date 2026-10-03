@@ -3,11 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Puma Punku: as pedras em H de Tiwanaku · Vestígio Oculto</title>
-<meta name="description" content="Blocos de andesito cortados em série e grampos de bronze fundidos na pedra, a 3.850 metros. O que se sabe de Puma Punku, quando foi erguido e desmontado.">
+<title>Puma Punku: quem construiu as pedras em H · Vestígio Oculto</title>
+<meta name="description" content="Puma Punku é um templo inacabado de Tiwanaku, na Bolívia, feito entre cerca de 580 e 710 d.C. Quem o construiu e como os blocos em H foram cortados.">
 <meta name="theme-color" content="#0B0B0C">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="canonical" href="https://vestigiooculto.com.br/dossies/puma-punku.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Puma Punku — as pedras em H de Tiwanaku">
 <meta property="og:description" content="Um templo inacabado no altiplano boliviano, desmontado por cinco séculos de saque e reconstruído em miniatura a partir de cadernos de campo. O que as pedras dizem — e o que a internet diz por elas.">
@@ -23,8 +24,6 @@
 <meta name="google-adsense-account" content="ca-pub-4401770243539507">
 <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
 <link rel="preload" href="../assets/fontes/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="../assets/fontes/cinzel-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="../assets/fontes/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>/* ==========================================================================
    FONTES — hospedadas aqui, não no Google
    Gerado por _src/gerar-fontes.py. Não editar à mão.
@@ -193,9 +192,9 @@
   --ambar-fundo: #8a5c1c;
 
   /* Tipografia — Cinzel é a fonte da marca */
-  --display: "Cinzel", "Times New Roman", serif;
-  --texto:   "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --mono:    "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --display: "Cinzel", "Cinzel Fallback", "Times New Roman", serif;
+  --texto:   "Inter", "Inter Fallback", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:    "JetBrains Mono", "JetBrains Mono Fallback", ui-monospace, "SFMono-Regular", Menlo, monospace;
 
   /* Métrica */
   --medida:  66ch;
@@ -1911,6 +1910,67 @@ h1, h2, h3, h4 {
   line-height: 1.5;
   color: var(--osso-suave);
 }
+
+/* ============================================================
+   Páginas de pilar (temas/*.html), perguntas frequentes e a
+   linha do pilar no "Leia também" — gerados pelo build.
+   ============================================================ */
+.dossie-capa .kicker a { color: inherit; text-decoration: none; }
+.dossie-capa .kicker a:hover { color: var(--ambar); }
+.tema-intro { padding-bottom: 1rem; }
+.tema-lista {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  letter-spacing: .05em;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--linha);
+}
+#dossies .relacionados { margin-bottom: clamp(3rem, 6vh, 4.5rem); }
+.pilar h3 a { color: inherit; text-decoration: none; }
+.pilar h3 a::after { content: ""; position: absolute; inset: 0; }
+.pilar h3 a:hover { color: var(--ambar); }
+.relacionados .tema-link {
+  margin-top: 1rem;
+  font-size: .9rem;
+  color: var(--osso-suave);
+}
+.perguntas h3 { margin-top: 2rem; }
+.perguntas h3:first-child { margin-top: 0; }
+.perguntas p { margin-top: .6rem; }
+
+/* ============================================================
+   Fallback com métricas da fonte da web (03/10/2026).
+   Com font-display: swap o texto aparece primeiro na fonte do
+   sistema; sem ajuste, a troca muda a largura das linhas e empurra
+   a ficha da capa. O PSI no computador media CLS 0,105 em Göbekli
+   Tepe, todo ele de troca de fonte. Os números saem das tabelas
+   hmtx/hhea das próprias fontes (Inter × Arial, Cinzel × Times New
+   Roman, JetBrains Mono × Courier New), medidos sobre texto do site.
+   Liberation é a métrica-compatível do Arial/Times no Linux.
+   ============================================================ */
+@font-face {
+  font-family: "Inter Fallback";
+  src: local("Arial"), local("ArialMT"), local("Liberation Sans"), local("Helvetica");
+  size-adjust: 106.67%;
+  ascent-override: 90.82%;
+  descent-override: 22.61%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Cinzel Fallback";
+  src: local("Times New Roman"), local("TimesNewRomanPSMT"), local("Liberation Serif"), local("Times");
+  size-adjust: 102.32%;
+  ascent-override: 95.39%;
+  descent-override: 36.36%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "JetBrains Mono Fallback";
+  src: local("Courier New"), local("CourierNewPSMT"), local("Liberation Mono"), local("Courier");
+  size-adjust: 100%;
+  ascent-override: 102.02%;
+  descent-override: 30%;
+  line-gap-override: 0%;
+}
 </style>
 <script type="application/ld+json">
 {
@@ -2047,7 +2107,7 @@ h1, h2, h3, h4 {
     </p>
 
     <figure class="figura larga reveal-fig">
-      <img src="../assets/img/pp-05-blocos-espalhados.jpg" loading="lazy" width="960" height="766"
+      <img src="../assets/img/pp-05-blocos-espalhados.jpg" srcset="../assets/img/pp-05-blocos-espalhados-640.jpg 640w, ../assets/img/pp-05-blocos-espalhados.jpg 960w" sizes="(max-width: 860px) calc(100vw - 2.5rem), (min-width: 1064px) 1000px, 94vw" data-full="../assets/img/pp-05-blocos-espalhados.jpg" loading="lazy" width="960" height="766"
            alt="Blocos de andesito cinza e arenito avermelhado espalhados sobre terra vermelha em Puma Punku, alguns empilhados, com um portal fragmentado ao fundo e montanhas no horizonte">
       <figcaption>
         <b class="acervo-linha">Acervo</b> — o lado leste de Puma Punku em
@@ -2089,7 +2149,7 @@ h1, h2, h3, h4 {
     </p>
 
     <figure class="figura larga reveal-fig">
-      <img src="../assets/img/pp-01-laje-arenito.jpg" loading="lazy" width="960" height="720"
+      <img src="../assets/img/pp-01-laje-arenito.jpg" srcset="../assets/img/pp-01-laje-arenito-640.jpg 640w, ../assets/img/pp-01-laje-arenito.jpg 960w" sizes="(max-width: 860px) calc(100vw - 2.5rem), (min-width: 1064px) 1000px, 94vw" data-full="../assets/img/pp-01-laje-arenito.jpg" loading="lazy" width="960" height="720"
            alt="Grande laje de arenito avermelhado, plana em cima e com a borda irregular, deitada sobre terra vermelha; ao fundo, fileiras de blocos de andesito em forma de H">
       <figcaption>
         <b class="acervo-linha">Acervo</b> — uma das lajes de arenito da
@@ -2235,7 +2295,7 @@ h1, h2, h3, h4 {
     </p>
 
     <figure class="figura larga reveal-fig">
-      <img src="../assets/img/pp-02-blocos-h.jpg" loading="lazy" width="960" height="720"
+      <img src="../assets/img/pp-02-blocos-h.jpg" srcset="../assets/img/pp-02-blocos-h-640.jpg 640w, ../assets/img/pp-02-blocos-h.jpg 960w" sizes="(max-width: 860px) calc(100vw - 2.5rem), (min-width: 1064px) 1000px, 94vw" data-full="../assets/img/pp-02-blocos-h.jpg" loading="lazy" width="960" height="720"
            alt="Dois blocos de andesito cinzento com perfil em H, com nichos e ângulos retos internos, colocados sobre blocos menores e uma base de arenito, sob céu nublado">
       <figcaption>
         <b class="acervo-linha">Acervo</b> — blocos em H de andesito, em 2025.
@@ -2297,7 +2357,7 @@ h1, h2, h3, h4 {
     </p>
 
     <figure class="figura larga reveal-fig">
-      <img src="../assets/img/pp-03-encaixes-grampos.jpg" loading="lazy" width="960" height="720"
+      <img src="../assets/img/pp-03-encaixes-grampos.jpg" srcset="../assets/img/pp-03-encaixes-grampos-640.jpg 640w, ../assets/img/pp-03-encaixes-grampos.jpg 960w" sizes="(max-width: 860px) calc(100vw - 2.5rem), (min-width: 1064px) 1000px, 94vw" data-full="../assets/img/pp-03-encaixes-grampos.jpg" loading="lazy" width="960" height="720"
            alt="Lajes de arenito avermelhado unidas por uma junta; de um lado e de outro da junta há encaixes rasos em forma de T e de I, vazios, onde entravam grampos de metal">
       <figcaption>
         <b class="acervo-linha">Acervo</b> — junta entre lajes de arenito da
@@ -2358,7 +2418,7 @@ h1, h2, h3, h4 {
     </p>
 
     <figure class="figura larga reveal-fig">
-      <img src="../assets/img/pp-04-modelo-vranich.jpg" loading="lazy" width="960" height="793"
+      <img src="../assets/img/pp-04-modelo-vranich.jpg" srcset="../assets/img/pp-04-modelo-vranich-640.jpg 640w, ../assets/img/pp-04-modelo-vranich.jpg 960w" sizes="(max-width: 860px) calc(100vw - 2.5rem), (min-width: 1064px) 1000px, 94vw" data-full="../assets/img/pp-04-modelo-vranich.jpg" loading="lazy" width="960" height="793"
            alt="Modelo digital tridimensional, em tons de cinza translúcido sobre fundo branco, de um edifício alongado com recintos e portais em sequência, alguns trechos em volume sólido e outros apenas sugeridos">
       <figcaption>
         <b>Modelo</b> — reconstrução virtual do edifício de andesito de Puma
@@ -2565,7 +2625,26 @@ h1, h2, h3, h4 {
       do complexo de Tiwanaku continua sem escavação.
     </p>
 
-    <h2 id="fontes"><span class="indice">12</span>Fontes consultadas</h2>
+    <h2 id="perguntas"><span class="indice">12</span>Perguntas frequentes</h2>
+
+    <div class="perguntas">
+      <h3>O que é Puma Punku?</h3>
+      <p>É um templo de Tiwanaku: uma plataforma de terra em degraus, revestida de pedra e com planta em forma de T, onde deveria se erguer um edifício de andesito. A obra ficou inacabada e foi desmontada ao longo de cinco séculos; nenhum dos cerca de 150 blocos de andesito está onde foi posto.</p>
+
+      <h3>Onde fica Puma Punku?</h3>
+      <p>Em Tiwanaku, no altiplano da Bolívia, a 3.850 metros de altitude, na bacia do lago Titicaca. Fica a sudoeste do núcleo principal da antiga cidade, que é Patrimônio Mundial da UNESCO desde 2000.</p>
+
+      <h3>Quem construiu Puma Punku?</h3>
+      <p>Os pedreiros de Tiwanaku. A pedra vem de pedreiras da própria região, os grampos são de uma liga de bronze regional do mesmo período, e a forma do edifício repete modelos mais antigos da bacia do Titicaca. Ver <a href="#teorias">as leituras</a>.</p>
+
+      <h3>Qual a idade de Puma Punku?</h3>
+      <p>Pelo radiocarbono, a construção começou por volta de 580 depois de Cristo e terminou por volta de 710, segundo o modelo de 2023. A idade de onze a dezessete mil anos que circula na internet vem de Arthur Posnansky e não tem datação física por trás. Ver <a href="#data">A data</a>.</p>
+
+      <h3>Como foi feito Puma Punku?</h3>
+      <p>As ferramentas exatas continuam desconhecidas. A leitura de trabalho é picoteamento, abrasão com areia e gabaritos, com ferramentas de pedra dura, muito tempo e mão de obra organizada; os blocos eram acabados antes de assentados, e várias pedras eram presas umas às outras com grampos de metal. Ver <a href="#blocos-h">Os blocos em H</a>.</p>
+    </div>
+
+    <h2 id="fontes"><span class="indice">13</span>Fontes consultadas</h2>
 
     <p class="mono" style="text-transform: none; letter-spacing: 0; line-height: 1.7;">
       Este dossiê é texto autoral. As fontes abaixo foram consultadas para
@@ -2603,6 +2682,7 @@ h1, h2, h3, h4 {
           <span class="porque">Precisão de canteiro antigo, medida de perto, sem atalho.</span>
         </a></li>
       </ul>
+      <p class="tema-link">Este dossiê é do pilar <a href="../temas/pedra-e-poeira.html">Pedra e Poeira</a> — veja os 7 dossiês dele.</p>
     </nav>
   </div>
   </article>
@@ -2635,7 +2715,7 @@ h1, h2, h3, h4 {
     </div>
     <div>
       <span class="mono">Pilares</span>
-      <p>Pedra e Poeira · Descoberto Ontem · Arquivo Selado · Últimos Isolados</p>
+      <p><a href="../temas/pedra-e-poeira.html">Pedra e Poeira</a> · <a href="../temas/descoberto-ontem.html">Descoberto Ontem</a> · <a href="../temas/arquivo-selado.html">Arquivo Selado</a> · <a href="../temas/ultimos-isolados.html">Últimos Isolados</a></p>
     </div>
     <div>
       <span class="mono">Canal</span>
@@ -2691,7 +2771,7 @@ document.querySelectorAll('[data-rever-cookies]').forEach(function (a) {
   function abrir(origem, legenda) {
     // currentSrc é o arquivo que o navegador de fato escolheu. Sem isso, num
     // <picture> a lupa baixaria o PNG de fallback em vez do WebP já em cache.
-    img.src = origem.currentSrc || origem.src; img.alt = origem.alt;
+    img.src = origem.dataset.full || origem.currentSrc || origem.src; img.alt = origem.alt;
     leg.textContent = legenda;
     lupa.classList.add('aberta');
     document.body.style.overflow = 'hidden';

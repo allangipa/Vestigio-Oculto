@@ -3,11 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Linhas de Nazca: desenhos vistos de longe · Vestígio Oculto</title>
-<meta name="description" content="Figuras raspadas no deserto do Peru entre cerca de 500 a.C. e 500 d.C.: quem as fez, como, para quê, e as figuras novas achadas com IA desde 2019.">
+<title>Linhas de Nazca: quem fez, como e para quê · Vestígio Oculto</title>
+<meta name="description" content="As Linhas de Nazca são figuras e retas raspadas no deserto do Peru pelas culturas Paracas e Nasca, entre cerca de 500 a.C. e 500 d.C.: como e para quê.">
 <meta name="theme-color" content="#0B0B0C">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="canonical" href="https://vestigiooculto.com.br/dossies/linhas-de-nazca.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="article">
 <meta property="og:title" content="As Linhas de Nazca — desenhos que só fecham de longe">
 <meta property="og:description" content="Pedras escuras afastadas para os lados, um sulco claro de poucos centímetros, e um beija-flor de quase cem metros. O que se sabe, o que se discute e o que a inteligência artificial achou no deserto.">
@@ -23,8 +24,6 @@
 <meta name="google-adsense-account" content="ca-pub-4401770243539507">
 <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
 <link rel="preload" href="../assets/fontes/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="../assets/fontes/cinzel-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="../assets/fontes/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>/* ==========================================================================
    FONTES — hospedadas aqui, não no Google
    Gerado por _src/gerar-fontes.py. Não editar à mão.
@@ -193,9 +192,9 @@
   --ambar-fundo: #8a5c1c;
 
   /* Tipografia — Cinzel é a fonte da marca */
-  --display: "Cinzel", "Times New Roman", serif;
-  --texto:   "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --mono:    "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --display: "Cinzel", "Cinzel Fallback", "Times New Roman", serif;
+  --texto:   "Inter", "Inter Fallback", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:    "JetBrains Mono", "JetBrains Mono Fallback", ui-monospace, "SFMono-Regular", Menlo, monospace;
 
   /* Métrica */
   --medida:  66ch;
@@ -1911,6 +1910,67 @@ h1, h2, h3, h4 {
   line-height: 1.5;
   color: var(--osso-suave);
 }
+
+/* ============================================================
+   Páginas de pilar (temas/*.html), perguntas frequentes e a
+   linha do pilar no "Leia também" — gerados pelo build.
+   ============================================================ */
+.dossie-capa .kicker a { color: inherit; text-decoration: none; }
+.dossie-capa .kicker a:hover { color: var(--ambar); }
+.tema-intro { padding-bottom: 1rem; }
+.tema-lista {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  letter-spacing: .05em;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--linha);
+}
+#dossies .relacionados { margin-bottom: clamp(3rem, 6vh, 4.5rem); }
+.pilar h3 a { color: inherit; text-decoration: none; }
+.pilar h3 a::after { content: ""; position: absolute; inset: 0; }
+.pilar h3 a:hover { color: var(--ambar); }
+.relacionados .tema-link {
+  margin-top: 1rem;
+  font-size: .9rem;
+  color: var(--osso-suave);
+}
+.perguntas h3 { margin-top: 2rem; }
+.perguntas h3:first-child { margin-top: 0; }
+.perguntas p { margin-top: .6rem; }
+
+/* ============================================================
+   Fallback com métricas da fonte da web (03/10/2026).
+   Com font-display: swap o texto aparece primeiro na fonte do
+   sistema; sem ajuste, a troca muda a largura das linhas e empurra
+   a ficha da capa. O PSI no computador media CLS 0,105 em Göbekli
+   Tepe, todo ele de troca de fonte. Os números saem das tabelas
+   hmtx/hhea das próprias fontes (Inter × Arial, Cinzel × Times New
+   Roman, JetBrains Mono × Courier New), medidos sobre texto do site.
+   Liberation é a métrica-compatível do Arial/Times no Linux.
+   ============================================================ */
+@font-face {
+  font-family: "Inter Fallback";
+  src: local("Arial"), local("ArialMT"), local("Liberation Sans"), local("Helvetica");
+  size-adjust: 106.67%;
+  ascent-override: 90.82%;
+  descent-override: 22.61%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Cinzel Fallback";
+  src: local("Times New Roman"), local("TimesNewRomanPSMT"), local("Liberation Serif"), local("Times");
+  size-adjust: 102.32%;
+  ascent-override: 95.39%;
+  descent-override: 36.36%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "JetBrains Mono Fallback";
+  src: local("Courier New"), local("CourierNewPSMT"), local("Liberation Mono"), local("Courier");
+  size-adjust: 100%;
+  ascent-override: 102.02%;
+  descent-override: 30%;
+  line-gap-override: 0%;
+}
 </style>
 <script type="application/ld+json">
 {
@@ -2051,7 +2111,7 @@ h1, h2, h3, h4 {
     </p>
 
     <figure class="figura larga reveal-fig">
-      <img src="../assets/img/nz-01-colibri.jpg" loading="lazy" width="960" height="582"
+      <img src="../assets/img/nz-01-colibri.jpg" srcset="../assets/img/nz-01-colibri-640.jpg 640w, ../assets/img/nz-01-colibri.jpg 960w" sizes="(max-width: 860px) calc(100vw - 2.5rem), (min-width: 1064px) 1000px, 94vw" data-full="../assets/img/nz-01-colibri.jpg" loading="lazy" width="960" height="582"
            alt="Vista aérea do geoglifo do beija-flor de Nazca: um pássaro desenhado em linha clara contínua sobre o deserto cinza, com bico longo à esquerda, asas abertas e cauda em leque à direita">
       <figcaption>
         <b class="acervo-linha">Acervo</b> — o beija-flor, com cerca de 93
@@ -2194,7 +2254,7 @@ h1, h2, h3, h4 {
     </p>
 
     <figure class="figura larga reveal-fig">
-      <img src="../assets/img/nz-04-mirante.jpg" loading="lazy" width="960" height="540"
+      <img src="../assets/img/nz-04-mirante.jpg" srcset="../assets/img/nz-04-mirante-640.jpg 640w, ../assets/img/nz-04-mirante.jpg 960w" sizes="(max-width: 860px) calc(100vw - 2.5rem), (min-width: 1064px) 1000px, 94vw" data-full="../assets/img/nz-04-mirante.jpg" loading="lazy" width="960" height="540"
            alt="Vista do alto da torre de observação à beira da rodovia: o asfalto em primeiro plano, uma placa, alguns veículos estacionados e, ao fundo, a pampa plana e marrom com faixas claras pouco visíveis, até as montanhas">
       <figcaption>
         <b class="acervo-linha">Acervo</b> — a pampa vista do mirante metálico
@@ -2237,7 +2297,7 @@ h1, h2, h3, h4 {
     </p>
 
     <figure class="figura larga reveal-fig">
-      <img src="../assets/img/nz-03-aranha.jpg" loading="lazy" width="960" height="786"
+      <img src="../assets/img/nz-03-aranha.jpg" srcset="../assets/img/nz-03-aranha-640.jpg 640w, ../assets/img/nz-03-aranha.jpg 960w" sizes="(max-width: 860px) calc(100vw - 2.5rem), (min-width: 1064px) 1000px, 94vw" data-full="../assets/img/nz-03-aranha.jpg" loading="lazy" width="960" height="786"
            alt="Vista aérea do geoglifo da aranha de Nazca: corpo redondo, oito pernas dobradas em linha dupla clara, e uma reta e um trapézio atravessando o desenho">
       <figcaption>
         <b class="acervo-linha">Acervo</b> — a aranha, com cerca de 46 metros.
@@ -2358,7 +2418,7 @@ h1, h2, h3, h4 {
     </div>
 
     <figure class="figura larga reveal-fig">
-      <img src="../assets/img/nz-02-macaco.jpg" loading="lazy" width="960" height="638"
+      <img src="../assets/img/nz-02-macaco.jpg" srcset="../assets/img/nz-02-macaco-640.jpg 640w, ../assets/img/nz-02-macaco.jpg 960w" sizes="(max-width: 860px) calc(100vw - 2.5rem), (min-width: 1064px) 1000px, 94vw" data-full="../assets/img/nz-02-macaco.jpg" loading="lazy" width="960" height="638"
            alt="Vista aérea do geoglifo do macaco de Nazca: corpo de perfil, cauda enrolada em grande espiral à esquerda, mãos e pés com dedos, cortado por retas mais largas">
       <figcaption>
         <b class="acervo-linha">Acervo</b> — o macaco, com cerca de 93 por 58
@@ -2432,7 +2492,7 @@ h1, h2, h3, h4 {
     </p>
 
     <figure class="figura larga reveal-fig">
-      <img src="../assets/img/nz-05-rodovia.jpg" loading="lazy" width="960" height="720"
+      <img src="../assets/img/nz-05-rodovia.jpg" srcset="../assets/img/nz-05-rodovia-640.jpg 640w, ../assets/img/nz-05-rodovia.jpg 960w" sizes="(max-width: 860px) calc(100vw - 2.5rem), (min-width: 1064px) 1000px, 94vw" data-full="../assets/img/nz-05-rodovia.jpg" loading="lazy" width="960" height="720"
            alt="Vista aérea da rodovia Pan-Americana cruzando a pampa em diagonal, com caminhões e a torre do mirante à beira do asfalto; abaixo da estrada, os geoglifos da árvore e das mãos, e à esquerda o lagarto cortado pela pista">
       <figcaption>
         <b class="acervo-linha">Acervo</b> — a Pan-Americana atravessando a
@@ -2549,7 +2609,26 @@ h1, h2, h3, h4 {
       invasão; a pergunta é se o ritmo da proteção acompanha o da descoberta.
     </p>
 
-    <h2 id="fontes"><span class="indice">10</span>Fontes consultadas</h2>
+    <h2 id="perguntas"><span class="indice">10</span>Perguntas frequentes</h2>
+
+    <div class="perguntas">
+      <h3>O que são as Linhas de Nazca?</h3>
+      <p>São desenhos raspados no chão do deserto: retas, figuras geométricas como trapézios e espirais, e figuras de bichos, plantas e pessoas. Afastaram-se as pedras escuras da superfície, e o desenho é a diferença de cor do solo claro que ficou exposto.</p>
+
+      <h3>Onde ficam as Linhas de Nazca?</h3>
+      <p>Na pampa de Nazca, uma meseta seca entre os rios Ingenio e Nazca, na região de Ica, costa sul do Peru, a uns quatrocentos quilômetros de Lima. Os traçados ocupam cerca de 450 km², dentro de uma reserva arqueológica de 5.600 km².</p>
+
+      <h3>Quem fez as Linhas de Nazca?</h3>
+      <p>As culturas Paracas e Nasca, entre cerca de 500 antes de Cristo e 500 depois de Cristo. Os mesmos bichos que estão no chão aparecem nos vasos e tecidos nasca. Ver <a href="#cultura">Quem riscou e quando</a>.</p>
+
+      <h3>Como foram feitas as Linhas de Nazca?</h3>
+      <p>O método mais provável é ampliar um desenho pequeno com estacas de madeira e cordas, medindo distância e direção de um ponto ao seguinte. Em 1982, Joe Nickell reproduziu assim o condor, com cerca de 134 metros, em cerca de um dia e meio. Ver <a href="#tecnica">Como foram feitas</a>.</p>
+
+      <h3>Para que serviam as Linhas de Nazca?</h3>
+      <p>Continua em discussão. A leitura mais aceita hoje é que a pampa era um espaço de procissão e cerimônia, percorrido a pé; a ligação com a água e as montanhas também tem apoio, e a tese do calendário astronômico tem peso baixo. Ver <a href="#teorias">as leituras</a>.</p>
+    </div>
+
+    <h2 id="fontes"><span class="indice">11</span>Fontes consultadas</h2>
 
     <p class="mono" style="text-transform: none; letter-spacing: 0; line-height: 1.7;">
       Este dossiê é texto autoral. As fontes abaixo foram consultadas para
@@ -2589,6 +2668,7 @@ h1, h2, h3, h4 {
           <span class="porque">Outro alvo favorito da tese alienígena, desmontado pelas próprias peças.</span>
         </a></li>
       </ul>
+      <p class="tema-link">Este dossiê é do pilar <a href="../temas/pedra-e-poeira.html">Pedra e Poeira</a> — veja os 7 dossiês dele.</p>
     </nav>
   </div>
   </article>
@@ -2621,7 +2701,7 @@ h1, h2, h3, h4 {
     </div>
     <div>
       <span class="mono">Pilares</span>
-      <p>Pedra e Poeira · Descoberto Ontem · Arquivo Selado · Últimos Isolados</p>
+      <p><a href="../temas/pedra-e-poeira.html">Pedra e Poeira</a> · <a href="../temas/descoberto-ontem.html">Descoberto Ontem</a> · <a href="../temas/arquivo-selado.html">Arquivo Selado</a> · <a href="../temas/ultimos-isolados.html">Últimos Isolados</a></p>
     </div>
     <div>
       <span class="mono">Canal</span>
@@ -2675,7 +2755,7 @@ document.querySelectorAll('[data-rever-cookies]').forEach(function (a) {
   var ultimo = null;
 
   function abrir(origem, legenda) {
-    img.src = origem.currentSrc || origem.src; img.alt = origem.alt;
+    img.src = origem.dataset.full || origem.currentSrc || origem.src; img.alt = origem.alt;
     leg.textContent = legenda;
     lupa.classList.add('aberta');
     document.body.style.overflow = 'hidden';

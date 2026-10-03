@@ -8,6 +8,7 @@
 <meta name="theme-color" content="#0B0B0C">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="canonical" href="https://vestigiooculto.com.br/">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Vestígio Oculto">
 <meta property="og:description" content="Dossiês investigativos sobre o que a história não conseguiu fechar.">
@@ -20,9 +21,8 @@
 <meta name="twitter:image" content="https://vestigiooculto.com.br/assets/img/og-vestigio-oculto.jpg">
 <meta name="google-adsense-account" content="ca-pub-4401770243539507">
 <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+<link rel="preload" as="image" href="assets/img/001-gobekli-tepe-capa.jpg" imagesrcset="assets/img/001-gobekli-tepe-capa-640.jpg 640w, assets/img/001-gobekli-tepe-capa-800.jpg 800w, assets/img/001-gobekli-tepe-capa-960.jpg 960w, assets/img/001-gobekli-tepe-capa-1280.jpg 1280w, assets/img/001-gobekli-tepe-capa.jpg 1600w" imagesizes="(min-width: 1328px) 916px, (min-width: 1000px) calc(100vw - 412px), calc(100vw - 48px)" fetchpriority="high">
 <link rel="preload" href="assets/fontes/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fontes/cinzel-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fontes/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>/* ==========================================================================
    FONTES — hospedadas aqui, não no Google
    Gerado por _src/gerar-fontes.py. Não editar à mão.
@@ -191,9 +191,9 @@
   --ambar-fundo: #8a5c1c;
 
   /* Tipografia — Cinzel é a fonte da marca */
-  --display: "Cinzel", "Times New Roman", serif;
-  --texto:   "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --mono:    "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --display: "Cinzel", "Cinzel Fallback", "Times New Roman", serif;
+  --texto:   "Inter", "Inter Fallback", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:    "JetBrains Mono", "JetBrains Mono Fallback", ui-monospace, "SFMono-Regular", Menlo, monospace;
 
   /* Métrica */
   --medida:  66ch;
@@ -1909,6 +1909,67 @@ h1, h2, h3, h4 {
   line-height: 1.5;
   color: var(--osso-suave);
 }
+
+/* ============================================================
+   Páginas de pilar (temas/*.html), perguntas frequentes e a
+   linha do pilar no "Leia também" — gerados pelo build.
+   ============================================================ */
+.dossie-capa .kicker a { color: inherit; text-decoration: none; }
+.dossie-capa .kicker a:hover { color: var(--ambar); }
+.tema-intro { padding-bottom: 1rem; }
+.tema-lista {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  letter-spacing: .05em;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--linha);
+}
+#dossies .relacionados { margin-bottom: clamp(3rem, 6vh, 4.5rem); }
+.pilar h3 a { color: inherit; text-decoration: none; }
+.pilar h3 a::after { content: ""; position: absolute; inset: 0; }
+.pilar h3 a:hover { color: var(--ambar); }
+.relacionados .tema-link {
+  margin-top: 1rem;
+  font-size: .9rem;
+  color: var(--osso-suave);
+}
+.perguntas h3 { margin-top: 2rem; }
+.perguntas h3:first-child { margin-top: 0; }
+.perguntas p { margin-top: .6rem; }
+
+/* ============================================================
+   Fallback com métricas da fonte da web (03/10/2026).
+   Com font-display: swap o texto aparece primeiro na fonte do
+   sistema; sem ajuste, a troca muda a largura das linhas e empurra
+   a ficha da capa. O PSI no computador media CLS 0,105 em Göbekli
+   Tepe, todo ele de troca de fonte. Os números saem das tabelas
+   hmtx/hhea das próprias fontes (Inter × Arial, Cinzel × Times New
+   Roman, JetBrains Mono × Courier New), medidos sobre texto do site.
+   Liberation é a métrica-compatível do Arial/Times no Linux.
+   ============================================================ */
+@font-face {
+  font-family: "Inter Fallback";
+  src: local("Arial"), local("ArialMT"), local("Liberation Sans"), local("Helvetica");
+  size-adjust: 106.67%;
+  ascent-override: 90.82%;
+  descent-override: 22.61%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Cinzel Fallback";
+  src: local("Times New Roman"), local("TimesNewRomanPSMT"), local("Liberation Serif"), local("Times");
+  size-adjust: 102.32%;
+  ascent-override: 95.39%;
+  descent-override: 36.36%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "JetBrains Mono Fallback";
+  src: local("Courier New"), local("CourierNewPSMT"), local("Liberation Mono"), local("Courier");
+  size-adjust: 100%;
+  ascent-override: 102.02%;
+  descent-override: 30%;
+  line-gap-override: 0%;
+}
 </style>
 <script type="application/ld+json">
 {
@@ -2756,22 +2817,22 @@ h1, h2, h3, h4 {
 
     <div class="pilares">
       <article class="pilar" id="pedra-e-poeira">
-        <h3>Pedra e Poeira</h3>
+        <h3><a href="temas/pedra-e-poeira.html">Pedra e Poeira</a></h3>
         <p>Arquitetura e engenharia que não cabem na cronologia aceita. O que foi construído antes de existir quem, em tese, soubesse construir.</p>
         <span class="contagem">07 dossiês</span>
       </article>
       <article class="pilar" id="descoberto-ontem">
-        <h3>Descoberto Ontem</h3>
+        <h3><a href="temas/descoberto-ontem.html">Descoberto Ontem</a></h3>
         <p>Achados que só apareceram porque a tecnologia mudou. Lidar, tomografia, sequenciamento — instrumentos novos relendo evidências antigas.</p>
         <span class="contagem">07 dossiês</span>
       </article>
       <article class="pilar" id="arquivo-selado">
-        <h3>Arquivo Selado</h3>
+        <h3><a href="temas/arquivo-selado.html">Arquivo Selado</a></h3>
         <p>Documentos sem decifração e expedições sem desfecho. Casos em que o registro existe, está preservado — e continua ilegível.</p>
         <span class="contagem">05 dossiês</span>
       </article>
       <article class="pilar" id="ultimos-isolados">
-        <h3>Últimos Isolados</h3>
+        <h3><a href="temas/ultimos-isolados.html">Últimos Isolados</a></h3>
         <p>Territórios e povos fora do alcance do mundo contemporâneo — e o que a nossa curiosidade custa a eles.</p>
         <span class="contagem">03 dossiês</span>
       </article>
@@ -2815,7 +2876,7 @@ h1, h2, h3, h4 {
     </div>
     <div>
       <span class="mono">Pilares</span>
-      <p>Pedra e Poeira · Descoberto Ontem · Arquivo Selado · Últimos Isolados</p>
+      <p><a href="temas/pedra-e-poeira.html">Pedra e Poeira</a> · <a href="temas/descoberto-ontem.html">Descoberto Ontem</a> · <a href="temas/arquivo-selado.html">Arquivo Selado</a> · <a href="temas/ultimos-isolados.html">Últimos Isolados</a></p>
     </div>
     <div>
       <span class="mono">Canal</span>

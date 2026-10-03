@@ -3,11 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Grande Pirâmide: os corredores vazios · Vestígio Oculto</title>
-<meta name="description" content="Partículas vindas do espaço mapearam cavidades que nenhuma escavação abriu. A planta da Grande Pirâmide segue incompleta.">
+<title>Grande Pirâmide de Gizé e seus vazios · Vestígio Oculto</title>
+<meta name="description" content="Grande Pirâmide de Gizé: múons revelaram em 2017 um vazio de pelo menos 30 m e, em 2023, um corredor na face norte. Quem a construiu e o que segue aberto.">
 <meta name="theme-color" content="#0B0B0C">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="canonical" href="https://vestigiooculto.com.br/dossies/grande-piramide.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Os corredores vazios da Grande Pirâmide">
 <meta property="og:description" content="Partículas vindas do espaço mapearam cavidades que nenhuma escavação abriu. Quatro mil e quinhentos anos depois, a planta do monumento segue incompleta.">
@@ -23,8 +24,6 @@
 <meta name="google-adsense-account" content="ca-pub-4401770243539507">
 <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
 <link rel="preload" href="../assets/fontes/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="../assets/fontes/cinzel-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="../assets/fontes/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>/* ==========================================================================
    FONTES — hospedadas aqui, não no Google
    Gerado por _src/gerar-fontes.py. Não editar à mão.
@@ -193,9 +192,9 @@
   --ambar-fundo: #8a5c1c;
 
   /* Tipografia — Cinzel é a fonte da marca */
-  --display: "Cinzel", "Times New Roman", serif;
-  --texto:   "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --mono:    "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --display: "Cinzel", "Cinzel Fallback", "Times New Roman", serif;
+  --texto:   "Inter", "Inter Fallback", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:    "JetBrains Mono", "JetBrains Mono Fallback", ui-monospace, "SFMono-Regular", Menlo, monospace;
 
   /* Métrica */
   --medida:  66ch;
@@ -1911,6 +1910,67 @@ h1, h2, h3, h4 {
   line-height: 1.5;
   color: var(--osso-suave);
 }
+
+/* ============================================================
+   Páginas de pilar (temas/*.html), perguntas frequentes e a
+   linha do pilar no "Leia também" — gerados pelo build.
+   ============================================================ */
+.dossie-capa .kicker a { color: inherit; text-decoration: none; }
+.dossie-capa .kicker a:hover { color: var(--ambar); }
+.tema-intro { padding-bottom: 1rem; }
+.tema-lista {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  letter-spacing: .05em;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--linha);
+}
+#dossies .relacionados { margin-bottom: clamp(3rem, 6vh, 4.5rem); }
+.pilar h3 a { color: inherit; text-decoration: none; }
+.pilar h3 a::after { content: ""; position: absolute; inset: 0; }
+.pilar h3 a:hover { color: var(--ambar); }
+.relacionados .tema-link {
+  margin-top: 1rem;
+  font-size: .9rem;
+  color: var(--osso-suave);
+}
+.perguntas h3 { margin-top: 2rem; }
+.perguntas h3:first-child { margin-top: 0; }
+.perguntas p { margin-top: .6rem; }
+
+/* ============================================================
+   Fallback com métricas da fonte da web (03/10/2026).
+   Com font-display: swap o texto aparece primeiro na fonte do
+   sistema; sem ajuste, a troca muda a largura das linhas e empurra
+   a ficha da capa. O PSI no computador media CLS 0,105 em Göbekli
+   Tepe, todo ele de troca de fonte. Os números saem das tabelas
+   hmtx/hhea das próprias fontes (Inter × Arial, Cinzel × Times New
+   Roman, JetBrains Mono × Courier New), medidos sobre texto do site.
+   Liberation é a métrica-compatível do Arial/Times no Linux.
+   ============================================================ */
+@font-face {
+  font-family: "Inter Fallback";
+  src: local("Arial"), local("ArialMT"), local("Liberation Sans"), local("Helvetica");
+  size-adjust: 106.67%;
+  ascent-override: 90.82%;
+  descent-override: 22.61%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Cinzel Fallback";
+  src: local("Times New Roman"), local("TimesNewRomanPSMT"), local("Liberation Serif"), local("Times");
+  size-adjust: 102.32%;
+  ascent-override: 95.39%;
+  descent-override: 36.36%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "JetBrains Mono Fallback";
+  src: local("Courier New"), local("CourierNewPSMT"), local("Liberation Mono"), local("Courier");
+  size-adjust: 100%;
+  ascent-override: 102.02%;
+  descent-override: 30%;
+  line-gap-override: 0%;
+}
 </style>
 <script type="application/ld+json">
 {
@@ -2222,7 +2282,7 @@ h1, h2, h3, h4 {
     </div>
 
     <figure class="figura larga reveal-fig">
-      <img src="../assets/img/006-grande-piramide-real.jpg" loading="lazy" width="960" height="540"
+      <img src="../assets/img/006-grande-piramide-real.jpg" srcset="../assets/img/006-grande-piramide-real-640.jpg 640w, ../assets/img/006-grande-piramide-real.jpg 960w" sizes="(max-width: 860px) calc(100vw - 2.5rem), (min-width: 1064px) 1000px, 94vw" data-full="../assets/img/006-grande-piramide-real.jpg" loading="lazy" width="960" height="540"
            alt="Fotografia da Grande Pirâmide de Gizé ao fim da tarde, com as fiadas de pedra expostas até o topo">
       <figcaption>
         <b class="acervo-linha">Acervo</b> — Grande Pirâmide de Gizé. Repare nas fiadas expostas até o ápice: é assim que se distingue Quéops de Quéfren, que conserva um capuz liso de calcário no topo. <span class="acervo-fonte">Foto Gary Todd, CC0.</span>
@@ -2470,7 +2530,26 @@ h1, h2, h3, h4 {
       e, neste caso, a decisão de usar um que não destrói.
     </div>
 
-    <h2 id="fontes"><span class="indice">09</span>Fontes consultadas</h2>
+    <h2 id="perguntas"><span class="indice">09</span>Perguntas frequentes</h2>
+
+    <div class="perguntas">
+      <h3>Onde fica a Grande Pirâmide de Gizé?</h3>
+      <p>No planalto de Gizé, no Egito. Foi construída por volta de 2560 a.C. para o faraó Quéops, na IV dinastia.</p>
+
+      <h3>Qual a altura da Grande Pirâmide?</h3>
+      <p>A altura original era de 146,6 metros.</p>
+
+      <h3>O que tem dentro da Grande Pirâmide?</h3>
+      <p>O interior conhecido é um corredor que desce, um que sobe, a Câmara da Rainha, a Grande Galeria, a Câmara do Rei e as cinco câmaras de alívio acima dela, todas esvaziadas desde a antiguidade. A muografia acrescentou um corredor vazio na face norte e um grande vazio acima da Galeria. Ver <a href="#antes">antes do ScanPyramids</a>.</p>
+
+      <h3>Existe uma câmara secreta na Grande Pirâmide?</h3>
+      <p>Em 2017, três equipes independentes detectaram por múons um vazio de pelo menos trinta metros acima da Grande Galeria. A muografia mede densidade, não forma: ninguém sabe se é sala, fenda ou galeria desabada, e o vazio nunca foi observado. Ver <a href="#vazio">o grande vazio</a>.</p>
+
+      <h3>Quem construiu a Grande Pirâmide?</h3>
+      <p>Equipes egípcias organizadas pela administração de Quéops. O diário do inspetor Merer registra o transporte de calcário de Tura ao canteiro, e a vila dos trabalhadores e as tumbas dos construtores, com inscrição e oferendas, estão no próprio planalto. Ver <a href="#construtores">quem construiu, e como se sabe</a>.</p>
+    </div>
+
+    <h2 id="fontes"><span class="indice">10</span>Fontes consultadas</h2>
 
     <p class="mono" style="text-transform: none; letter-spacing: 0; line-height: 1.7;">
       Este dossiê é texto autoral. As fontes abaixo foram consultadas para
@@ -2511,6 +2590,7 @@ h1, h2, h3, h4 {
           <span class="porque">Sete mil anos mais velho, e noventa por cento ainda enterrado.</span>
         </a></li>
       </ul>
+      <p class="tema-link">Este dossiê é do pilar <a href="../temas/pedra-e-poeira.html">Pedra e Poeira</a> — veja os 7 dossiês dele.</p>
     </nav>
   </div>
   </article>
@@ -2547,7 +2627,7 @@ h1, h2, h3, h4 {
     </div>
     <div>
       <span class="mono">Pilares</span>
-      <p>Pedra e Poeira · Descoberto Ontem · Arquivo Selado · Últimos Isolados</p>
+      <p><a href="../temas/pedra-e-poeira.html">Pedra e Poeira</a> · <a href="../temas/descoberto-ontem.html">Descoberto Ontem</a> · <a href="../temas/arquivo-selado.html">Arquivo Selado</a> · <a href="../temas/ultimos-isolados.html">Últimos Isolados</a></p>
     </div>
     <div class="creditos">
       <span class="mono">© 2026 Vestígio Oculto</span>
@@ -2599,7 +2679,7 @@ document.querySelectorAll('[data-rever-cookies]').forEach(function (a) {
   function abrir(origem, legenda) {
     // currentSrc é o arquivo que o navegador de fato escolheu. Sem isso, num
     // <picture> a lupa baixaria o PNG de fallback em vez do WebP já em cache.
-    img.src = origem.currentSrc || origem.src; img.alt = origem.alt;
+    img.src = origem.dataset.full || origem.currentSrc || origem.src; img.alt = origem.alt;
     leg.textContent = legenda;
     lupa.classList.add('aberta');
     document.body.style.overflow = 'hidden';

@@ -30,11 +30,15 @@ DOMINIO = "https://vestigiooculto.com.br"
 # cirílico e latin-ext ficam de fora de propósito: o unicode-range já garante
 # que só baixam na página que mostra um caractere delas, e dar preload nelas
 # forçaria o download em todas.
+#
+# Desde 03/10/2026, preload SÓ da Inter normal: é a face do texto que vira LCP
+# nos dossiês (o subtítulo da capa). O PSI no celular media 2,5 s de atraso de
+# renderização do LCP com três fontes (114 KB) disputando a banda com o HTML
+# em 4G lento. Cinzel e JetBrains Mono continuam com font-display: swap e
+# chegam logo depois, sem segurar a primeira pintura.
 FONTES = "\n".join(
     f'<link rel="preload" href="{{{{RAIZ}}}}assets/fontes/{a}" as="font" type="font/woff2" crossorigin>'
-    for a in ("inter-latin-wght-normal.woff2",
-              "cinzel-latin-wght-normal.woff2",
-              "jetbrains-mono-latin-wght-normal.woff2"))
+    for a in ("inter-latin-wght-normal.woff2",))
 
 # AdSense. ADSENSE_LIGADO = False tira o script de TODAS as páginas e
 # apaga o ads.txt — é o interruptor geral, uma linha só.
@@ -397,8 +401,9 @@ def conferir_seo() -> None:
     A 404 não entra na conta da descrição (é noindex).
     """
     erros, vistos_t, vistos_d = [], {}, {}
-    for template in PAGINAS:
-        t, d = meta_do_template(template)
+    metas = [(tpl, *meta_do_template(tpl)) for tpl in PAGINAS]
+    metas += [(f"temas/{v['slug']}", v["titulo"], v["descricao"]) for v in TEMAS.values()]
+    for template, t, d in metas:
         if not t or len(t) > TITULO_MAX:
             erros.append(f"{template}: título com {len(t)} caracteres (máx. {TITULO_MAX})")
         if template != "404.tpl.html" and not DESCRICAO_MIN <= len(d) <= DESCRICAO_MAX:
@@ -617,20 +622,425 @@ def conferir_ordem_da_home() -> None:
             "sequência")
 
 
+# ---------------------------------------------------------------- pilares (páginas de tema)
+
+# Os quatro pilares da home viram páginas próprias em temas/<slug>.html, em vez
+# de uma taxonomia paralela. Quem decide o pilar de cada dossiê é o
+# data-pilar do cartão na home (e o articleSection do dossiê tem de bater).
+# Os cartões são copiados da home — imagem, crédito de licença, resumo — para
+# não existir um segundo texto escrito à mão para o mesmo dossiê.
+# A introdução só repete o que os dossiês dizem.
+TEMAS = {
+    "pedra": {
+        "slug": "pedra-e-poeira", "nome": "Pedra e Poeira",
+        "titulo": "Pedra e Poeira: monumentos antigos · Vestígio Oculto",
+        "descricao": "Göbekli Tepe, Grande Pirâmide, Nan Madol, Linhas de Nazca, Puma Punku, "
+                     "moais e os nadadores do Saara: monumentos antigos lidos pela evidência.",
+        "intro": [
+            "Pedra e Poeira reúne os dossiês sobre monumentos e sítios antigos que não cabem "
+            "na cronologia aceita: o que foi erguido, pintado ou raspado no chão antes de "
+            "existir quem, em tese, soubesse fazer.",
+            "São sete casos. Os pilares de Göbekli Tepe, erguidos por caçadores-coletores antes "
+            "da agricultura; os nadadores pintados no Gilf Kebir, um dos lugares mais secos do "
+            "planeta; os vazios que detectores de partículas mapearam dentro da Grande Pirâmide; "
+            "a cidade de basalto de Nan Madol, construída sobre um recife na Micronésia; as "
+            "Linhas de Nazca, raspadas no deserto do Peru; os blocos em H de Puma Punku, no "
+            "altiplano da Bolívia; e os moais de Rapa Nui, com corpo inteiro debaixo da encosta.",
+            "Em todos, a cronologia vem antes da teoria: primeiro o que está no chão e como foi "
+            "datado, depois as hipóteses, da mais sóbria à mais improvável, com o peso de "
+            "evidência de cada uma declarado.",
+        ],
+    },
+    "ontem": {
+        "slug": "descoberto-ontem", "nome": "Descoberto Ontem",
+        "titulo": "Descoberto Ontem: descobertas recentes · Vestígio Oculto",
+        "descricao": "Lidar na Amazônia, papiros de Herculano, denisovanos, Serra da Capivara, "
+                     "Anticítera, anomalia do Báltico e DNA fantasma: o que a tecnologia revelou.",
+        "intro": [
+            "Descoberto Ontem reúne os achados que só apareceram porque a tecnologia mudou: "
+            "lidar, tomografia, sequenciamento de DNA, sonar — instrumentos novos relendo "
+            "evidências antigas.",
+            "O laser que atravessou o dossel da Amazônia e desenhou ruas e pirâmides de terra; "
+            "a tomografia somada a aprendizado de máquina que começou a ler os papiros "
+            "carbonizados de Herculano; o DNA de um fragmento de falange que revelou os "
+            "denisovanos; o carvão da Serra da Capivara, no Piauí, que não cabe na cronologia "
+            "das Américas; os raios X e a tomografia que leram as engrenagens do mecanismo de "
+            "Anticítera; a imagem de sonar da anomalia do Báltico; e o modelo estatístico que "
+            "estimou um DNA fantasma em populações da África Ocidental.",
+            "Descoberta recente não é caso encerrado. Em vários desses dossiês o dado é firme e "
+            "a interpretação segue em disputa, e o texto separa uma coisa da outra.",
+        ],
+    },
+    "selado": {
+        "slug": "arquivo-selado", "nome": "Arquivo Selado",
+        "titulo": "Arquivo Selado: mistérios não resolvidos · Vestígio Oculto",
+        "descricao": "Manuscrito Voynich, Percy Fawcett, passo Dyatlov, colônia de Roanoke e "
+                     "Kryptos: mistérios não resolvidos, o que já se sabe e o que segue em aberto.",
+        "intro": [
+            "Arquivo Selado reúne documentos sem decifração e expedições sem desfecho: casos em "
+            "que o registro existe, está preservado — e continua ilegível ou incompleto.",
+            "O manuscrito Voynich, em pergaminho autêntico e num idioma que ninguém identificou; "
+            "Percy Fawcett, que entrou no Alto Xingu em 1925 atrás de uma cidade que chamava de "
+            "“Z” e não voltou; os nove esquiadores da passagem Dyatlov, nos Urais, em 1959; a "
+            "colônia de Roanoke, que deixou CROATOAN entalhado num poste; e Kryptos, a escultura "
+            "no pátio da CIA cuja quarta mensagem segue com o método desconhecido.",
+            "Aqui o mistério raramente é a falta de documento. É o documento que existe e não "
+            "fecha — e cada dossiê mostra o que já foi descartado, o que é hipótese e o que "
+            "continua em aberto.",
+        ],
+    },
+    "isolados": {
+        "slug": "ultimos-isolados", "nome": "Últimos Isolados",
+        "titulo": "Últimos Isolados: povos isolados · Vestígio Oculto",
+        "descricao": "Ilha Sentinela do Norte, mashco piro e korowai: povos e territórios fora "
+                     "do alcance, o que se sabe deles e o que a nossa curiosidade custa a eles.",
+        "intro": [
+            "Últimos Isolados reúne territórios e povos fora do alcance do mundo contemporâneo "
+            "— e o que a nossa curiosidade custa a eles.",
+            "A ilha Sentinela do Norte, no arquipélago de Andamão, cuja população recusa contato "
+            "há gerações; os mashco piro, descendentes de quem fugiu dos massacres da borracha, "
+            "em isolamento voluntário entre o Peru e o Acre; e os korowai, da Papua, cujas casas "
+            "no alto das árvores viraram, em trinta anos de fotografias, o retrato de um povo "
+            "inteiro.",
+            "Nesses dossiês o mistério não está enterrado. Quase tudo o que se sabe foi visto de "
+            "longe, e a pergunta muda: não é só o que existe ali, é o que decidimos não "
+            "perguntar.",
+        ],
+    },
+}
+TEMA_DE_SLUG = {t["slug"]: k for k, t in TEMAS.items()}
+
+
+def cartoes_da_home() -> list:
+    """(pilar, slug, html do cartão) na ordem da home."""
+    html = (SRC / "index.tpl.html").read_text(encoding="utf-8")
+    saida = []
+    for bloco in re.findall(r'<article class="quadro".*?</article>', html, re.S):
+        pilar = re.search(r'data-pilar="([a-z]+)"', bloco).group(1)
+        slug = re.search(r'dossies/([a-z0-9-]+)\.html', bloco).group(1)
+        saida.append((pilar, slug, bloco))
+    return saida
+
+
+def pilar_do_dossie() -> dict:
+    """slug do dossiê -> chave do pilar. Para se o articleSection divergir."""
+    mapa, erros = {}, []
+    for pilar, slug, _ in cartoes_da_home():
+        mapa[slug] = pilar
+        tpl = (SRC / f"{slug}.tpl.html").read_text(encoding="utf-8")
+        sec = re.search(r'"articleSection":\s*"([^"]+)"', tpl)
+        if not sec or sec.group(1) != TEMAS[pilar]["nome"]:
+            erros.append(f"{slug}: articleSection {sec.group(1) if sec else None!r} "
+                         f"≠ pilar da home {TEMAS[pilar]['nome']!r}")
+    faltam = [s for s in ARQUIVO if s not in mapa]
+    if faltam:
+        erros.append(f"dossiês sem pilar na home: {faltam}")
+    if erros:
+        raise SystemExit("  ! pilares: " + "\n  ! pilares: ".join(erros))
+    return mapa
+
+
+def tema_template(chave: str) -> str:
+    """Monta, em memória, o template da página do pilar. Ela passa depois pelo
+    mesmo caminho das outras páginas (CSS, logo, consentimento, rodapé)."""
+    import json
+    t = TEMAS[chave]
+    dom = DOMINIO.rstrip("/")
+    url = f"{dom}/temas/{t['slug']}.html"
+    cartoes = [(s, b) for p, s, b in cartoes_da_home() if p == chave]
+    blocos = []
+    for i, (slug, b) in enumerate(cartoes):
+        b = (b.replace('src="assets/', 'src="../assets/')
+              .replace('href="dossies/', 'href="../dossies/'))
+        b = re.sub(r'srcset="([^"]*)"',
+                   lambda m: 'srcset="' + m.group(1).replace("assets/", "../assets/") + '"', b)
+        b = b.replace('href="../dossies/', 'href="../dossies/')
+        if i == 0:  # o primeiro cartão é o LCP da página: sem lazy, com prioridade
+            b = b.replace(' loading="lazy"', ' fetchpriority="high"', 1)
+        blocos.append("      " + b)
+    outros = [TEMAS[k] for k in TEMAS if k != chave]
+    og = f"{dom}/assets/img/og/{cartoes[0][0]}.jpg"
+    ld = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": t["titulo"].split(" · ")[0],
+        "description": t["descricao"],
+        "url": url,
+        "inLanguage": "pt-BR",
+        "image": og,
+        "isPartOf": {"@type": "WebSite", "name": "Vestígio Oculto", "url": f"{dom}/"},
+        "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "Vestígio Oculto", "item": f"{dom}/"},
+                {"@type": "ListItem", "position": 2, "name": t["nome"], "item": url},
+            ],
+        },
+        "mainEntity": {
+            "@type": "ItemList",
+            "numberOfItems": len(cartoes),
+            "itemListElement": [
+                {"@type": "ListItem", "position": i, "name": titulo_do_dossie(s),
+                 "url": f"{dom}/dossies/{s}.html"}
+                for i, (s, _) in enumerate(cartoes, start=1)],
+        },
+    }
+    intro = "\n\n".join(f"    <p>{p}</p>" for p in t["intro"])
+    nav_outros = "\n".join(
+        f'        <li><a href="{o["slug"]}.html">\n'
+        f'          <span class="num">Pilar</span>\n'
+        f'          <strong>{o["nome"]}</strong>\n'
+        f'        </a></li>' for o in outros)
+    return f"""<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{t['titulo']}</title>
+<meta name="description" content="{t['descricao']}">
+<meta name="theme-color" content="#0B0B0C">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="canonical" href="{url}">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{t['nome']} — Vestígio Oculto">
+<meta property="og:description" content="{t['descricao']}">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="{url}">
+<meta property="og:image" content="{og}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+{{{{ADSENSE}}}}
+{{{{FONTES}}}}
+<style>{{{{CSS}}}}</style>
+<script type="application/ld+json">
+{json.dumps(ld, ensure_ascii=False, indent=2)}
+</script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="marca" href="../index.html" aria-label="Vestígio Oculto — início">
+      {{{{LOGO}}}}
+      <span class="selo">Pilar</span>
+    </a>
+    <nav aria-label="Pilares editoriais">
+      <ul class="nav-pilares">
+        <li><a href="pedra-e-poeira.html">Pedra e Poeira</a></li>
+        <li><a href="descoberto-ontem.html">Descoberto Ontem</a></li>
+        <li><a href="arquivo-selado.html">Arquivo Selado</a></li>
+        <li><a href="ultimos-isolados.html">Últimos Isolados</a></li>
+        <li><a href="../sobre.html">Sobre</a></li>
+        <li class="nav-canal"><a href="https://www.youtube.com/@VestigoOcultoBrasil" target="_blank" rel="noopener">YouTube</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <header class="dossie-capa">
+    <div class="wrap">
+      <span class="kicker"><a href="../index.html">Arquivo</a> · Pilar · {len(cartoes):02d} dossiês</span>
+      <h1>{t['nome']}</h1>
+    </div>
+  </header>
+
+  <div class="corpo tema-intro">
+{intro}
+  </div>
+
+  <section class="wrap" id="dossies" aria-labelledby="dossies-titulo">
+    <h2 class="tema-lista" id="dossies-titulo">Os {len(cartoes)} dossiês do pilar</h2>
+    <div class="quadros">
+{chr(10).join(blocos)}
+    </div>
+
+    <nav class="relacionados" aria-label="Outros pilares">
+      <span class="mono">Outros pilares</span>
+      <ul>
+{nav_outros}
+      </ul>
+    </nav>
+  </section>
+</main>
+
+<footer class="rodape">
+  <div class="wrap">
+    <div>
+      <a class="marca" href="../index.html" aria-label="Vestígio Oculto — início">{{{{LOGO}}}}</a>
+      <p>Um arquivo aberto sobre o que a história começou e não terminou de contar.</p>
+    </div>
+    <div>
+      <span class="mono">Pilares</span>
+      <p>Pedra e Poeira · Descoberto Ontem · Arquivo Selado · Últimos Isolados</p>
+    </div>
+    <div>
+      <span class="mono">Canal</span>
+      <p><a class="canal-handle" href="https://www.youtube.com/@VestigoOcultoBrasil" target="_blank" rel="noopener">@VestigoOcultoBrasil</a></p>
+    </div>
+    <div class="creditos">
+      <span class="mono">© 2026 Vestígio Oculto</span>
+      <span class="mono"><a href="{{{{RAIZ}}}}sobre.html">Sobre</a> · <a href="{{{{RAIZ}}}}contato.html">Contato</a> · <a href="{{{{RAIZ}}}}privacidade.html">Política de privacidade</a></span>
+      <span class="mono">Textos autorais · imagens de recriação sinalizadas</span>
+    </div>
+  </div>
+</footer>
+
+{{{{CONSENTIMENTO}}}}
+
+</body>
+</html>
+"""
+
+
+PILARES_TEXTO = "Pedra e Poeira · Descoberto Ontem · Arquivo Selado · Últimos Isolados"
+
+
+def ligar_pilares(html: str, destino: str, pilar_de: dict) -> str:
+    """Liga toda menção de pilar à página do pilar.
+
+    - rodapé: a linha "Pedra e Poeira · ..." (texto puro) vira links;
+    - menu dos dossiês: index.html#<pilar> passa a apontar para temas/<pilar>.html;
+    - home: o título de cada pilar na seção "Pilares" vira link;
+    - dossiê: o "Leia também" ganha a linha do pilar dele.
+    """
+    raiz = "../" if "/" in destino else ""
+    em_temas = destino.startswith("temas/")
+    base = "" if em_temas else f"{raiz}temas/"
+    links = " · ".join(f'<a href="{base}{t["slug"]}.html">{t["nome"]}</a>' for t in TEMAS.values())
+    html = html.replace(f"<p>{PILARES_TEXTO}</p>", f"<p>{links}</p>")
+    for t in TEMAS.values():
+        html = html.replace(f'href="{raiz}index.html#{t["slug"]}"', f'href="{base}{t["slug"]}.html"')
+        if destino == "index.html":
+            html, n = re.subn(
+                rf'(<article class="pilar" id="{t["slug"]}">\s*<h3>){re.escape(t["nome"])}(</h3>)',
+                rf'\1<a href="temas/{t["slug"]}.html">{t["nome"]}</a>\2', html)
+            if n != 1:
+                raise SystemExit(f"  ! index.tpl.html: pilar {t['slug']} sem título para ligar")
+    slug = destino.removeprefix("dossies/").removesuffix(".html")
+    if destino.startswith("dossies/") and slug in pilar_de:
+        t = TEMAS[pilar_de[slug]]
+        n_pilar = sum(1 for v in pilar_de.values() if v == pilar_de[slug])
+        linha = (f'\n      <p class="tema-link">Este dossiê é do pilar '
+                 f'<a href="../temas/{t["slug"]}.html">{t["nome"]}</a> — '
+                 f'veja os {n_pilar} dossiês dele.</p>')
+        html, n = re.subn(r'(<nav class="relacionados"[^>]*>.*?</ul>)', lambda m: m.group(1) + linha,
+                          html, count=1, flags=re.S)
+        if n != 1:
+            raise SystemExit(f"  ! {destino}: sem Leia também para a linha do pilar")
+    return html
+
+
+SIZES_FIGURA = {
+    # .figura.larga: min(94vw, 1000px); abaixo de 860 px, a coluna inteira
+    "larga": "(max-width: 860px) calc(100vw - 2.5rem), (min-width: 1064px) 1000px, 94vw",
+    # .figura.lado: 46% da coluna de 66ch em tela grande
+    "lado": "(max-width: 860px) calc(100vw - 2.5rem), 340px",
+}
+
+
+def imagens_responsivas(html: str, destino: str) -> str:
+    """Figuras dos dossiês ganham uma versão de 640 px no srcset.
+
+    O PSI de 03/10/2026 (Göbekli Tepe, celular) apontava imagens de 1200 px
+    exibidas a 369 px. A versão de 640 cobre o celular com folga para tela
+    densa; em tela grande o navegador continua pegando o original. A lupa
+    abre sempre o original (data-full), não a versão reduzida.
+
+    Só JPEG fora de <picture> (os PNG de figura já têm WebP). A variante é
+    gerada uma vez e regerada se o original mudar.
+    """
+    if not destino.startswith("dossies/"):
+        return html
+    from PIL import Image
+    pasta = RAIZ / "assets" / "img"
+
+    def troca(m):
+        figura, classe = m.group(0), m.group(1)
+        if "<picture" in figura or "srcset=" in figura:
+            return figura
+        img = re.search(r'<img src="\.\./assets/img/([^"]+\.jpg)"', figura)
+        if not img:
+            return figura
+        nome = img.group(1)
+        origem = pasta / nome
+        if not origem.is_file():
+            return figura
+        variante = origem.with_name(f"{origem.stem}-640.jpg")
+        if not variante.exists() or variante.stat().st_mtime < origem.stat().st_mtime:
+            im = Image.open(origem)
+            if im.width <= 760:
+                return figura
+            im = im.convert("RGB")
+            im.resize((640, round(im.height * 640 / im.width)), Image.LANCZOS).save(
+                variante, "JPEG", quality=80, progressive=True, optimize=True)
+        largura = Image.open(origem).width
+        tipo = "lado" if "lado" in classe.split() else "larga"
+        attrs = (f' srcset="../assets/img/{variante.name} 640w, ../assets/img/{nome} {largura}w"'
+                 f' sizes="{SIZES_FIGURA[tipo]}" data-full="../assets/img/{nome}"')
+        return figura.replace(img.group(0), img.group(0) + attrs, 1)
+
+    html = re.sub(r'<figure class="figura ([^"]*)">.*?</figure>', troca, html, flags=re.S)
+    html = html.replace("img.src = origem.currentSrc || origem.src;",
+                        "img.src = origem.dataset.full || origem.currentSrc || origem.src;")
+    return html
+
+
+ROBOTS_INDEXA = "index, follow, max-image-preview:large"
+
+
+def meta_robots(html: str, destino: str) -> str:
+    """Toda página indexável leva max-image-preview:large (Google Discover).
+    A 404 continua noindex."""
+    if destino == "404.html":
+        return html
+    if 'name="robots"' in html:
+        html, n = re.subn(r'<meta name="robots" content="index, follow">',
+                          f'<meta name="robots" content="{ROBOTS_INDEXA}">', html)
+        if n != 1:
+            raise SystemExit(f"  ! {destino}: meta robots inesperada")
+        return html
+    html, n = re.subn(r'(<link rel="canonical" href="[^"]*">\n)',
+                      rf'\1<meta name="robots" content="{ROBOTS_INDEXA}">\n', html, count=1)
+    if n != 1:
+        raise SystemExit(f"  ! {destino}: sem canonical para pôr a meta robots ao lado")
+    return html
+
+
+def preload_do_lcp(html: str, destino: str) -> str:
+    """A imagem do topo da home é o LCP. O preload com imagesrcset faz o
+    navegador pedi-la junto com o HTML, antes de achar o <img> no corpo
+    (o PSI de 03/10/2026 media 360 ms de atraso de carregamento)."""
+    if destino != "index.html":
+        return html
+    img = re.search(r'<section class="hero-foto">\s*<img src="([^"]+)"\s*srcset="([^"]+)"\s*sizes="([^"]+)"', html)
+    if not img:
+        raise SystemExit("  ! index: imagem do topo não encontrada para o preload")
+    tag = (f'<link rel="preload" as="image" href="{img.group(1)}" imagesrcset="{img.group(2)}" '
+           f'imagesizes="{img.group(3)}" fetchpriority="high">\n')
+    return html.replace("{{FONTES}}", tag + "{{FONTES}}", 1)
+
+
 def main() -> None:
     conferir_ordem_da_home()
     conferir_contagens_da_home()
     conferir_relacionados()
     conferir_seo()
+    pilar_de = pilar_do_dossie()
     variantes_de_imagem()
 
-    for template, destino in PAGINAS.items():
+    paginas = [(t, d, None) for t, d in PAGINAS.items()]
+    paginas += [(f"tema:{k}", f"temas/{t['slug']}.html", tema_template(k)) for k, t in TEMAS.items()]
+
+    for template, destino, pronto in paginas:
         origem = SRC / template
-        if not origem.exists():
+        if pronto is None and not origem.exists():
             print(f"  ! template ausente: {template}")
             continue
 
-        html = origem.read_text(encoding="utf-8")
+        html = pronto if pronto is not None else origem.read_text(encoding="utf-8")
         raiz_rel = "../" if "/" in destino else ""
         faltando = [m for m in ("{{CSS}}", "{{LOGO}}", "{{FONTES}}") if m not in html]
         if faltando:
@@ -648,6 +1058,10 @@ def main() -> None:
                 html = html.replace("</head>", breadcrumb(slug), 1)
         html = imagem_de_compartilhamento(html, slug, template)
         html = resolver_numeros(html, slug)
+        html = meta_robots(html, destino)
+        html = preload_do_lcp(html, destino)
+        html = imagens_responsivas(html, destino)
+        html = ligar_pilares(html, destino, pilar_de)
         html = rodape_rever(html, template)
 
         saida = RAIZ / destino
@@ -673,9 +1087,13 @@ def main() -> None:
     # sitemap.xml e robots.txt: o Google precisa dos dois para rastrear bem.
     # São gerados a partir de PAGINAS, então nunca ficam desatualizados.
     datas = {d: data_modificacao(t) for t, d in PAGINAS.items()}
+    # página de pilar: a data mais recente entre os dossiês dela
+    for k, t in TEMAS.items():
+        datas[f"temas/{t['slug']}.html"] = max(
+            datas[f"dossies/{s}.html"] for s, p in pilar_de.items() if p == k)
     datas["index.html"] = max(datas.values())
     urls = []
-    for destino in PAGINAS.values():
+    for destino in list(PAGINAS.values()) + [f"temas/{t['slug']}.html" for t in TEMAS.values()]:
         if destino == "404.html":
             continue  # página de erro não se indexa
         loc = f"{DOMINIO.rstrip('/')}/{destino}"

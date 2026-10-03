@@ -8,6 +8,7 @@
 <meta name="theme-color" content="#0B0B0C">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="canonical" href="https://vestigiooculto.com.br/dossies/colonia-roanoke.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="article">
 <meta property="og:title" content="A colônia perdida de Roanoke — uma palavra entalhada num poste">
 <meta property="og:description" content="Cento e poucos colonos, uma menina nascida na ilha, três anos de atraso e uma palavra no poste da paliçada. A pista mais óbvia da história colonial americana, e as duas escavações que dizem tê-la seguido.">
@@ -23,8 +24,6 @@
 <meta name="google-adsense-account" content="ca-pub-4401770243539507">
 <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
 <link rel="preload" href="../assets/fontes/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="../assets/fontes/cinzel-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="../assets/fontes/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>/* ==========================================================================
    FONTES — hospedadas aqui, não no Google
    Gerado por _src/gerar-fontes.py. Não editar à mão.
@@ -193,9 +192,9 @@
   --ambar-fundo: #8a5c1c;
 
   /* Tipografia — Cinzel é a fonte da marca */
-  --display: "Cinzel", "Times New Roman", serif;
-  --texto:   "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --mono:    "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --display: "Cinzel", "Cinzel Fallback", "Times New Roman", serif;
+  --texto:   "Inter", "Inter Fallback", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:    "JetBrains Mono", "JetBrains Mono Fallback", ui-monospace, "SFMono-Regular", Menlo, monospace;
 
   /* Métrica */
   --medida:  66ch;
@@ -1911,6 +1910,67 @@ h1, h2, h3, h4 {
   line-height: 1.5;
   color: var(--osso-suave);
 }
+
+/* ============================================================
+   Páginas de pilar (temas/*.html), perguntas frequentes e a
+   linha do pilar no "Leia também" — gerados pelo build.
+   ============================================================ */
+.dossie-capa .kicker a { color: inherit; text-decoration: none; }
+.dossie-capa .kicker a:hover { color: var(--ambar); }
+.tema-intro { padding-bottom: 1rem; }
+.tema-lista {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  letter-spacing: .05em;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--linha);
+}
+#dossies .relacionados { margin-bottom: clamp(3rem, 6vh, 4.5rem); }
+.pilar h3 a { color: inherit; text-decoration: none; }
+.pilar h3 a::after { content: ""; position: absolute; inset: 0; }
+.pilar h3 a:hover { color: var(--ambar); }
+.relacionados .tema-link {
+  margin-top: 1rem;
+  font-size: .9rem;
+  color: var(--osso-suave);
+}
+.perguntas h3 { margin-top: 2rem; }
+.perguntas h3:first-child { margin-top: 0; }
+.perguntas p { margin-top: .6rem; }
+
+/* ============================================================
+   Fallback com métricas da fonte da web (03/10/2026).
+   Com font-display: swap o texto aparece primeiro na fonte do
+   sistema; sem ajuste, a troca muda a largura das linhas e empurra
+   a ficha da capa. O PSI no computador media CLS 0,105 em Göbekli
+   Tepe, todo ele de troca de fonte. Os números saem das tabelas
+   hmtx/hhea das próprias fontes (Inter × Arial, Cinzel × Times New
+   Roman, JetBrains Mono × Courier New), medidos sobre texto do site.
+   Liberation é a métrica-compatível do Arial/Times no Linux.
+   ============================================================ */
+@font-face {
+  font-family: "Inter Fallback";
+  src: local("Arial"), local("ArialMT"), local("Liberation Sans"), local("Helvetica");
+  size-adjust: 106.67%;
+  ascent-override: 90.82%;
+  descent-override: 22.61%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Cinzel Fallback";
+  src: local("Times New Roman"), local("TimesNewRomanPSMT"), local("Liberation Serif"), local("Times");
+  size-adjust: 102.32%;
+  ascent-override: 95.39%;
+  descent-override: 36.36%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "JetBrains Mono Fallback";
+  src: local("Courier New"), local("CourierNewPSMT"), local("Liberation Mono"), local("Courier");
+  size-adjust: 100%;
+  ascent-override: 102.02%;
+  descent-override: 30%;
+  line-gap-override: 0%;
+}
 </style>
 <script type="application/ld+json">
 {
@@ -2049,7 +2109,7 @@ h1, h2, h3, h4 {
     </p>
 
     <figure class="figura larga reveal-fig">
-      <img src="../assets/img/rk-01-chegada.jpg" loading="lazy" width="960" height="645"
+      <img src="../assets/img/rk-01-chegada.jpg" srcset="../assets/img/rk-01-chegada-640.jpg 640w, ../assets/img/rk-01-chegada.jpg 960w" sizes="(max-width: 860px) calc(100vw - 2.5rem), (min-width: 1064px) 1000px, 94vw" data-full="../assets/img/rk-01-chegada.jpg" loading="lazy" width="960" height="645"
            alt="Gravura em preto e branco de 1590: uma ilha com aldeia cercada no meio de um braço de mar, navios ingleses ancorados fora de um cordão de areia, barcos naufragados nas barras e um monstro marinho no primeiro plano">
       <figcaption>
         <b class="acervo-linha">Acervo</b> — "A chegada dos ingleses à
@@ -2094,7 +2154,7 @@ h1, h2, h3, h4 {
     </p>
 
     <figure class="figura larga reveal-fig">
-      <img src="../assets/img/rk-02-mapa-de-bry.jpg" loading="lazy" width="960" height="705"
+      <img src="../assets/img/rk-02-mapa-de-bry.jpg" srcset="../assets/img/rk-02-mapa-de-bry-640.jpg 640w, ../assets/img/rk-02-mapa-de-bry.jpg 960w" sizes="(max-width: 860px) calc(100vw - 2.5rem), (min-width: 1064px) 1000px, 94vw" data-full="../assets/img/rk-02-mapa-de-bry.jpg" loading="lazy" width="960" height="705"
            alt="Mapa colorido do século XVI da costa da Carolina do Norte, com o norte à direita: o cordão de ilhas de areia, os estreitos, a ilha de Roanoke, os nomes Secotan, Weapemeoc e Croatoan, navios e um monstro marinho">
       <figcaption>
         <b class="acervo-linha">Acervo</b> — "Americae pars, nunc Virginia
@@ -2238,7 +2298,7 @@ h1, h2, h3, h4 {
     </p>
 
     <figure class="figura larga reveal-fig">
-      <img src="../assets/img/rk-03-croatoan.jpg" loading="lazy" width="960" height="598"
+      <img src="../assets/img/rk-03-croatoan.jpg" srcset="../assets/img/rk-03-croatoan-640.jpg 640w, ../assets/img/rk-03-croatoan.jpg 960w" sizes="(max-width: 860px) calc(100vw - 2.5rem), (min-width: 1064px) 1000px, 94vw" data-full="../assets/img/rk-03-croatoan.jpg" loading="lazy" width="960" height="598"
            alt="Gravura do século XIX: homens com chapéus, armaduras e mosquetes diante de uma árvore onde está entalhada a palavra CROATOAN; ao fundo, uma paliçada de troncos e homens examinando baús abertos">
       <figcaption>
         <b>Ilustração de 1876</b> — a cena imaginada por William Ludwell
@@ -2428,7 +2488,7 @@ h1, h2, h3, h4 {
     </p>
 
     <figure class="figura larga reveal-fig">
-      <img src="../assets/img/rk-04-ilha-satelite.jpg" loading="lazy" width="960" height="540"
+      <img src="../assets/img/rk-04-ilha-satelite.jpg" srcset="../assets/img/rk-04-ilha-satelite-640.jpg 640w, ../assets/img/rk-04-ilha-satelite.jpg 960w" sizes="(max-width: 860px) calc(100vw - 2.5rem), (min-width: 1064px) 1000px, 94vw" data-full="../assets/img/rk-04-ilha-satelite.jpg" loading="lazy" width="960" height="540"
            alt="Imagem de satélite em cores naturais: no alto, à direita, a ilha de Roanoke com pontes ligando-a ao continente e ao cordão de areia; à direita, o oceano Atlântico; embaixo, a barra de Oregon Inlet com bancos de areia claros">
       <figcaption>
         <b class="acervo-linha">Acervo</b> — a ilha de Roanoke hoje, vista
@@ -2518,7 +2578,7 @@ h1, h2, h3, h4 {
     </div>
 
     <figure class="figura larga reveal-fig">
-      <img src="../assets/img/rk-05-fort-raleigh.jpg" loading="lazy" width="960" height="720"
+      <img src="../assets/img/rk-05-fort-raleigh.jpg" srcset="../assets/img/rk-05-fort-raleigh-640.jpg 640w, ../assets/img/rk-05-fort-raleigh.jpg 960w" sizes="(max-width: 860px) calc(100vw - 2.5rem), (min-width: 1064px) 1000px, 94vw" data-full="../assets/img/rk-05-fort-raleigh.jpg" loading="lazy" width="960" height="720"
            alt="Taludes de terra cobertos de grama seca e folhas, formando um fosso raso numa clareira; à direita, um pequeno trecho de estacas de madeira nova">
       <figcaption>
         <b class="acervo-linha">Acervo</b> — o reduto de terra do Fort Raleigh
@@ -2589,7 +2649,23 @@ h1, h2, h3, h4 {
       uma resposta limpa.
     </p>
 
-    <h2 id="fontes"><span class="indice">12</span>Fontes consultadas</h2>
+    <h2 id="perguntas"><span class="indice">12</span>Perguntas frequentes</h2>
+
+    <div class="perguntas">
+      <h3>O que aconteceu com a colônia de Roanoke?</h3>
+      <p>Não se sabe com prova. Em 1590, John White achou o assentamento vazio e a palavra CROATOAN num poste, sem o sinal de perigo combinado. As leituras mais sustentadas são que os colonos foram viver com o povo de Croatoan, que foram para o interior ou que se dividiram. Ver <a href="#teorias">as leituras</a>.</p>
+
+      <h3>O que significa CROATOAN?</h3>
+      <p>Não é mensagem cifrada: é o nome de uma ilha e de um povo, a terra de Manteo, aliado dos ingleses, a cerca de oitenta quilômetros ao sul de Roanoke — o trecho sul da atual Hatteras. Pelo código combinado, os colonos entalhariam o nome do lugar para onde fossem, e uma cruz se saíssem sob ameaça. Não havia cruz. Ver <a href="#croatoan">o que White encontrou</a>.</p>
+
+      <h3>Quantos colonos desapareceram em Roanoke?</h3>
+      <p>As contagens vão de cerca de 110 a 119. A lista de nomes impressa por Hakluyt traz 17 mulheres e 11 crianças, e o total de 117 que circula é uma leitura possível dela, não um número fixado na fonte. Ver <a href="#colonia">a colônia de 1587</a>.</p>
+
+      <h3>A colônia perdida de Roanoke foi encontrada?</h3>
+      <p>Em 2026, “a colônia foi achada” foi anunciado duas vezes, em lugares diferentes: em Hatteras, na antiga Croatoan, e nos Sites X e Y, no interior. Nenhum dos dois projetos tinha artigo revisado por pares até a data deste dossiê. Ver <a href="#ontem">o que mudou em 2026</a>.</p>
+    </div>
+
+    <h2 id="fontes"><span class="indice">13</span>Fontes consultadas</h2>
 
     <p class="mono" style="text-transform: none; letter-spacing: 0; line-height: 1.7;">
       Este dossiê é texto autoral. As fontes abaixo foram consultadas para
@@ -2627,6 +2703,7 @@ h1, h2, h3, h4 {
           <span class="porque">Outro texto escrito à vista de todos que ninguém conseguiu fechar.</span>
         </a></li>
       </ul>
+      <p class="tema-link">Este dossiê é do pilar <a href="../temas/arquivo-selado.html">Arquivo Selado</a> — veja os 5 dossiês dele.</p>
     </nav>
   </div>
   </article>
@@ -2659,7 +2736,7 @@ h1, h2, h3, h4 {
     </div>
     <div>
       <span class="mono">Pilares</span>
-      <p>Pedra e Poeira · Descoberto Ontem · Arquivo Selado · Últimos Isolados</p>
+      <p><a href="../temas/pedra-e-poeira.html">Pedra e Poeira</a> · <a href="../temas/descoberto-ontem.html">Descoberto Ontem</a> · <a href="../temas/arquivo-selado.html">Arquivo Selado</a> · <a href="../temas/ultimos-isolados.html">Últimos Isolados</a></p>
     </div>
     <div>
       <span class="mono">Canal</span>
@@ -2713,7 +2790,7 @@ document.querySelectorAll('[data-rever-cookies]').forEach(function (a) {
   var ultimo = null;
 
   function abrir(origem, legenda) {
-    img.src = origem.currentSrc || origem.src; img.alt = origem.alt;
+    img.src = origem.dataset.full || origem.currentSrc || origem.src; img.alt = origem.alt;
     leg.textContent = legenda;
     lupa.classList.add('aberta');
     document.body.style.overflow = 'hidden';

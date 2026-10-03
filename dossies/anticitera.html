@@ -3,11 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Anticítera: engrenagens no fundo do mar · Vestígio Oculto</title>
-<meta name="description" content="Um bloco de bronze corroído saiu de um naufrágio grego em 1901. Dentro, um calculador astronômico de engrenagens. O que foi lido e o que é reconstrução.">
+<title>Mecanismo de Anticítera: como funcionava · Vestígio Oculto</title>
+<meta name="description" content="O mecanismo de Anticítera é um calculador astronômico grego de bronze, achado num naufrágio em 1901, que previa eclipses e contava os anos dos jogos.">
 <meta name="theme-color" content="#0B0B0C">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="canonical" href="https://vestigiooculto.com.br/dossies/anticitera.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="article">
 <meta property="og:title" content="O mecanismo de Anticítera — engrenagens no fundo do mar">
 <meta property="og:description" content="Saiu do mar como um torrão verde. Um século de radiografia e tomografia mostrou um trem de engrenagens que previa eclipses e contava os anos dos jogos gregos.">
@@ -23,8 +24,6 @@
 <meta name="google-adsense-account" content="ca-pub-4401770243539507">
 <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
 <link rel="preload" href="../assets/fontes/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="../assets/fontes/cinzel-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="../assets/fontes/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>/* ==========================================================================
    FONTES — hospedadas aqui, não no Google
    Gerado por _src/gerar-fontes.py. Não editar à mão.
@@ -193,9 +192,9 @@
   --ambar-fundo: #8a5c1c;
 
   /* Tipografia — Cinzel é a fonte da marca */
-  --display: "Cinzel", "Times New Roman", serif;
-  --texto:   "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --mono:    "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --display: "Cinzel", "Cinzel Fallback", "Times New Roman", serif;
+  --texto:   "Inter", "Inter Fallback", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:    "JetBrains Mono", "JetBrains Mono Fallback", ui-monospace, "SFMono-Regular", Menlo, monospace;
 
   /* Métrica */
   --medida:  66ch;
@@ -1911,6 +1910,67 @@ h1, h2, h3, h4 {
   line-height: 1.5;
   color: var(--osso-suave);
 }
+
+/* ============================================================
+   Páginas de pilar (temas/*.html), perguntas frequentes e a
+   linha do pilar no "Leia também" — gerados pelo build.
+   ============================================================ */
+.dossie-capa .kicker a { color: inherit; text-decoration: none; }
+.dossie-capa .kicker a:hover { color: var(--ambar); }
+.tema-intro { padding-bottom: 1rem; }
+.tema-lista {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  letter-spacing: .05em;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--linha);
+}
+#dossies .relacionados { margin-bottom: clamp(3rem, 6vh, 4.5rem); }
+.pilar h3 a { color: inherit; text-decoration: none; }
+.pilar h3 a::after { content: ""; position: absolute; inset: 0; }
+.pilar h3 a:hover { color: var(--ambar); }
+.relacionados .tema-link {
+  margin-top: 1rem;
+  font-size: .9rem;
+  color: var(--osso-suave);
+}
+.perguntas h3 { margin-top: 2rem; }
+.perguntas h3:first-child { margin-top: 0; }
+.perguntas p { margin-top: .6rem; }
+
+/* ============================================================
+   Fallback com métricas da fonte da web (03/10/2026).
+   Com font-display: swap o texto aparece primeiro na fonte do
+   sistema; sem ajuste, a troca muda a largura das linhas e empurra
+   a ficha da capa. O PSI no computador media CLS 0,105 em Göbekli
+   Tepe, todo ele de troca de fonte. Os números saem das tabelas
+   hmtx/hhea das próprias fontes (Inter × Arial, Cinzel × Times New
+   Roman, JetBrains Mono × Courier New), medidos sobre texto do site.
+   Liberation é a métrica-compatível do Arial/Times no Linux.
+   ============================================================ */
+@font-face {
+  font-family: "Inter Fallback";
+  src: local("Arial"), local("ArialMT"), local("Liberation Sans"), local("Helvetica");
+  size-adjust: 106.67%;
+  ascent-override: 90.82%;
+  descent-override: 22.61%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Cinzel Fallback";
+  src: local("Times New Roman"), local("TimesNewRomanPSMT"), local("Liberation Serif"), local("Times");
+  size-adjust: 102.32%;
+  ascent-override: 95.39%;
+  descent-override: 36.36%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "JetBrains Mono Fallback";
+  src: local("Courier New"), local("CourierNewPSMT"), local("Liberation Mono"), local("Courier");
+  size-adjust: 100%;
+  ascent-override: 102.02%;
+  descent-override: 30%;
+  line-gap-override: 0%;
+}
 </style>
 <script type="application/ld+json">
 {
@@ -2055,7 +2115,7 @@ h1, h2, h3, h4 {
     </p>
 
     <figure class="figura larga reveal-fig">
-      <img src="../assets/img/ac-01-mykali-1901.jpg" loading="lazy" width="783" height="800"
+      <img src="../assets/img/ac-01-mykali-1901.jpg" srcset="../assets/img/ac-01-mykali-1901-640.jpg 640w, ../assets/img/ac-01-mykali-1901.jpg 783w" sizes="(max-width: 860px) calc(100vw - 2.5rem), (min-width: 1064px) 1000px, 94vw" data-full="../assets/img/ac-01-mykali-1901.jpg" loading="lazy" width="783" height="800"
            alt="Fotografia em preto e branco de 1900 ou 1901: marinheiros, funcionários e mergulhadores de esponja no convés de um navio, em volta de uma peça grande recém-tirada do mar, presa por redes">
       <figcaption>
         <b class="acervo-linha">Acervo</b> — representantes do governo,
@@ -2103,7 +2163,7 @@ h1, h2, h3, h4 {
     </p>
 
     <figure class="figura larga reveal-fig">
-      <img src="../assets/img/ac-02-modelo-roda-principal.jpg" loading="lazy" width="960" height="960"
+      <img src="../assets/img/ac-02-modelo-roda-principal.jpg" srcset="../assets/img/ac-02-modelo-roda-principal-640.jpg 640w, ../assets/img/ac-02-modelo-roda-principal.jpg 960w" sizes="(max-width: 860px) calc(100vw - 2.5rem), (min-width: 1064px) 1000px, 94vw" data-full="../assets/img/ac-02-modelo-roda-principal.jpg" loading="lazy" width="960" height="960"
            alt="Reconstrução em computador da roda principal do mecanismo de Anticítera, sobre fundo branco: uma grande engrenagem cor de bronze com quatro raios, dentes miúdos na borda, pinos salientes e um eixo no centro">
       <figcaption>
         <b>Modelo</b> — a roda principal, a de quatro raios, na reconstrução em
@@ -2169,7 +2229,7 @@ h1, h2, h3, h4 {
     </p>
 
     <figure class="figura larga reveal-fig">
-      <img src="../assets/img/ac-04-modelo-inscricoes.jpg" loading="lazy" width="960" height="781"
+      <img src="../assets/img/ac-04-modelo-inscricoes.jpg" srcset="../assets/img/ac-04-modelo-inscricoes-640.jpg 640w, ../assets/img/ac-04-modelo-inscricoes.jpg 960w" sizes="(max-width: 860px) calc(100vw - 2.5rem), (min-width: 1064px) 1000px, 94vw" data-full="../assets/img/ac-04-modelo-inscricoes.jpg" loading="lazy" width="960" height="781"
            alt="Réplica moderna do mecanismo de Anticítera: placa de latão com duas colunas de letras gregas gravadas no alto e, embaixo, a parte de cima do mostrador da frente, com anéis graduados e ponteiros">
       <figcaption>
         <b>Modelo</b> — réplica construída por Nick Andronis, exposta em 2023 no
@@ -2219,7 +2279,7 @@ h1, h2, h3, h4 {
     </ul>
 
     <figure class="figura larga reveal-fig">
-      <img src="../assets/img/ac-05-modelo-verso.jpg" loading="lazy" width="960" height="960"
+      <img src="../assets/img/ac-05-modelo-verso.jpg" srcset="../assets/img/ac-05-modelo-verso-640.jpg 640w, ../assets/img/ac-05-modelo-verso.jpg 960w" sizes="(max-width: 860px) calc(100vw - 2.5rem), (min-width: 1064px) 1000px, 94vw" data-full="../assets/img/ac-05-modelo-verso.jpg" loading="lazy" width="960" height="960"
            alt="Réplica moderna do mecanismo em caixa de madeira com placa de latão dourado: à direita, os dois grandes mostradores em espiral; na porta aberta, texto em grego">
       <figcaption>
         <b>Modelo</b> — réplica moderna da face de trás, feita pela Universidade
@@ -2285,7 +2345,7 @@ h1, h2, h3, h4 {
     </p>
 
     <figure class="figura larga reveal-fig">
-      <img src="../assets/img/ac-03-modelo-cosmos.jpg" loading="lazy" width="960" height="960"
+      <img src="../assets/img/ac-03-modelo-cosmos.jpg" srcset="../assets/img/ac-03-modelo-cosmos-640.jpg 640w, ../assets/img/ac-03-modelo-cosmos.jpg 960w" sizes="(max-width: 860px) calc(100vw - 2.5rem), (min-width: 1064px) 1000px, 94vw" data-full="../assets/img/ac-03-modelo-cosmos.jpg" loading="lazy" width="960" height="960"
            alt="Reconstrução em computador do mostrador da frente do mecanismo de Anticítera: anéis concêntricos dourados com marcas e letras gregas, pequenas esferas coloridas como marcadores e uma esfera no centro">
       <figcaption>
         <b>Modelo</b> — o mostrador da frente na reconstrução em computador da
@@ -2523,7 +2583,26 @@ h1, h2, h3, h4 {
       a tomografia não conseguem.
     </p>
 
-    <h2 id="fontes"><span class="indice">10</span>Fontes consultadas</h2>
+    <h2 id="perguntas"><span class="indice">10</span>Perguntas frequentes</h2>
+
+    <div class="perguntas">
+      <h3>O que é o mecanismo de Anticítera?</h3>
+      <p>É um calculador astronômico grego de bronze, com engrenagens, recuperado em 1901 de um navio que afundou junto à ilha de Anticítera por volta de 70 a 60 antes de Cristo. Restam 82 fragmentos e 30 engrenagens, cerca de um terço do aparelho original.</p>
+
+      <h3>Como funcionava o mecanismo de Anticítera?</h3>
+      <p>Girava-se uma manivela, e as engrenagens transformavam o avanço dos dias em posições e ciclos: o Sol e a Lua no zodíaco, a fase da Lua, o ciclo metônico, o saros dos eclipses e os anos dos jogos gregos. Toda a “programação” está na contagem de dentes. Os planetas estavam lá, segundo as inscrições, mas as engrenagens que os moviam se perderam e são <a href="#lido">reconstrução</a>.</p>
+
+      <h3>Quem inventou o mecanismo de Anticítera?</h3>
+      <p>Não se sabe. A teoria lunar segue a de Hiparco, e as hipóteses de origem apontam para Rodes, para uma colônia de Corinto ou para um cliente do Epiro; Cícero descreve esferas mecânicas atribuídas a Arquimedes e a Posidônio. <a href="#teorias">Nenhuma prova decide</a>.</p>
+
+      <h3>De que época é o mecanismo de Anticítera?</h3>
+      <p>É anterior ao naufrágio, de cerca de 70 a 60 a.C. Quanto anterior, as fontes divergem: as propostas vão de cerca de 205 a 87 a.C., e parte da divergência vem de cada data medir uma coisa diferente — <a href="#data">época de partida de um ciclo, forma das letras ou calendário</a>.</p>
+
+      <h3>Onde está o mecanismo de Anticítera hoje?</h3>
+      <p>No Museu Arqueológico Nacional, em Atenas, para onde foi levado depois do resgate. A peça não pode sair do museu: em 2005, o tomógrafo é que foi até ela.</p>
+    </div>
+
+    <h2 id="fontes"><span class="indice">11</span>Fontes consultadas</h2>
 
     <p class="mono" style="text-transform: none; letter-spacing: 0; line-height: 1.7;">
       Este dossiê é texto autoral. As fontes abaixo foram consultadas para
@@ -2561,6 +2640,7 @@ h1, h2, h3, h4 {
           <span class="porque">Outra descoberta que aconteceu no laboratório, décadas depois do achado.</span>
         </a></li>
       </ul>
+      <p class="tema-link">Este dossiê é do pilar <a href="../temas/descoberto-ontem.html">Descoberto Ontem</a> — veja os 7 dossiês dele.</p>
     </nav>
   </div>
   </article>
@@ -2593,7 +2673,7 @@ h1, h2, h3, h4 {
     </div>
     <div>
       <span class="mono">Pilares</span>
-      <p>Pedra e Poeira · Descoberto Ontem · Arquivo Selado · Últimos Isolados</p>
+      <p><a href="../temas/pedra-e-poeira.html">Pedra e Poeira</a> · <a href="../temas/descoberto-ontem.html">Descoberto Ontem</a> · <a href="../temas/arquivo-selado.html">Arquivo Selado</a> · <a href="../temas/ultimos-isolados.html">Últimos Isolados</a></p>
     </div>
     <div>
       <span class="mono">Canal</span>
@@ -2649,7 +2729,7 @@ document.querySelectorAll('[data-rever-cookies]').forEach(function (a) {
   function abrir(origem, legenda) {
     // currentSrc é o arquivo que o navegador de fato escolheu. Sem isso, num
     // <picture> a lupa baixaria o PNG de fallback em vez do WebP já em cache.
-    img.src = origem.currentSrc || origem.src; img.alt = origem.alt;
+    img.src = origem.dataset.full || origem.currentSrc || origem.src; img.alt = origem.alt;
     leg.textContent = legenda;
     lupa.classList.add('aberta');
     document.body.style.overflow = 'hidden';

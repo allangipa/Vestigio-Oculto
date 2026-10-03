@@ -4,10 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Serra da Capivara: a data que não fecha · Vestígio Oculto</title>
-<meta name="description" content="Se o carvão do Piauí for de fogo humano, alguém chegou às Américas antes do aceito. E o melhor argumento contra a tese mora no próprio parque.">
+<meta name="description" content="Serra da Capivara, no Piauí: mais de mil sítios com pintura rupestre e um carvão que, se for de fogo humano, recua a chegada às Américas. O debate segue.">
 <meta name="theme-color" content="#0B0B0C">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="canonical" href="https://vestigiooculto.com.br/dossies/serra-da-capivara.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="article">
 <meta property="og:title" content="A data que não fecha — Serra da Capivara">
 <meta property="og:description" content="Se as camadas mais fundas do Piauí forem mesmo de fogo humano, alguém chegou às Américas dezenas de milhares de anos antes do aceito. O debate nunca esfriou — e o adversário mais forte da tese mora no próprio parque.">
@@ -23,8 +24,6 @@
 <meta name="google-adsense-account" content="ca-pub-4401770243539507">
 <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
 <link rel="preload" href="../assets/fontes/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="../assets/fontes/cinzel-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="../assets/fontes/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>/* ==========================================================================
    FONTES — hospedadas aqui, não no Google
    Gerado por _src/gerar-fontes.py. Não editar à mão.
@@ -193,9 +192,9 @@
   --ambar-fundo: #8a5c1c;
 
   /* Tipografia — Cinzel é a fonte da marca */
-  --display: "Cinzel", "Times New Roman", serif;
-  --texto:   "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --mono:    "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --display: "Cinzel", "Cinzel Fallback", "Times New Roman", serif;
+  --texto:   "Inter", "Inter Fallback", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:    "JetBrains Mono", "JetBrains Mono Fallback", ui-monospace, "SFMono-Regular", Menlo, monospace;
 
   /* Métrica */
   --medida:  66ch;
@@ -1911,6 +1910,67 @@ h1, h2, h3, h4 {
   line-height: 1.5;
   color: var(--osso-suave);
 }
+
+/* ============================================================
+   Páginas de pilar (temas/*.html), perguntas frequentes e a
+   linha do pilar no "Leia também" — gerados pelo build.
+   ============================================================ */
+.dossie-capa .kicker a { color: inherit; text-decoration: none; }
+.dossie-capa .kicker a:hover { color: var(--ambar); }
+.tema-intro { padding-bottom: 1rem; }
+.tema-lista {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  letter-spacing: .05em;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--linha);
+}
+#dossies .relacionados { margin-bottom: clamp(3rem, 6vh, 4.5rem); }
+.pilar h3 a { color: inherit; text-decoration: none; }
+.pilar h3 a::after { content: ""; position: absolute; inset: 0; }
+.pilar h3 a:hover { color: var(--ambar); }
+.relacionados .tema-link {
+  margin-top: 1rem;
+  font-size: .9rem;
+  color: var(--osso-suave);
+}
+.perguntas h3 { margin-top: 2rem; }
+.perguntas h3:first-child { margin-top: 0; }
+.perguntas p { margin-top: .6rem; }
+
+/* ============================================================
+   Fallback com métricas da fonte da web (03/10/2026).
+   Com font-display: swap o texto aparece primeiro na fonte do
+   sistema; sem ajuste, a troca muda a largura das linhas e empurra
+   a ficha da capa. O PSI no computador media CLS 0,105 em Göbekli
+   Tepe, todo ele de troca de fonte. Os números saem das tabelas
+   hmtx/hhea das próprias fontes (Inter × Arial, Cinzel × Times New
+   Roman, JetBrains Mono × Courier New), medidos sobre texto do site.
+   Liberation é a métrica-compatível do Arial/Times no Linux.
+   ============================================================ */
+@font-face {
+  font-family: "Inter Fallback";
+  src: local("Arial"), local("ArialMT"), local("Liberation Sans"), local("Helvetica");
+  size-adjust: 106.67%;
+  ascent-override: 90.82%;
+  descent-override: 22.61%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Cinzel Fallback";
+  src: local("Times New Roman"), local("TimesNewRomanPSMT"), local("Liberation Serif"), local("Times");
+  size-adjust: 102.32%;
+  ascent-override: 95.39%;
+  descent-override: 36.36%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "JetBrains Mono Fallback";
+  src: local("Courier New"), local("CourierNewPSMT"), local("Liberation Mono"), local("Courier");
+  size-adjust: 100%;
+  ascent-override: 102.02%;
+  descent-override: 30%;
+  line-gap-override: 0%;
+}
 </style>
 <script type="application/ld+json">
 {
@@ -2007,7 +2067,7 @@ h1, h2, h3, h4 {
       <span class="kicker">Dossiê 008 · Descoberto Ontem · Em aberto</span>
       <h1>A data que não fecha</h1>
       <p class="subtitulo">
-        No sudeste do Piauí há mais de mil paredões pintados e uma camada de
+        Na Serra da Capivara, no sudeste do Piauí, há mais de mil paredões pintados e uma camada de
         carvão que, se for mesmo de fogo humano, joga a chegada às Américas
         dezenas de milhares de anos para trás. O debate dura quarenta anos. E o
         argumento mais forte contra a tese mora dentro do próprio parque.
@@ -2189,7 +2249,7 @@ h1, h2, h3, h4 {
     </p>
 
     <figure class="figura larga reveal-fig">
-      <img src="../assets/img/003-serra-da-capivara-real.jpg" loading="lazy" width="1200" height="675"
+      <img src="../assets/img/003-serra-da-capivara-real.jpg" srcset="../assets/img/003-serra-da-capivara-real-640.jpg 640w, ../assets/img/003-serra-da-capivara-real.jpg 1200w" sizes="(max-width: 860px) calc(100vw - 2.5rem), (min-width: 1064px) 1000px, 94vw" data-full="../assets/img/003-serra-da-capivara-real.jpg" loading="lazy" width="1200" height="675"
            alt="Fotografia de um depósito de conglomerado erodido no parque, com seixos soltos apoiados sobre colunas de areia">
       <figcaption>
         <b class="acervo-linha">Acervo</b> — a geologia do parque, fotografada
@@ -2479,7 +2539,26 @@ h1, h2, h3, h4 {
       certeza, e isso também é progresso.
     </div>
 
-    <h2 id="fontes"><span class="indice">10</span>Fontes consultadas</h2>
+    <h2 id="perguntas"><span class="indice">10</span>Perguntas frequentes</h2>
+
+    <div class="perguntas">
+      <h3>Onde fica a Serra da Capivara?</h3>
+      <p>No sudeste do Piauí. O Parque Nacional Serra da Capivara foi criado em 1979 e ocupa 1.291,4 km² em quatro municípios: São Raimundo Nonato, João Costa, Brejo do Piauí e Coronel José Dias. Ver <a href="#lugar">o lugar</a>.</p>
+
+      <h3>Por que a Serra da Capivara é importante?</h3>
+      <p>Pela arte rupestre: são mais de mil sítios com pintura, a maior concentração das Américas, e em 1991 o parque entrou na lista do Patrimônio Mundial da UNESCO pelo critério cultural. E pelo Boqueirão da Pedra Furada, cujas camadas mais fundas, se forem mesmo de ocupação humana, mudam a data da chegada às Américas.</p>
+
+      <h3>Quem descobriu a Serra da Capivara?</h3>
+      <p>O nome ligado aos sítios é o da arqueóloga Niède Guidon, que chegou ao sudeste do Piauí em 1973, numa missão franco-brasileira, e encontrou 55 sítios logo na primeira expedição. Ela fundou a FUMDHAM em 1986 e criou o Museu do Homem Americano. Ver <a href="#guidon">a pergunta de Niède Guidon</a>.</p>
+
+      <h3>Qual a idade das pinturas rupestres da Serra da Capivara?</h3>
+      <p>As datações propostas vão de cerca de 29 mil a 6 mil anos, e a ponta antiga é contestada. Que a arte é humana, ninguém discute; a disputa é sobre a idade de camadas específicas debaixo do chão de abrigos específicos.</p>
+
+      <h3>O que foi encontrado no Boqueirão da Pedra Furada?</h3>
+      <p>Camadas com seixos de quartzo e quartzito lascados e concentrações de carvão, este datado até 32.160 anos AP no artigo de 1986; a equipe chegou depois a falar em 48 mil e em 60 mil. Os críticos leem ali fogo natural e pedra quebrada pela queda, e nenhum osso humano apareceu nas camadas fundas. O debate continua <a href="#aberto">em aberto</a>.</p>
+    </div>
+
+    <h2 id="fontes"><span class="indice">11</span>Fontes consultadas</h2>
 
     <p class="mono" style="text-transform: none; letter-spacing: 0; line-height: 1.7;">
       Este dossiê é texto autoral. As fontes abaixo foram consultadas para
@@ -2513,6 +2592,7 @@ h1, h2, h3, h4 {
           <span class="porque">Outra revisão da história humana feita por método, não por escavação.</span>
         </a></li>
       </ul>
+      <p class="tema-link">Este dossiê é do pilar <a href="../temas/descoberto-ontem.html">Descoberto Ontem</a> — veja os 7 dossiês dele.</p>
     </nav>
   </div>
   </article>
@@ -2549,7 +2629,7 @@ h1, h2, h3, h4 {
     </div>
     <div>
       <span class="mono">Pilares</span>
-      <p>Pedra e Poeira · Descoberto Ontem · Arquivo Selado · Últimos Isolados</p>
+      <p><a href="../temas/pedra-e-poeira.html">Pedra e Poeira</a> · <a href="../temas/descoberto-ontem.html">Descoberto Ontem</a> · <a href="../temas/arquivo-selado.html">Arquivo Selado</a> · <a href="../temas/ultimos-isolados.html">Últimos Isolados</a></p>
     </div>
     <div class="creditos">
       <span class="mono">© 2026 Vestígio Oculto</span>
@@ -2601,7 +2681,7 @@ document.querySelectorAll('[data-rever-cookies]').forEach(function (a) {
   function abrir(origem, legenda) {
     // currentSrc é o arquivo que o navegador de fato escolheu. Sem isso, num
     // <picture> a lupa baixaria o PNG de fallback em vez do WebP já em cache.
-    img.src = origem.currentSrc || origem.src; img.alt = origem.alt;
+    img.src = origem.dataset.full || origem.currentSrc || origem.src; img.alt = origem.alt;
     leg.textContent = legenda;
     lupa.classList.add('aberta');
     document.body.style.overflow = 'hidden';

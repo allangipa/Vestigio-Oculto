@@ -4,10 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Göbekli Tepe e os recintos enterrados · Vestígio Oculto</title>
-<meta name="description" content="Pilares de cinco metros e meio erguidos por caçadores-coletores 6.500 anos antes de Stonehenge — e depois enterrados. Ritual ou encosta?">
+<meta name="description" content="Göbekli Tepe, no sudeste da Turquia: pilares em T de até 5,5 m erguidos por caçadores-coletores desde c. 9600 a.C. O que foi escavado e o que segue aberto.">
 <meta name="theme-color" content="#0B0B0C">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="canonical" href="https://vestigiooculto.com.br/dossies/gobekli-tepe.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Göbekli Tepe — o templo que a colina enterrou">
 <meta property="og:description" content="Caçadores-coletores ergueram pilares de cinco metros e, séculos depois, os recintos sumiram sob entulho. Schmidt viu sepultamento ritual; a equipe atual vê deslizamentos.">
@@ -23,8 +24,6 @@
 <meta name="google-adsense-account" content="ca-pub-4401770243539507">
 <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
 <link rel="preload" href="../assets/fontes/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="../assets/fontes/cinzel-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="../assets/fontes/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>/* ==========================================================================
    FONTES — hospedadas aqui, não no Google
    Gerado por _src/gerar-fontes.py. Não editar à mão.
@@ -193,9 +192,9 @@
   --ambar-fundo: #8a5c1c;
 
   /* Tipografia — Cinzel é a fonte da marca */
-  --display: "Cinzel", "Times New Roman", serif;
-  --texto:   "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --mono:    "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --display: "Cinzel", "Cinzel Fallback", "Times New Roman", serif;
+  --texto:   "Inter", "Inter Fallback", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:    "JetBrains Mono", "JetBrains Mono Fallback", ui-monospace, "SFMono-Regular", Menlo, monospace;
 
   /* Métrica */
   --medida:  66ch;
@@ -1911,6 +1910,67 @@ h1, h2, h3, h4 {
   line-height: 1.5;
   color: var(--osso-suave);
 }
+
+/* ============================================================
+   Páginas de pilar (temas/*.html), perguntas frequentes e a
+   linha do pilar no "Leia também" — gerados pelo build.
+   ============================================================ */
+.dossie-capa .kicker a { color: inherit; text-decoration: none; }
+.dossie-capa .kicker a:hover { color: var(--ambar); }
+.tema-intro { padding-bottom: 1rem; }
+.tema-lista {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  letter-spacing: .05em;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--linha);
+}
+#dossies .relacionados { margin-bottom: clamp(3rem, 6vh, 4.5rem); }
+.pilar h3 a { color: inherit; text-decoration: none; }
+.pilar h3 a::after { content: ""; position: absolute; inset: 0; }
+.pilar h3 a:hover { color: var(--ambar); }
+.relacionados .tema-link {
+  margin-top: 1rem;
+  font-size: .9rem;
+  color: var(--osso-suave);
+}
+.perguntas h3 { margin-top: 2rem; }
+.perguntas h3:first-child { margin-top: 0; }
+.perguntas p { margin-top: .6rem; }
+
+/* ============================================================
+   Fallback com métricas da fonte da web (03/10/2026).
+   Com font-display: swap o texto aparece primeiro na fonte do
+   sistema; sem ajuste, a troca muda a largura das linhas e empurra
+   a ficha da capa. O PSI no computador media CLS 0,105 em Göbekli
+   Tepe, todo ele de troca de fonte. Os números saem das tabelas
+   hmtx/hhea das próprias fontes (Inter × Arial, Cinzel × Times New
+   Roman, JetBrains Mono × Courier New), medidos sobre texto do site.
+   Liberation é a métrica-compatível do Arial/Times no Linux.
+   ============================================================ */
+@font-face {
+  font-family: "Inter Fallback";
+  src: local("Arial"), local("ArialMT"), local("Liberation Sans"), local("Helvetica");
+  size-adjust: 106.67%;
+  ascent-override: 90.82%;
+  descent-override: 22.61%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Cinzel Fallback";
+  src: local("Times New Roman"), local("TimesNewRomanPSMT"), local("Liberation Serif"), local("Times");
+  size-adjust: 102.32%;
+  ascent-override: 95.39%;
+  descent-override: 36.36%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "JetBrains Mono Fallback";
+  src: local("Courier New"), local("CourierNewPSMT"), local("Liberation Mono"), local("Courier");
+  size-adjust: 100%;
+  ascent-override: 102.02%;
+  descent-override: 30%;
+  line-gap-override: 0%;
+}
 </style>
 <script type="application/ld+json">
 {
@@ -1990,10 +2050,10 @@ h1, h2, h3, h4 {
     </a>
     <nav aria-label="Pilares editoriais">
       <ul class="nav-pilares">
-        <li><a href="../index.html#pedra-e-poeira">Pedra e Poeira</a></li>
-        <li><a href="../index.html#descoberto-ontem">Descoberto Ontem</a></li>
-        <li><a href="../index.html#arquivo-selado">Arquivo Selado</a></li>
-        <li><a href="../index.html#ultimos-isolados">Últimos Isolados</a></li>
+        <li><a href="../temas/pedra-e-poeira.html">Pedra e Poeira</a></li>
+        <li><a href="../temas/descoberto-ontem.html">Descoberto Ontem</a></li>
+        <li><a href="../temas/arquivo-selado.html">Arquivo Selado</a></li>
+        <li><a href="../temas/ultimos-isolados.html">Últimos Isolados</a></li>
         <li><a href="../sobre.html">Sobre</a></li>
         <li class="nav-canal"><a href="https://www.youtube.com/@VestigoOcultoBrasil" target="_blank" rel="noopener">YouTube</a></li>
       </ul>
@@ -2069,7 +2129,7 @@ h1, h2, h3, h4 {
     </p>
 
     <figure class="figura larga reveal-fig">
-      <img src="../assets/img/gt-01-levantamento-1963.jpg" loading="lazy" width="1200" height="675" alt="Recriação de dois pesquisadores caminhando sobre uma colina de calcário em 1963">
+      <img src="../assets/img/gt-01-levantamento-1963.jpg" srcset="../assets/img/gt-01-levantamento-1963-640.jpg 640w, ../assets/img/gt-01-levantamento-1963.jpg 1200w" sizes="(max-width: 860px) calc(100vw - 2.5rem), (min-width: 1064px) 1000px, 94vw" data-full="../assets/img/gt-01-levantamento-1963.jpg" loading="lazy" width="1200" height="675" alt="Recriação de dois pesquisadores caminhando sobre uma colina de calcário em 1963">
       <figcaption><b>Recriação</b> — 1963. O levantamento de Halet Çambel e Robert Braidwood passa pela colina e anota lajes de calcário na superfície. A leitura foi cemitério medieval.</figcaption>
     </figure>
 
@@ -2084,7 +2144,7 @@ h1, h2, h3, h4 {
     </p>
 
     <figure class="figura lado reveal-fig">
-      <img src="../assets/img/gt-02-caderno.jpg" loading="lazy" width="1200" height="675" alt="Recriação de um caderno de campo aberto, com anotações e desenhos">
+      <img src="../assets/img/gt-02-caderno.jpg" srcset="../assets/img/gt-02-caderno-640.jpg 640w, ../assets/img/gt-02-caderno.jpg 1200w" sizes="(max-width: 860px) calc(100vw - 2.5rem), 340px" data-full="../assets/img/gt-02-caderno.jpg" loading="lazy" width="1200" height="675" alt="Recriação de um caderno de campo aberto, com anotações e desenhos">
       <figcaption><b>Recriação</b> — Foram anotações como estas que Schmidt releu trinta anos depois. O volume de calcário trabalhado não fechava com um cemitério.</figcaption>
     </figure>
 
@@ -2116,7 +2176,7 @@ h1, h2, h3, h4 {
     </p>
 
     <figure class="figura larga reveal-fig">
-      <img src="../assets/img/gt-03-gazela-real.jpg" loading="lazy" width="960" height="540"
+      <img src="../assets/img/gt-03-gazela-real.jpg" srcset="../assets/img/gt-03-gazela-real-640.jpg 640w, ../assets/img/gt-03-gazela-real.jpg 960w" sizes="(max-width: 860px) calc(100vw - 2.5rem), (min-width: 1064px) 1000px, 94vw" data-full="../assets/img/gt-03-gazela-real.jpg" loading="lazy" width="960" height="540"
            alt="Fotografia de uma gazela-de-bócio adulta numa estepe seca">
       <figcaption>
         <b class="acervo-linha">Acervo</b> — <i>Gazella subgutturosa</i>, a gazela-de-bócio. É a espécie que domina o registro de fauna de Göbekli Tepe: o que se caçava ali, de verdade. <span class="acervo-fonte">Foto Elşad İbrahimov, Parque Nacional de Shirvan, CC BY-SA 4.0.</span>
@@ -2154,7 +2214,7 @@ h1, h2, h3, h4 {
     </p>
 
     <figure class="figura larga reveal-fig">
-      <img src="../assets/img/001-gobekli-tepe-real.jpg" loading="lazy" width="960" height="540"
+      <img src="../assets/img/001-gobekli-tepe-real.jpg" srcset="../assets/img/001-gobekli-tepe-real-640.jpg 640w, ../assets/img/001-gobekli-tepe-real.jpg 960w" sizes="(max-width: 860px) calc(100vw - 2.5rem), (min-width: 1064px) 1000px, 94vw" data-full="../assets/img/001-gobekli-tepe-real.jpg" loading="lazy" width="960" height="540"
            alt="Fotografia do parque arqueológico de Göbekli Tepe sob a cobertura protetora, com os recintos e a passarela de visitação">
       <figcaption>
         <b class="acervo-linha">Acervo</b> — o sítio sob a cobertura protetora instalada em 2018, com a passarela de visitação contornando os recintos. <span class="acervo-fonte">Foto Philrock, CC BY-SA 4.0.</span>
@@ -2193,7 +2253,7 @@ h1, h2, h3, h4 {
     </p>
 
     <figure class="figura lado reveal-fig">
-      <img src="../assets/img/gt-04-relevo-real.jpg" loading="lazy" width="960" height="540"
+      <img src="../assets/img/gt-04-relevo-real.jpg" srcset="../assets/img/gt-04-relevo-real-640.jpg 640w, ../assets/img/gt-04-relevo-real.jpg 960w" sizes="(max-width: 860px) calc(100vw - 2.5rem), 340px" data-full="../assets/img/gt-04-relevo-real.jpg" loading="lazy" width="960" height="540"
            alt="Fotografia de um relevo em pedra de Göbekli Tepe exposto no Museu de Şanlıurfa">
       <figcaption>
         <b class="acervo-linha">Acervo</b> — relevo original de Göbekli Tepe, no Museu Arqueológico de Şanlıurfa. A pedra é a mesma que saiu da escavação. <span class="acervo-fonte">Foto Dosseman, CC BY-SA 4.0.</span>
@@ -2213,7 +2273,7 @@ h1, h2, h3, h4 {
     </p>
 
     <figure class="figura larga reveal-fig">
-      <img src="../assets/img/gt-05-javali-real.jpg" loading="lazy" width="960" height="540"
+      <img src="../assets/img/gt-05-javali-real.jpg" srcset="../assets/img/gt-05-javali-real-640.jpg 640w, ../assets/img/gt-05-javali-real.jpg 960w" sizes="(max-width: 860px) calc(100vw - 2.5rem), (min-width: 1064px) 1000px, 94vw" data-full="../assets/img/gt-05-javali-real.jpg" loading="lazy" width="960" height="540"
            alt="Fotografia da estátua de javali de Göbekli Tepe no Museu de Şanlıurfa">
       <figcaption>
         <b class="acervo-linha">Acervo</b> — uma escultura de javali de Göbekli Tepe exposta no Museu Arqueológico de Şanlıurfa, fotografada em 2019. Não é a peça pintada de 2023, que saiu do Recinto D quatro anos depois. <span class="acervo-fonte">Foto Dosseman, CC BY-SA 4.0.</span>
@@ -2232,7 +2292,7 @@ h1, h2, h3, h4 {
     </p>
 
     <figure class="figura lado reveal-fig">
-      <img src="../assets/img/gt-06-cranios.jpg" loading="lazy" width="1200" height="675" alt="Recriação de fragmentos de crânio dispostos sobre uma mesa de laboratório sob luz dirigida">
+      <img src="../assets/img/gt-06-cranios.jpg" srcset="../assets/img/gt-06-cranios-640.jpg 640w, ../assets/img/gt-06-cranios.jpg 1200w" sizes="(max-width: 860px) calc(100vw - 2.5rem), 340px" data-full="../assets/img/gt-06-cranios.jpg" loading="lazy" width="1200" height="675" alt="Recriação de fragmentos de crânio dispostos sobre uma mesa de laboratório sob luz dirigida">
       <figcaption><b>Recriação</b> — Fragmentos de crânio com incisões deliberadas, publicados em 2017, sustentam a hipótese de um culto ao crânio.</figcaption>
     </figure>
 
@@ -2247,7 +2307,7 @@ h1, h2, h3, h4 {
     </p>
 
     <figure class="figura larga reveal-fig">
-      <img src="../assets/img/gt-07-recinto-real.jpg" loading="lazy" width="960" height="431"
+      <img src="../assets/img/gt-07-recinto-real.jpg" srcset="../assets/img/gt-07-recinto-real-640.jpg 640w, ../assets/img/gt-07-recinto-real.jpg 960w" sizes="(max-width: 860px) calc(100vw - 2.5rem), (min-width: 1064px) 1000px, 94vw" data-full="../assets/img/gt-07-recinto-real.jpg" loading="lazy" width="960" height="431"
            alt="Fotografia de um recinto escavado de Göbekli Tepe, com pilares em T entre muros de pedra">
       <figcaption>
         <b class="acervo-linha">Acervo</b> — o Recinto F em 2014, já aberto. O entulho que preenchia estes espaços foi retirado; o que se vê é o nível do piso original. <span class="acervo-fonte">Foto Dosseman, CC BY-SA 4.0.</span>
@@ -2496,7 +2556,26 @@ h1, h2, h3, h4 {
       que a decisão consciente é não ir buscá-la ainda.
     </p>
 
-    <h2 id="fontes"><span class="indice">07</span>Fontes consultadas</h2>
+    <h2 id="perguntas"><span class="indice">07</span>Perguntas frequentes</h2>
+
+    <div class="perguntas">
+      <h3>O que é Göbekli Tepe?</h3>
+      <p>Um sítio arqueológico do Neolítico Pré-Cerâmico com recintos circulares e ovais delimitados por pilares de calcário em forma de T, alguns com braços e mãos esculpidos. Foi erguido por caçadores-coletores, antes da agricultura, da cerâmica e da escrita.</p>
+
+      <h3>Onde fica Göbekli Tepe?</h3>
+      <p>No alto de uma colina da província de Şanlıurfa, no sudeste da Turquia, sobre um platô já alto. As nascentes do Balikh, afluente do Eufrates, ficam abaixo, e o maciço do Karacadağ está a cerca de noventa quilômetros, a nordeste.</p>
+
+      <h3>O que significa Göbekli Tepe?</h3>
+      <p>É turco para “a colina com barriga”, pelo formato arredondado da elevação.</p>
+
+      <h3>Quando Göbekli Tepe foi descoberto?</h3>
+      <p>Foi registrado em 1963 por Halet Çambel e Robert Braidwood, que o tomaram por um cemitério medieval. Klaus Schmidt releu as anotações em 1994 e começou a escavar no ano seguinte. Ver <a href="#descoberta">a descoberta</a>.</p>
+
+      <h3>Göbekli Tepe foi enterrado de propósito?</h3>
+      <p>Foi a leitura de Schmidt por duas décadas. Desde 2020, a equipe do Instituto Arqueológico Alemão atribui o preenchimento dos recintos principais a deslizamentos de encosta; se algum edifício foi enchido de propósito, só a estratigrafia recinto a recinto dirá. Ver <a href="#sepultamento">o sepultamento e a revisão</a>.</p>
+    </div>
+
+    <h2 id="fontes"><span class="indice">08</span>Fontes consultadas</h2>
 
     <p class="mono" style="text-transform: none; letter-spacing: 0; line-height: 1.7;">
       Este dossiê é texto autoral. As fontes abaixo foram consultadas para
@@ -2540,6 +2619,7 @@ h1, h2, h3, h4 {
           <span class="porque">Outra datação que desestabilizou uma cronologia inteira.</span>
         </a></li>
       </ul>
+      <p class="tema-link">Este dossiê é do pilar <a href="../temas/pedra-e-poeira.html">Pedra e Poeira</a> — veja os 7 dossiês dele.</p>
     </nav>
   </div>
   </article>
@@ -2582,7 +2662,7 @@ h1, h2, h3, h4 {
     </div>
     <div>
       <span class="mono">Pilares</span>
-      <p><a href="../index.html#pedra-e-poeira">Pedra e Poeira</a> · <a href="../index.html#descoberto-ontem">Descoberto Ontem</a> · <a href="../index.html#arquivo-selado">Arquivo Selado</a> · <a href="../index.html#ultimos-isolados">Últimos Isolados</a></p>
+      <p><a href="../temas/pedra-e-poeira.html">Pedra e Poeira</a> · <a href="../temas/descoberto-ontem.html">Descoberto Ontem</a> · <a href="../temas/arquivo-selado.html">Arquivo Selado</a> · <a href="../temas/ultimos-isolados.html">Últimos Isolados</a></p>
     </div>
     <div>
       <span class="mono">Canal</span>
@@ -2645,7 +2725,7 @@ document.querySelectorAll('[data-rever-cookies]').forEach(function (a) {
     var origem = fig.querySelector('img');
     // currentSrc é o arquivo que o navegador de fato escolheu. Sem isso, num
     // <picture> a lupa baixaria o PNG de fallback em vez do WebP já em cache.
-    img.src = origem.currentSrc || origem.src; img.alt = origem.alt;
+    img.src = origem.dataset.full || origem.currentSrc || origem.src; img.alt = origem.alt;
     leg.textContent = fig.querySelector('figcaption').textContent.trim();
     lupa.classList.add('aberta');
     document.body.style.overflow = 'hidden';

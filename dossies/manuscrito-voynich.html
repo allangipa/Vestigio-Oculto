@@ -2650,6 +2650,24 @@ h1, h2, h3, h4 {
       }
     });
   }
+
+  // Visitante da Europa, Reino Unido ou Suíça: quem pergunta é a mensagem
+  // do Google (Privacidade e mensagens > Regulamentos europeus), que é a
+  // plataforma certificada que o AdSense exige lá. Quando ela diz que o GDPR
+  // se aplica, esta faixa sai da frente, para não haver duas. O script do
+  // AdSense entra antes da escolha (BLOQUEIA = false), então a mensagem dele
+  // chega a carregar. Sem a mensagem publicada no painel, nada disto dispara.
+  if (escolha === null && caixa) {
+    var tentativas = 0;
+    var espera = setInterval(function () {
+      if (typeof window.__tcfapi === 'function') {
+        clearInterval(espera);
+        window.__tcfapi('addEventListener', 2, function (tc, ok) {
+          if (ok && tc && tc.gdprApplies) caixa.hidden = true;
+        });
+      } else if (++tentativas > 40) clearInterval(espera);   // 10 s
+    }, 250);
+  }
 })();
 </script>
 

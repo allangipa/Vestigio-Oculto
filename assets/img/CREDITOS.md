@@ -18,6 +18,9 @@ está vendo uma reconstituição ou a coisa.
 
 | Arquivo | Origem | Onde entra |
 |---|---|---|
+| `011-sentinela-do-norte-real*.jpg` | Wikimedia Commons, *North Sentinel Island from flight.jpg*, PJeganathan, CC BY-SA 4.0 — recorte 16:9 | quadro 011 na home |
+| `011-sentinela-voo.jpg` | o mesmo arquivo, inteiro | dossiê 011, seção 01 |
+| `011-sentinela-satelite.jpg` | Wikimedia Commons, *North Sentinel Island.jpg*, NASA Earth Observatory (Jesse Allen, dados EO-1), domínio público | dossiê 011, seção 01 |
 | `008-manuscrito-voynich.jpg` | Beinecke MS 408, Yale — recorte da folha dobrada | quadro 008 na home |
 | `vy-004` `vy-025` `vy-080` | Beinecke MS 408 — seção botânica | visor de fólios |
 | `vy-125` | Beinecke MS 408 — seção astronômica | visor de fólios |

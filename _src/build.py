@@ -116,6 +116,7 @@ ARQUIVO = [
     "manuscrito-voynich",  # 009 · à vista de todos
     "percy-fawcett",       # 010 · arquivo
     "sentinela-do-norte",  # 011 · zona de exclusão
+    "anticitera",          # 012 · naufrágio
 ]
 
 NUMERO = {slug: f"{i:03d}" for i, slug in enumerate(ARQUIVO, start=1)}
@@ -168,6 +169,7 @@ PAGINAS = {
     "sentinela-do-norte.tpl.html": "dossies/sentinela-do-norte.html",
     "grande-piramide.tpl.html": "dossies/grande-piramide.html",
     "nan-madol.tpl.html": "dossies/nan-madol.html",
+    "anticitera.tpl.html": "dossies/anticitera.html",
 }
 
 

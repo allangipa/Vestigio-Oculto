@@ -21,6 +21,12 @@ está vendo uma reconstituição ou a coisa.
 | `011-sentinela-do-norte-real*.jpg` | Wikimedia Commons, *North Sentinel Island from flight.jpg*, PJeganathan, CC BY-SA 4.0 — recorte 16:9 | quadro 011 na home |
 | `011-sentinela-voo.jpg` | o mesmo arquivo, inteiro | dossiê 011, seção 01 |
 | `011-sentinela-satelite.jpg` | Wikimedia Commons, *North Sentinel Island.jpg*, NASA Earth Observatory (Jesse Allen, dados EO-1), domínio público | dossiê 011, seção 01 |
+| `012-anticitera-real*.jpg` | Wikimedia Commons, *The Antikythera Mechanism (3209887483).jpg*, Tilemahos Efthimiadis (Flickr), CC BY 2.0 — recorte 16:9 da vitrine com os três maiores fragmentos, Museu Arqueológico Nacional de Atenas | quadro 012 na home |
+| `ac-01-mykali-1901.jpg` | Wikimedia Commons, *Antikes Wrack von Antikythera 03.jpg*, fotografia de autor desconhecido, 1900–1901, domínio público — tamanho original (783 × 800), sem recorte | dossiê 012, abertura |
+| `ac-02-fragmento-a.jpg` | Wikimedia Commons, *Antikythera Fragment A (Front).webp*, Logg Tandy, CC BY 4.0 — reduzido a 960 × 960, sem recorte | dossiê 012, seção 01 |
+| `ac-04-fragmento-19.jpg` | Wikimedia Commons, *Antikythera Fragment 19 (Front).webp*, Logg Tandy, CC BY 4.0 — recortada a plaqueta numerada do museu, no pé | dossiê 012, seção 02 |
+| `ac-05-modelo-verso.jpg` | Wikimedia Commons, *Antikythera mechanism frontview, 1st-2nd century BC, Greece (model).jpg*, Gts-tg, CC BY-SA 4.0 — recorte quadrado. **É réplica moderna** (Universidade Aristóteles de Tessalônica), por isso a legenda leva o rótulo **Modelo**, e não Acervo. O nome do arquivo no Commons diz "frontview", mas a foto mostra a face de trás, com as espirais do metônico e do saros | dossiê 012, seção 03 |
+| `ac-03-fragmento-c.jpg` | Wikimedia Commons, *Antikythera Fragment C (Front).webp*, Logg Tandy, CC BY 4.0 — reduzido a 960 × 960, sem recorte | dossiê 012, seção 04 |
 | `008-manuscrito-voynich.jpg` | Beinecke MS 408, Yale — recorte da folha dobrada | quadro 008 na home |
 | `vy-004` `vy-025` `vy-080` | Beinecke MS 408 — seção botânica | visor de fólios |
 | `vy-125` | Beinecke MS 408 — seção astronômica | visor de fólios |

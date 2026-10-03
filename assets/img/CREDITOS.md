@@ -204,7 +204,7 @@ documento histórico para caber num quadro seria falsificá-lo.
 
 | Arquivo | Origem | Autor | Licença | Modificação | Onde entra |
 |---|---|---|---|---|---|
-| `012-anticitera-modelo.jpg` (e `-640`, `-800`) | Commons, *Reconstructing the Antikythera Mechanism exhibition at WA Museum Boola Bardip, 2023, 03.jpg* — réplica de Nick Andronis, vista de lado, exposta em Perth (Austrália) | Chris Olszewski (réplica: Nick Andronis) | CC BY-SA 4.0 | recorte 16:9 | quadro 012, etiqueta **Modelo** |
+| `012-anticitera-mogi.jpg` (e `-640`, `-800`) | Commons, *Antikythera model front panel Mogi Vicentini 2007.JPG* — modelo mecânico moderno em caixa de acrílico, vista de três quartos com as engrenagens e o mostrador da frente | Mogi Vicentini | CC BY 2.5 | recorte 16:9 da parte central | quadro 012 da home (desde 03/10/2026; antes, a réplica de Andronis vista de lado) |
 | `ac-01-mykali-1901.jpg` | Commons, *Antikes Wrack von Antikythera 03.jpg*, 1900–1901 | autor desconhecido | domínio público (fotografia de mais de 120 anos) | sem recorte | dossiê, abertura |
 | `ac-02-modelo-roda-principal.jpg` | Commons, *41598 2021 84310 Fig5 HTML.jpg* — Freeth et al., *Scientific Reports* 11:5821 (2021), fig. 5a: reconstrução em computador da roda principal (b1) | T. Freeth, D. Higgon, A. Dacanalis et al. | CC BY 4.0 | recorte do painel (a), rótulo retirado, fundo branco ampliado para quadrado | dossiê, seção 01, etiqueta **Modelo** |
 | `ac-03-modelo-cosmos.jpg` | Commons, *41598 2021 84310 Fig7 HTML.jpg* — Freeth et al., *Scientific Reports* 11:5821 (2021), fig. 7: modelo em computador do mostrador da frente | T. Freeth, D. Higgon, A. Dacanalis et al. | CC BY 4.0 | reduzida | dossiê, seção 04, etiqueta **Modelo** |

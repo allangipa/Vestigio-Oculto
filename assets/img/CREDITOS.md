@@ -89,6 +89,17 @@ Herculaneum Papyri"). Geradas pelo mesmo script das portuguesas
 `build.py` aponta as páginas em `/en/` para elas (`og_do_idioma`) e para se
 faltar o arquivo.
 
+### Prévias em espanhol (`assets/img/og/es/<slug>.jpg`)
+
+Desde 03/10/2026, as 22 prévias das páginas em espanhol. **Mesma
+imagem-base, mesmo recorte e mesma composição** da prévia portuguesa de
+mesmo nome (tabela acima: autor, licença e modificação são os mesmos, linha a
+linha); muda só o título gravado, em espanhol (ex.:
+`og/es/moais-rapa-nui.jpg` → "Los moáis de Isla de Pascua"). Geradas pelo
+mesmo script (`_src/_og_tmp/gerar_og.py --es`, títulos em `TITULO_ES`, com a
+conferência de glifo da Cinzel). O `build.py` aponta as páginas em `/es/`
+para elas (`og_do_idioma`) e para se faltar o arquivo.
+
 Os quadros da home usam as imagens de abertura dos dossiês; cada linha abaixo
 diz "quadro NNN" quando o arquivo aparece lá.
 

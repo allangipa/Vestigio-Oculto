@@ -145,8 +145,8 @@ irmãos, que também passaram para `.com`).
 e fica na raiz, com os caminhos de sempre**; inglês sai em `/en/`, espanhol em
 `/es/`, com os mesmos nomes de arquivo (`/en/dossies/gobekli-tepe.html`). Um
 idioma fica **ativo** quando tem home traduzida e ao menos um dossiê; antes
-disso o build o ignora. Hoje: pt e en ativos (en com os 22 dossiês e as
-quatro páginas de pilar, desde 03/10/2026), es inativo.
+disso o build o ignora. Hoje: pt, en e es ativos, os dois com os 22 dossiês e
+as quatro páginas de pilar (en e es desde 03/10/2026).
 
 **Uma página só sai num idioma se a tradução existir.** Dois lugares:
 
@@ -199,20 +199,23 @@ dos quatro pilares em inglês já estão em `idiomas.py`.
 
 **hreflang**: toda página indexável lista as versões existentes (pt-BR, en,
 es) e `x-default` — inglês quando existe, senão português. O sitemap leva os
-mesmos alternates. **Seletor de idioma** (PT · EN) no cabeçalho, visível
+mesmos alternates. **Seletor de idioma** (PT · EN · ES) no cabeçalho, visível
 também no celular: leva à mesma página no outro idioma ou, se ela não foi
 traduzida, à home dele.
 
 **Prévia de compartilhamento por idioma:** as páginas em inglês apontam para
-`assets/img/og/en/<slug>.jpg` (mesma imagem-base e composição da portuguesa,
-título em inglês), geradas por `_src/_og_tmp/gerar_og.py --en` (títulos em
-`TITULO_EN`). O build para se faltar a do idioma. Origem em
+`assets/img/og/en/<slug>.jpg` e as em espanhol para `assets/img/og/es/<slug>.jpg`
+(mesma imagem-base e composição da portuguesa, título traduzido), geradas por
+`_src/_og_tmp/gerar_og.py --en` / `--es` (títulos em `TITULO_EN` / `TITULO_ES`). O build para se faltar a do idioma. Origem em
 `assets/img/CREDITOS.md`.
 
-**Espanhol:** para ativar, crie `_src/es/index.tpl.html`, as outras páginas
-de interface e um dossiê; os textos curtos já estão em `T["es"]` (marca:
-"Vestígio Oculto — Huellas ocultas del pasado"); faltam as introduções dos
-pilares e o `og_alt`.
+**Espanhol:** ativo desde 03/10/2026 (marca "Vestígio Oculto — Huellas ocultas
+del pasado"): os 22 dossiês, cartões, home, sobre, contato, privacidade, 404,
+visor do Voynich e as quatro páginas de pilar, em `_src/es/`; textos do build
+em `T["es"]`. Rótulos: `Recreación`, `Archivo`, `Modelo`, `Esquema`. Citações
+com original em espanhol vão no texto original; as de outros idiomas, em
+tradução espanhola publicada ou "(traducción nuestra)" a partir do original.
+Conferir sem build: `python _src/_og_tmp/conferir_trad.py --es <slugs>`.
 
 ---
 

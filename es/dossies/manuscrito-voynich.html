@@ -1,0 +1,2882 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manuscrito Voynich: el libro que nadie lee · Vestígio Oculto</title>
+<meta name="description" content="El manuscrito Voynich es un libro del siglo XV en pergamino, en un alfabeto que nadie identificó. Está en Yale y nunca fue descifrado. Lo que se sabe.">
+<meta name="theme-color" content="#0B0B0C">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="canonical" href="https://vestigiooculto.com/es/dossies/manuscrito-voynich.html">
+<link rel="alternate" hreflang="pt-BR" href="https://vestigiooculto.com/dossies/manuscrito-voynich.html">
+<link rel="alternate" hreflang="en" href="https://vestigiooculto.com/en/dossies/manuscrito-voynich.html">
+<link rel="alternate" hreflang="es" href="https://vestigiooculto.com/es/dossies/manuscrito-voynich.html">
+<link rel="alternate" hreflang="x-default" href="https://vestigiooculto.com/en/dossies/manuscrito-voynich.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="article">
+<meta property="og:title" content="El manuscrito Voynich">
+<meta property="og:description" content="El pergamino es auténtico, la tinta es de la época y la escritura obedece las leyes estadísticas de una lengua real. Nadie ha leído nunca una sola línea.">
+<meta property="og:locale" content="es_LA">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:url" content="https://vestigiooculto.com/es/dossies/manuscrito-voynich.html">
+<meta property="og:image" content="https://vestigiooculto.com/assets/img/og/es/manuscrito-voynich.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Hoja plegada del manuscrito Voynich con diagramas circulares, bajo el título El manuscrito Voynich">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://vestigiooculto.com/assets/img/og/es/manuscrito-voynich.jpg">
+<meta name="twitter:image:alt" content="Hoja plegada del manuscrito Voynich con diagramas circulares, bajo el título El manuscrito Voynich">
+<meta name="google-adsense-account" content="ca-pub-4401770243539507">
+<link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+<link rel="preload" href="../../assets/fontes/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>/* ==========================================================================
+   FONTES — hospedadas aqui, não no Google
+   Gerado por _src/gerar-fontes.py. Não editar à mão.
+   O ../ é resolvido pelo build: vira "" na raiz e "../" nos dossiês,
+   então o site funciona servido de qualquer pasta, e abrindo o arquivo
+   direto do disco também.
+
+   Antes vinham do Google: duas conexões a terceiros antes de a primeira
+   letra aparecer, e uma cláusula a mais na política de privacidade.
+
+   font-display: swap — o texto aparece na fonte de sistema e troca quando
+   a fonte chega. Nunca há tela em branco esperando tipografia.
+   ========================================================================== */
+
+/* Inter · latin · normal */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../../assets/fontes/inter-latin-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+/* Inter · latin · italic */
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../../assets/fontes/inter-latin-wght-italic.woff2") format("woff2-variations");
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+/* Inter · latin-ext · normal */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../../assets/fontes/inter-latin-ext-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
+/* Inter · latin-ext · italic */
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../../assets/fontes/inter-latin-ext-wght-italic.woff2") format("woff2-variations");
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
+/* Inter · greek · normal */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../../assets/fontes/inter-greek-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF;
+}
+
+/* Inter · greek · italic */
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../../assets/fontes/inter-greek-wght-italic.woff2") format("woff2-variations");
+  unicode-range: U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF;
+}
+
+/* Inter · cyrillic · normal */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../../assets/fontes/inter-cyrillic-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;
+}
+
+/* Inter · cyrillic · italic */
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../../assets/fontes/inter-cyrillic-wght-italic.woff2") format("woff2-variations");
+  unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;
+}
+
+/* Cinzel · latin · normal */
+@font-face {
+  font-family: "Cinzel";
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url("../../assets/fontes/cinzel-latin-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+/* Cinzel · latin-ext · normal */
+@font-face {
+  font-family: "Cinzel";
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url("../../assets/fontes/cinzel-latin-ext-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
+/* JetBrains Mono · latin · normal */
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 100 800;
+  font-display: swap;
+  src: url("../../assets/fontes/jetbrains-mono-latin-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+/* JetBrains Mono · latin-ext · normal */
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 100 800;
+  font-display: swap;
+  src: url("../../assets/fontes/jetbrains-mono-latin-ext-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
+/* ============================================================
+   VESTÍGIO OCULTO — sistema de design
+   Fonte única de estilo. Injetada em cada página por build.py.
+
+   Alinhado à Identidade Visual v1 do canal:
+   carvão, osso, âmbar e branco-gelo. Âmbar é o ÚNICO acento.
+   Vermelho não entra — é a cor dos canais que o Vestígio Oculto
+   não quer parecer.
+   ============================================================ */
+
+/* --- 1. Tokens ------------------------------------------- */
+:root {
+  /* Paleta da marca */
+  --carvao:      #0B0B0C;   /* fundo de tudo */
+  --osso:        #D9CBB3;   /* letras, molduras */
+  --ambar:       #C8862A;   /* acento único: lentes, destaques, marcadores */
+  --gelo:        #F2F0EA;   /* números e destaques de leitura */
+
+  /* Superfícies derivadas do carvão */
+  --carvao-2:    #121213;   /* cartões e blocos */
+  --carvao-3:    #191919;   /* hover */
+
+  /* Tinta derivada do osso */
+  --osso-suave:  #a79c8a;
+  --osso-fraco:  #847c6f;   /* 4,8:1 sobre o carvão e 4,5:1 sobre carvao-2 (WCAG AA) */
+
+  /* Traços */
+  --linha:       #232120;
+  --linha-viva:  #3a3630;
+
+  /* Âmbar rebaixado, para peso menor sem sair da paleta */
+  --ambar-fundo: #8a5c1c;
+
+  /* Tipografia — Cinzel é a fonte da marca */
+  --display: "Cinzel", "Cinzel Fallback", "Times New Roman", serif;
+  --texto:   "Inter", "Inter Fallback", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:    "JetBrains Mono", "JetBrains Mono Fallback", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* Métrica */
+  --medida:  66ch;
+  --gutter:  clamp(1.25rem, 5vw, 4rem);
+  --topo:    72px;
+
+  --transicao: 420ms cubic-bezier(.16,.84,.44,1);
+}
+
+/* --- 2. Base --------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--carvao);
+  color: var(--osso);
+  font-family: var(--texto);
+  font-size: clamp(1rem, .5vw + .9rem, 1.08rem);
+  font-weight: 350;
+  line-height: 1.72;
+  -webkit-font-smoothing: antialiased;
+  /* clip, não hidden: 'hidden' transformaria o body em contêiner de rolagem
+     e mataria o position:sticky da barra de filtros. 'clip' corta o
+     transbordo horizontal sem criar rolagem. */
+  overflow-x: clip;
+}
+
+/* Grão fino — peso de papel, sem sujar a paleta */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: .03;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+img, svg { max-width: 100%; }
+img { display: block; }
+
+/* Âncoras não param sob o cabeçalho fixo */
+[id] { scroll-margin-top: calc(var(--topo) + 1.5rem); }
+
+a {
+  color: var(--ambar);
+  text-decoration-color: color-mix(in srgb, var(--ambar) 38%, transparent);
+  text-underline-offset: .22em;
+  transition: color var(--transicao), text-decoration-color var(--transicao);
+}
+a:hover { color: #e0a34a; text-decoration-color: currentColor; }
+
+:focus-visible {
+  outline: 2px solid var(--ambar);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection { background: color-mix(in srgb, var(--ambar) 32%, transparent); }
+
+/* --- 3. Utilitários tipográficos -------------------------- */
+.mono {
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--osso-fraco);
+  font-weight: 400;
+}
+
+.kicker {
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ambar);
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+}
+.kicker::before {
+  content: "";
+  width: 1.6rem;
+  height: 1px;
+  background: currentColor;
+  opacity: .75;
+}
+
+/* Cinzel é caixa-alta por desenho: minúscula vira versalete.
+   Por isso os títulos levam entrelinha curta e tracking aberto. */
+h1, h2, h3, h4 {
+  font-family: var(--display);
+  font-weight: 500;
+  line-height: 1.16;
+  letter-spacing: .015em;
+  margin: 0;
+  text-wrap: balance;
+  color: var(--gelo);
+}
+
+.wrap {
+  width: min(1280px, 100% - var(--gutter) * 2);
+  margin-inline: auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* --- 4. Cabeçalho ---------------------------------------- */
+.topbar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: var(--topo);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  background: color-mix(in srgb, var(--carvao) 82%, transparent);
+  backdrop-filter: blur(14px) saturate(130%);
+  border-bottom: 1px solid var(--linha);
+}
+.topbar .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+/* A marca é o arquivo oficial, em curvas. Nada de recolorir
+   as lentes: o âmbar nelas é a assinatura. */
+.marca {
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.marca svg {
+  height: 34px;
+  width: auto;
+  display: block;
+}
+.marca .selo {
+  font-family: var(--mono);
+  font-size: .56rem;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: var(--osso-fraco);
+  padding-left: .9rem;
+  border-left: 1px solid var(--linha-viva);
+}
+@media (max-width: 560px) {
+  .marca svg { height: 26px; }
+  .marca .selo { display: none; }
+}
+
+.nav-pilares {
+  display: flex;
+  gap: 1.6rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-pilares a {
+  font-family: var(--mono);
+  font-size: .66rem;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--osso-suave);
+  text-decoration: none;
+  padding-block: .35rem;
+  border-bottom: 1px solid transparent;
+  transition: color var(--transicao), border-color var(--transicao);
+}
+.nav-pilares a:hover { color: var(--gelo); border-color: var(--ambar); }
+
+@media (max-width: 900px) { .nav-pilares { display: none; } }
+
+/* Seletor de idioma (PT · EN). Gerado pelo build só quando há mais de um
+   idioma ativo. Fica fora do menu porque o menu some no celular, e o seletor
+   não pode sumir: é o caminho de quem chegou na língua errada. */
+.topbar .wrap > nav:not(.idiomas) { margin-left: auto; }
+.idiomas {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-shrink: 0;
+  padding-left: .7rem;
+  border-left: 1px solid var(--linha-viva);
+}
+.idiomas a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.1rem;
+  min-height: 2.5rem;
+  font-family: var(--mono);
+  font-size: .66rem;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--osso-fraco);
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  transition: color var(--transicao), border-color var(--transicao);
+}
+.idiomas a:hover { color: var(--gelo); border-color: var(--linha-viva); }
+.idiomas a[aria-current] { color: var(--ambar); border-color: var(--linha-viva); }
+@media (max-width: 900px) { .idiomas { padding-left: 0; border-left: 0; } }
+/* Com o seletor ao lado, o menu aperta antes de sumir. Os nomes dos pilares
+   em inglês são mais longos: lá o menu sai a partir de 1000 px. */
+@media (max-width: 1180px) { .nav-pilares { gap: 1.1rem; } }
+@media (max-width: 1000px) {
+  .nav-pilares { gap: .8rem; }
+  .nav-pilares a { letter-spacing: .08em; }
+  html:not([lang="pt-BR"]) .nav-pilares { display: none; }
+}
+
+/* --- 5. Barra de progresso de leitura --------------------- */
+.progresso {
+  position: fixed;
+  top: var(--topo);
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: var(--ambar);
+  z-index: 60;
+  transition: width 90ms linear;
+}
+
+/* --- 6. Revelação no scroll ------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 760ms var(--transicao), transform 760ms var(--transicao);
+}
+.reveal.visivel { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+
+/* --- 7. Tarja de confidencialidade ------------------------ */
+/* Metadados nascem cobertos e se revelam ao passar o cursor —
+   a quebra do sigilo como microinteração. */
+.tarja {
+  position: relative;
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: .66rem;
+  letter-spacing: .08em;
+  color: var(--osso-suave);
+  padding: .1rem .3rem;
+  cursor: default;
+}
+.tarja::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--linha-viva);
+  transition: transform var(--transicao), opacity var(--transicao);
+  transform-origin: left;
+}
+.tarja:hover::after,
+.tarja:focus-visible::after,
+.dossie-card:hover .tarja::after,
+.dossie-card:focus-within .tarja::after {
+  transform: scaleX(0);
+  opacity: 0;
+}
+
+/* --- 8. Hero --------------------------------------------- */
+.hero {
+  padding-top: calc(var(--topo) + clamp(3.5rem, 11vh, 8rem));
+  padding-bottom: clamp(4rem, 10vh, 8rem);
+  position: relative;
+  isolation: isolate;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(58rem 32rem at 76% -12%, color-mix(in srgb, var(--osso) 6%, transparent), transparent 66%),
+    radial-gradient(34rem 24rem at 6% 14%, color-mix(in srgb, var(--ambar) 8%, transparent), transparent 70%);
+}
+
+.hero h1 {
+  font-size: clamp(2.1rem, 5.4vw, 4.4rem);
+  line-height: 1.14;
+  letter-spacing: .01em;
+  margin: 1.7rem 0 0;
+  max-width: 19ch;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--ambar);
+}
+.hero .linha-fina {
+  margin: 2rem 0 0;
+  max-width: 54ch;
+  font-size: 1.08rem;
+  color: var(--osso-suave);
+  line-height: 1.7;
+}
+
+.hero-meta {
+  margin-top: 3.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.4rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--linha);
+}
+.hero-meta div { display: flex; flex-direction: column; gap: .45rem; }
+.hero-meta .rotulo {
+  font-family: var(--mono);
+  font-size: .6rem;
+  letter-spacing: .19em;
+  text-transform: uppercase;
+  color: var(--osso-fraco);
+}
+.hero-meta .valor {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.35rem;
+  letter-spacing: .04em;
+  color: var(--gelo);
+}
+.hero-meta .valor.viva { color: var(--ambar); }
+
+/* --- 9. Secções ------------------------------------------ */
+.secao { padding-block: clamp(4rem, 9vh, 7rem); }
+
+.secao-cabeca {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid var(--linha);
+}
+.secao-cabeca h2 {
+  font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+  margin-top: .9rem;
+  max-width: 24ch;
+}
+.secao-cabeca p {
+  margin: 0;
+  max-width: 40ch;
+  color: var(--osso-suave);
+  font-size: .95rem;
+}
+
+/* --- 10. Pilares ----------------------------------------- */
+.pilares {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1px;
+  background: var(--linha);
+  border: 1px solid var(--linha);
+}
+.pilar {
+  background: var(--carvao-2);
+  padding: 2rem 1.7rem 2.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: .9rem;
+  position: relative;
+  transition: background var(--transicao);
+}
+.pilar:hover { background: var(--carvao-3); }
+.pilar::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: var(--ambar);
+  transform: scaleX(.12);
+  transform-origin: left;
+  transition: transform var(--transicao);
+}
+.pilar:hover::before { transform: scaleX(1); }
+.pilar h3 {
+  font-size: 1.12rem;
+  letter-spacing: .05em;
+}
+.pilar p {
+  margin: 0;
+  font-size: .92rem;
+  line-height: 1.62;
+  color: var(--osso-suave);
+}
+.pilar .contagem {
+  margin-top: auto;
+  padding-top: 1.2rem;
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ambar);
+}
+
+/* --- 11. Bento grid dos dossiês --------------------------- */
+.bento {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+}
+.dossie-card {
+  grid-column: span 2;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: .95rem;
+  padding: 1.6rem 1.5rem 1.7rem;
+  background: var(--carvao-2);
+  border: 1px solid var(--linha);
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  transition: border-color var(--transicao), background var(--transicao), transform var(--transicao);
+}
+.dossie-card:hover,
+.dossie-card:focus-within {
+  border-color: var(--linha-viva);
+  background: var(--carvao-3);
+  transform: translateY(-3px);
+}
+.dossie-card .numero {
+  font-family: var(--mono);
+  font-size: .64rem;
+  letter-spacing: .17em;
+  color: var(--osso-fraco);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.dossie-card h3 {
+  font-size: 1.12rem;
+  line-height: 1.3;
+  letter-spacing: .035em;
+}
+.dossie-card p {
+  margin: 0;
+  font-size: .91rem;
+  line-height: 1.6;
+  color: var(--osso-suave);
+}
+.dossie-card .rodape-card {
+  margin-top: auto;
+  padding-top: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid var(--linha);
+}
+.dossie-card .selo-pilar {
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--osso-fraco);
+}
+
+/* Estados editoriais — âmbar é o acento, osso é a espera */
+.estado {
+  font-family: var(--mono);
+  font-size: .56rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  padding: .2rem .5rem;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+.estado.publicado { color: var(--ambar); }
+.estado.apuracao  { color: var(--osso-fraco); }
+
+/* O dossiê em linha ocupa metade da grade */
+.dossie-card.destaque {
+  grid-column: span 3;
+  grid-row: span 2;
+  background:
+    radial-gradient(34rem 20rem at 12% 0%, color-mix(in srgb, var(--ambar) 9%, transparent), transparent 68%),
+    var(--carvao-2);
+  padding: 2.2rem 2rem 2rem;
+}
+.dossie-card.destaque h3 { font-size: clamp(1.5rem, 2.6vw, 2.1rem); line-height: 1.2; }
+.dossie-card.destaque p  { font-size: 1rem; max-width: 44ch; }
+
+.dossie-card.largo { grid-column: span 3; }
+
+@media (max-width: 1000px) {
+  .bento { grid-template-columns: repeat(4, 1fr); }
+  .dossie-card, .dossie-card.largo { grid-column: span 2; }
+  .dossie-card.destaque { grid-column: span 4; grid-row: auto; }
+}
+@media (max-width: 620px) {
+  .bento { grid-template-columns: 1fr; }
+  .dossie-card, .dossie-card.largo, .dossie-card.destaque { grid-column: span 1; }
+}
+
+/* --- 12. Página de dossiê: capa --------------------------- */
+.dossie-capa {
+  padding-top: calc(var(--topo) + clamp(3rem, 9vh, 6rem));
+  padding-bottom: clamp(3rem, 7vh, 5rem);
+  position: relative;
+  isolation: isolate;
+}
+.dossie-capa::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(48rem 28rem at 70% -5%, color-mix(in srgb, var(--osso) 6%, transparent), transparent 68%),
+    radial-gradient(30rem 20rem at 4% 20%, color-mix(in srgb, var(--ambar) 7%, transparent), transparent 72%);
+}
+.dossie-capa h1 {
+  font-size: clamp(1.9rem, 4.6vw, 3.6rem);
+  line-height: 1.16;
+  margin: 1.5rem 0 0;
+  max-width: 19ch;
+}
+.dossie-capa .subtitulo {
+  margin: 1.7rem 0 0;
+  max-width: 58ch;
+  font-size: 1.1rem;
+  color: var(--osso-suave);
+  line-height: 1.66;
+}
+
+.ficha {
+  margin: 3rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+  gap: 1px;
+  background: var(--linha);
+  border: 1px solid var(--linha);
+}
+.ficha > div {
+  background: var(--carvao-2);
+  padding: 1.1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: .45rem;
+}
+.ficha dt {
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: .19em;
+  text-transform: uppercase;
+  color: var(--osso-fraco);
+}
+.ficha dd {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: .84rem;
+  color: var(--gelo);
+}
+
+/* --- 13. Corpo do dossiê ---------------------------------- */
+.corpo {
+  width: min(var(--medida), 100% - var(--gutter) * 2);
+  margin-inline: auto;
+  padding-block: clamp(2.5rem, 6vh, 4.5rem);
+  font-size: 1.06rem;
+  line-height: 1.78;
+}
+.corpo > * + * { margin-top: 1.5rem; }
+.corpo p { margin-bottom: 0; }
+
+.corpo h2 {
+  font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+  letter-spacing: .05em;
+  margin-top: 3.8rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--linha);
+  position: relative;
+}
+.corpo h2 .indice {
+  position: absolute;
+  top: 1.6rem;
+  left: -3.4rem;
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: .12em;
+  color: var(--ambar);
+}
+@media (max-width: 900px) {
+  .corpo h2 .indice { position: static; display: block; margin-bottom: .55rem; }
+}
+
+.corpo h3 {
+  font-family: var(--texto);
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: .01em;
+  line-height: 1.5;
+  margin-top: 2.4rem;
+  color: var(--gelo);
+}
+
+.abertura {
+  font-size: 1.16rem;
+  line-height: 1.7;
+  color: var(--gelo);
+}
+.abertura::first-letter {
+  float: left;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 3.6rem;
+  line-height: .9;
+  padding: .12rem .5rem .1rem 0;
+  color: var(--ambar);
+}
+
+.corpo blockquote {
+  margin: 2.6rem 0;
+  padding: 0 0 0 1.6rem;
+  border-left: 2px solid var(--ambar);
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.28rem;
+  line-height: 1.38;
+  letter-spacing: .03em;
+  color: var(--gelo);
+}
+.corpo blockquote cite {
+  display: block;
+  margin-top: 1rem;
+  font-family: var(--mono);
+  font-size: .62rem;
+  font-style: normal;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--osso-fraco);
+}
+
+.nota {
+  font-size: .95rem;
+  line-height: 1.7;
+  color: var(--osso-suave);
+  background: var(--carvao-2);
+  border: 1px solid var(--linha);
+  border-left: 2px solid var(--ambar);
+  padding: 1.2rem 1.4rem;
+}
+.nota strong {
+  display: block;
+  font-family: var(--mono);
+  color: var(--ambar);
+  font-size: .6rem;
+  font-weight: 500;
+  letter-spacing: .19em;
+  text-transform: uppercase;
+  margin-bottom: .6rem;
+}
+
+/* --- 14. Cronologia --------------------------------------- */
+.cronologia {
+  list-style: none;
+  margin: 2.4rem 0 0;
+  padding: 0;
+  border-left: 1px solid var(--linha);
+}
+.cronologia li {
+  position: relative;
+  padding: 0 0 1.9rem 1.8rem;
+}
+.cronologia li::before {
+  content: "";
+  position: absolute;
+  left: -4px;
+  top: .6rem;
+  width: 7px;
+  height: 7px;
+  background: var(--carvao);
+  border: 1px solid var(--ambar);
+  border-radius: 50%;
+}
+.cronologia li:last-child { padding-bottom: 0; }
+.cronologia .quando {
+  display: block;
+  font-family: var(--mono);
+  font-size: .66rem;
+  letter-spacing: .13em;
+  color: var(--ambar);
+  margin-bottom: .35rem;
+}
+.cronologia .oque {
+  font-size: .96rem;
+  line-height: 1.64;
+  color: var(--osso-suave);
+}
+
+/* --- 15. Evidências e teorias ----------------------------- */
+.evidencias {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+  gap: 1px;
+  background: var(--linha);
+  border: 1px solid var(--linha);
+  margin-top: 2.4rem;
+}
+.evidencia {
+  background: var(--carvao-2);
+  padding: 1.5rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+}
+.evidencia .medida {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.9rem;
+  line-height: 1.1;
+  letter-spacing: .02em;
+  color: var(--ambar);
+}
+.evidencia .legenda {
+  font-size: .9rem;
+  line-height: 1.58;
+  color: var(--osso-suave);
+}
+.evidencia .legenda strong { color: var(--gelo); font-weight: 600; }
+
+.teoria {
+  background: var(--carvao-2);
+  border: 1px solid var(--linha);
+  padding: 1.6rem 1.5rem;
+  margin-top: 1.2rem;
+}
+.teoria h3 {
+  margin: 0 0 .9rem;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.16rem;
+  letter-spacing: .04em;
+  line-height: 1.32;
+}
+.teoria p { font-size: .96rem; line-height: 1.66; color: var(--osso-suave); margin: 0; }
+.teoria p + p { margin-top: .85rem; }
+
+/* Medidor de peso de evidência: o comprimento carrega o dado,
+   o rótulo o nomeia. Sem semáforo de cores. */
+.medidor {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  margin-bottom: 1.1rem;
+  font-family: var(--mono);
+  font-size: .56rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--osso-fraco);
+}
+.medidor .barra {
+  flex: 1;
+  height: 3px;
+  background: var(--linha-viva);
+  position: relative;
+  max-width: 130px;
+}
+.medidor .barra::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--nivel, 50%);
+  background: var(--cor-nivel, var(--ambar));
+}
+.medidor .peso { color: var(--osso-suave); }
+
+/* --- 16. Fontes ------------------------------------------- */
+.fontes {
+  list-style: none;
+  margin: 1.8rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: .95rem;
+}
+.fontes li {
+  font-size: .9rem;
+  line-height: 1.62;
+  color: var(--osso-suave);
+  padding-left: 1.5rem;
+  position: relative;
+}
+.fontes li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--osso-fraco);
+}
+
+/* --- 17. Rodapé ------------------------------------------- */
+.rodape {
+  border-top: 1px solid var(--linha);
+  margin-top: clamp(4rem, 10vh, 7rem);
+  padding-block: 3.2rem 2.4rem;
+  background: var(--carvao-2);
+}
+.rodape .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.4rem;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.rodape p {
+  margin: 1rem 0 0;
+  max-width: 42ch;
+  font-size: .92rem;
+  color: var(--osso-suave);
+}
+.rodape .creditos {
+  width: 100%;
+  margin-top: 2.4rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--linha);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+/* --- 18. Navegação entre dossiês -------------------------- */
+.proximo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding: 1.8rem 1.7rem;
+  background: var(--carvao-2);
+  border: 1px solid var(--linha);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color var(--transicao), background var(--transicao);
+}
+.proximo:hover { border-color: var(--ambar); background: var(--carvao-3); }
+.proximo strong {
+  display: block;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.22rem;
+  letter-spacing: .04em;
+  line-height: 1.3;
+  margin-top: .55rem;
+  color: var(--gelo);
+}
+.proximo .seta { font-family: var(--mono); color: var(--ambar); font-size: 1.1rem; }
+
+/* ============================================================
+   20. PAINEL DA HOME — molde do Viagem na Lupa
+   Hero com foto à esquerda, coluna de apoio à direita,
+   e abaixo a grade de quadros, um por curiosidade.
+   ============================================================ */
+.painel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 1.5rem;
+  /* Sem align-items: start. As duas colunas esticam juntas, então a foto
+     acompanha a altura da coluna de apoio e não sobra buraco embaixo dela,
+     qualquer que seja o conteúdo das caixas. */
+  padding-top: calc(var(--topo) + 2rem);
+}
+@media (max-width: 1000px) {
+  .painel { grid-template-columns: 1fr; }
+}
+
+/* --- Hero com fotografia --------------------------------- */
+.hero-foto {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid var(--linha);
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(1.6rem, 3vw, 2.6rem);
+}
+.hero-foto > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+.hero-foto::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  /* O hero agora acompanha a altura da coluna de apoio, então o bloco de
+     texto começa mais alto na foto. O véu de baixo sobe junto, senão o
+     kicker cai em cima do céu claro e some. */
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--carvao) 55%, transparent) 0%, transparent 30%),
+    linear-gradient(0deg,
+      var(--carvao) 2%,
+      color-mix(in srgb, var(--carvao) 82%, transparent) 38%,
+      color-mix(in srgb, var(--carvao) 52%, transparent) 66%,
+      transparent 94%);
+}
+.hero-foto h1 {
+  font-size: clamp(1.7rem, 3.3vw, 2.9rem);
+  line-height: 1.16;
+  margin: 1.1rem 0 0;
+  max-width: 17ch;
+}
+.hero-foto h1 em { font-style: normal; color: var(--ambar); }
+.hero-foto .linha-fina {
+  margin: 1.1rem 0 0;
+  max-width: 50ch;
+  font-size: 1rem;
+  color: var(--osso-suave);
+  line-height: 1.64;
+}
+.hero-foto .hero-meta {
+  margin-top: 1.9rem;
+  gap: 2rem;
+  padding-top: 1.2rem;
+}
+
+/* --- Coluna de apoio -------------------------------------- */
+.apoio { display: grid; gap: 1.5rem; }
+.caixa {
+  background: var(--carvao-2);
+  border: 1px solid var(--linha);
+  padding: 1.4rem 1.4rem 1.5rem;
+}
+.caixa h2 {
+  font-size: 1.05rem;
+  letter-spacing: .05em;
+  margin-bottom: 1rem;
+}
+.caixa p {
+  margin: 0;
+  font-size: .9rem;
+  line-height: 1.62;
+  color: var(--osso-suave);
+}
+.caixa .selo-metodo {
+  display: block;
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: .19em;
+  text-transform: uppercase;
+  color: var(--ambar);
+  margin-bottom: .9rem;
+}
+
+/* Filtro por pilar — barra presa ao topo, acima da grade que ela filtra */
+.barra-filtros {
+  position: sticky;
+  top: var(--topo);
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem .9rem;
+  margin-top: 2.6rem;
+  padding: .9rem 0;
+  background: var(--carvao);
+  border-bottom: 1px solid var(--linha);
+}
+.barra-filtros::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 100%;
+  height: 1.1rem;
+  background: linear-gradient(var(--carvao), transparent);
+  pointer-events: none;
+}
+.barra-filtros .contador { margin-top: 0; }
+
+.filtros { display: flex; flex-wrap: wrap; gap: .5rem; }
+.filtros button {
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--osso-suave);
+  background: transparent;
+  border: 1px solid var(--linha-viva);
+  border-radius: 999px;
+  padding: .42rem .85rem;
+  cursor: pointer;
+  transition: color var(--transicao), border-color var(--transicao), background var(--transicao);
+}
+.filtros button:hover { color: var(--gelo); border-color: var(--osso-fraco); }
+.filtros button[aria-pressed="true"] {
+  background: var(--ambar);
+  border-color: var(--ambar);
+  color: var(--carvao);
+  font-weight: 500;
+}
+.contador {
+  display: block;
+  margin-top: 1rem;
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--osso-fraco);
+}
+
+/* --- Grade de quadros ------------------------------------- */
+.quadros {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr));
+  gap: 1.5rem;
+  margin-top: 1.6rem;
+}
+.quadro {
+  display: flex;
+  flex-direction: column;
+  background: var(--carvao-2);
+  border: 1px solid var(--linha);
+  overflow: hidden;
+  transition: border-color var(--transicao);
+}
+.quadro:hover { border-color: var(--linha-viva); }
+.quadro[hidden] { display: none; }
+
+/* Foto com a legenda por cima */
+.quadro-foto {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background: var(--carvao-3);
+}
+.quadro-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 900ms var(--transicao), filter var(--transicao);
+}
+.quadro:hover .quadro-foto img { transform: scale(1.035); }
+.quadro-foto::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, color-mix(in srgb, var(--carvao) 92%, transparent) 2%, color-mix(in srgb, var(--carvao) 55%, transparent) 38%, transparent 68%);
+}
+.quadro-legenda {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  z-index: 1;
+  padding: 1.1rem 1.2rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.quadro-legenda h3 {
+  font-size: 1.28rem;
+  letter-spacing: .04em;
+  line-height: 1.2;
+  margin: 0;
+}
+.quadro-legenda .origem {
+  display: block;
+  margin-top: .4rem;
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--osso-suave);
+}
+
+/* Etiqueta de honestidade: imagem gerada nunca passa por foto do sítio */
+.recriacao {
+  position: absolute;
+  top: .8rem;
+  right: .8rem;
+  z-index: 1;
+  font-family: var(--mono);
+  font-size: .52rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--osso-suave);
+  background: color-mix(in srgb, var(--carvao) 76%, transparent);
+  backdrop-filter: blur(4px);
+  border: 1px solid var(--linha-viva);
+  padding: .18rem .45rem;
+  border-radius: 2px;
+}
+
+/* Quadro ainda sem imagem — carvão e o símbolo da marca apagado */
+.quadro-foto.sem-imagem {
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(22rem 14rem at 50% 30%, color-mix(in srgb, var(--ambar) 7%, transparent), transparent 70%),
+    var(--carvao-3);
+}
+.quadro-foto.sem-imagem .aguardando {
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--osso-fraco);
+  border: 1px dashed var(--linha-viva);
+  padding: .5rem .9rem;
+  transform: translateY(-1.4rem);
+}
+
+/* Faixa de dados */
+/* Crédito da foto de terceiro, logo abaixo do quadro: autor · licença */
+.quadro-credito {
+  margin: 0;
+  padding: .45rem 1.2rem .5rem;
+  font-family: var(--mono);
+  font-size: .7rem;
+  letter-spacing: .05em;
+  line-height: 1.5;
+  color: var(--osso-fraco);
+  border-top: 1px solid var(--linha);
+}
+.quadro-credito a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.quadro-credito a:hover { color: var(--ambar); }
+
+.quadro-dados {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--linha);
+  border-block: 1px solid var(--linha);
+}
+.quadro-dados > div {
+  background: var(--carvao-2);
+  padding: .85rem 1.2rem .95rem;
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+  min-width: 0;
+}
+.quadro-dados .rot {
+  font-family: var(--mono);
+  font-size: .54rem;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  color: var(--osso-fraco);
+}
+.quadro-dados .val {
+  font-family: var(--mono);
+  font-size: .95rem;
+  color: var(--ambar);
+  line-height: 1.3;
+}
+.quadro-dados .val.neutro { color: var(--gelo); }
+
+/* Texto e chips */
+.quadro-texto {
+  padding: 1.2rem 1.2rem 0;
+  font-size: .94rem;
+  line-height: 1.64;
+  color: var(--osso-suave);
+  flex: 1;
+}
+.quadro-texto p { margin: 0; }
+.quadro-texto strong { color: var(--gelo); font-weight: 600; }
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  padding: 1.2rem;
+}
+.chips a, .chips span {
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: .1em;
+  color: var(--osso-suave);
+  border: 1px solid var(--linha-viva);
+  padding: .42rem .8rem;
+  text-decoration: none;
+  transition: color var(--transicao), border-color var(--transicao);
+}
+.chips a:hover { color: var(--ambar); border-color: var(--ambar); }
+.chips span { color: var(--osso-fraco); border-style: dashed; }
+
+/* --- Figura dentro do dossiê ------------------------------ */
+.figura { margin: 2.6rem 0; }
+.figura img { width: 100%; height: auto; border: 1px solid var(--linha); }
+.figura figcaption {
+  margin-top: .7rem;
+  font-family: var(--mono);
+  font-size: .64rem;
+  line-height: 1.6;
+  letter-spacing: .04em;
+  color: var(--osso-fraco);
+}
+.figura figcaption b {
+  color: var(--osso-suave);
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-size: .56rem;
+}
+
+/* ============================================================
+   21. FIGURAS DENTRO DO DOSSIÊ
+   A imagem entra junto do trecho que ela ilustra, e não em
+   galeria no fim. Três larguras, para o texto não virar régua.
+   ============================================================ */
+
+/* Revelação: a imagem chega desfocada e abre — a mesma quebra
+   de sigilo das tarjas, aplicada ao material visual. */
+.figura img {
+  cursor: zoom-in;
+  filter: blur(14px);
+  opacity: .35;
+  transform: scale(1.015);
+  transition: filter 900ms var(--transicao), opacity 900ms var(--transicao), transform 900ms var(--transicao);
+}
+.figura.visivel img { filter: none; opacity: 1; transform: none; }
+
+/* Larga: escapa da coluna de leitura para dar fôlego */
+.figura.larga {
+  width: min(94vw, 1000px);
+  margin-inline: calc(50% - min(47vw, 500px));
+}
+
+/* Lado: acompanha o texto em telas grandes */
+.figura.lado {
+  float: right;
+  width: 46%;
+  margin: .4rem 0 1.4rem 1.8rem;
+}
+.figura.lado + * { clear: none; }
+@media (max-width: 860px) {
+  .figura.lado { float: none; width: 100%; margin: 2.2rem 0; }
+  .figura.larga { width: 100%; margin-inline: 0; }
+}
+
+/* Clareia a legenda quando a figura é a única coisa na linha */
+.figura figcaption { max-width: 62ch; }
+
+/* --- Lupa: ampliar a imagem sem sair da página ------------- */
+.lupa {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  place-items: center;
+  padding: clamp(1rem, 4vw, 3rem);
+  background: color-mix(in srgb, var(--carvao) 94%, transparent);
+  backdrop-filter: blur(6px);
+}
+.lupa[open], .lupa.aberta { display: grid; }
+.lupa figure { margin: 0; max-width: min(1200px, 100%); }
+.lupa img {
+  width: 100%;
+  height: auto;
+  max-height: 78vh;
+  object-fit: contain;
+  border: 1px solid var(--linha-viva);
+}
+.lupa figcaption {
+  margin-top: .9rem;
+  font-family: var(--mono);
+  font-size: .68rem;
+  line-height: 1.6;
+  color: var(--osso-suave);
+  max-width: 70ch;
+}
+.lupa .fechar {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.4rem;
+  background: transparent;
+  border: 1px solid var(--linha-viva);
+  color: var(--osso);
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: .5rem .9rem;
+  cursor: pointer;
+}
+.lupa .fechar:hover { border-color: var(--ambar); color: var(--ambar); }
+
+/* ============================================================
+   22. ETIQUETA DE ACERVO
+   Imagem histórica real não pode levar a mesma etiqueta de uma
+   recriação. "Recriação" diz que a cena foi construída;
+   "Acervo" diz que o documento é aquele mesmo.
+   ============================================================ */
+.acervo {
+  position: absolute;
+  top: .8rem;
+  right: .8rem;
+  z-index: 1;
+  font-family: var(--mono);
+  font-size: .52rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ambar);
+  background: color-mix(in srgb, var(--carvao) 76%, transparent);
+  backdrop-filter: blur(4px);
+  border: 1px solid color-mix(in srgb, var(--ambar) 45%, transparent);
+  padding: .18rem .45rem;
+  border-radius: 2px;
+}
+
+/* Na legenda de figura, o mesmo par de rótulos */
+.figura figcaption b.acervo-linha {
+  position: static;
+  background: none;
+  border: 0;
+  padding: 0;
+  backdrop-filter: none;
+  color: var(--ambar);
+}
+
+/* ============================================================
+   23. VISOR DE FÓLIOS
+   Folhear algumas páginas do documento dentro do dossiê, sem
+   fingir que o site hospeda o fac-símile inteiro.
+   ============================================================ */
+.visor {
+  margin: 2.8rem 0;
+  border: 1px solid var(--linha);
+  background: var(--carvao-2);
+}
+.visor.larga {
+  width: min(94vw, 1000px);
+  margin-inline: calc(50% - min(47vw, 500px));
+}
+@media (max-width: 860px) { .visor.larga { width: 100%; margin-inline: 0; } }
+
+.visor-palco {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background:
+    radial-gradient(60% 60% at 50% 40%, color-mix(in srgb, var(--osso) 5%, transparent), transparent 70%),
+    var(--carvao);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.visor-palco img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  cursor: zoom-in;
+  opacity: 0;
+  transition: opacity 320ms var(--transicao);
+}
+.visor-palco img.ativo { opacity: 1; }
+.visor-palco img:not(.ativo) { position: absolute; pointer-events: none; }
+
+/* Setas */
+.visor-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background: color-mix(in srgb, var(--carvao) 72%, transparent);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--linha-viva);
+  color: var(--osso);
+  font-family: var(--mono);
+  font-size: 1rem;
+  line-height: 1;
+  padding: .7rem .85rem;
+  cursor: pointer;
+  transition: color var(--transicao), border-color var(--transicao), background var(--transicao);
+}
+.visor-nav:hover { color: var(--ambar); border-color: var(--ambar); }
+.visor-nav[disabled] { opacity: .3; cursor: default; }
+.visor-nav.ant { left: .8rem; }
+.visor-nav.prox { right: .8rem; }
+
+/* Barra de legenda */
+.visor-barra {
+  border-top: 1px solid var(--linha);
+  padding: 1rem 1.2rem 1.1rem;
+  display: grid;
+  gap: .55rem;
+}
+.visor-barra .linha-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.visor-barra .rotulo {
+  font-family: var(--mono);
+  font-size: .6rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ambar);
+}
+.visor-barra .contagem {
+  font-family: var(--mono);
+  font-size: .6rem;
+  letter-spacing: .14em;
+  color: var(--osso-fraco);
+}
+.visor-barra .descricao {
+  font-size: .94rem;
+  line-height: 1.6;
+  color: var(--osso-suave);
+  margin: 0;
+  min-height: 3.1em;
+}
+.visor-barra .acervo-fonte {
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: .1em;
+  color: var(--osso-fraco);
+  padding-top: .55rem;
+  border-top: 1px solid var(--linha);
+}
+.visor-barra .acervo-fonte a { color: var(--osso-suave); }
+.visor-barra .acervo-fonte a:hover { color: var(--ambar); }
+
+/* Marcadores de página */
+.visor-pontos {
+  display: flex;
+  gap: .4rem;
+  flex-wrap: wrap;
+}
+.visor-pontos button {
+  width: 1.9rem;
+  height: 1.7rem;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--linha-viva);
+  color: var(--osso-fraco);
+  font-family: var(--mono);
+  font-size: .56rem;
+  cursor: pointer;
+  transition: color var(--transicao), border-color var(--transicao);
+}
+.visor-pontos button:hover { color: var(--osso); border-color: var(--osso-fraco); }
+.visor-pontos button[aria-current="true"] {
+  color: var(--carvao);
+  background: var(--ambar);
+  border-color: var(--ambar);
+}
+
+/* ============================================================
+   24. CANAL NO YOUTUBE
+   O site e o canal contam a mesma coisa em dois ritmos. O link
+   é discreto na navegação e explícito no fim do dossiê.
+   ============================================================ */
+.nav-canal a {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  color: var(--ambar) !important;
+  border-color: transparent;
+}
+.nav-canal a::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 7px solid currentColor;
+  border-top: 4.5px solid transparent;
+  border-bottom: 4.5px solid transparent;
+}
+.nav-canal a:hover { color: #e0a34a !important; border-color: var(--ambar); }
+
+/* Chamada no fim do dossiê */
+.canal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  padding: 1.6rem 1.7rem;
+  background:
+    radial-gradient(30rem 16rem at 8% 0%, color-mix(in srgb, var(--ambar) 8%, transparent), transparent 70%),
+    var(--carvao-2);
+  border: 1px solid var(--linha);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color var(--transicao), background var(--transicao);
+}
+.canal:hover { border-color: var(--ambar); }
+.canal .rotulo {
+  display: block;
+  font-family: var(--mono);
+  font-size: .6rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ambar);
+}
+.canal strong {
+  display: block;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.18rem;
+  letter-spacing: .04em;
+  line-height: 1.3;
+  margin-top: .55rem;
+  color: var(--gelo);
+}
+.canal .aviso {
+  display: block;
+  margin-top: .5rem;
+  font-size: .9rem;
+  color: var(--osso-suave);
+  max-width: 52ch;
+}
+.canal .play,
+.caixa-canal .play {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid var(--linha-viva);
+  border-radius: 50%;
+  color: var(--ambar);
+  transition: border-color var(--transicao), background var(--transicao);
+}
+.canal:hover .play,
+.caixa-canal:hover .play { border-color: var(--ambar); background: color-mix(in srgb, var(--ambar) 12%, transparent); }
+.canal .play::before,
+.caixa-canal .play::before {
+  content: "";
+  width: 0; height: 0;
+  margin-left: 3px;
+  border-left: 11px solid currentColor;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+}
+
+/* No rodapé */
+.rodape .canal-handle {
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .1em;
+  color: var(--ambar);
+  text-decoration: none;
+}
+.rodape .canal-handle:hover { text-decoration: underline; }
+
+/* Caixa do canal, na coluna de apoio da home */
+.caixa-canal { display: block; text-decoration: none; color: inherit; }
+.caixa-canal:hover { border-color: var(--ambar); }
+.caixa-canal .linha-canal {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.caixa-canal h2 { margin-bottom: 0; }
+.caixa-canal p { margin-top: .9rem; }
+.caixa-canal .handle {
+  font-family: var(--mono);
+  font-size: .78rem;
+  color: var(--ambar);
+}
+.caixa-canal .play { width: 2.4rem; height: 2.4rem; margin-top: .2rem; }
+.caixa-canal .play::before { border-left-width: 9px; border-top-width: 6px; border-bottom-width: 6px; }
+.episodios {
+  list-style: none;
+  margin: 1.1rem 0 0;
+  padding: 1rem 0 0;
+  border-top: 1px solid var(--linha);
+  display: grid;
+  gap: .7rem;
+}
+.episodios li {
+  font-size: .86rem;
+  line-height: 1.45;
+  color: var(--osso-suave);
+  display: grid;
+  grid-template-columns: 3.6rem 1fr;
+  gap: .6rem;
+  align-items: baseline;
+}
+.episodios .dur {
+  font-family: var(--mono);
+  font-size: .6rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--osso-fraco);
+}
+
+/* ============================================================
+   24b. ESQUEMAS — diagramas próprios, desenhados em SVG
+   Entram onde não existe (nem deve existir) fotografia. Não
+   levam etiqueta de Recriação nem de Acervo: não são imagem do
+   lugar, são desenho nosso, e a legenda diz isso.
+   ============================================================ */
+.figura.esquema svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--linha);
+  background: var(--carvao-2);
+}
+.figura.esquema figcaption b {
+  color: var(--osso);
+  border-color: var(--osso-fraco);
+}
+
+/* ============================================================
+   25. FAIXA DE CONSENTIMENTO
+   Fica presa embaixo, ocupa pouco e não cobre o texto. Some
+   assim que a pessoa responde — e não volta a perguntar.
+   ============================================================ */
+.consentimento {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 60;
+  background: var(--carvao-2);
+  border-top: 1px solid var(--linha-viva);
+  box-shadow: 0 -18px 40px rgba(0, 0, 0, .5);
+}
+.consentimento[hidden] { display: none; }
+.consentimento .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 1.6rem;
+  padding-block: 1rem;
+}
+.consentimento p {
+  margin: 0;
+  max-width: 68ch;
+  font-size: .88rem;
+  line-height: 1.6;
+  color: var(--osso-suave);
+}
+.consentimento a { color: var(--ambar); }
+.consentimento .botoes { display: flex; gap: .6rem; flex-shrink: 0; }
+.consentimento button {
+  font-family: var(--mono);
+  font-size: .64rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: .6rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid var(--linha-viva);
+  background: transparent;
+  color: var(--osso-suave);
+  cursor: pointer;
+  transition: color var(--transicao), border-color var(--transicao), background var(--transicao);
+}
+.consentimento button:hover { color: var(--gelo); border-color: var(--osso-fraco); }
+.consentimento button.principal {
+  background: var(--ambar);
+  border-color: var(--ambar);
+  color: var(--carvao);
+  font-weight: 500;
+}
+.consentimento button.principal:hover { background: #d9973b; border-color: #d9973b; color: var(--carvao); }
+
+/* O rodapé ganhou um link; que ele não fique igual ao texto morto ao lado. */
+.rodape .creditos a { color: var(--osso-suave); text-decoration: none; }
+.rodape .creditos a:hover { color: var(--ambar); text-decoration: underline; }
+
+@media (max-width: 560px) {
+  .consentimento .wrap { flex-direction: column; align-items: stretch; }
+  .consentimento .botoes button { flex: 1; }
+}
+
+/* Retrato vertical: não estica para a medida do texto — uma foto de 500 px
+   ampliada para 66ch vira borrão. Fica centrada, no tamanho que aguenta. */
+.figura.retrato img { max-width: 340px; width: 100%; display: block; margin-inline: auto; }
+.figura.retrato figcaption { text-align: center; margin-inline: auto; }
+
+/* ============================================================
+   26. LEIA TAMBÉM
+   Liga os dossiês entre si. Antes, cada um tinha um único link de
+   saída — ruim para quem lê e ruim para o rastreamento do Google,
+   que mede a profundidade e a ligação das páginas.
+   ============================================================ */
+.relacionados {
+  margin-top: clamp(3rem, 6vh, 4.5rem);
+  padding-top: 2rem;
+  border-top: 1px solid var(--linha);
+}
+.relacionados > .mono {
+  display: block;
+  font-size: .6rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ambar);
+  margin-bottom: 1.2rem;
+}
+.relacionados ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 1px;
+  background: var(--linha);
+  border: 1px solid var(--linha);
+}
+.relacionados li { background: var(--carvao-2); }
+.relacionados a {
+  display: block;
+  padding: 1.2rem 1.3rem;
+  text-decoration: none;
+  transition: background var(--transicao);
+}
+.relacionados a:hover { background: var(--carvao-3); }
+.relacionados .num {
+  display: block;
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: .18em;
+  color: var(--osso-fraco);
+  margin-bottom: .5rem;
+}
+.relacionados strong {
+  display: block;
+  font-family: var(--display);
+  font-size: 1.02rem;
+  line-height: 1.25;
+  color: var(--gelo);
+  font-weight: 600;
+}
+.relacionados a:hover strong { color: var(--ambar); }
+.relacionados .porque {
+  display: block;
+  margin-top: .55rem;
+  font-size: .84rem;
+  line-height: 1.5;
+  color: var(--osso-suave);
+}
+
+/* ============================================================
+   Páginas de pilar (temas/*.html), perguntas frequentes e a
+   linha do pilar no "Leia também" — gerados pelo build.
+   ============================================================ */
+.dossie-capa .kicker a { color: inherit; text-decoration: none; }
+.dossie-capa .kicker a:hover { color: var(--ambar); }
+.tema-intro { padding-bottom: 1rem; }
+.tema-lista {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  letter-spacing: .05em;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--linha);
+}
+#dossies .relacionados { margin-bottom: clamp(3rem, 6vh, 4.5rem); }
+.pilar h3 a { color: inherit; text-decoration: none; }
+.pilar h3 a::after { content: ""; position: absolute; inset: 0; }
+.pilar h3 a:hover { color: var(--ambar); }
+.relacionados .tema-link {
+  margin-top: 1rem;
+  font-size: .9rem;
+  color: var(--osso-suave);
+}
+.perguntas h3 { margin-top: 2rem; }
+.perguntas h3:first-child { margin-top: 0; }
+.perguntas p { margin-top: .6rem; }
+
+/* ============================================================
+   Fallback com métricas da fonte da web (03/10/2026).
+   Com font-display: swap o texto aparece primeiro na fonte do
+   sistema; sem ajuste, a troca muda a largura das linhas e empurra
+   a ficha da capa. O PSI no computador media CLS 0,105 em Göbekli
+   Tepe, todo ele de troca de fonte. Os números saem das tabelas
+   hmtx/hhea das próprias fontes (Inter × Arial, Cinzel × Times New
+   Roman, JetBrains Mono × Courier New), medidos sobre texto do site.
+   Liberation é a métrica-compatível do Arial/Times no Linux.
+   ============================================================ */
+@font-face {
+  font-family: "Inter Fallback";
+  src: local("Arial"), local("ArialMT"), local("Liberation Sans"), local("Helvetica");
+  size-adjust: 106.67%;
+  ascent-override: 90.82%;
+  descent-override: 22.61%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Cinzel Fallback";
+  src: local("Times New Roman"), local("TimesNewRomanPSMT"), local("Liberation Serif"), local("Times");
+  size-adjust: 102.32%;
+  ascent-override: 95.39%;
+  descent-override: 36.36%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "JetBrains Mono Fallback";
+  src: local("Courier New"), local("CourierNewPSMT"), local("Liberation Mono"), local("Courier");
+  size-adjust: 100%;
+  ascent-override: 102.02%;
+  descent-override: 30%;
+  line-gap-override: 0%;
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "El manuscrito Voynich",
+  "description": "Dossier de investigación sobre el manuscrito Voynich (Beinecke MS 408): datación, análisis material, cadena de propietarios, estadística del texto y el estado de los intentos de desciframiento.",
+  "inLanguage": "es",
+  "datePublished": "2026-09-19",
+  "dateModified": "2026-10-03",
+  "articleSection": "Archivo Sellado",
+  "keywords": "manuscrito Voynich, Beinecke MS 408, criptografía, paleografía, Yale, Wilfrid Voynich, voynichés",
+  "author": {
+    "@type": "Organization",
+    "name": "Vestígio Oculto"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Vestígio Oculto",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://vestigiooculto.com/assets/img/logo-vestigio-oculto.png", "width": 512, "height": 512
+    }
+  },
+  "about": {
+    "@type": "CreativeWork",
+    "name": "Manuscrito Voynich (Beinecke MS 408)",
+    "dateCreated": "1404/1438",
+    "material": "pergamino de vitela",
+    "description": "Códice ilustrado escrito en un sistema de escritura no identificado, conservado en la Beinecke Rare Book & Manuscript Library de la Universidad Yale.",
+    "locationCreated": {
+      "@type": "Place",
+      "name": "Europa Central"
+    }
+  },
+  "temporalCoverage": "1404/2026",
+  "image": "https://vestigiooculto.com/assets/img/og/es/manuscrito-voynich.jpg",
+  "translationOfWork": {
+    "@type": "Article",
+    "@id": "https://vestigiooculto.com/dossies/manuscrito-voynich.html",
+    "inLanguage": "pt-BR"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://vestigiooculto.com/es/dossies/manuscrito-voynich.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Vestígio Oculto",
+      "item": "https://vestigiooculto.com/es/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "El manuscrito Voynich",
+      "item": "https://vestigiooculto.com/es/dossies/manuscrito-voynich.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="progresso" id="progresso" role="presentation"></div>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="marca" href="../index.html" aria-label="Vestígio Oculto — inicio">
+      <svg role="img" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0.0 -2003.7 10717.5 2080.2">  <g fill="#D9CBB3"><path d="M368 -20 68 627Q52 661 27.5 675.5Q3 690 -20 690H-28V700H290V690H281Q262 690 247.5 673.5Q233 657 244 627L413 214L589 627Q602 657 586.0 673.5Q570 690 551 690H542V700H756V690H747Q725 690 700.5 675.5Q676 661 660 627H659L426 111Q424 105 416.5 88.5Q409 72 400.0 51.0Q391 30 384.5 10.5Q378 -9 377 -20Z" transform="translate(90.0,0) scale(1,-1)"/><path d="M606 205 560 0H42V10H55Q81 10 99.5 28.5Q118 47 119 73V627Q118 653 99.5 671.5Q81 690 55 690H42V700H423Q445 700 469.5 703.0Q494 706 515.0 710.0Q536 714 545 718V543H535V555Q535 601 508 629Q484 653 447 657H269V366H401Q438 367 462.0 391.5Q486 416 486 453V460H496V230H486V238Q486 275 462.0 299.0Q438 323 401 324H269V43H400Q450 43 488.0 62.5Q526 82 553.0 118.5Q580 155 596 205Z" transform="translate(888.0,0) scale(1,-1)"/><path d="M277 714Q297 714 326.5 712.0Q356 710 388 707Q399 705 409 704H476L475 692Q475 692 475 692L463 557H453Q453 609 414.5 640.5Q376 672 312 672Q254 672 218.5 644.0Q183 616 181 576Q180 546 200.0 524.0Q220 502 251 483L442 359Q488 333 511.5 291.0Q535 249 532 193Q527 95 457.0 40.5Q387 -14 267 -14Q223 -14 181.5 -6.5Q140 1 108.0 14.5Q76 28 57 47Q49 69 50.0 100.0Q51 131 59.5 163.0Q68 195 81 216H90Q86 165 108.5 121.5Q131 78 174.5 52.5Q218 27 278 28Q344 29 380.0 61.5Q416 94 416 140Q416 171 397.5 196.0Q379 221 337 244L162 360Q109 390 85.0 437.0Q61 484 66 539Q71 591 97.0 630.5Q123 670 168.5 692.0Q214 714 277 714Z" transform="translate(1590.0,0) scale(1,-1)"/><path d="M654 719V544L644 545V556Q644 603 616.5 630.5Q589 658 542 659H409V73Q410 47 428.5 28.5Q447 10 473 10H486V0H182V10H195Q221 10 239.5 28.5Q258 47 259 73V659H125Q79 658 51.5 630.5Q24 603 24 556V545L14 544V719Q24 715 44.5 711.0Q65 707 90.0 704.0Q115 701 136 701H532Q554 701 578.5 704.0Q603 707 624.0 711.0Q645 715 654 719Z" transform="translate(2238.0,0) scale(1,-1)"/><path d="M119 73V627Q118 653 99.5 671.5Q81 690 55 690H42V700H346V690H333Q307 690 288.5 671.5Q270 653 269 627V73Q270 47 288.5 28.5Q307 10 333 10H346V0H42V10H55Q81 10 99.5 28.5Q118 47 119 73ZM177 769Q194 798 219.0 829.0Q244 860 271.5 887.0Q299 914 320 934Q347 919 363.0 899.0Q379 879 389 852Q359 833 323.5 815.5Q288 798 252.5 784.0Q217 770 184 762Z" transform="translate(2975.0,0) scale(1,-1)"/><path d="M755 280V115Q731 85 683.5 55.0Q636 25 570.0 5.5Q504 -14 423 -14Q309 -14 224.0 30.5Q139 75 92.0 157.0Q45 239 45.0 351.0Q45 463 91.5 544.0Q138 625 224.5 669.5Q311 714 429 714Q484 714 536.0 706.5Q588 699 632.0 687.0Q676 675 705 659L707 488H698Q679 556 643.0 596.5Q607 637 559.5 654.5Q512 672 459 672Q378 672 321.5 632.5Q265 593 236.5 520.0Q208 447 208 345Q208 249 234.5 177.5Q261 106 312.0 67.5Q363 29 436 28Q473 28 507.5 39.5Q542 51 568.0 73.0Q594 95 605 127L606 280Q606 325 555 325H539V335H820V325H805Q775 325 763 310Q754 299 755 280Z" transform="translate(3432.0,0) scale(1,-1)"/><path d="M119 73V627Q118 653 99.5 671.5Q81 690 55 690H42V700H346V690H333Q307 690 288.5 671.5Q270 653 269 627V73Q270 47 288.5 28.5Q307 10 333 10H346V0H42V10H55Q81 10 99.5 28.5Q118 47 119 73Z" transform="translate(4338.0,0) scale(1,-1)"/><path d="M722 292 731 120Q709 83 672.0 53.0Q635 23 580.0 4.5Q525 -14 450 -14Q328 -13 236.5 30.5Q145 74 95.0 155.0Q45 236 45 351Q45 463 94.0 544.5Q143 626 234.5 670.0Q326 714 453 714Q533 714 596.5 698.0Q660 682 703 659L704 488H695Q668 587 607.0 629.5Q546 672 464 672Q384 672 327.0 633.0Q270 594 239.0 523.0Q208 452 208 353Q208 254 237.5 182.0Q267 110 321.5 70.0Q376 30 450 28Q527 28 580.0 53.0Q633 78 665.5 136.0Q698 194 714 292Z" transform="translate(6513.5,0) scale(1,-1)"/><path d="M326 700V690H310Q288 690 272.5 676.0Q257 662 257 640V260Q257 189 280.5 137.0Q304 85 347.5 57.0Q391 29 451 29Q512 29 556.5 55.5Q601 82 625.0 131.0Q649 180 649 247V640Q649 662 633.5 676.0Q618 690 596 690H580V700H790V690H774Q752 690 736.5 676.0Q721 662 721 640V253Q721 171 686.5 111.0Q652 51 587.5 18.5Q523 -14 432 -14Q326 -14 253.0 18.5Q180 51 143.5 110.5Q107 170 107 252V640Q107 662 91.5 676.0Q76 690 54 690H38V700Z" transform="translate(7363.5,0) scale(1,-1)"/><path d="M606 205 560 0H42V10H55Q81 10 99.5 28.5Q118 47 119 73V627Q118 653 99.5 671.5Q81 690 55 690H42V700H346V690H333Q307 690 288.5 671.5Q270 653 269 627V43H400Q450 43 488.0 62.5Q526 82 553.0 118.5Q580 155 596 205Z" transform="translate(8254.5,0) scale(1,-1)"/><path d="M654 719V544L644 545V556Q644 603 616.5 630.5Q589 658 542 659H409V73Q410 47 428.5 28.5Q447 10 473 10H486V0H182V10H195Q221 10 239.5 28.5Q258 47 259 73V659H125Q79 658 51.5 630.5Q24 603 24 556V545L14 544V719Q24 715 44.5 711.0Q65 707 90.0 704.0Q115 701 136 701H532Q554 701 578.5 704.0Q603 707 624.0 711.0Q645 715 654 719Z" transform="translate(8941.5,0) scale(1,-1)"/><path d="M442 714Q562 714 650.5 669.5Q739 625 787.5 544.0Q836 463 836 350Q836 238 787.5 156.5Q739 75 650.5 30.5Q562 -14 442 -14Q322 -14 233.5 30.5Q145 75 97.0 156.0Q49 237 49 350Q49 462 97.0 543.5Q145 625 233.5 669.5Q322 714 442 714ZM442 28Q513 28 564.0 67.5Q615 107 643.0 179.0Q671 251 671 350Q671 449 643.0 521.0Q615 593 564.0 632.5Q513 672 442 672Q372 672 320.5 632.5Q269 593 241.0 521.0Q213 449 213 350Q213 251 241.0 179.0Q269 107 320.5 67.5Q372 28 442 28Z" transform="translate(9678.5,0) scale(1,-1)"/></g> <g fill="#D9CBB3"><path d="M 4703.1 -793.7 C 5159.7 -1029.2 6148.8 -1029.2 6605.4 -793.7 C 6148.8 -739.8 5159.7 -739.8 4703.1 -793.7 Z"/><path d="M 5014.9 -1208.2 C 4983.2 -1454.9 4964.0 -1548.5 5175.8 -1633.6 C 5387.5 -1548.5 5470.3 -1454.9 5438.5 -1208.2 Z"/><path d="M 5870.0 -1208.2 C 5838.2 -1454.9 5921.0 -1548.5 6132.7 -1633.6 C 6344.5 -1548.5 6325.3 -1454.9 6293.6 -1208.2 Z"/><path d="M 4971.8 -900.2 C 4971.8 -1693.8 6336.7 -1693.8 6336.7 -900.2 Z"/><path d="M 5654.2 -1586.6 C 5510.1 -1753.3 5462.1 -1713.3 5462.1 -1613.2 C 5462.1 -1493.2 5548.5 -1473.2 5654.2 -1586.6 Z"/><path d="M 5654.2 -1586.6 C 5798.4 -1753.3 5846.4 -1713.3 5846.4 -1613.2 C 5846.4 -1493.2 5760.0 -1473.2 5654.2 -1586.6 Z"/><circle cx="5654.2" cy="-1586.6" r="82.4"/></g> <g><circle cx="5262.2" cy="-350.0" r="332.5" fill="none" stroke="#C8862A" stroke-width="59.5"/><circle cx="6046.2" cy="-350.0" r="332.5" fill="none" stroke="#C8862A" stroke-width="59.5"/><path d="M 5612.6 -388.5 C 5654.2 -451.5 5654.2 -451.5 5695.9 -388.5" fill="none" stroke="#C8862A" stroke-width="47.6" stroke-linecap="round"/><path d="M 5612.6 -297.5 C 5654.2 -339.5 5654.2 -339.5 5695.9 -297.5" fill="none" stroke="#C8862A" stroke-width="47.6" stroke-linecap="round"/></g> </svg>
+      <span class="selo">Dossier 009</span>
+    </a>
+    <nav aria-label="Pilares editoriales">
+      <ul class="nav-pilares">
+        <li><a href="../temas/pedra-e-poeira.html">Piedra y Polvo</a></li>
+        <li><a href="../temas/descoberto-ontem.html">Descubierto Ayer</a></li>
+        <li><a href="../temas/arquivo-selado.html">Archivo Sellado</a></li>
+        <li><a href="../temas/ultimos-isolados.html">Últimos Aislados</a></li>
+        <li><a href="../sobre.html">Acerca de</a></li>
+        <li class="nav-canal"><a href="https://www.youtube.com/@VestigoOcultoBrasil" target="_blank" rel="noopener">YouTube</a></li>
+      </ul>
+    </nav>
+    <nav class="idiomas" aria-label="Idioma">
+      <a href="../../dossies/manuscrito-voynich.html" hreflang="pt-BR" lang="pt-BR" aria-label="Português">PT</a>
+      <a href="../../en/dossies/manuscrito-voynich.html" hreflang="en" lang="en" aria-label="English">EN</a>
+      <a href="manuscrito-voynich.html" hreflang="es" lang="es" aria-label="Español" aria-current="true">ES</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <article>
+  <header class="dossie-capa">
+    <div class="wrap">
+      <span class="kicker">Dossier 009 · Archivo Sellado · Caso abierto</span>
+      <h1>El manuscrito Voynich</h1>
+      <p class="subtitulo">
+        El pergamino es auténtico. La tinta es de la época. La escritura obedece
+        las leyes estadísticas de una lengua real, y cinco manos diferentes la
+        copiaron con disciplina de copista profesional. Nadie ha leído nunca una
+        sola línea.
+      </p>
+
+      <dl class="ficha">
+        <div><dt>Fondo</dt><dd>Beinecke MS 408, Yale</dd></div>
+        <div><dt>Soporte</dt><dd>Pergamino de vitela</dd></div>
+        <div><dt>Datación C-14</dt><dd>1404 – 1438</dd></div>
+        <div><dt>Extensión</dt><dd>≈ 240 páginas</dd></div>
+        <div><dt>Palabras</dt><dd>≈ 38 mil</dd></div>
+        <div><dt>Estado</dt><dd>Sin descifrar</dd></div>
+      </dl>
+    </div>
+  </header>
+
+  <div class="corpo">
+
+    <p class="abertura">
+      Es un libro pequeño. Veintitrés centímetros y medio de alto por dieciséis
+      de ancho, cinco de grosor — cabe en una mano, aunque nadie lo sostiene así
+      desde hace mucho tiempo. El pergamino es fino y se volvió suave con los
+      años; hicieron falta las pieles de catorce o quince terneros para
+      armarlo. Quien lo hojea con guantes ve primero las plantas: follajes
+      verdes y ocres, raíces rojas dibujadas con el cuidado de un herbario.
+      Después vienen los diagramas circulares, las figuras en baños, las raíces
+      aisladas junto a recipientes. Y, en cada página, corre el texto.
+    </p>
+
+    <p>
+      La letra es firme. No hay tachaduras, no hay vacilación, no hay la
+      caligrafía irregular de quien inventa mientras escribe. Las palabras se
+      separan por espacios como en cualquier libro europeo del siglo XV. Los
+      párrafos empiezan y terminan donde deberían. Cada detalle de aquella
+      página dice que allí hay algo escrito.
+    </p>
+
+    <p>
+      Solo que el alfabeto no es ningún alfabeto conocido, y en más de cien
+      años de intentos — de criptógrafos militares, lingüistas computacionales,
+      medievalistas, aficionados obstinados y al menos dos hombres que murieron
+      convencidos de haberlo logrado — nadie produjo una lectura que otra
+      persona pueda reproducir.
+    </p>
+
+    <h2 id="folios"><span class="indice">01</span>El libro, página por página</h2>
+
+    <p>
+      Antes de cualquier teoría, conviene mirar. Estas son siete de las 213
+      imágenes que la Beinecke publicó del volumen — tres de la sección
+      botánica, que ocupa más de la mitad del libro, y una de cada una de las
+      demás.
+    </p>
+
+<div class="visor larga" id="visor-voynich">
+  <div class="visor-palco">
+    <button class="visor-nav ant" type="button" aria-label="Folio anterior">‹</button>
+    <img src="../../assets/img/vy-004.jpg" width="724" height="980" loading="lazy" decoding="async" class="ativo"
+         data-rotulo="Sección botánica"
+         data-desc="La primera página ilustrada. La planta ocupa la parte alta del folio y el texto corre debajo, en la misma escritura que atraviesa el libro entero."
+         alt="Folio del manuscrito Voynich con una planta de hojas verdes y ocres y texto en la escritura del manuscrito">
+    <img src="../../assets/img/vy-025.jpg" width="685" height="980" loading="lazy" decoding="async"
+         data-rotulo="Sección botánica"
+         data-desc="Hojas anchas y una raíz roja dibujada con precisión de herbario. Ninguna de las plantas del manuscrito corresponde con seguridad a una especie conocida."
+         alt="Folio del manuscrito Voynich con una planta de hojas anchas y raíz roja">
+    <img src="../../assets/img/vy-080.jpg" width="749" height="980" loading="lazy" decoding="async"
+         data-rotulo="Sección botánica"
+         data-desc="Una de las páginas más elaboradas: corona azul y ocre, follaje denso, bulbos en la base. El dibujo es seguro — quien lo hizo no estaba improvisando."
+         alt="Folio del manuscrito Voynich con una planta de corona azul y ocre y bulbos en la base">
+    <img src="../../assets/img/vy-125.jpg" width="727" height="980" loading="lazy" decoding="async"
+         data-rotulo="Sección astronómica"
+         data-desc="Diagrama circular dividido en rayos, con texto que corre por el borde. La sección suele leerse como astronómica o calendárica, pero nada en ella ha sido descifrado."
+         alt="Folio del manuscrito Voynich con un diagrama circular dividido en rayos">
+    <img src="../../assets/img/vy-158.jpg" width="1069" height="980" loading="lazy" decoding="async"
+         data-rotulo="Hoja plegada"
+         data-desc="Una hoja más grande que el libro, plegada hacia dentro de la encuadernación: nueve diagramas circulares unidos por conductos y figuras. Es la página más reproducida del manuscrito."
+         alt="Hoja plegada del manuscrito Voynich con nueve diagramas circulares">
+    <img src="../../assets/img/vy-163.jpg" width="1082" height="980" loading="lazy" decoding="async"
+         data-rotulo="Sección farmacológica"
+         data-desc="Raíces y hojas aisladas, alineadas junto a recipientes decorados. La lectura corriente es la de un recetario — lectura que la escritura no confirma ni desmiente."
+         alt="Folio doble del manuscrito Voynich con raíces aisladas y recipientes decorados">
+    <img src="../../assets/img/vy-190.jpg" width="708" height="980" loading="lazy" decoding="async"
+         data-rotulo="Sección de las recetas"
+         data-desc="Texto corrido, sin ilustración, con una estrella que marca el comienzo de cada párrafo. Es la parte del libro más densa en escritura — y la que más ha frustrado a los criptógrafos."
+         alt="Folio del manuscrito Voynich con texto corrido y estrellas que marcan los párrafos">
+    <button class="visor-nav prox" type="button" aria-label="Folio siguiente">›</button>
+  </div>
+
+  <div class="visor-barra">
+    <div class="linha-topo">
+      <span class="rotulo" data-campo="rotulo">Sección botánica</span>
+      <span class="contagem" data-campo="contagem">01 / 07</span>
+    </div>
+    <p class="descricao" data-campo="descricao"></p>
+    <div class="visor-pontos" role="group" aria-label="Elegir folio"></div>
+    <p class="acervo-fonte">
+      Archivo · Beinecke Rare Book &amp; Manuscript Library, Yale University — MS 408.
+      El manuscrito es de comienzos del siglo XV y está en dominio público.
+      <a href="https://collections.library.yale.edu/catalog/2002046" target="_blank" rel="noopener">Digitalización completa, 213 imágenes</a>.
+    </p>
+  </div>
+</div>
+
+<script>
+(function () {
+  var visor = document.getElementById('visor-voynich');
+  if (!visor) return;
+  var imgs = Array.prototype.slice.call(visor.querySelectorAll('.visor-palco img'));
+  var ant = visor.querySelector('.visor-nav.ant');
+  var prox = visor.querySelector('.visor-nav.prox');
+  var pontos = visor.querySelector('.visor-pontos');
+  var campo = {};
+  visor.querySelectorAll('[data-campo]').forEach(function (e) { campo[e.dataset.campo] = e; });
+  var i = 0;
+
+  imgs.forEach(function (im, n) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.textContent = String(n + 1).padStart(2, '0');
+    b.addEventListener('click', function () { mostrar(n); });
+    pontos.appendChild(b);
+  });
+  var botoes = Array.prototype.slice.call(pontos.children);
+
+  function mostrar(n) {
+    i = Math.max(0, Math.min(imgs.length - 1, n));
+    imgs.forEach(function (im, k) { im.classList.toggle('ativo', k === i); });
+    botoes.forEach(function (b, k) { b.setAttribute('aria-current', String(k === i)); });
+    campo.rotulo.textContent = imgs[i].dataset.rotulo;
+    campo.descricao.textContent = imgs[i].dataset.desc;
+    campo.contagem.textContent = String(i + 1).padStart(2, '0') + ' / ' + String(imgs.length).padStart(2, '0');
+    ant.disabled = i === 0;
+    prox.disabled = i === imgs.length - 1;
+  }
+
+  ant.addEventListener('click', function () { mostrar(i - 1); });
+  prox.addEventListener('click', function () { mostrar(i + 1); });
+  visor.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft') { mostrar(i - 1); }
+    if (e.key === 'ArrowRight') { mostrar(i + 1); }
+  });
+  visor.tabIndex = 0;
+  mostrar(0);
+})();
+</script>
+
+
+    <p>
+      Observe lo que las secciones tienen en común. El texto ocupa siempre la
+      misma proporción de la página. Las ilustraciones nunca invaden la columna
+      de escritura. Hay un proyecto gráfico ahí, y es coherente de principio a
+      fin en un libro que llevó mucho tiempo y mucho dinero hacer.
+    </p>
+
+    <h2 id="materia"><span class="indice">02</span>Lo que dice la materia</h2>
+
+    <p>
+      Esta es la parte del caso que está resuelta, y resolverla eliminó la
+      hipótesis más cómoda.
+    </p>
+
+    <p>
+      En 2009, la Universidad de Arizona dató muestras del pergamino por
+      radiocarbono. El resultado fue coherente en todas las hojas analizadas:
+      <strong>entre 1404 y 1438</strong>. El animal que proporcionó aquella
+      piel murió en la primera mitad del siglo XV.
+    </p>
+
+    <p>
+      La datación del soporte, por sí sola, no probaría nada — el pergamino en
+      blanco podía guardarse durante décadas, y un falsificador con acceso a un
+      códice antiguo tendría material de sobra. Por eso importa tanto el
+      análisis de las tintas. El examen de los pigmentos encontró tinta
+      ferrogálica en el texto y en los contornos, azurita molida en el azul,
+      ocre rojo con hematita en los castaños, compuestos de cobre en los
+      verdes. Nada de eso es anacrónico: es exactamente lo que se esperaría de
+      un manuscrito europeo de la época, y nada en las muestras apunta a
+      material moderno.
+    </p>
+
+    <div class="nota">
+      <strong>Lo que esto cierra y lo que no cierra</strong>
+      El análisis material derriba la hipótesis de una falsificación moderna —
+      la de que Wilfrid Voynich, comerciante de libros raros, habría fabricado
+      el manuscrito para venderlo caro. <em>No</em> derriba la hipótesis de un
+      engaño de la época: alguien del siglo XV podía perfectamente haber
+      producido un libro sin contenido para engañar a un comprador rico. Esa
+      posibilidad sigue en juego, y se discute más adelante.
+    </div>
+
+    <h2 id="donos"><span class="indice">03</span>La cadena de dueños</h2>
+
+    <p>
+      El manuscrito reaparece en el registro histórico en Praga, a comienzos
+      del siglo XVII. La primera hoja lleva una firma hoy casi borrada,
+      recuperada bajo luz ultravioleta: Jacobus Horcicky de Tepenec, el químico
+      imperial de Rodolfo II. Es la evidencia material más antigua de posesión.
+    </p>
+
+    <p>
+      La historia de que el propio Rodolfo II habría comprado el libro por
+      seiscientos ducados — una fortuna — aparece en una carta escrita décadas
+      después y se relata como algo oído, no presenciado. Circula como un hecho
+      desde entonces. No hay documento que identifique este libro en una
+      compra. Hay, en las cuentas de la corte, el registro de una venta a
+      Rodolfo en 1599, por seiscientos florines, pero sin descripción del
+      volumen.
+    </p>
+
+    <p>
+      El primer dueño probado por documento es Georg Baresch, alquimista de
+      Praga, que en 1639 escribió al jesuita Athanasius Kircher, en Roma,
+      pidiendo ayuda para leer el libro que tenía en casa y llamaba esfinge.
+      Kircher, a quien se tenía por el hombre capaz de leer cualquier cosa —
+      había publicado traducciones de los jeroglíficos egipcios que resultarían
+      enteramente fantasiosas —, no respondió a lo que importaba.
+    </p>
+
+    <p>
+      En 1665, Jan Marek Marci, rector de la Universidad Carolina, envió el
+      manuscrito a Kircher junto con la carta que hoy se conserva con el libro.
+      De allí pasó a la biblioteca del Colegio Romano, y más tarde a uno de los
+      lugares donde los jesuitas escondieron su fondo en los alrededores de
+      Roma. Cuál, se discute: la tradición dice Villa Mondragone, en Frascati;
+      la investigación de René Zandbergen apunta a Castel Gandolfo y trata
+      Mondragone como una conjetura del anticuario Kraus. En 1912, Wilfrid
+      Voynich compró a los jesuitas parte de una colección que, según
+      Zandbergen, sumaba unos 280 manuscritos. Este estaba entre ellos, y pasó
+      a llevar su nombre.
+    </p>
+
+    <p>
+      Después vinieron la viuda Ethel, la secretaria Anne Nill, el anticuario
+      Hans Kraus — que lo compró por veinticuatro mil quinientos dólares en
+      1961, pidió ciento sesenta mil y no encontró comprador. En 1969, Kraus lo
+      donó a Yale, donde es el <span class="tarja">MS 408</span> y donde está
+      hasta hoy.
+    </p>
+
+    <h2 id="escrita"><span class="indice">04</span>La escritura</h2>
+
+    <p>
+      Aquí el caso se vuelve difícil de una manera específica: el texto se
+      comporta a la vez como lengua y como no-lengua.
+    </p>
+
+    <figure class="figura larga reveal-fig">
+      <img src="../../assets/img/vy-escrita.jpg" srcset="../../assets/img/vy-escrita-640.jpg 640w, ../../assets/img/vy-escrita.jpg 1200w" sizes="(max-width: 860px) calc(100vw - 2.5rem), (min-width: 1064px) 1000px, 94vw" data-full="../../assets/img/vy-escrita.jpg" loading="lazy" width="1200" height="675"
+           alt="Recorte cerrado de la escritura del manuscrito Voynich, con las palabras separadas por espacios">
+      <figcaption>
+        <b class="acervo-linha">Archivo</b> — la escritura en primer plano, en
+        la sección de las recetas. La mano es firme, el trazo es rápido, no hay
+        correcciones. Quien escribió esto sabía lo que estaba escribiendo.
+      </figcaption>
+    </figure>
+
+    <p>
+      Son unas 38 mil palabras en total, de las cuales aproximadamente 9 mil
+      distintas, escritas con un inventario de 20 a 25 caracteres principales.
+      Las palabras tienen casi siempre entre dos y diez letras — prácticamente
+      no existen palabras de una sola letra ni palabras muy largas, lo que ya
+      es una regularidad poco común.
+    </p>
+
+    <p>
+      <strong>Lo que parece lengua.</strong> La distribución de frecuencia de
+      las palabras obedece la ley de Zipf: la palabra más común aparece cerca
+      de dos veces más que la segunda y tres veces más que la tercera, que es
+      el patrón de cualquier idioma natural y no el de un texto aleatorio. Las
+      palabras tienen una estructura interna regular, con algo parecido a
+      prefijo, raíz y sufijo, y ciertos caracteres solo aparecen en ciertas
+      posiciones. Hay dos variantes estadísticas distribuidas en secciones
+      diferentes, identificadas en los años 1970 y llamadas desde entonces
+      Voynich A y Voynich B — como si fueran dos dialectos, o dos manos con
+      hábitos distintos.
+    </p>
+
+    <p>
+      <strong>Lo que no lo parece.</strong> La entropía condicional del texto
+      es demasiado baja. En cualquier lengua natural ronda entre 3 y 4; aquí
+      queda cerca de 2. Eso significa que, conociendo una letra, es demasiado
+      fácil prever la siguiente — el texto es más previsible que cualquier
+      idioma conocido. Y las palabras se repiten en secuencia con una
+      frecuencia que ninguna lengua tolera: hay pasajes en que la misma palabra
+      aparece dos, tres veces seguidas, y pasajes en que palabras casi
+      idénticas se suceden, variando en una letra.
+    </p>
+
+    <p>
+      En 2020, la medievalista Lisa Fagin Davis identificó, por el análisis de
+      las manos, que el manuscrito fue copiado por <strong>cinco escribas
+      diferentes</strong>, que trabajaban con el mismo sistema de escritura y
+      las mismas convenciones. Eso cambia la naturaleza del problema. No es el
+      delirio privado de una persona: es un equipo entrenado, con reglas
+      compartidas.
+    </p>
+
+    <h2 id="teorias"><span class="indice">05</span>Las teorías, de la más sobria a la más improbable</h2>
+
+    <div class="teoria">
+      <div class="medidor" style="--nivel: 62%"><span>Peso de la evidencia</span><span class="barra"></span><span class="peso">Principal</span></div>
+      <h3>Una lengua real, escrita en cifra o en un alfabeto propio</h3>
+      <p>
+        La hipótesis más económica: hay un texto ahí, en algún idioma, y lo que
+        vemos es ese idioma cifrado o transcrito en un alfabeto inventado. La
+        adherencia a la ley de Zipf y la estructura interna de las palabras
+        apuntan en esa dirección.
+      </p>
+      <p>
+        El obstáculo es la entropía baja. Las cifras de sustitución simple
+        conservan la estadística de la lengua de origen, y no se encontró
+        ninguna lengua de origen — se probaron latín, alemán, hebreo, lenguas
+        túrquicas, dialectos romances. Cifras más complejas explicarían la
+        anomalía; en 2025, Michael Greshko mostró en <em>Cryptologia</em> que
+        una cifra viable en el siglo XV, hecha con naipes y dados, reproduce
+        buena parte de la estadística del texto — sin descifrarlo.
+      </p>
+    </div>
+
+    <div class="teoria">
+      <div class="medidor" style="--nivel: 48%"><span>Peso de la evidencia</span><span class="barra"></span><span class="peso">En disputa</span></div>
+      <h3>Una lengua construida</h3>
+      <p>
+        William Friedman — el criptógrafo que dirigió el equipo que quebró la
+        máquina diplomática japonesa en la Segunda Guerra y que dedicó años al
+        Voynich sin resultado — terminó inclinándose por esta lectura: el texto
+        estaría escrito en una lengua artificial, construida según reglas, y no
+        sería la cifra de un idioma existente. Explicaría la regularidad
+        excesiva de las palabras y la entropía baja.
+      </p>
+      <p>
+        El problema es la fecha. Los proyectos de lengua filosófica universal
+        son cosa del siglo XVII, doscientos años después del pergamino. No es
+        imposible que alguien haya llegado allí antes — simplemente no tiene
+        precedente.
+      </p>
+    </div>
+
+    <div class="teoria">
+      <div class="medidor" style="--nivel: 40%"><span>Peso de la evidencia</span><span class="barra"></span><span class="peso">En disputa</span></div>
+      <h3>Un engaño de la propia época</h3>
+      <p>
+        En 2004, Gordon Rugg mostró que es posible generar texto con las
+        propiedades del Voynich usando una rejilla de Cardano — una hoja
+        perforada que se desliza sobre una tabla de sílabas, produciendo
+        palabras plausibles sin significado alguno. Un estafador del siglo XV
+        podría haber fabricado el libro para vendérselo a un coleccionista rico.
+      </p>
+      <p>
+        En contra de la tesis pesan tres cosas. La rejilla de Cardano se
+        describe por primera vez en 1550, más de un siglo después del
+        pergamino. La distinción entre Voynich A y B es un refinamiento que
+        ningún falsificador necesitaría producir. Y el costo es desproporcionado:
+        quince terneros, meses de trabajo de cinco copistas y un ilustrador,
+        para una estafa que cualquier comprador desharía pidiendo una lectura en
+        voz alta.
+      </p>
+    </div>
+
+    <div class="teoria">
+      <div class="medidor" style="--nivel: 8%; --cor-nivel: var(--ambar-fundo)"><span>Peso de la evidencia</span><span class="barra"></span><span class="peso">Nula</span></div>
+      <h3>Los desciframientos anunciados</h3>
+      <p>
+        En 1921, William Newbold anunció haber leído el manuscrito: habría una
+        micrografía escondida dentro de cada trazo, y el autor sería Roger
+        Bacon, que habría usado microscopio y telescopio siglos antes de que se
+        inventaran. En 1931, John Manly demostró que esas microletras eran el
+        craquelado de la tinta seca. Newbold había leído grietas.
+      </p>
+      <p>
+        El patrón se repitió. Stephen Bax propuso, en 2014, identificar nombres
+        propios a partir de las ilustraciones, y llegó a diez palabras antes de
+        morir, sin consenso. Nicholas Gibbs anunció en 2017 un latín abreviado de
+        forma idiosincrásica: los especialistas señalaron que el resultado no
+        produce un latín con sentido. Gerard Cheshire publicó en 2019 un
+        supuesto protorromance; la Universidad de Bristol retiró el comunicado y
+        se apartó del trabajo, y la medievalista Lisa Fagin Davis resumió el
+        resultado como un disparate aspiracional más, circular y
+        autoconfirmatorio.
+      </p>
+      <p>
+        El denominador común es metodológico. Todos los desciframientos
+        anunciados funcionan en manos de quien los propone y dejan de funcionar
+        en manos de cualquier otra persona — que es la definición práctica de
+        no descifrar.
+      </p>
+    </div>
+
+    <div class="teoria">
+      <div class="medidor" style="--nivel: 3%; --cor-nivel: var(--ambar-fundo)"><span>Peso de la evidencia</span><span class="barra"></span><span class="peso">Nula</span></div>
+      <h3>Origen extraterrestre, viaje en el tiempo, conocimiento perdido</h3>
+      <p>
+        No hay nada en el objeto que lo sostenga. El pergamino es de vitela
+        europea, las tintas son las del taller de la época, el formato es el de
+        un códice común y la encuadernación es modesta. El libro es material y
+        local hasta el último detalle.
+      </p>
+      <p>
+        Vale notar lo que hace esa lectura: transforma un problema interesante —
+        una comunidad de cinco copistas europeos escribiendo durante meses en un
+        sistema que dominaban y que perdimos — en un enigma sin agentes humanos.
+        Es menos, no más.
+      </p>
+    </div>
+
+    <h2 id="cronologia"><span class="indice">06</span>Cronología</h2>
+
+    <ul class="cronologia">
+      <li><span class="quando">1404 – 1438</span><span class="oque">Intervalo de la datación por radiocarbono del pergamino, hecha por la Universidad de Arizona en 2009.</span></li>
+      <li><span class="quando">inicios del s. XVII</span><span class="oque">Jacobus Horcicky de Tepenec, químico imperial de Rodolfo II, firma la primera hoja. Es la posesión más antigua probada.</span></li>
+      <li><span class="quando">1639</span><span class="oque">Georg Baresch escribe a Athanasius Kircher pidiendo ayuda para leer el libro. Es el primer documento que describe el manuscrito.</span></li>
+      <li><span class="quando">1665</span><span class="oque">Jan Marek Marci envía el manuscrito a Kircher con la carta que hoy acompaña al volumen.</span></li>
+      <li><span class="quando">1912</span><span class="oque">Wilfrid Voynich compra manuscritos de una colección jesuita guardada cerca de Roma — Villa Mondragone, en Frascati, según la tradición; Castel Gandolfo, según la investigación reciente. El libro pasa a llevar su nombre.</span></li>
+      <li><span class="quando">1921</span><span class="oque">William Newbold anuncia el desciframiento y la atribución a Roger Bacon.</span></li>
+      <li><span class="quando">1931</span><span class="oque">John Manly demuestra que las microletras de Newbold son craquelado de la tinta. La tesis cae.</span></li>
+      <li><span class="quando">1944 – 46 y 1962 – 63</span><span class="oque">William Friedman organiza dos grupos de estudio con criptógrafos militares y transcribe el texto en tarjetas perforadas. Sin resultado.</span></li>
+      <li><span class="quando">1969</span><span class="oque">Hans Kraus dona el manuscrito a la Universidad Yale, donde recibe la signatura Beinecke MS 408.</span></li>
+      <li><span class="quando">años 1970</span><span class="oque">Prescott Currier identifica las dos variantes estadísticas, Voynich A y Voynich B.</span></li>
+      <li><span class="quando">2004</span><span class="oque">Gordon Rugg publica el método de la rejilla de Cardano y propone la hipótesis del engaño.</span></li>
+      <li><span class="quando">2009</span><span class="oque">Datación por radiocarbono y análisis de pigmentos. La hipótesis de la falsificación moderna cae.</span></li>
+      <li><span class="quando">2020</span><span class="oque">Lisa Fagin Davis identifica cinco manos distintas de copista en el manuscrito.</span></li>
+      <li><span class="quando">2024</span><span class="oque">El análisis multiespectral hecho en 2014 por el Lazarus Project se reexamina y revela columnas de letras escondidas en el margen de la primera hoja.</span></li>
+      <li><span class="quando">noviembre de 2025</span><span class="oque">Michael Greshko publica en <em>Cryptologia</em> la cifra Naibbe, hecha con naipes y dados, que reproduce buena parte de la estadística del texto sin descifrarlo.</span></li>
+    </ul>
+
+    <h2 id="aberto"><span class="indice">07</span>Lo que sigue abierto</h2>
+
+    <p>
+      El hallazgo de 2024 no descifra nada, y precisamente por eso es el mejor
+      resumen del caso.
+    </p>
+
+    <p>
+      En 2014, el Lazarus Project, de la Universidad de Rochester, fotografió
+      diez páginas del manuscrito en bandas del espectro invisibles a simple
+      vista. Las imágenes quedaron guardadas. En 2024, Lisa Fagin Davis las
+      reexaminó y encontró, en el margen derecho de la primera hoja, tres
+      columnas de letras borradas hacía siglos: dos en alfabeto latino y una en
+      caracteres del propio manuscrito. Por la letra, atribuyó las anotaciones
+      a Jan Marek Marci — el rector que tuvo el libro en sus manos entre 1662 y
+      1665 y lo envió a Roma.
+    </p>
+
+    <p>
+      Marci estaba armando una tabla de correspondencias. Intentaba, en otras
+      palabras, exactamente lo que intentaron todos después de él, con
+      exactamente el mismo resultado. Borró las columnas y mandó el libro
+      lejos.
+    </p>
+
+    <div class="nota">
+      <strong>Por qué aún no ha caído</strong>
+      El Voynich es uno de los textos más analizados de la historia — está
+      completamente digitalizado, transcrito en bases públicas y disponible
+      para cualquier persona con una computadora. Resistió a los criptógrafos
+      de las dos guerras, a la lingüística computacional y, más recientemente,
+      a los modelos de lenguaje. Eso es poco común: las cifras históricas
+      suelen caer cuando aumenta la capacidad de cálculo. La resistencia del
+      Voynich sugiere que el problema no es de fuerza bruta — es que aún no se
+      sabe qué tipo de problema es.
+    </div>
+
+    <p>
+      Quedan tres preguntas, y ninguna depende de una tecnología mejor.
+      <strong>Si hay contenido</strong> — la estadística no decide entre lengua
+      y generación mecánica de palabras, porque un sistema lo bastante regular
+      produce las dos firmas. <strong>Qué lengua sería</strong> — y esta puede
+      ser insoluble por principio, si se trata de un idioma sin ningún otro
+      registro escrito. <strong>Para quién se hizo el libro</strong> — cinco
+      copistas y un ilustrador trabajando meses implican encargo, dinero y
+      destinatario, y no se sabe nada de ninguno de los tres.
+    </p>
+
+    <p>
+      Hay una posibilidad que rara vez se dice en voz alta y que el dossier no
+      tiene cómo descartar: que el manuscrito sea perfectamente legible para
+      quien tuviera la clave, y que la clave simplemente ya no exista. No
+      todo secreto se guarda. Algunos solo se olvidan.
+    </p>
+
+    <h2 id="perguntas"><span class="indice">08</span>Preguntas frecuentes</h2>
+
+    <div class="perguntas">
+      <h3>¿Qué es el manuscrito Voynich?</h3>
+      <p>Un libro ilustrado de unas 240 páginas, en pergamino de vitela, escrito en un alfabeto que no corresponde a ninguno conocido: son unas 38 mil palabras, junto a plantas, diagramas circulares y figuras en baños. Está en la biblioteca Beinecke, de la Universidad Yale, con la signatura MS 408.</p>
+
+      <h3>¿El manuscrito Voynich fue descifrado?</h3>
+      <p>No. Hubo desciframientos anunciados — Newbold en 1921, Bax en 2014, Gibbs en 2017, Cheshire en 2019 —, y todos funcionaron en manos de quien los propuso y dejaron de funcionar en las de cualquier otra persona. Vea <a href="#teorias">las teorías</a>.</p>
+
+      <h3>¿El manuscrito Voynich es real o falso?</h3>
+      <p>El objeto es auténtico: el pergamino fue datado por radiocarbono entre 1404 y 1438, y las tintas son las de un manuscrito europeo de la época. Eso derriba la hipótesis de una falsificación moderna, pero no la de un engaño de la propia época, que sigue en discusión. Vea <a href="#materia">lo que dice la materia</a>.</p>
+
+      <h3>¿Quién escribió el manuscrito Voynich?</h3>
+      <p>No se sabe. El análisis de las manos hecho por Lisa Fagin Davis en 2020 identificó cinco escribas diferentes, que trabajaban con el mismo sistema de escritura. Para quién se hizo el libro también sigue <a href="#aberto">abierto</a>.</p>
+
+      <h3>¿Dónde fue encontrado el manuscrito Voynich?</h3>
+      <p>Aparece en Praga a comienzos del siglo XVII y fue enviado a Kircher, en Roma, en 1665. En 1912, el comerciante de libros raros Wilfrid Voynich lo compró de una colección jesuita guardada cerca de Roma — en Villa Mondragone, según la tradición, o en Castel Gandolfo, según la investigación de René Zandbergen. Desde 1969 está en Yale. Vea <a href="#donos">la cadena de dueños</a>.</p>
+    </div>
+
+    <h2 id="fontes"><span class="indice">09</span>Fuentes consultadas</h2>
+
+    <p class="mono" style="text-transform: none; letter-spacing: 0; line-height: 1.7;">
+      Este dossier es un texto propio. Las fuentes de abajo se consultaron para
+      verificar fechas, medidas y atribuciones; ninguna fue reproducida.
+    </p>
+
+    <ul class="fontes">
+      <li>Beinecke Rare Book &amp; Manuscript Library, Yale University — Beinecke MS 408, <em>Cipher manuscript</em> (manuscrito Voynich): registro de catálogo y digitalización completa.</li>
+      <li>Clemens, R. (ed.) — <em>The Voynich Manuscript</em>. New Haven y Londres: Yale University Press, 2016, con los ensayos de R. Zandbergen sobre los primeros propietarios, de A. Hunt sobre Voynich como comprador, de P. Zyats et al. sobre el análisis físico y de W. Sherman sobre los intentos de desciframiento.</li>
+      <li>Zandbergen, R. — <em>The Voynich MS: history</em>, voynich.nu, consultado en octubre de 2026 (cadena de propietarios).</li>
+      <li>Hodgins, G. — <em>Dating Results for Voynich Manuscript Parchment Leaves 8, 26, 47 and 68</em>. Informe a la Yale University Library, 17 de febrero de 2009; y University of Arizona — <em>UA Experts Determine Age of Book ‘Nobody Can Read’</em>, UA News, 10 de febrero de 2011.</li>
+      <li>Barabe, J. G. (McCrone Associates) — <em>Materials Analysis of the Voynich Manuscript</em>. Informe a la Beinecke Rare Book &amp; Manuscript Library, 1 de abril de 2009.</li>
+      <li>Bowern, C. L.; Lindemann, L. — <em>The Linguistics of the Voynich Manuscript</em>. Annual Review of Linguistics 7, 2021. DOI 10.1146/annurev-linguistics-011619-030613</li>
+      <li>Amancio, D. R. et al. — <em>Probing the Statistical Properties of Unknown Texts: Application to the Voynich Manuscript</em>. PLoS ONE 8(7), 2013. DOI 10.1371/journal.pone.0067310</li>
+      <li>Montemurro, M. A.; Zanette, D. H. — <em>Keywords and Co-Occurrence Patterns in the Voynich Manuscript: An Information-Theoretic Analysis</em>. PLoS ONE 8(6), 2013. DOI 10.1371/journal.pone.0066344</li>
+      <li>D’Imperio, M. E. (ed.) — <em>New Research on the Voynich Manuscript: Proceedings of a Seminar</em>, 30 de noviembre de 1976, con las comunicaciones de P. Currier sobre las “lenguas” A y B.</li>
+      <li>Davis, L. F. — <em>How Many Glyphs and How Many Scribes? Digital Paleography and the Voynich Manuscript</em>. Manuscript Studies 5(1), 2020.</li>
+      <li>Davis, L. F. — <em>Multispectral Imaging and the Voynich Manuscript</em>. Manuscript Road Trip, 8 de septiembre de 2024.</li>
+      <li>Shaw, G. — <em>Voynich Manuscript scans reveal early decoding attempt</em>. The Art Newspaper, 25 de septiembre de 2024.</li>
+      <li>Rugg, G. — <em>An Elegant Hoax? A Possible Solution to the Voynich Manuscript</em>. Cryptologia 28(1), enero de 2004 (difundido en diciembre de 2003). DOI 10.1080/0161-110491892755</li>
+      <li>Greshko, M. A. — <em>The Naibbe cipher: a substitution cipher that encrypts Latin and Italian as Voynich Manuscript-like ciphertext</em>. Cryptologia, publicado en línea el 26 de noviembre de 2025. DOI 10.1080/01611194.2025.2566408</li>
+      <li>Newbold, W. R. — <em>The Cipher of Roger Bacon</em>, ed. R. G. Kent. Filadelfia: University of Pennsylvania Press, 1928 (la tesis se presentó en 1921); y la refutación de Manly, J. M. — <em>Roger Bacon and the Voynich MS</em>. Speculum 6(3), 1931.</li>
+      <li>Bax, S. — <em>A proposed partial decoding of the Voynich script</em>, publicación del autor, enero de 2014.</li>
+      <li>Gibbs, N. — artículo en el <em>Times Literary Supplement</em>, septiembre de 2017, y las críticas de L. F. Davis publicadas esa misma semana.</li>
+      <li>Cheshire, G. — <em>The Language and Writing System of MS408 (Voynich) Explained</em>. Romance Studies 37(1), 2019. DOI 10.1080/02639904.2019.1599566; y University of Bristol — <em>Statement re: Voynich research paper</em>, 16 de mayo de 2019.</li>
+      <li>Wikipedia, artículo “Voynich manuscript”, en inglés, consultado en octubre de 2026 (descripción física y estadística del texto), junto a las fuentes de arriba.</li>
+    </ul>
+
+
+    <nav class="relacionados" aria-label="Dossieres relacionados">
+      <span class="mono">Lee también</span>
+      <ul>
+        <li><a href="papiros-herculano.html">
+          <span class="num">Dossier 004</span>
+          <strong>Los papiros de Herculano</strong>
+          <span class="porque">Una biblioteca ilegible por carbonización, en lugar de por cifra.</span>
+        </a></li>
+        <li><a href="serra-da-capivara.html">
+          <span class="num">Dossier 008</span>
+          <strong>La fecha que no cuadra</strong>
+          <span class="porque">Otro caso en que la evidencia existe y la interpretación no cuadra.</span>
+        </a></li>
+      </ul>
+      <p class="tema-link">Este dossier es del pilar <a href="../temas/arquivo-selado.html">Archivo Sellado</a> — vea sus 5 dossieres.</p>
+    </nav>
+  </div>
+  </article>
+
+  <section class="wrap" style="padding-bottom: 2rem;">
+    <a class="proximo" href="percy-fawcett.html">
+      <span>
+        <span class="mono">Siguiente en el archivo · Dossier 010</span>
+        <strong>Percy Fawcett y la expedición que no volvió</strong>
+      </span>
+      <span class="seta">→</span>
+    </a>
+  </section>
+
+</main>
+
+<div class="lupa" id="lupa" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+  <button class="fechar" type="button" id="lupa-fechar">Cerrar ✕</button>
+  <figure>
+    <img id="lupa-img" alt="">
+    <figcaption id="lupa-legenda"></figcaption>
+  </figure>
+</div>
+
+<footer class="rodape">
+  <div class="wrap">
+    <div>
+      <a class="marca" href="../index.html" aria-label="Vestígio Oculto — inicio"><svg role="img" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0.0 -2003.7 10717.5 2080.2">  <g fill="#D9CBB3"><path d="M368 -20 68 627Q52 661 27.5 675.5Q3 690 -20 690H-28V700H290V690H281Q262 690 247.5 673.5Q233 657 244 627L413 214L589 627Q602 657 586.0 673.5Q570 690 551 690H542V700H756V690H747Q725 690 700.5 675.5Q676 661 660 627H659L426 111Q424 105 416.5 88.5Q409 72 400.0 51.0Q391 30 384.5 10.5Q378 -9 377 -20Z" transform="translate(90.0,0) scale(1,-1)"/><path d="M606 205 560 0H42V10H55Q81 10 99.5 28.5Q118 47 119 73V627Q118 653 99.5 671.5Q81 690 55 690H42V700H423Q445 700 469.5 703.0Q494 706 515.0 710.0Q536 714 545 718V543H535V555Q535 601 508 629Q484 653 447 657H269V366H401Q438 367 462.0 391.5Q486 416 486 453V460H496V230H486V238Q486 275 462.0 299.0Q438 323 401 324H269V43H400Q450 43 488.0 62.5Q526 82 553.0 118.5Q580 155 596 205Z" transform="translate(888.0,0) scale(1,-1)"/><path d="M277 714Q297 714 326.5 712.0Q356 710 388 707Q399 705 409 704H476L475 692Q475 692 475 692L463 557H453Q453 609 414.5 640.5Q376 672 312 672Q254 672 218.5 644.0Q183 616 181 576Q180 546 200.0 524.0Q220 502 251 483L442 359Q488 333 511.5 291.0Q535 249 532 193Q527 95 457.0 40.5Q387 -14 267 -14Q223 -14 181.5 -6.5Q140 1 108.0 14.5Q76 28 57 47Q49 69 50.0 100.0Q51 131 59.5 163.0Q68 195 81 216H90Q86 165 108.5 121.5Q131 78 174.5 52.5Q218 27 278 28Q344 29 380.0 61.5Q416 94 416 140Q416 171 397.5 196.0Q379 221 337 244L162 360Q109 390 85.0 437.0Q61 484 66 539Q71 591 97.0 630.5Q123 670 168.5 692.0Q214 714 277 714Z" transform="translate(1590.0,0) scale(1,-1)"/><path d="M654 719V544L644 545V556Q644 603 616.5 630.5Q589 658 542 659H409V73Q410 47 428.5 28.5Q447 10 473 10H486V0H182V10H195Q221 10 239.5 28.5Q258 47 259 73V659H125Q79 658 51.5 630.5Q24 603 24 556V545L14 544V719Q24 715 44.5 711.0Q65 707 90.0 704.0Q115 701 136 701H532Q554 701 578.5 704.0Q603 707 624.0 711.0Q645 715 654 719Z" transform="translate(2238.0,0) scale(1,-1)"/><path d="M119 73V627Q118 653 99.5 671.5Q81 690 55 690H42V700H346V690H333Q307 690 288.5 671.5Q270 653 269 627V73Q270 47 288.5 28.5Q307 10 333 10H346V0H42V10H55Q81 10 99.5 28.5Q118 47 119 73ZM177 769Q194 798 219.0 829.0Q244 860 271.5 887.0Q299 914 320 934Q347 919 363.0 899.0Q379 879 389 852Q359 833 323.5 815.5Q288 798 252.5 784.0Q217 770 184 762Z" transform="translate(2975.0,0) scale(1,-1)"/><path d="M755 280V115Q731 85 683.5 55.0Q636 25 570.0 5.5Q504 -14 423 -14Q309 -14 224.0 30.5Q139 75 92.0 157.0Q45 239 45.0 351.0Q45 463 91.5 544.0Q138 625 224.5 669.5Q311 714 429 714Q484 714 536.0 706.5Q588 699 632.0 687.0Q676 675 705 659L707 488H698Q679 556 643.0 596.5Q607 637 559.5 654.5Q512 672 459 672Q378 672 321.5 632.5Q265 593 236.5 520.0Q208 447 208 345Q208 249 234.5 177.5Q261 106 312.0 67.5Q363 29 436 28Q473 28 507.5 39.5Q542 51 568.0 73.0Q594 95 605 127L606 280Q606 325 555 325H539V335H820V325H805Q775 325 763 310Q754 299 755 280Z" transform="translate(3432.0,0) scale(1,-1)"/><path d="M119 73V627Q118 653 99.5 671.5Q81 690 55 690H42V700H346V690H333Q307 690 288.5 671.5Q270 653 269 627V73Q270 47 288.5 28.5Q307 10 333 10H346V0H42V10H55Q81 10 99.5 28.5Q118 47 119 73Z" transform="translate(4338.0,0) scale(1,-1)"/><path d="M722 292 731 120Q709 83 672.0 53.0Q635 23 580.0 4.5Q525 -14 450 -14Q328 -13 236.5 30.5Q145 74 95.0 155.0Q45 236 45 351Q45 463 94.0 544.5Q143 626 234.5 670.0Q326 714 453 714Q533 714 596.5 698.0Q660 682 703 659L704 488H695Q668 587 607.0 629.5Q546 672 464 672Q384 672 327.0 633.0Q270 594 239.0 523.0Q208 452 208 353Q208 254 237.5 182.0Q267 110 321.5 70.0Q376 30 450 28Q527 28 580.0 53.0Q633 78 665.5 136.0Q698 194 714 292Z" transform="translate(6513.5,0) scale(1,-1)"/><path d="M326 700V690H310Q288 690 272.5 676.0Q257 662 257 640V260Q257 189 280.5 137.0Q304 85 347.5 57.0Q391 29 451 29Q512 29 556.5 55.5Q601 82 625.0 131.0Q649 180 649 247V640Q649 662 633.5 676.0Q618 690 596 690H580V700H790V690H774Q752 690 736.5 676.0Q721 662 721 640V253Q721 171 686.5 111.0Q652 51 587.5 18.5Q523 -14 432 -14Q326 -14 253.0 18.5Q180 51 143.5 110.5Q107 170 107 252V640Q107 662 91.5 676.0Q76 690 54 690H38V700Z" transform="translate(7363.5,0) scale(1,-1)"/><path d="M606 205 560 0H42V10H55Q81 10 99.5 28.5Q118 47 119 73V627Q118 653 99.5 671.5Q81 690 55 690H42V700H346V690H333Q307 690 288.5 671.5Q270 653 269 627V43H400Q450 43 488.0 62.5Q526 82 553.0 118.5Q580 155 596 205Z" transform="translate(8254.5,0) scale(1,-1)"/><path d="M654 719V544L644 545V556Q644 603 616.5 630.5Q589 658 542 659H409V73Q410 47 428.5 28.5Q447 10 473 10H486V0H182V10H195Q221 10 239.5 28.5Q258 47 259 73V659H125Q79 658 51.5 630.5Q24 603 24 556V545L14 544V719Q24 715 44.5 711.0Q65 707 90.0 704.0Q115 701 136 701H532Q554 701 578.5 704.0Q603 707 624.0 711.0Q645 715 654 719Z" transform="translate(8941.5,0) scale(1,-1)"/><path d="M442 714Q562 714 650.5 669.5Q739 625 787.5 544.0Q836 463 836 350Q836 238 787.5 156.5Q739 75 650.5 30.5Q562 -14 442 -14Q322 -14 233.5 30.5Q145 75 97.0 156.0Q49 237 49 350Q49 462 97.0 543.5Q145 625 233.5 669.5Q322 714 442 714ZM442 28Q513 28 564.0 67.5Q615 107 643.0 179.0Q671 251 671 350Q671 449 643.0 521.0Q615 593 564.0 632.5Q513 672 442 672Q372 672 320.5 632.5Q269 593 241.0 521.0Q213 449 213 350Q213 251 241.0 179.0Q269 107 320.5 67.5Q372 28 442 28Z" transform="translate(9678.5,0) scale(1,-1)"/></g> <g fill="#D9CBB3"><path d="M 4703.1 -793.7 C 5159.7 -1029.2 6148.8 -1029.2 6605.4 -793.7 C 6148.8 -739.8 5159.7 -739.8 4703.1 -793.7 Z"/><path d="M 5014.9 -1208.2 C 4983.2 -1454.9 4964.0 -1548.5 5175.8 -1633.6 C 5387.5 -1548.5 5470.3 -1454.9 5438.5 -1208.2 Z"/><path d="M 5870.0 -1208.2 C 5838.2 -1454.9 5921.0 -1548.5 6132.7 -1633.6 C 6344.5 -1548.5 6325.3 -1454.9 6293.6 -1208.2 Z"/><path d="M 4971.8 -900.2 C 4971.8 -1693.8 6336.7 -1693.8 6336.7 -900.2 Z"/><path d="M 5654.2 -1586.6 C 5510.1 -1753.3 5462.1 -1713.3 5462.1 -1613.2 C 5462.1 -1493.2 5548.5 -1473.2 5654.2 -1586.6 Z"/><path d="M 5654.2 -1586.6 C 5798.4 -1753.3 5846.4 -1713.3 5846.4 -1613.2 C 5846.4 -1493.2 5760.0 -1473.2 5654.2 -1586.6 Z"/><circle cx="5654.2" cy="-1586.6" r="82.4"/></g> <g><circle cx="5262.2" cy="-350.0" r="332.5" fill="none" stroke="#C8862A" stroke-width="59.5"/><circle cx="6046.2" cy="-350.0" r="332.5" fill="none" stroke="#C8862A" stroke-width="59.5"/><path d="M 5612.6 -388.5 C 5654.2 -451.5 5654.2 -451.5 5695.9 -388.5" fill="none" stroke="#C8862A" stroke-width="47.6" stroke-linecap="round"/><path d="M 5612.6 -297.5 C 5654.2 -339.5 5654.2 -339.5 5695.9 -297.5" fill="none" stroke="#C8862A" stroke-width="47.6" stroke-linecap="round"/></g> </svg></a>
+      <p>Un archivo abierto sobre lo que la historia empezó a contar y no terminó.</p>
+    </div>
+    <div>
+      <span class="mono">Pilares</span>
+      <p><a href="../temas/pedra-e-poeira.html">Piedra y Polvo</a> · <a href="../temas/descoberto-ontem.html">Descubierto Ayer</a> · <a href="../temas/arquivo-selado.html">Archivo Sellado</a> · <a href="../temas/ultimos-isolados.html">Últimos Aislados</a></p>
+    </div>
+    <div>
+      <span class="mono">Canal</span>
+      <p><a class="canal-handle" href="https://www.youtube.com/@VestigoOcultoBrasil" target="_blank" rel="noopener">@VestigoOcultoBrasil</a></p>
+    </div>
+    <div class="creditos">
+      <span class="mono">© 2026 Vestígio Oculto</span>
+      <span class="mono"><a href="../sobre.html">Acerca de</a> · <a href="../contato.html">Contacto</a> · <a href="../privacidade.html">Política de privacidad</a> · <a href="#" role="button" data-rever-cookies>Revisar la elección de cookies</a></span>
+      <span class="mono">Dossier 009 · revisado en oct. 2026</span>
+    </div>
+  </div>
+</footer>
+<script>
+document.querySelectorAll('[data-rever-cookies]').forEach(function (a) {
+  a.addEventListener('click', function (ev) {
+    ev.preventDefault();
+    try { localStorage.removeItem('vo-consentimento'); } catch (e) {}
+    location.reload();
+  });
+});
+</script>
+
+<script>
+(function () {
+  var barra = document.getElementById('progresso');
+  function atualiza() {
+    var h = document.documentElement;
+    var total = h.scrollHeight - h.clientHeight;
+    barra.style.width = (total > 0 ? (h.scrollTop / total) * 100 : 0) + '%';
+  }
+  document.addEventListener('scroll', atualiza, { passive: true });
+  atualiza();
+
+  var figs = document.querySelectorAll('.reveal-fig');
+  if (!('IntersectionObserver' in window) ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    figs.forEach(function (f) { f.classList.add('visivel'); });
+  } else {
+    var obs = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('visivel'); obs.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    figs.forEach(function (f) { obs.observe(f); });
+  }
+
+  var lupa = document.getElementById('lupa');
+  var img = document.getElementById('lupa-img');
+  var leg = document.getElementById('lupa-legenda');
+  var btn = document.getElementById('lupa-fechar');
+  var ultimo = null;
+
+  function abrir(origem, legenda) {
+    // currentSrc es el archivo que el navegador eligió de hecho. Sin eso, en un
+    // <picture> la lupa descargaría el PNG de respaldo en vez del WebP ya en caché.
+    img.src = origem.dataset.full || origem.currentSrc || origem.src; img.alt = origem.alt;
+    leg.textContent = legenda;
+    lupa.classList.add('aberta');
+    document.body.style.overflow = 'hidden';
+    ultimo = origem; btn.focus();
+  }
+  function fechar() {
+    lupa.classList.remove('aberta');
+    document.body.style.overflow = '';
+    if (ultimo) ultimo.focus();
+  }
+
+  figs.forEach(function (fig) {
+    var alvo = fig.querySelector('img');
+    alvo.tabIndex = 0;
+    alvo.addEventListener('click', function () { abrir(alvo, fig.querySelector('figcaption').textContent.trim()); });
+    alvo.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); alvo.click(); }
+    });
+  });
+
+  /* Los folios del visor también se amplían */
+  document.querySelectorAll('.visor-palco img').forEach(function (im) {
+    im.tabIndex = 0;
+    im.addEventListener('click', function () {
+      abrir(im, im.dataset.rotulo + ' — ' + im.dataset.desc);
+    });
+    im.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') { e.preventDefault(); im.click(); }
+    });
+  });
+
+  btn.addEventListener('click', fechar);
+  lupa.addEventListener('click', function (e) { if (e.target === lupa) fechar(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && lupa.classList.contains('aberta')) fechar();
+  });
+})();
+</script>
+
+<div class="consentimento" id="consentimento" role="dialog" aria-live="polite"
+     aria-label="Aviso de cookies" hidden>
+  <div class="wrap">
+    <p>
+      Este sitio usa cookies de Google AdSense para mostrar anuncios y medir
+      la audiencia. No pedimos registro ni correo electrónico y no tenemos
+      formularios. Detalles en la
+      <a href="../privacidade.html">política de privacidad</a>.
+    </p>
+    <div class="botoes">
+      <button type="button" data-consent="recusar">Rechazar anuncios</button>
+      <button type="button" data-consent="aceitar" class="principal">Entendido</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var CHAVE = 'vo-consentimento';
+  var PUB = 'pub-4401770243539507';
+  var BLOQUEIA = false;   // true = só carrega anúncio após "Entendi"
+
+  function ler() {
+    try { return localStorage.getItem(CHAVE); } catch (e) { return null; }
+  }
+  function gravar(v) {
+    try { localStorage.setItem(CHAVE, v); } catch (e) { /* modo privado: segue sem gravar */ }
+  }
+
+  var escolha = ler();
+
+  // O script do AdSense não fica no HTML: entra por aqui, e só quando pode.
+  function carregaAnuncios() {
+    if (!PUB || document.getElementById('vo-ads')) return;
+    var s = document.createElement('script');
+    s.id = 'vo-ads';
+    s.async = true;
+    s.crossOrigin = 'anonymous';
+    s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-' + PUB;
+    document.head.appendChild(s);
+  }
+
+  if (escolha === 'aceitar' || (escolha === null && !BLOQUEIA)) carregaAnuncios();
+
+  var caixa = document.getElementById('consentimento');
+  if (escolha === null && caixa) {
+    caixa.hidden = false;
+    caixa.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-consent]');
+      if (!b) return;
+      var v = b.dataset.consent;
+      gravar(v);
+      caixa.hidden = true;
+      if (v === 'aceitar') carregaAnuncios();
+      else {
+        // Recusou: se o script já havia entrado, tira da próxima navegação.
+        var s = document.getElementById('vo-ads');
+        if (s) s.remove();
+      }
+    });
+  }
+
+  // Visitante da Europa, Reino Unido ou Suíça: quem pergunta é a mensagem
+  // do Google (Privacidade e mensagens > Regulamentos europeus), que é a
+  // plataforma certificada que o AdSense exige lá. Quando ela diz que o GDPR
+  // se aplica, esta faixa sai da frente, para não haver duas. O script do
+  // AdSense entra antes da escolha (BLOQUEIA = false), então a mensagem dele
+  // chega a carregar. Sem a mensagem publicada no painel, nada disto dispara.
+  if (escolha === null && caixa) {
+    var tentativas = 0;
+    var espera = setInterval(function () {
+      if (typeof window.__tcfapi === 'function') {
+        clearInterval(espera);
+        window.__tcfapi('addEventListener', 2, function (tc, ok) {
+          if (ok && tc && tc.gdprApplies) caixa.hidden = true;
+        });
+      } else if (++tentativas > 40) clearInterval(espera);   // 10 s
+    }, 250);
+  }
+})();
+</script>
+
+
+</body>
+</html>

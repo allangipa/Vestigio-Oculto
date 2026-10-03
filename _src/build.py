@@ -1421,7 +1421,8 @@ def _rotulos(html: str, idioma: str) -> tuple:
             len(re.findall(rf'class="acervo(?:-linha)?">{acv}<', html)))
 
 
-BASTIDOR = re.compile(r"\b(TODO|FIXME|XXX|TRADUZIR|TROCA PRONTA|rascunho|bastidor)\b|\[\?\]", re.I)
+# TODO, FIXME e XXX só em caixa-alta: "todo" é palavra comum em espanhol.
+BASTIDOR = re.compile(r"\b(TODO|FIXME|XXX)\b|(?i:\b(?:TRADUZIR|TROCA PRONTA|rascunho|bastidor)\b)|\[\?\]")
 RESTO_DE_PORTUGUES = re.compile(r"\b(não|também|são|está|uma|pelo|pela|então|através|\w+ções?)\b", re.I)
 
 
@@ -1460,6 +1461,9 @@ def comparar_com_original(original: str, traducao: str, idioma: str, nome: str) 
         erros.append(f"bastidor no texto: {achou.group(0)!r}")
     sem_leia = re.sub(r'<nav class="relacionados".*?</nav>', "", traducao, flags=re.S)
     resto = sorted(set(m.group(0) for m in RESTO_DE_PORTUGUES.finditer(_visivel(sem_leia))))
+    if idioma == "es":
+        # "está" e "pelo" também são espanhol
+        resto = [w for w in resto if w.lower() not in ("está", "pelo")]
     if resto:
         print(f"  ? {nome}: palavras que parecem português (conferir): {resto[:8]}")
     return [f"{nome}: {e}" for e in erros]

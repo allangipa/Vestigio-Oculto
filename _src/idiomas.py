@@ -62,7 +62,11 @@ EQUIVALENTES_DE_CREDITO = {
         "Congresso": "Congress",
         "Procuradoria": "Procuracy",
     },
-    "es": {},
+    "es": {
+        "Procuradoria": "Fiscalía",
+        "Congresso": "Congreso",
+        "EUA": "EE. UU.",
+    },
 }
 
 T = {
@@ -274,8 +278,7 @@ T = {
     },
 
     # ------------------------------------------------------------ espanhol
-    # Inativo até existir _src/es/index.tpl.html e um dossiê traduzido. Os
-    # textos curtos já ficam aqui; as introduções dos pilares, não.
+    # Ativo desde 03/10/2026, com os 22 dossiês e as quatro páginas de pilar.
     "es": {
         "nome": "Español",
         "sigla": "ES",
@@ -302,7 +305,7 @@ T = {
         "tema_link": "Este dossier es del pilar {link} — vea sus {n} dossieres.",
         "tema_link_sem_pagina": "Este dossier es del pilar {link}.",
         "rotulo_recriacao": "Recreación",
-        "rotulo_acervo": "Acervo",
+        "rotulo_acervo": "Archivo",
         "consentimento": {
             "aria": "Aviso de cookies",
             "texto": ("Este sitio usa cookies de Google AdSense para mostrar anuncios y medir\n"
@@ -318,8 +321,108 @@ T = {
             "selado": "Archivo Sellado",
             "isolados": "Últimos Aislados",
         },
-        "temas": {},
-        "og_alt": {},
+        # Páginas de pilar em espanhol (traduzidas do português, de TEMAS no
+        # build.py). Mesma regra do inglês: só saem com o pilar inteiro traduzido.
+        "temas": {
+            "pedra": {
+                "titulo": "Piedra y Polvo: monumentos antiguos · Vestígio Oculto",
+                "descricao": "Göbekli Tepe, la Gran Pirámide, Nan Madol, Nazca, Puma Punku, los moáis "
+                             "y los nadadores del Sahara: monumentos antiguos leídos por la evidencia.",
+                "intro": [
+                    "Piedra y Polvo reúne los dossieres sobre monumentos y sitios antiguos que no caben "
+                    "en la cronología aceptada: lo que fue erigido, pintado o raspado en el suelo antes "
+                    "de que existiera quien, en teoría, supiera hacerlo.",
+                    "Son siete casos. Los pilares de Göbekli Tepe, erigidos por cazadores-recolectores antes "
+                    "de la agricultura; los nadadores pintados en el Gilf Kebir, uno de los lugares más secos "
+                    "del planeta; los vacíos que detectores de partículas cartografiaron dentro de la Gran "
+                    "Pirámide; la ciudad de basalto de Nan Madol, construida sobre un arrecife en Micronesia; "
+                    "las líneas de Nazca, raspadas en el desierto de Perú; los bloques en H de Puma Punku, en "
+                    "el altiplano de Bolivia; y los moáis de Rapa Nui, con el cuerpo entero bajo la ladera.",
+                    "En todos, la cronología va antes que la teoría: primero lo que está en el suelo y cómo "
+                    "se fechó, después las hipótesis, de la más sobria a la más improbable, con el peso de "
+                    "la evidencia de cada una declarado.",
+                ],
+            },
+            "ontem": {
+                "titulo": "Descubierto Ayer: hallazgos recientes · Vestígio Oculto",
+                "descricao": "Lidar en la Amazonía, papiros de Herculano, denisovanos, Serra da Capivara, "
+                             "Anticitera, el Báltico y el ADN fantasma: lo que reveló la tecnología.",
+                "intro": [
+                    "Descubierto Ayer reúne los hallazgos que solo aparecieron porque la tecnología cambió: "
+                    "lidar, tomografía, secuenciación de ADN, sonar — instrumentos nuevos que releen "
+                    "evidencias antiguas.",
+                    "El láser que atravesó el dosel de la Amazonía y dibujó calles y pirámides de tierra; "
+                    "la tomografía sumada al aprendizaje automático que empezó a leer los papiros "
+                    "carbonizados de Herculano; el ADN de un fragmento de falange que reveló a los "
+                    "denisovanos; el carbón de la Serra da Capivara, en Piauí, que no cabe en la cronología "
+                    "de las Américas; los rayos X y la tomografía que leyeron los engranajes del mecanismo "
+                    "de Anticitera; la imagen de sonar de la anomalía del Báltico; y el modelo estadístico "
+                    "que estimó un ADN fantasma en poblaciones de África Occidental.",
+                    "Un descubrimiento reciente no es un caso cerrado. En varios de estos dossieres el dato "
+                    "es firme y la interpretación sigue en disputa, y el texto separa una cosa de la otra.",
+                ],
+            },
+            "selado": {
+                "titulo": "Archivo Sellado: misterios sin resolver · Vestígio Oculto",
+                "descricao": "El manuscrito Voynich, Percy Fawcett, el paso Diatlov, la colonia de Roanoke "
+                             "y Kryptos: misterios sin resolver, lo que se sabe y lo que sigue abierto.",
+                "intro": [
+                    "Archivo Sellado reúne documentos sin descifrar y expediciones sin desenlace: casos en "
+                    "los que el registro existe, está preservado — y sigue ilegible o incompleto.",
+                    "El manuscrito Voynich, en pergamino auténtico y en un idioma que nadie ha identificado; "
+                    "Percy Fawcett, que entró en el Alto Xingú en 1925 tras una ciudad que llamaba “Z” y no "
+                    "volvió; los nueve esquiadores del paso Diatlov, en los Urales, en 1959; la colonia de "
+                    "Roanoke, que dejó CROATOAN tallado en un poste; y Kryptos, la escultura del patio de la "
+                    "CIA cuyo cuarto mensaje sigue con el método desconocido.",
+                    "Aquí el misterio rara vez es la falta de un documento. Es el documento que existe y no "
+                    "cuadra — y cada dossier muestra lo que ya se descartó, lo que es hipótesis y lo que "
+                    "sigue abierto.",
+                ],
+            },
+            "isolados": {
+                "titulo": "Últimos Aislados: pueblos aislados · Vestígio Oculto",
+                "descricao": "La isla Sentinel del Norte, los mashco piro y los korowai: pueblos fuera de "
+                             "alcance, lo que se sabe de ellos y lo que les cuesta nuestra curiosidad.",
+                "intro": [
+                    "Últimos Aislados reúne territorios y pueblos fuera del alcance del mundo contemporáneo "
+                    "— y lo que les cuesta nuestra curiosidad.",
+                    "La isla Sentinel del Norte, en el archipiélago de Andamán, cuya población rechaza el "
+                    "contacto desde hace generaciones; los mashco piro, descendientes de quienes huyeron de "
+                    "las masacres del caucho, en aislamiento voluntario entre Perú y Acre; y los korowai, de "
+                    "Papúa, cuyas casas en lo alto de los árboles se convirtieron, en treinta años de "
+                    "fotografías, en el retrato de un pueblo entero.",
+                    "En estos dossieres el misterio no está enterrado. Casi todo lo que se sabe se vio de "
+                    "lejos, y la pregunta cambia: no es solo lo que existe allí, es lo que decidimos no "
+                    "preguntar.",
+                ],
+            },
+        },
+        # Alt da prévia (og:image) em espanhol: assets/img/og/es/<slug>.jpg,
+        # gerada por _src/_og_tmp/gerar_og.py --es (título em TITULO_ES).
+        "og_alt": {
+            "gobekli-tepe": "Recinto excavado de Göbekli Tepe con pilares en T, bajo el título Göbekli Tepe",
+            "amazonia-lidar": "Relieve por lidar con recintos geométricos de tierra en la Amazonía, bajo el título Ciudades de la Amazonía",
+            "nadadores-do-saara": "Pintura rupestre de una figura humana en postura de nado en Wadi Sura, bajo el título Los nadadores del Sahara",
+            "papiros-herculano": "Rollo de papiro carbonizado de Herculano, bajo el título Los papiros de Herculano",
+            "grande-piramide": "Las hiladas de piedra de la Gran Pirámide de Guiza hasta el vértice, bajo el título La Gran Pirámide",
+            "nan-madol": "Murallas de basalto columnar de Nan Madol entre la vegetación, bajo el título Nan Madol",
+            "denisovanos": "Vista desde el interior de la cueva de Denísova, en el Altái, bajo el título Los denisovanos",
+            "serra-da-capivara": "Sedimento con guijarros y grava en la Serra da Capivara, bajo el título Serra da Capivara",
+            "manuscrito-voynich": "Hoja plegada del manuscrito Voynich con diagramas circulares, bajo el título El manuscrito Voynich",
+            "percy-fawcett": "Retrato de Percy Fawcett en 1911, bajo el título Percy Fawcett",
+            "sentinela-do-norte": "La isla Sentinel del Norte vista desde la ventanilla de un avión, bajo el título La isla Sentinel del Norte",
+            "anticitera": "Réplica moderna del mecanismo de Anticitera, con los cuadrantes de bronce a la vista, bajo el título El mecanismo de Anticitera",
+            "linhas-de-nazca": "El colibrí de las líneas de Nazca visto desde lo alto, bajo el título Las líneas de Nazca",
+            "puma-punku": "Bloques de piedra en forma de H en Puma Punku, bajo el título Puma Punku",
+            "moais-rapa-nui": "Moáis en la ladera de Rano Raraku, en Isla de Pascua, bajo el título Los moáis de Isla de Pascua",
+            "anomalia-do-baltico": "El golfo de Botnia visto por satélite, con hielo en el mar Báltico, bajo el título La anomalía del Báltico",
+            "dna-fantasma": "Sala de secuenciadores de ADN, bajo el título El ADN fantasma",
+            "passagem-dyatlov": "Valle del río Auspiya, en los Urales, con nieve en los árboles, bajo el título El paso Diatlov",
+            "colonia-roanoke": "Mapa de Virginia de Theodor de Bry, 1590, con la isla de Roanoke, bajo el título La colonia de Roanoke",
+            "kryptos": "La escultura Kryptos, de Jim Sanborn, bajo el título Kryptos",
+            "mashco-piro": "El río Las Piedras serpenteando por la selva amazónica de Perú, bajo el título Los mashco piro",
+            "korowai": "Silueta de una casa en el árbol entre palmeras, en Papúa, bajo el título Los korowai",
+        },
         "qtd": lambda n: f"{n} dossier" if n == 1 else f"{n} dossieres",
         "contagem_zero": "Próximamente en español",
         "todos": "Todos",

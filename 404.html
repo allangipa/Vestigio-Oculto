@@ -2027,6 +2027,7 @@ h1, h2, h3, h4 {
     <nav class="idiomas" aria-label="Idioma">
       <a href="/index.html" hreflang="pt-BR" lang="pt-BR" aria-label="Português" aria-current="true">PT</a>
       <a href="/en/index.html" hreflang="en" lang="en" aria-label="English">EN</a>
+      <a href="/es/index.html" hreflang="es" lang="es" aria-label="Español">ES</a>
     </nav>
   </div>
 </header>
@@ -2080,7 +2081,7 @@ document.querySelectorAll('[data-rever-cookies]').forEach(function (a) {
 </script>
 
 <script>
-var m = location.pathname.match(/^\/(en)\//);
+var m = location.pathname.match(/^\/(en|es)\//);
 if (m) location.replace('/' + m[1] + '/404.html');
 </script>
 </body>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vestígio Oculto — dossiês sobre o que a história não fechou</title>
+<title>Vestígio Oculto: dossiês sobre o que a história não fechou</title>
 <meta name="description" content="Arquivo aberto de dossiês investigativos sobre enigmas da arqueologia e da história: o que existe de material, o que se disputa e o que segue sem resposta.">
 <meta name="theme-color" content="#0B0B0C">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -1912,15 +1912,28 @@ h1, h2, h3, h4 {
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Vestígio Oculto",
-  "url": "https://vestigiooculto.com.br/",
-  "inLanguage": "pt-BR",
-  "description": "Portal investigativo de enigmas antigos e contemporâneos: arqueologia, descobertas recentes, arquivos sem decifração e povos isolados.",
-  "publisher": {
-    "@type": "Organization",
-    "name": "Vestígio Oculto"
-  }
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "name": "Vestígio Oculto",
+      "url": "https://vestigiooculto.com.br/",
+      "inLanguage": "pt-BR",
+      "description": "Portal investigativo de enigmas antigos e contemporâneos: arqueologia, descobertas recentes, arquivos sem decifração e povos isolados.",
+      "publisher": { "@type": "Organization", "name": "Vestígio Oculto", "url": "https://vestigiooculto.com.br/" }
+    },
+    {
+      "@type": "Organization",
+      "name": "Vestígio Oculto",
+      "url": "https://vestigiooculto.com.br/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://vestigiooculto.com.br/assets/img/logo-vestigio-oculto.png",
+        "width": 512,
+        "height": 512
+      },
+      "sameAs": ["https://www.youtube.com/@VestigoOcultoBrasil"]
+    }
+  ]
 }
 </script>
 </head>

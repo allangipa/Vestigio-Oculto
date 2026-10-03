@@ -273,6 +273,85 @@ def sem_comentarios(html: str) -> str:
     return "".join(partes)
 
 
+# ---------------------------------------------------------------- SEO
+
+TITULO_MAX = 60
+DESCRICAO_MIN, DESCRICAO_MAX = 120, 155
+
+
+def meta_do_template(template: str) -> tuple:
+    html = (SRC / template).read_text(encoding="utf-8")
+    t = re.search(r"<title>(.*?)</title>", html, re.S)
+    d = re.search(r'<meta name="description" content="([^"]*)"', html)
+    return (t.group(1).strip() if t else ""), (d.group(1) if d else "")
+
+
+def conferir_seo() -> None:
+    """Porteiro de <title> e meta description, antes de gravar qualquer página.
+
+    Em 03/10/2026 metade dos dossiês tinha título acima de 60 caracteres (o
+    Google corta) e descrição de mais de 200 (idem). Regra: título até 60,
+    único, assunto primeiro e a marca no fim; descrição de 120 a 155, única.
+    A 404 não entra na conta da descrição (é noindex).
+    """
+    erros, vistos_t, vistos_d = [], {}, {}
+    for template in PAGINAS:
+        t, d = meta_do_template(template)
+        if not t or len(t) > TITULO_MAX:
+            erros.append(f"{template}: título com {len(t)} caracteres (máx. {TITULO_MAX})")
+        if template != "404.tpl.html" and not DESCRICAO_MIN <= len(d) <= DESCRICAO_MAX:
+            erros.append(f"{template}: descrição com {len(d)} caracteres "
+                         f"({DESCRICAO_MIN}–{DESCRICAO_MAX})")
+        if t in vistos_t:
+            erros.append(f"{template}: título igual ao de {vistos_t[t]}")
+        if d in vistos_d:
+            erros.append(f"{template}: descrição igual à de {vistos_d[d]}")
+        vistos_t[t], vistos_d[d] = template, template
+    if erros:
+        raise SystemExit("  ! SEO: " + "\n  ! SEO: ".join(erros))
+
+
+def breadcrumb(slug: str) -> str:
+    """BreadcrumbList do dossiê: Vestígio Oculto › título (o <h1>). Gerado."""
+    import json
+    dados = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Vestígio Oculto",
+             "item": f"{DOMINIO.rstrip('/')}/"},
+            {"@type": "ListItem", "position": 2, "name": titulo_do_dossie(slug),
+             "item": f"{DOMINIO.rstrip('/')}/dossies/{slug}.html"},
+        ],
+    }
+    return ('<script type="application/ld+json">\n'
+            + json.dumps(dados, ensure_ascii=False, indent=2) + "\n</script>\n</head>")
+
+
+def data_modificacao(template: str) -> str:
+    """lastmod do sitemap. Dossiê: o dateModified do próprio JSON-LD, que é a
+    data editorial. Outras páginas: o último commit do template, ou hoje se
+    ele tem mudança ainda não publicada. A home leva a mais recente de todas.
+    """
+    import subprocess
+    from datetime import date
+    html = (SRC / template).read_text(encoding="utf-8")
+    achou = re.search(r'"dateModified":\s*"(\d{4}-\d{2}-\d{2})"', html)
+    if achou:
+        return achou.group(1)
+    try:
+        sujo = subprocess.run(["git", "status", "--porcelain", "--", f"_src/{template}"],
+                              cwd=RAIZ, capture_output=True, text=True).stdout.strip()
+        if not sujo:
+            data = subprocess.run(["git", "log", "-1", "--format=%cs", "--", f"_src/{template}"],
+                                  cwd=RAIZ, capture_output=True, text=True).stdout.strip()
+            if data:
+                return data
+    except OSError:
+        pass
+    return date.today().isoformat()
+
+
 PAGINAS = {
     "index.tpl.html": "index.html",
     "privacidade.tpl.html": "privacidade.html",
@@ -440,6 +519,7 @@ def main() -> None:
     conferir_ordem_da_home()
     conferir_contagens_da_home()
     conferir_relacionados()
+    conferir_seo()
     variantes_de_imagem()
 
     for template, destino in PAGINAS.items():
@@ -462,6 +542,8 @@ def main() -> None:
         slug = template.replace(".tpl.html", "")
         if slug in NUMERO:
             html = html.replace("{{PROXIMO}}", bloco_proximo(slug))
+            if '"BreadcrumbList"' not in html:
+                html = html.replace("</head>", breadcrumb(slug), 1)
         html = resolver_numeros(html, slug)
 
         saida = RAIZ / destino
@@ -486,8 +568,8 @@ def main() -> None:
 
     # sitemap.xml e robots.txt: o Google precisa dos dois para rastrear bem.
     # São gerados a partir de PAGINAS, então nunca ficam desatualizados.
-    from datetime import date
-    hoje = date.today().isoformat()
+    datas = {d: data_modificacao(t) for t, d in PAGINAS.items()}
+    datas["index.html"] = max(datas.values())
     urls = []
     for destino in PAGINAS.values():
         if destino == "404.html":
@@ -499,7 +581,7 @@ def main() -> None:
         prioridade = "1.0" if destino == "index.html" else ("0.3" if destino == "privacidade.html" else "0.8")
         urls.append(
             f"  <url>\n    <loc>{loc}</loc>\n"
-            f"    <lastmod>{hoje}</lastmod>\n"
+            f"    <lastmod>{datas[destino]}</lastmod>\n"
             f"    <changefreq>monthly</changefreq>\n"
             f"    <priority>{prioridade}</priority>\n  </url>")
     (RAIZ / "sitemap.xml").write_text(

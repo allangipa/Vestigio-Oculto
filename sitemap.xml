@@ -1,183 +1,243 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://vestigiooculto.com.br/</loc>
+    <loc>https://vestigiooculto.com/</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vestigiooculto.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vestigiooculto.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vestigiooculto.com/en/"/>
   </url>
   <url>
-    <loc>https://vestigiooculto.com.br/privacidade.html</loc>
+    <loc>https://vestigiooculto.com/privacidade.html</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vestigiooculto.com/privacidade.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vestigiooculto.com/en/privacidade.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vestigiooculto.com/en/privacidade.html"/>
   </url>
   <url>
-    <loc>https://vestigiooculto.com.br/sobre.html</loc>
+    <loc>https://vestigiooculto.com/sobre.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vestigiooculto.com/sobre.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vestigiooculto.com/en/sobre.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vestigiooculto.com/en/sobre.html"/>
+  </url>
+  <url>
+    <loc>https://vestigiooculto.com/contato.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vestigiooculto.com/contato.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vestigiooculto.com/en/contato.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vestigiooculto.com/en/contato.html"/>
+  </url>
+  <url>
+    <loc>https://vestigiooculto.com/dossies/gobekli-tepe.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vestigiooculto.com/dossies/gobekli-tepe.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vestigiooculto.com/en/dossies/gobekli-tepe.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vestigiooculto.com/en/dossies/gobekli-tepe.html"/>
+  </url>
+  <url>
+    <loc>https://vestigiooculto.com/dossies/amazonia-lidar.html</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vestigiooculto.com.br/contato.html</loc>
+    <loc>https://vestigiooculto.com/dossies/nadadores-do-saara.html</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vestigiooculto.com.br/dossies/gobekli-tepe.html</loc>
+    <loc>https://vestigiooculto.com/dossies/serra-da-capivara.html</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vestigiooculto.com.br/dossies/amazonia-lidar.html</loc>
+    <loc>https://vestigiooculto.com/dossies/papiros-herculano.html</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vestigiooculto.com.br/dossies/nadadores-do-saara.html</loc>
+    <loc>https://vestigiooculto.com/dossies/percy-fawcett.html</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vestigiooculto.com.br/dossies/serra-da-capivara.html</loc>
+    <loc>https://vestigiooculto.com/dossies/manuscrito-voynich.html</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vestigiooculto.com.br/dossies/papiros-herculano.html</loc>
+    <loc>https://vestigiooculto.com/dossies/denisovanos.html</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vestigiooculto.com.br/dossies/percy-fawcett.html</loc>
+    <loc>https://vestigiooculto.com/dossies/sentinela-do-norte.html</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vestigiooculto.com.br/dossies/manuscrito-voynich.html</loc>
+    <loc>https://vestigiooculto.com/dossies/grande-piramide.html</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vestigiooculto.com.br/dossies/denisovanos.html</loc>
+    <loc>https://vestigiooculto.com/dossies/nan-madol.html</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vestigiooculto.com.br/dossies/sentinela-do-norte.html</loc>
+    <loc>https://vestigiooculto.com/dossies/anticitera.html</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vestigiooculto.com.br/dossies/grande-piramide.html</loc>
+    <loc>https://vestigiooculto.com/dossies/linhas-de-nazca.html</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vestigiooculto.com.br/dossies/nan-madol.html</loc>
+    <loc>https://vestigiooculto.com/dossies/puma-punku.html</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vestigiooculto.com.br/dossies/anticitera.html</loc>
+    <loc>https://vestigiooculto.com/dossies/moais-rapa-nui.html</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vestigiooculto.com.br/dossies/linhas-de-nazca.html</loc>
+    <loc>https://vestigiooculto.com/dossies/anomalia-do-baltico.html</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vestigiooculto.com.br/dossies/puma-punku.html</loc>
+    <loc>https://vestigiooculto.com/dossies/dna-fantasma.html</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vestigiooculto.com.br/dossies/moais-rapa-nui.html</loc>
+    <loc>https://vestigiooculto.com/dossies/passagem-dyatlov.html</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vestigiooculto.com.br/dossies/anomalia-do-baltico.html</loc>
+    <loc>https://vestigiooculto.com/dossies/colonia-roanoke.html</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vestigiooculto.com.br/dossies/dna-fantasma.html</loc>
+    <loc>https://vestigiooculto.com/dossies/kryptos.html</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vestigiooculto.com.br/dossies/passagem-dyatlov.html</loc>
+    <loc>https://vestigiooculto.com/dossies/mashco-piro.html</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vestigiooculto.com.br/dossies/colonia-roanoke.html</loc>
+    <loc>https://vestigiooculto.com/dossies/korowai.html</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vestigiooculto.com.br/dossies/kryptos.html</loc>
+    <loc>https://vestigiooculto.com/temas/pedra-e-poeira.html</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vestigiooculto.com.br/dossies/mashco-piro.html</loc>
+    <loc>https://vestigiooculto.com/temas/descoberto-ontem.html</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vestigiooculto.com.br/dossies/korowai.html</loc>
+    <loc>https://vestigiooculto.com/temas/arquivo-selado.html</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vestigiooculto.com.br/temas/pedra-e-poeira.html</loc>
+    <loc>https://vestigiooculto.com/temas/ultimos-isolados.html</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vestigiooculto.com.br/temas/descoberto-ontem.html</loc>
+    <loc>https://vestigiooculto.com/en/</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vestigiooculto.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vestigiooculto.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vestigiooculto.com/en/"/>
   </url>
   <url>
-    <loc>https://vestigiooculto.com.br/temas/arquivo-selado.html</loc>
+    <loc>https://vestigiooculto.com/en/privacidade.html</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vestigiooculto.com/privacidade.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vestigiooculto.com/en/privacidade.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vestigiooculto.com/en/privacidade.html"/>
   </url>
   <url>
-    <loc>https://vestigiooculto.com.br/temas/ultimos-isolados.html</loc>
+    <loc>https://vestigiooculto.com/en/sobre.html</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vestigiooculto.com/sobre.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vestigiooculto.com/en/sobre.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vestigiooculto.com/en/sobre.html"/>
+  </url>
+  <url>
+    <loc>https://vestigiooculto.com/en/contato.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vestigiooculto.com/contato.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vestigiooculto.com/en/contato.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vestigiooculto.com/en/contato.html"/>
+  </url>
+  <url>
+    <loc>https://vestigiooculto.com/en/dossies/gobekli-tepe.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vestigiooculto.com/dossies/gobekli-tepe.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vestigiooculto.com/en/dossies/gobekli-tepe.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vestigiooculto.com/en/dossies/gobekli-tepe.html"/>
   </url>
 </urlset>

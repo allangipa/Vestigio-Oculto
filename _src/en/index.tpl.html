@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vestígio Oculto — {{MARCA_SUB}}</title>
+<meta name="description" content="An open archive of investigative dossiers on the enigmas of archaeology and history: what material exists, what is disputed and what remains unanswered.">
+<meta name="theme-color" content="#0B0B0C">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="canonical" href="{{BASE}}/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Vestígio Oculto — {{MARCA_SUB}}">
+<meta property="og:description" content="Investigative dossiers on what history has not managed to close.">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="{{BASE}}/">
+<meta property="og:image" content="{{DOMINIO}}/assets/img/og-vestigio-oculto.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+{{ADSENSE}}
+{{FONTES}}
+<style>{{CSS}}</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "name": "Vestígio Oculto",
+      "alternateName": "Vestígio Oculto — {{MARCA_SUB}}",
+      "url": "{{BASE}}/",
+      "inLanguage": "en",
+      "description": "Investigative portal on ancient and contemporary enigmas: archaeology, recent discoveries, undeciphered archives and isolated peoples.",
+      "publisher": { "@type": "Organization", "name": "Vestígio Oculto", "url": "{{DOMINIO}}/" }
+    },
+    {
+      "@type": "Organization",
+      "name": "Vestígio Oculto",
+      "url": "{{DOMINIO}}/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{DOMINIO}}/assets/img/logo-vestigio-oculto.png",
+        "width": 512,
+        "height": 512
+      },
+      "sameAs": ["https://www.youtube.com/@VestigoOcultoBrasil"]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="marca" href="index.html" aria-label="Vestígio Oculto — home">
+      {{LOGO}}
+      <span class="selo">Archive</span>
+    </a>
+    <nav aria-label="Sections">
+      <ul class="nav-pilares">
+        <li><a href="#dossies">Dossiers</a></li>
+        <li><a href="#pilares">Pillars</a></li>
+        <li><a href="#metodo">Method</a></li>
+        <li><a href="{{RAIZ}}sobre.html">About</a></li>
+        <li class="nav-canal"><a href="https://www.youtube.com/@VestigoOcultoBrasil" target="_blank" rel="noopener">YouTube</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <div class="wrap painel">
+
+    <section class="hero-foto">
+      <img src="assets/img/001-gobekli-tepe-capa.jpg"
+               srcset="assets/img/001-gobekli-tepe-capa-640.jpg 640w, assets/img/001-gobekli-tepe-capa-800.jpg 800w, assets/img/001-gobekli-tepe-capa-960.jpg 960w, assets/img/001-gobekli-tepe-capa-1280.jpg 1280w, assets/img/001-gobekli-tepe-capa.jpg 1600w"
+               sizes="(min-width: 1328px) 916px, (min-width: 1000px) calc(100vw - 412px), calc(100vw - 48px)"
+           alt="Re-creation of the hill of Göbekli Tepe at dusk, in southeastern Turkey"
+           width="1600" height="900" fetchpriority="high">
+      <span class="recriacao">Re-creation</span>
+      <span class="kicker">Open archive · {{QTD}} in English</span>
+      <h1>Not everything that was buried <em>wanted</em> to be found.</h1>
+      <p class="linha-fina">
+        Investigations into places, documents and peoples that science has
+        only half reached. Each dossier gathers the material that exists, what
+        is disputed in academia and what remains unanswered. The English
+        edition is under way: the complete archive, with {{QTD_PT}}, is in
+        <a href="../index.html" hreflang="pt-BR" lang="pt-BR">Portuguese</a>.
+      </p>
+      <div class="hero-meta">
+        <div><span class="rotulo">In English</span><span class="valor">{{N}}</span></div>
+        <div><span class="rotulo">In Portuguese</span><span class="valor viva">{{N_PT}}</span></div>
+        <div><span class="rotulo">Pillars</span><span class="valor">04</span></div>
+        <div><span class="rotulo">Updated</span><span class="valor">Oct 2026</span></div>
+      </div>
+    </section>
+
+    <aside class="apoio">
+      <div class="caixa">
+        <span class="selo-metodo">✓ Method</span>
+        <h2>When there is no answer, the dossier says so.</h2>
+        <p>
+          Each case brings the chronology before the theory, both ends of the
+          debate with the weight of evidence stated, and the sources at the
+          end. No mystery is closed for convenience — and no improbable thesis
+          is dismissed by decree: it is answered with the material from the
+          site itself.
+        </p>
+      </div>
+
+      <a class="caixa caixa-canal" href="https://www.youtube.com/@VestigoOcultoBrasil" target="_blank" rel="noopener">
+        <span class="linha-canal">
+          <span>
+            <span class="selo-metodo">▸ On YouTube</span>
+            <h2>The dossiers are also episodes.</h2>
+          </span>
+          <span class="play" aria-hidden="true"></span>
+        </span>
+        <p>
+          The same case, narrated. A new episode every week, on the channel
+          <span class="handle">@VestigoOcultoBrasil</span>.
+        </p>
+      </a>
+    </aside>
+  </div>
+
+  <section class="wrap" id="dossies">
+
+    <div class="barra-filtros">
+      <div class="filtros" role="group" aria-label="Filter dossiers by pillar">
+{{FILTROS}}
+      </div>
+      <span class="contador" id="contador">{{QTD}}</span>
+    </div>
+
+    <div class="quadros" id="quadros">
+
+{{CARTOES}}
+
+    </div>
+  </section>
+
+  <section class="secao wrap reveal" id="pilares">
+    <div class="secao-cabeca">
+      <div>
+        <span class="kicker">How the archive is organized</span>
+        <h2>Four fronts, four ways a mystery holds out.</h2>
+      </div>
+      <p>
+        An enigma survives for different reasons: because the stone is too
+        old, because the technology only arrived now, because the paper was
+        never read, or because no one could get close.
+      </p>
+    </div>
+
+    <div class="pilares">
+      <article class="pilar" id="pedra-e-poeira">
+        <h3>Stone and Dust</h3>
+        <p>Architecture and engineering that do not fit the accepted chronology. What was built before there was anyone who, in theory, knew how to build it.</p>
+        <span class="contagem">{{CONTAGEM:pedra}}</span>
+      </article>
+      <article class="pilar" id="descoberto-ontem">
+        <h3>Discovered Yesterday</h3>
+        <p>Finds that only appeared because technology changed. Lidar, tomography, sequencing — new instruments rereading old evidence.</p>
+        <span class="contagem">{{CONTAGEM:ontem}}</span>
+      </article>
+      <article class="pilar" id="arquivo-selado">
+        <h3>Sealed Archive</h3>
+        <p>Undeciphered documents and expeditions without an ending. Cases in which the record exists, is preserved — and remains illegible.</p>
+        <span class="contagem">{{CONTAGEM:selado}}</span>
+      </article>
+      <article class="pilar" id="ultimos-isolados">
+        <h3>The Last Isolated</h3>
+        <p>Territories and peoples beyond the reach of the contemporary world — and what our curiosity costs them.</p>
+        <span class="contagem">{{CONTAGEM:isolados}}</span>
+      </article>
+    </div>
+  </section>
+
+  <section class="secao wrap reveal" id="metodo">
+    <div class="secao-cabeca">
+      <div>
+        <span class="kicker">Criteria</span>
+        <h2>What goes into a dossier and what does not.</h2>
+      </div>
+    </div>
+    <div class="evidencias">
+      <div class="evidencia">
+        <span class="medida">01</span>
+        <span class="legenda"><strong>Chronology before theory.</strong> Dates, coordinates and who was present come first. Interpretation comes after, identified as interpretation.</span>
+      </div>
+      <div class="evidencia">
+        <span class="medida">02</span>
+        <span class="legenda"><strong>Both ends of the debate.</strong> The academic reading and the conspiratorial one appear side by side, with the weight of evidence for each stated.</span>
+      </div>
+      <div class="evidencia">
+        <span class="medida">03</span>
+        <span class="legenda"><strong>Generated images are labeled as such.</strong> Where no photograph of the site exists, the re-creation comes flagged. It never passes for a record.</span>
+      </div>
+      <div class="evidencia">
+        <span class="medida">04</span>
+        <span class="legenda"><strong>Entirely original writing.</strong> The sources are listed at the end of each dossier; the text is written from scratch, never recycled.</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="rodape">
+  <div class="wrap">
+    <div>
+      <a class="marca" href="index.html" aria-label="Vestígio Oculto — home">{{LOGO}}</a>
+      <p>An open archive of what history began to tell and never finished.</p>
+    </div>
+    <div>
+      <span class="mono">Pillars</span>
+      <p>Stone and Dust · Discovered Yesterday · Sealed Archive · The Last Isolated</p>
+    </div>
+    <div>
+      <span class="mono">Channel</span>
+      <p><a class="canal-handle" href="https://www.youtube.com/@VestigoOcultoBrasil" target="_blank" rel="noopener">@VestigoOcultoBrasil</a></p>
+    </div>
+    <div class="creditos">
+      <span class="mono">© 2026 Vestígio Oculto</span>
+      <span class="mono"><a href="{{RAIZ}}sobre.html">About</a> · <a href="{{RAIZ}}contato.html">Contact</a> · <a href="{{RAIZ}}privacidade.html">Privacy policy</a></span>
+      <span class="mono">Original writing · re-created images labeled</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var alvos = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window) ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    alvos.forEach(function (el) { el.classList.add('visivel'); });
+  } else {
+    var obs = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('visivel'); obs.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.05 });
+    alvos.forEach(function (el) { obs.observe(el); });
+  }
+
+  var botoes = document.querySelectorAll('.filtros button');
+  var quadros = document.querySelectorAll('#quadros .quadro');
+  var contador = document.getElementById('contador');
+
+  function filtrar(pilar) {
+    var n = 0;
+    quadros.forEach(function (q) {
+      var mostra = pilar === 'todos' || q.dataset.pilar === pilar;
+      q.hidden = !mostra;
+      if (mostra) n++;
+    });
+    contador.textContent = n === 1 ? '1 dossier' : n + ' dossiers';
+  }
+
+  botoes.forEach(function (b) {
+    b.addEventListener('click', function () {
+      botoes.forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
+      filtrar(b.dataset.pilar);
+    });
+  });
+})();
+</script>
+
+{{CONSENTIMENTO}}
+
+</body>
+</html>

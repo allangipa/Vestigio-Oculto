@@ -17,14 +17,17 @@ enviar a raiz do projeto para o servidor. O CSS vive num lugar só: edite
 _src/vestigio.css e rode o build de novo.
 """
 
+import posixpath
 import re
 import shutil
+import sys
 from pathlib import Path
 
 # ---------------------------------------------------------------
-# TROQUE AQUI quando o domínio estiver definido. É o único lugar:
-# canonical, og:url, og:image e JSON-LD saem todos daqui.
-DOMINIO = "https://vestigiooculto.com.br"
+# O domínio é um lugar só: canonical, og:url, og:image, JSON-LD, hreflang,
+# sitemap e robots saem todos daqui. Desde 03/10/2026 o principal é o .com;
+# o .com.br e o concealedpast.com só redirecionam (ver .htaccess e README).
+DOMINIO = "https://vestigiooculto.com"
 
 # Preload só das três faces que toda página usa em português. As de grego,
 # cirílico e latin-ext ficam de fora de propósito: o unicode-range já garante
@@ -56,6 +59,10 @@ CHAVE_CONSENTIMENTO = "vo-consentimento"
 
 RAIZ = Path(__file__).resolve().parent.parent
 SRC = RAIZ / "_src"
+
+sys.path.insert(0, str(SRC))
+from idiomas import (IDIOMAS, HREFLANG, OG_LOCALE, MARCA_SUB, T,  # noqa: E402
+                     PALAVRAS_DE_CREDITO_PT, CHAVES_OBRIGATORIAS)
 
 # As fontes vêm primeiro: o @font-face precisa estar declarado antes de
 # qualquer regra que use a família. Arquivo gerado por _src/gerar-fontes.py.
@@ -92,35 +99,44 @@ if ADSENSE_LIGADO:
 else:
     ADSENSE = "<!-- AdSense desligado em _src/build.py -->"
 
-CONSENTIMENTO = (SRC / "consentimento.html").read_text(encoding="utf-8")
-CONSENTIMENTO = (CONSENTIMENTO
+_CONSENTIMENTO = (SRC / "consentimento.html").read_text(encoding="utf-8")
+_CONSENTIMENTO = (_CONSENTIMENTO
     .replace("{{ADSENSE_PUB}}", ADSENSE_PUB if ADSENSE_LIGADO else "")
     .replace("{{CONSENTIMENTO_BLOQUEIA}}", "true" if CONSENTIMENTO_BLOQUEIA else "false"))
 
-if f"var CHAVE = '{CHAVE_CONSENTIMENTO}';" not in CONSENTIMENTO:
+if f"var CHAVE = '{CHAVE_CONSENTIMENTO}';" not in _CONSENTIMENTO:
     raise SystemExit(f"  ! consentimento.html não usa a chave {CHAVE_CONSENTIMENTO}")
+
+
+def consentimento(idioma: str) -> str:
+    """A faixa de cookies no idioma da página. A lógica é uma só; o texto
+    vem de idiomas.py."""
+    c = T[idioma]["consentimento"]
+    return (_CONSENTIMENTO.replace("{{C_ARIA}}", c["aria"]).replace("{{C_TEXTO}}", c["texto"])
+            .replace("{{C_RECUSAR}}", c["recusar"]).replace("{{C_ACEITAR}}", c["aceitar"]))
+
 
 # "Rever escolha de cookies", no rodapé de toda página: apaga a escolha salva
 # e recarrega, e a faixa volta a aparecer. O script vai junto do link, e não
 # no bloco de consentimento, porque o 404 não leva a faixa.
-REVER_LINK = ' · <a href="#" role="button" data-rever-cookies>Rever escolha de cookies</a>'
 REVER_JS = ("\n<script>\ndocument.querySelectorAll('[data-rever-cookies]').forEach(function (a) {\n"
             "  a.addEventListener('click', function (ev) {\n    ev.preventDefault();\n"
             f"    try {{ localStorage.removeItem('{CHAVE_CONSENTIMENTO}'); }} catch (e) {{}}\n"
             "    location.reload();\n  });\n});\n</script>")
 
 
-def rodape_rever(html: str, template: str) -> str:
+def rodape_rever(html: str, template: str, idioma: str = "pt") -> str:
     """Põe o link "Rever escolha de cookies" ao lado da política de privacidade
     do rodapé. Para se o rodapé não tiver esse link: página sem a revogação
     não sai."""
     if not ADSENSE_LIGADO:
         return html
     m = re.search(r"<footer\b.*?</footer>", html, flags=re.S)
-    alvo = 'privacidade.html">Política de privacidade</a>'
+    alvo = f'privacidade.html">{T[idioma]["privacidade"]}</a>'
     if not m or m.group(0).count(alvo) != 1:
         raise SystemExit(f"  ! {template}: rodapé sem o link da política de privacidade")
-    rod = m.group(0).replace(alvo, alvo + REVER_LINK)
+    rever = f' · <a href="#" role="button" data-rever-cookies>{T[idioma]["rever_cookies"]}</a>'
+    rod = m.group(0).replace(alvo, alvo + rever)
     return html[:m.start()] + rod + REVER_JS + html[m.end():]
 
 
@@ -235,15 +251,18 @@ OG_ALT = {
 }
 
 
-def imagem_de_compartilhamento(html: str, slug: str, template: str) -> str:
+def imagem_de_compartilhamento(html: str, slug: str, template: str, idioma: str = "pt") -> str:
     """Aponta og:image, twitter:image e o "image" do JSON-LD para a prévia do
-    dossiê, com 1200 x 630 e alt. Para se o arquivo apontado não existir."""
+    dossiê, com 1200 x 630 e alt. Para se o arquivo apontado não existir.
+
+    A prévia é a mesma em todos os idiomas por enquanto (o título gravado nela
+    está em português); o alt é traduzido, em idiomas.py."""
     if slug in OG_ALT:
         nome = f"og/{slug}.jpg"
         if not (RAIZ / "assets" / "img" / nome).is_file():
             raise SystemExit(f"  ! {slug}: prévia de compartilhamento ausente: assets/img/{nome}")
         url = f"{{{{DOMINIO}}}}/assets/img/{nome}"
-        alt = OG_ALT[slug].replace('"', "&quot;")
+        alt = (OG_ALT[slug] if idioma == "pt" else T[idioma]["og_alt"][slug]).replace('"', "&quot;")
         html, n = re.subn(r'<meta property="og:image" content="[^"]*">',
                           f'<meta property="og:image" content="{url}">', html, count=1)
         if n != 1:
@@ -275,9 +294,99 @@ def imagem_de_compartilhamento(html: str, slug: str, template: str) -> str:
 
 # ---------------------------------------------------------------- navegação
 
-def titulo_do_dossie(slug: str) -> str:
+# ---------------------------------------------------------------- idiomas
+#
+# Português na raiz, com os caminhos de sempre; cada outro idioma numa pasta
+# (/en/, /es/) com os MESMOS nomes de arquivo. Uma página só existe num idioma
+# se o template traduzido existir em _src/<idioma>/. A "chave" de uma página é
+# o caminho dela sem o prefixo do idioma (dossies/gobekli-tepe.html): é por
+# ela que as versões se reconhecem como a mesma página.
+
+INTERFACE = ["index.html", "sobre.html", "contato.html", "privacidade.html", "404.html"]
+
+
+def pasta(idioma: str) -> Path:
+    return SRC if idioma == "pt" else SRC / idioma
+
+
+def prefixo(idioma: str) -> str:
+    return "" if idioma == "pt" else f"{idioma}/"
+
+
+def base_url(idioma: str) -> str:
+    return DOMINIO.rstrip("/") + ("" if idioma == "pt" else f"/{idioma}")
+
+
+def url_de(idioma: str, chave: str) -> str:
+    b = base_url(idioma)
+    return b + "/" if chave == "index.html" else f"{b}/{chave}"
+
+
+def templates_do_idioma(idioma: str) -> dict:
+    """chave -> template, só das páginas que existem no idioma."""
+    saida = {}
+    for tpl, chave in PAGINAS.items():
+        caminho = pasta(idioma) / tpl
+        if caminho.is_file():
+            saida[chave] = caminho
+    return saida
+
+
+def dossies_do_idioma(idioma: str) -> list:
+    return [s for s in ARQUIVO if (pasta(idioma) / f"{s}.tpl.html").is_file()]
+
+
+def idiomas_ativos() -> list:
+    """Português sempre; os outros quando têm home traduzida e um dossiê.
+
+    Idioma ativo precisa da interface inteira (home, sobre, contato,
+    privacidade, 404) e do dicionário completo; faltando, o build para em vez
+    de publicar um idioma com link quebrado no rodapé."""
+    ativos = ["pt"]
+    for idioma in IDIOMAS[1:]:
+        if not (pasta(idioma) / "index.tpl.html").is_file() or not dossies_do_idioma(idioma):
+            continue
+        tem = templates_do_idioma(idioma)
+        faltam = [c for c in INTERFACE if c not in tem]
+        faltam += [f"idiomas.py: {k}" for k in CHAVES_OBRIGATORIAS if k not in T.get(idioma, {})]
+        faltam += [f"cartoes/{s}.html" for s in dossies_do_idioma(idioma)
+                   if not (pasta(idioma) / "cartoes" / f"{s}.html").is_file()]
+        faltam += [f"idiomas.py: og_alt de {s}" for s in dossies_do_idioma(idioma)
+                   if s not in T[idioma].get("og_alt", {})]
+        if faltam:
+            raise SystemExit(f"  ! idioma {idioma}: falta {', '.join(faltam)}")
+        ativos.append(idioma)
+    return ativos
+
+
+def temas_do_idioma(idioma: str) -> list:
+    """Pilares com página no idioma. Fora do português, só quando o texto do
+    pilar está traduzido E todos os dossiês dele também: a introdução nomeia
+    cada caso, e prometer na página o que não está nela seria pior que não
+    ter a página."""
+    if idioma == "pt":
+        return list(TEMAS)
+    tem = set(dossies_do_idioma(idioma))
+    pilar_de = {s: p for p, s, _ in cartoes_da_home()}
+    return [k for k in TEMAS
+            if T[idioma].get("temas", {}).get(k, {}).get("intro")
+            and all(s in tem for s, p in pilar_de.items() if p == k)]
+
+
+def paginas_existentes(idioma: str) -> set:
+    """Todas as chaves que existem no idioma, inclusive páginas de pilar."""
+    return (set(templates_do_idioma(idioma))
+            | {f"temas/{TEMAS[k]['slug']}.html" for k in temas_do_idioma(idioma)})
+
+
+def relativo(de: str, para: str) -> str:
+    """Caminho relativo entre duas páginas dadas a partir da raiz do site."""
+    return posixpath.relpath(para, posixpath.dirname(de) or ".")
+
+
+def titulo_do_dossie(slug: str, idioma: str = "pt") -> str:
     """O <h1> do template, sem marcação. É o título que todo link usa."""
-    html = (SRC / f"{slug}.tpl.html").read_text(encoding="utf-8")
+    html = (pasta(idioma) / f"{slug}.tpl.html").read_text(encoding="utf-8")
     achou = re.search(r"<h1[^>]*>(.*?)</h1>", html, re.S)
     if not achou:
         raise SystemExit(f"  ! {slug}: template sem <h1>")
@@ -290,7 +399,7 @@ def proximo_de(slug: str) -> str:
     return ARQUIVO[(i + 1) % len(ARQUIVO)]
 
 
-def bloco_proximo(slug: str) -> str:
+def bloco_proximo(slug: str, idioma: str = "pt") -> str:
     """O link "próximo" de cada dossiê, gerado — nunca escrito à mão.
 
     Até 03/10/2026 cada template trazia o próprio "próximo", e eles tinham
@@ -298,27 +407,36 @@ def bloco_proximo(slug: str) -> str:
     e o mesmo dossiê aparecia com três títulos diferentes. Agora o próximo é
     sempre o número seguinte de ARQUIVO (o 022 volta ao 001), e o título é o
     <h1> da página de destino.
+
+    Fora do português, se o seguinte ainda não foi traduzido, o link vai para
+    o original, com o título original e o aviso "em português".
     """
     alvo = proximo_de(slug)
+    traduzido = alvo in dossies_do_idioma(idioma)
+    titulo = titulo_do_dossie(alvo, idioma if traduzido else "pt")
+    aviso = "" if traduzido else f' · {T[idioma]["em_portugues"]}'
     return (
         f'<a class="proximo" href="{alvo}.html">\n'
         f'      <span>\n'
-        f'        <span class="mono">Próximo no arquivo · Dossiê {NUMERO[alvo]}</span>\n'
-        f'        <strong>{titulo_do_dossie(alvo)}</strong>\n'
+        f'        <span class="mono">{T[idioma]["proximo"]} {NUMERO[alvo]}{aviso}</span>\n'
+        f'        <strong>{titulo}</strong>\n'
         f'      </span>\n'
         f'      <span class="seta">→</span>\n'
         f'    </a>')
 
 
-def conferir_relacionados() -> None:
+def conferir_relacionados(idioma: str = "pt") -> None:
     """O "Leia também" é escrito à mão; isto confere o que derrapa nele.
 
     Quebra o build quando um item cita o dossiê com título diferente do <h1>
-    dele, ou quando repete o "próximo" — que já aparece logo abaixo.
+    dele, ou quando repete o "próximo" — que já aparece logo abaixo. Numa
+    tradução, o título citado é o do dossiê traduzido; se o destino ainda não
+    foi traduzido, é o do original (o link vai para ele).
     """
     erros = []
-    for slug in ARQUIVO:
-        html = (SRC / f"{slug}.tpl.html").read_text(encoding="utf-8")
+    traduzidos = dossies_do_idioma(idioma)
+    for slug in traduzidos:
+        html = (pasta(idioma) / f"{slug}.tpl.html").read_text(encoding="utf-8")
         if html.count("{{PROXIMO}}") != 1:
             erros.append(f"{slug}: precisa de exatamente um {{{{PROXIMO}}}}")
         nav = re.search(r'<nav class="relacionados".*?</nav>', html, re.S)
@@ -332,11 +450,12 @@ def conferir_relacionados() -> None:
                 continue
             if alvo == proximo_de(slug):
                 erros.append(f"{slug}: Leia também repete o próximo ({alvo})")
-            if re.sub(r"\s+", " ", titulo).strip() != titulo_do_dossie(alvo):
+            certo = titulo_do_dossie(alvo, idioma if alvo in traduzidos else "pt")
+            if re.sub(r"\s+", " ", titulo).strip() != certo:
                 erros.append(f"{slug}: Leia também chama {alvo} de \"{titulo}\"; "
-                             f"o título é \"{titulo_do_dossie(alvo)}\"")
+                             f"o título é \"{certo}\"")
     if erros:
-        raise SystemExit("  ! " + "\n  ! ".join(erros))
+        raise SystemExit(f"  ! [{idioma}] " + f"\n  ! [{idioma}] ".join(erros))
 
 
 def conferir_contagens_da_home() -> None:
@@ -385,28 +504,43 @@ TITULO_MAX = 60
 DESCRICAO_MIN, DESCRICAO_MAX = 120, 155
 
 
-def meta_do_template(template: str) -> tuple:
-    html = (SRC / template).read_text(encoding="utf-8")
+def marcadores_de_idioma(html: str, idioma: str) -> str:
+    """Marcadores que dependem só do idioma (valem também no <title>)."""
+    return html.replace("{{MARCA_SUB}}", MARCA_SUB[idioma]).replace("{{BASE}}", base_url(idioma))
+
+
+def meta_do_template(caminho: Path, idioma: str = "pt") -> tuple:
+    html = marcadores_de_idioma(caminho.read_text(encoding="utf-8"), idioma)
     t = re.search(r"<title>(.*?)</title>", html, re.S)
     d = re.search(r'<meta name="description" content="([^"]*)"', html)
     return (t.group(1).strip() if t else ""), (d.group(1) if d else "")
 
 
-def conferir_seo() -> None:
+def texto_do_tema(chave: str, idioma: str) -> dict:
+    """Nome, título, descrição e introdução do pilar no idioma."""
+    t = TEMAS[chave]
+    if idioma == "pt":
+        return t
+    return {**t, "nome": T[idioma]["pilares"][chave], **T[idioma]["temas"][chave]}
+
+
+def conferir_seo(idioma: str = "pt") -> None:
     """Porteiro de <title> e meta description, antes de gravar qualquer página.
 
     Em 03/10/2026 metade dos dossiês tinha título acima de 60 caracteres (o
     Google corta) e descrição de mais de 200 (idem). Regra: título até 60,
     único, assunto primeiro e a marca no fim; descrição de 120 a 155, única.
-    A 404 não entra na conta da descrição (é noindex).
+    A 404 não entra na conta da descrição (é noindex). Vale por idioma.
     """
     erros, vistos_t, vistos_d = [], {}, {}
-    metas = [(tpl, *meta_do_template(tpl)) for tpl in PAGINAS]
-    metas += [(f"temas/{v['slug']}", v["titulo"], v["descricao"]) for v in TEMAS.values()]
+    metas = [(f"{prefixo(idioma)}{c}", *meta_do_template(p, idioma))
+             for c, p in templates_do_idioma(idioma).items()]
+    metas += [(f"{prefixo(idioma)}temas/{TEMAS[k]['slug']}", texto_do_tema(k, idioma)["titulo"],
+               texto_do_tema(k, idioma)["descricao"]) for k in temas_do_idioma(idioma)]
     for template, t, d in metas:
         if not t or len(t) > TITULO_MAX:
             erros.append(f"{template}: título com {len(t)} caracteres (máx. {TITULO_MAX})")
-        if template != "404.tpl.html" and not DESCRICAO_MIN <= len(d) <= DESCRICAO_MAX:
+        if not template.endswith("404.html") and not DESCRICAO_MIN <= len(d) <= DESCRICAO_MAX:
             erros.append(f"{template}: descrição com {len(d)} caracteres "
                          f"({DESCRICAO_MIN}–{DESCRICAO_MAX})")
         if t in vistos_t:
@@ -418,7 +552,7 @@ def conferir_seo() -> None:
         raise SystemExit("  ! SEO: " + "\n  ! SEO: ".join(erros))
 
 
-def breadcrumb(slug: str) -> str:
+def breadcrumb(slug: str, idioma: str = "pt") -> str:
     """BreadcrumbList do dossiê: Vestígio Oculto › título (o <h1>). Gerado."""
     import json
     dados = {
@@ -426,31 +560,32 @@ def breadcrumb(slug: str) -> str:
         "@type": "BreadcrumbList",
         "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Vestígio Oculto",
-             "item": f"{DOMINIO.rstrip('/')}/"},
-            {"@type": "ListItem", "position": 2, "name": titulo_do_dossie(slug),
-             "item": f"{DOMINIO.rstrip('/')}/dossies/{slug}.html"},
+             "item": url_de(idioma, "index.html")},
+            {"@type": "ListItem", "position": 2, "name": titulo_do_dossie(slug, idioma),
+             "item": url_de(idioma, f"dossies/{slug}.html")},
         ],
     }
     return ('<script type="application/ld+json">\n'
             + json.dumps(dados, ensure_ascii=False, indent=2) + "\n</script>\n</head>")
 
 
-def data_modificacao(template: str) -> str:
+def data_modificacao(caminho: Path) -> str:
     """lastmod do sitemap. Dossiê: o dateModified do próprio JSON-LD, que é a
     data editorial. Outras páginas: o último commit do template, ou hoje se
     ele tem mudança ainda não publicada. A home leva a mais recente de todas.
     """
     import subprocess
     from datetime import date
-    html = (SRC / template).read_text(encoding="utf-8")
+    html = caminho.read_text(encoding="utf-8")
     achou = re.search(r'"dateModified":\s*"(\d{4}-\d{2}-\d{2})"', html)
     if achou:
         return achou.group(1)
+    rel = caminho.relative_to(RAIZ).as_posix()
     try:
-        sujo = subprocess.run(["git", "status", "--porcelain", "--", f"_src/{template}"],
+        sujo = subprocess.run(["git", "status", "--porcelain", "--", rel],
                               cwd=RAIZ, capture_output=True, text=True).stdout.strip()
         if not sujo:
-            data = subprocess.run(["git", "log", "-1", "--format=%cs", "--", f"_src/{template}"],
+            data = subprocess.run(["git", "log", "-1", "--format=%cs", "--", rel],
                                   cwd=RAIZ, capture_output=True, text=True).stdout.strip()
             if data:
                 return data
@@ -711,27 +846,53 @@ TEMAS = {
 TEMA_DE_SLUG = {t["slug"]: k for k, t in TEMAS.items()}
 
 
-def cartoes_da_home() -> list:
-    """(pilar, slug, html do cartão) na ordem da home."""
-    html = (SRC / "index.tpl.html").read_text(encoding="utf-8")
+def cartoes_da_home(idioma: str = "pt") -> list:
+    """(pilar, slug, html do cartão) na ordem da home.
+
+    Em português os cartões estão escritos na própria home. Nos outros
+    idiomas, cada dossiê traduzido tem o seu em _src/<idioma>/cartoes/, e a
+    home do idioma é montada com eles, na ordem de ARQUIVO."""
+    if idioma == "pt":
+        html = (SRC / "index.tpl.html").read_text(encoding="utf-8")
+        blocos = re.findall(r'<article class="quadro".*?</article>', html, re.S)
+    else:
+        blocos = []
+        for s in dossies_do_idioma(idioma):
+            texto = (pasta(idioma) / "cartoes" / f"{s}.html").read_text(encoding="utf-8")
+            achou = re.findall(r'<article class="quadro".*?</article>', texto, re.S)
+            if len(achou) != 1:
+                raise SystemExit(f"  ! {idioma}/cartoes/{s}.html: precisa de exatamente um cartão")
+            blocos.append(achou[0])
     saida = []
-    for bloco in re.findall(r'<article class="quadro".*?</article>', html, re.S):
+    for bloco in blocos:
         pilar = re.search(r'data-pilar="([a-z]+)"', bloco).group(1)
         slug = re.search(r'dossies/([a-z0-9-]+)\.html', bloco).group(1)
         saida.append((pilar, slug, bloco))
     return saida
 
 
-def pilar_do_dossie() -> dict:
-    """slug do dossiê -> chave do pilar. Para se o articleSection divergir."""
+def pilar_do_dossie(idioma: str = "pt") -> dict:
+    """slug do dossiê -> chave do pilar. Para se o articleSection divergir.
+
+    Quem decide o pilar é o cartão da home em português; a tradução tem de
+    declarar o mesmo pilar, com o nome traduzido."""
     mapa, erros = {}, []
     for pilar, slug, _ in cartoes_da_home():
         mapa[slug] = pilar
-        tpl = (SRC / f"{slug}.tpl.html").read_text(encoding="utf-8")
+    if idioma != "pt":
+        for pilar, slug, _ in cartoes_da_home(idioma):
+            if mapa.get(slug) != pilar:
+                erros.append(f"{idioma}/cartoes/{slug}.html: data-pilar {pilar!r} ≠ {mapa.get(slug)!r}")
+    nomes = {k: texto_do_tema(k, idioma)["nome"] if idioma == "pt" else T[idioma]["pilares"][k]
+             for k in TEMAS}
+    for slug in dossies_do_idioma(idioma):
+        if slug not in mapa:
+            continue
+        tpl = (pasta(idioma) / f"{slug}.tpl.html").read_text(encoding="utf-8")
         sec = re.search(r'"articleSection":\s*"([^"]+)"', tpl)
-        if not sec or sec.group(1) != TEMAS[pilar]["nome"]:
-            erros.append(f"{slug}: articleSection {sec.group(1) if sec else None!r} "
-                         f"≠ pilar da home {TEMAS[pilar]['nome']!r}")
+        if not sec or sec.group(1) != nomes[mapa[slug]]:
+            erros.append(f"{prefixo(idioma)}{slug}: articleSection {sec.group(1) if sec else None!r} "
+                         f"≠ pilar da home {nomes[mapa[slug]]!r}")
     faltam = [s for s in ARQUIVO if s not in mapa]
     if faltam:
         erros.append(f"dossiês sem pilar na home: {faltam}")
@@ -740,14 +901,15 @@ def pilar_do_dossie() -> dict:
     return mapa
 
 
-def tema_template(chave: str) -> str:
+def tema_template(chave: str, idioma: str = "pt") -> str:
     """Monta, em memória, o template da página do pilar. Ela passa depois pelo
     mesmo caminho das outras páginas (CSS, logo, consentimento, rodapé)."""
     import json
-    t = TEMAS[chave]
+    t = texto_do_tema(chave, idioma)
+    L = T[idioma]
     dom = DOMINIO.rstrip("/")
-    url = f"{dom}/temas/{t['slug']}.html"
-    cartoes = [(s, b) for p, s, b in cartoes_da_home() if p == chave]
+    url = url_de(idioma, f"temas/{t['slug']}.html")
+    cartoes = [(s, b) for p, s, b in cartoes_da_home(idioma) if p == chave]
     blocos = []
     for i, (slug, b) in enumerate(cartoes):
         b = (b.replace('src="assets/', 'src="../assets/')
@@ -758,7 +920,8 @@ def tema_template(chave: str) -> str:
         if i == 0:  # o primeiro cartão é o LCP da página: sem lazy, com prioridade
             b = b.replace(' loading="lazy"', ' fetchpriority="high"', 1)
         blocos.append("      " + b)
-    outros = [TEMAS[k] for k in TEMAS if k != chave]
+    com_pagina = temas_do_idioma(idioma)
+    outros = [(k, texto_do_tema(k, idioma)) for k in TEMAS if k != chave]
     og = f"{dom}/assets/img/og/{cartoes[0][0]}.jpg"
     ld = {
         "@context": "https://schema.org",
@@ -766,13 +929,14 @@ def tema_template(chave: str) -> str:
         "name": t["titulo"].split(" · ")[0],
         "description": t["descricao"],
         "url": url,
-        "inLanguage": "pt-BR",
+        "inLanguage": HREFLANG[idioma],
         "image": og,
-        "isPartOf": {"@type": "WebSite", "name": "Vestígio Oculto", "url": f"{dom}/"},
+        "isPartOf": {"@type": "WebSite", "name": "Vestígio Oculto", "url": url_de(idioma, "index.html")},
         "breadcrumb": {
             "@type": "BreadcrumbList",
             "itemListElement": [
-                {"@type": "ListItem", "position": 1, "name": "Vestígio Oculto", "item": f"{dom}/"},
+                {"@type": "ListItem", "position": 1, "name": "Vestígio Oculto",
+                 "item": url_de(idioma, "index.html")},
                 {"@type": "ListItem", "position": 2, "name": t["nome"], "item": url},
             ],
         },
@@ -780,19 +944,23 @@ def tema_template(chave: str) -> str:
             "@type": "ItemList",
             "numberOfItems": len(cartoes),
             "itemListElement": [
-                {"@type": "ListItem", "position": i, "name": titulo_do_dossie(s),
-                 "url": f"{dom}/dossies/{s}.html"}
+                {"@type": "ListItem", "position": i, "name": titulo_do_dossie(s, idioma),
+                 "url": url_de(idioma, f"dossies/{s}.html")}
                 for i, (s, _) in enumerate(cartoes, start=1)],
         },
     }
     intro = "\n\n".join(f"    <p>{p}</p>" for p in t["intro"])
     nav_outros = "\n".join(
-        f'        <li><a href="{o["slug"]}.html">\n'
-        f'          <span class="num">Pilar</span>\n'
+        f'        <li><a href="{o["slug"] + ".html" if k in com_pagina else "../index.html#" + o["slug"]}">\n'
+        f'          <span class="num">{L["pilar"]}</span>\n'
         f'          <strong>{o["nome"]}</strong>\n'
-        f'        </a></li>' for o in outros)
+        f'        </a></li>' for k, o in outros)
+    nav_pilares = "\n".join(
+        f'        <li><a href="{o["slug"] + ".html" if k in com_pagina else "../index.html#" + o["slug"]}">'
+        f'{o["nome"]}</a></li>'
+        for k, o in [(k, texto_do_tema(k, idioma)) for k in TEMAS])
     return f"""<!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="{HREFLANG[idioma]}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -805,7 +973,7 @@ def tema_template(chave: str) -> str:
 <meta property="og:type" content="website">
 <meta property="og:title" content="{t['nome']} — Vestígio Oculto">
 <meta property="og:description" content="{t['descricao']}">
-<meta property="og:locale" content="pt_BR">
+<meta property="og:locale" content="{OG_LOCALE[idioma]}">
 <meta property="og:url" content="{url}">
 <meta property="og:image" content="{og}">
 <meta property="og:image:width" content="1200">
@@ -822,17 +990,14 @@ def tema_template(chave: str) -> str:
 
 <header class="topbar">
   <div class="wrap">
-    <a class="marca" href="../index.html" aria-label="Vestígio Oculto — início">
+    <a class="marca" href="../index.html" aria-label="{L['inicio_aria']}">
       {{{{LOGO}}}}
-      <span class="selo">Pilar</span>
+      <span class="selo">{L['pilar']}</span>
     </a>
-    <nav aria-label="Pilares editoriais">
+    <nav aria-label="{L['pilares_aria']}">
       <ul class="nav-pilares">
-        <li><a href="pedra-e-poeira.html">Pedra e Poeira</a></li>
-        <li><a href="descoberto-ontem.html">Descoberto Ontem</a></li>
-        <li><a href="arquivo-selado.html">Arquivo Selado</a></li>
-        <li><a href="ultimos-isolados.html">Últimos Isolados</a></li>
-        <li><a href="../sobre.html">Sobre</a></li>
+{nav_pilares}
+        <li><a href="../sobre.html">{L['sobre']}</a></li>
         <li class="nav-canal"><a href="https://www.youtube.com/@VestigoOcultoBrasil" target="_blank" rel="noopener">YouTube</a></li>
       </ul>
     </nav>
@@ -842,7 +1007,7 @@ def tema_template(chave: str) -> str:
 <main>
   <header class="dossie-capa">
     <div class="wrap">
-      <span class="kicker"><a href="../index.html">Arquivo</a> · Pilar · {len(cartoes):02d} dossiês</span>
+      <span class="kicker"><a href="../index.html">{L['arquivo']}</a> · {L['pilar']} · {n_dossies(idioma, len(cartoes))}</span>
       <h1>{t['nome']}</h1>
     </div>
   </header>
@@ -852,13 +1017,13 @@ def tema_template(chave: str) -> str:
   </div>
 
   <section class="wrap" id="dossies" aria-labelledby="dossies-titulo">
-    <h2 class="tema-lista" id="dossies-titulo">Os {len(cartoes)} dossiês do pilar</h2>
+    <h2 class="tema-lista" id="dossies-titulo">{L['dossies_do_pilar'].format(n=len(cartoes))}</h2>
     <div class="quadros">
 {chr(10).join(blocos)}
     </div>
 
-    <nav class="relacionados" aria-label="Outros pilares">
-      <span class="mono">Outros pilares</span>
+    <nav class="relacionados" aria-label="{L['outros_pilares']}">
+      <span class="mono">{L['outros_pilares']}</span>
       <ul>
 {nav_outros}
       </ul>
@@ -869,21 +1034,21 @@ def tema_template(chave: str) -> str:
 <footer class="rodape">
   <div class="wrap">
     <div>
-      <a class="marca" href="../index.html" aria-label="Vestígio Oculto — início">{{{{LOGO}}}}</a>
-      <p>Um arquivo aberto sobre o que a história começou e não terminou de contar.</p>
+      <a class="marca" href="../index.html" aria-label="{L['inicio_aria']}">{{{{LOGO}}}}</a>
+      <p>{L['slogan']}</p>
     </div>
     <div>
-      <span class="mono">Pilares</span>
-      <p>Pedra e Poeira · Descoberto Ontem · Arquivo Selado · Últimos Isolados</p>
+      <span class="mono">{L['pilares_rotulo']}</span>
+      <p>{pilares_texto(idioma)}</p>
     </div>
     <div>
-      <span class="mono">Canal</span>
+      <span class="mono">{L['canal']}</span>
       <p><a class="canal-handle" href="https://www.youtube.com/@VestigoOcultoBrasil" target="_blank" rel="noopener">@VestigoOcultoBrasil</a></p>
     </div>
     <div class="creditos">
       <span class="mono">© 2026 Vestígio Oculto</span>
-      <span class="mono"><a href="{{{{RAIZ}}}}sobre.html">Sobre</a> · <a href="{{{{RAIZ}}}}contato.html">Contato</a> · <a href="{{{{RAIZ}}}}privacidade.html">Política de privacidade</a></span>
-      <span class="mono">Textos autorais · imagens de recriação sinalizadas</span>
+      <span class="mono"><a href="{{{{RAIZ}}}}sobre.html">{L['sobre']}</a> · <a href="{{{{RAIZ}}}}contato.html">{L['contato']}</a> · <a href="{{{{RAIZ}}}}privacidade.html">{L['privacidade']}</a></span>
+      <span class="mono">{L['rodape_selo']}</span>
     </div>
   </div>
 </footer>
@@ -895,41 +1060,62 @@ def tema_template(chave: str) -> str:
 """
 
 
-PILARES_TEXTO = "Pedra e Poeira · Descoberto Ontem · Arquivo Selado · Últimos Isolados"
+def pilares_texto(idioma: str) -> str:
+    """A linha "Pedra e Poeira · Descoberto Ontem · ..." do rodapé, em texto
+    puro, como os templates a escrevem; ligar_pilares a transforma em links."""
+    return " · ".join(T[idioma]["pilares"][k] for k in TEMAS)
 
 
-def ligar_pilares(html: str, destino: str, pilar_de: dict) -> str:
+def href_do_pilar(k: str, chave: str, idioma: str) -> str:
+    """Para onde aponta uma menção ao pilar k na página `chave` do idioma:
+    a página do pilar, se ela existe no idioma; senão, a seção do pilar na
+    home do idioma."""
+    slug = TEMAS[k]["slug"]
+    if k in temas_do_idioma(idioma):
+        return relativo(chave, f"temas/{slug}.html")
+    return relativo(chave, "index.html") + f"#{slug}"
+
+
+def ligar_pilares(html: str, destino: str, pilar_de: dict, idioma: str = "pt") -> str:
     """Liga toda menção de pilar à página do pilar.
 
     - rodapé: a linha "Pedra e Poeira · ..." (texto puro) vira links;
     - menu dos dossiês: index.html#<pilar> passa a apontar para temas/<pilar>.html;
     - home: o título de cada pilar na seção "Pilares" vira link;
     - dossiê: o "Leia também" ganha a linha do pilar dele.
+
+    `destino` é a chave da página (sem o prefixo do idioma). Num idioma em que
+    o pilar ainda não tem página, os links ficam na seção do pilar na home.
     """
     raiz = "../" if "/" in destino else ""
-    em_temas = destino.startswith("temas/")
-    base = "" if em_temas else f"{raiz}temas/"
-    links = " · ".join(f'<a href="{base}{t["slug"]}.html">{t["nome"]}</a>' for t in TEMAS.values())
-    html = html.replace(f"<p>{PILARES_TEXTO}</p>", f"<p>{links}</p>")
-    for t in TEMAS.values():
-        html = html.replace(f'href="{raiz}index.html#{t["slug"]}"', f'href="{base}{t["slug"]}.html"')
-        if destino == "index.html":
+    nomes = T[idioma]["pilares"]
+    com_pagina = temas_do_idioma(idioma)
+    links = " · ".join(f'<a href="{href_do_pilar(k, destino, idioma)}">{nomes[k]}</a>' for k in TEMAS)
+    html = html.replace(f"<p>{pilares_texto(idioma)}</p>", f"<p>{links}</p>")
+    for k, t in TEMAS.items():
+        if k in com_pagina:
+            html = html.replace(f'href="{raiz}index.html#{t["slug"]}"',
+                                f'href="{href_do_pilar(k, destino, idioma)}"')
+        if destino == "index.html" and k in com_pagina:
             html, n = re.subn(
-                rf'(<article class="pilar" id="{t["slug"]}">\s*<h3>){re.escape(t["nome"])}(</h3>)',
-                rf'\1<a href="temas/{t["slug"]}.html">{t["nome"]}</a>\2', html)
+                rf'(<article class="pilar" id="{t["slug"]}">\s*<h3>){re.escape(nomes[k])}(</h3>)',
+                rf'\1<a href="temas/{t["slug"]}.html">{nomes[k]}</a>\2', html)
             if n != 1:
-                raise SystemExit(f"  ! index.tpl.html: pilar {t['slug']} sem título para ligar")
+                raise SystemExit(f"  ! {prefixo(idioma)}index: pilar {t['slug']} sem título para ligar")
     slug = destino.removeprefix("dossies/").removesuffix(".html")
     if destino.startswith("dossies/") and slug in pilar_de:
-        t = TEMAS[pilar_de[slug]]
-        n_pilar = sum(1 for v in pilar_de.values() if v == pilar_de[slug])
-        linha = (f'\n      <p class="tema-link">Este dossiê é do pilar '
-                 f'<a href="../temas/{t["slug"]}.html">{t["nome"]}</a> — '
-                 f'veja os {n_pilar} dossiês dele.</p>')
+        k = pilar_de[slug]
+        link = f'<a href="{href_do_pilar(k, destino, idioma)}">{nomes[k]}</a>'
+        if k in com_pagina:
+            n_pilar = sum(1 for v in pilar_de.values() if v == k)
+            frase = T[idioma]["tema_link"].format(link=link, n=n_pilar)
+        else:
+            frase = T[idioma]["tema_link_sem_pagina"].format(link=link)
+        linha = f'\n      <p class="tema-link">{frase}</p>'
         html, n = re.subn(r'(<nav class="relacionados"[^>]*>.*?</ul>)', lambda m: m.group(1) + linha,
                           html, count=1, flags=re.S)
         if n != 1:
-            raise SystemExit(f"  ! {destino}: sem Leia também para a linha do pilar")
+            raise SystemExit(f"  ! {prefixo(idioma)}{destino}: sem Leia também para a linha do pilar")
     return html
 
 
@@ -1023,25 +1209,300 @@ def preload_do_lcp(html: str, destino: str) -> str:
     return html.replace("{{FONTES}}", tag + "{{FONTES}}", 1)
 
 
+# ---------------------------------------------------------------- idiomas: montagem
+
+def n_dossies(idioma: str, n: int) -> str:
+    """"07 dossiês", "01 dossier"."""
+    return T[idioma]["dossie_n1" if n == 1 else "dossies_n"].format(n=n)
+
+
+def montar_home(html: str, idioma: str) -> str:
+    """Home de um idioma que não o português: os cartões, os filtros e as
+    contagens saem dos dossiês traduzidos, nunca escritos à mão."""
+    L = T[idioma]
+    cartoes = cartoes_da_home(idioma)
+    n, n_pt = len(cartoes), len(cartoes_da_home())
+    pilares = [k for k in TEMAS if any(p == k for p, _, _ in cartoes)]
+    filtros = [f'        <button type="button" data-pilar="todos" aria-pressed="true">{L["todos"]}</button>']
+    filtros += [f'        <button type="button" data-pilar="{k}">{L["pilares"][k]}</button>' for k in pilares]
+    html = (html.replace("{{CARTOES}}", "\n\n".join("      " + b for _, _, b in cartoes))
+                .replace("{{FILTROS}}", "\n".join(filtros))
+                .replace("{{QTD}}", L["qtd"](n)).replace("{{N}}", f"{n:02d}")
+                .replace("{{QTD_PT}}", L["qtd"](n_pt)).replace("{{N_PT}}", f"{n_pt:02d}"))
+    for k in TEMAS:
+        c = sum(1 for p, _, _ in cartoes if p == k)
+        html = html.replace(f"{{{{CONTAGEM:{k}}}}}", n_dossies(idioma, c) if c else L["contagem_zero"])
+    sobra = re.sub(r"\{\{(CSS|FONTES|LOGO|ADSENSE|CONSENTIMENTO|RAIZ|DOMINIO|NUM[^}]*)\}\}", "", html)
+    if "{{" in sobra:
+        raise SystemExit(f"  ! {idioma}/index.tpl.html: marcador sem resolver: "
+                         + ", ".join(sorted(set(re.findall(r"\{\{[^}]+\}\}", sobra)))))
+    return html
+
+
+def cabecalho_de_idioma(html: str, chave: str, idioma: str, ativos: list, existe: dict) -> str:
+    """hreflang de todas as versões da página (com x-default: inglês quando
+    existe, senão português) e og:locale:alternate. A 404 não leva: é noindex."""
+    if chave == "404.html":
+        return html
+    linhas = [f'<link rel="alternate" hreflang="{HREFLANG[x]}" href="{url_de(x, chave)}">'
+              for x in ativos if chave in existe[x]]
+    padrao = "en" if "en" in ativos and chave in existe["en"] else "pt"
+    linhas.append(f'<link rel="alternate" hreflang="x-default" href="{url_de(padrao, chave)}">')
+    html, n = re.subn(r'(<link rel="canonical" href="[^"]*">\n)',
+                      lambda m: m.group(1) + "\n".join(linhas) + "\n", html, count=1)
+    if n != 1:
+        raise SystemExit(f"  ! {prefixo(idioma)}{chave}: sem canonical para pôr o hreflang ao lado")
+    outros = [x for x in ativos if x != idioma and chave in existe[x]]
+    if outros:
+        alt = "".join(f'<meta property="og:locale:alternate" content="{OG_LOCALE[x]}">\n' for x in outros)
+        html = re.sub(r'(<meta property="og:locale" content="[^"]*">\n)', lambda m: m.group(1) + alt,
+                      html, count=1)
+    return html
+
+
+def seletor_de_idioma(html: str, chave: str, idioma: str, ativos: list, existe: dict) -> str:
+    """PT · EN no cabeçalho, só com os idiomas ativos. Cada um leva à mesma
+    página no outro idioma; se ela ainda não foi traduzida, à home dele (e o
+    title avisa). Fica fora do menu porque o menu some no celular."""
+    if len(ativos) < 2:
+        return html
+    de = prefixo(idioma) + chave
+    itens = []
+    for x in ativos:
+        equivalente = chave in existe[x] and chave != "404.html"
+        para = prefixo(x) + (chave if equivalente else "index.html")
+        href = "/" + para if chave == "404.html" else relativo(de, para)
+        extra = ' aria-current="true"' if x == idioma else ""
+        if not equivalente and x != idioma and chave != "404.html":
+            extra += f' title="{T[idioma]["sem_traducao"].format(idioma=T[x]["nome"])}"'
+        itens.append(f'<a href="{href}" hreflang="{HREFLANG[x]}" lang="{HREFLANG[x]}" '
+                     f'aria-label="{T[x]["nome"]}"{extra}>{T[x]["sigla"]}</a>')
+    nav = (f'\n    <nav class="idiomas" aria-label="{T[idioma]["idioma_aria"]}">\n      '
+           + "\n      ".join(itens) + "\n    </nav>")
+    html, n = re.subn(r'(<header class="topbar">.*?)(\n  </div>\n</header>)',
+                      lambda m: m.group(1) + nav + m.group(2), html, count=1, flags=re.S)
+    if n != 1:
+        raise SystemExit(f"  ! {de}: cabeçalho fora do padrão para o seletor de idioma")
+    return html
+
+
+def ligar_ao_original(html: str, chave: str, idioma: str, existe: dict) -> str:
+    """Numa tradução, link para página que ainda não existe no idioma vai para
+    o original em português, com hreflang="pt-BR" e, nos cartões do "Leia
+    também", o aviso "em português". Link para página que não existe em
+    idioma nenhum para o build."""
+    pasta_pg = posixpath.dirname(chave)
+    sobe = "../" * (chave.count("/") + 1)
+    quebrados = []
+
+    def troca(m):
+        abre, href, corpo = m.group(1), m.group(2), m.group(3)
+        if re.match(r"^(?:[a-z]+:|#|/)", href):
+            return m.group(0)
+        caminho, _, frag = href.partition("#")
+        if not caminho.endswith(".html"):
+            return m.group(0)
+        alvo = posixpath.normpath(posixpath.join(pasta_pg, caminho))
+        if alvo.startswith("..") or alvo in existe[idioma]:
+            return m.group(0)
+        if alvo not in existe["pt"]:
+            quebrados.append(href)
+            return m.group(0)
+        novo = sobe + alvo + (f"#{frag}" if frag else "")
+        abre = abre.replace(f'href="{href}"', f'href="{novo}" hreflang="pt-BR"', 1)
+        corpo = re.sub(r'(<span class="num">[^<]*)(</span>)',
+                       lambda s: f'{s.group(1)} · {T[idioma]["em_portugues"]}{s.group(2)}', corpo, count=1)
+        return abre + corpo + "</a>"
+
+    html = re.sub(r'(<a\b[^>]*?\bhref="([^"]*)"[^>]*>)(.*?)</a>', troca, html, flags=re.S)
+    if quebrados:
+        raise SystemExit(f"  ! {prefixo(idioma)}{chave}: link para página inexistente: {sorted(set(quebrados))}")
+    return html
+
+
+def subir_recursos(html: str, idioma: str) -> str:
+    """O template traduzido escreve os caminhos como o original (../assets/...).
+    As imagens, as fontes e o favicon moram uma vez só, na raiz do site; aqui
+    eles ganham o ../ a mais que a pasta do idioma pede."""
+    if idioma == "pt":
+        return html
+    html = re.sub(r'(\b(?:href|src|data-full)=")((?:\.\./)*)(assets/|favicon\.svg)', r'\1../\2\3', html)
+    return re.sub(r'(\b(?:srcset|imagesrcset)=")([^"]*)"',
+                  lambda m: m.group(1) + re.sub(r'(^|,\s*)((?:\.\./)*)(assets/)', r'\1../\2\3',
+                                                m.group(2)) + '"', html)
+
+
+def desvio_do_404(html: str, ativos: list) -> str:
+    """O servidor tem uma 404 só, a da raiz (português). Quem cai nela vindo de
+    /en/... é levado à 404 do próprio idioma. O status 404 já foi servido."""
+    outros = [x for x in ativos if x != "pt"]
+    if not outros:
+        return html
+    js = ("<script>\nvar m = location.pathname.match(/^\\/(" + "|".join(outros) + ")\\//);\n"
+          "if (m) location.replace('/' + m[1] + '/404.html');\n</script>\n")
+    return html.replace("</body>", js + "</body>", 1)
+
+
+def conferir_pagina(html: str, chave: str, idioma: str) -> None:
+    """A página pronta declara o idioma e o endereço certos, e nada aponta
+    mais para o domínio antigo."""
+    destino = prefixo(idioma) + chave
+    erros = []
+    if f'<html lang="{HREFLANG[idioma]}">' not in html:
+        erros.append(f"lang ≠ {HREFLANG[idioma]}")
+    if chave != "404.html":
+        url = url_de(idioma, chave)
+        for padrao, nome in ((r'<link rel="canonical" href="([^"]*)">', "canonical"),
+                             (r'<meta property="og:url" content="([^"]*)">', "og:url")):
+            achou = re.search(padrao, html)
+            if not achou or achou.group(1) != url:
+                erros.append(f"{nome} {achou.group(1) if achou else None} ≠ {url}")
+        loc = re.search(r'<meta property="og:locale" content="([^"]*)">', html)
+        if not loc or loc.group(1) != OG_LOCALE[idioma]:
+            erros.append(f"og:locale ≠ {OG_LOCALE[idioma]}")
+    antigo = re.search(r"(vestigiooculto|arquiteturadoimpossivel|xadrezbelico)\.com\.br", html)
+    if antigo:
+        erros.append(f"ainda aponta para o domínio antigo {antigo.group(0)}")
+    if erros:
+        raise SystemExit(f"  ! {destino}: " + "; ".join(erros))
+
+
+# ---------------------------------------------------------------- idiomas: conferência da tradução
+
+def _visivel(html: str) -> str:
+    """Texto que o leitor vê (e o que vai em alt, title, meta e JSON-LD)."""
+    import html as _h
+    html = re.sub(r"<style\b.*?</style>", " ", html, flags=re.S)
+    ld = " ".join(re.findall(r'<script type="application/ld\+json">(.*?)</script>', html, re.S))
+    html = re.sub(r"<script\b.*?</script>", " ", html, flags=re.S)
+    html = re.sub(r"<!--.*?-->", " ", html, flags=re.S)
+    attrs = " ".join(re.findall(r'\b(?:alt|content|title|aria-label)="([^"]*)"', html))
+    texto = re.sub(r"<[^>]+>", " ", html) + " " + attrs + " " + ld
+    return _h.unescape(re.sub(r"\{\{[^}]*\}\}", " ", texto))
+
+
+def _numeros(texto: str) -> set:
+    """Números, com separador neutro: 7.000 (pt) e 7,000 (en) são o mesmo;
+    5,5 e 5.5 também."""
+    return {re.sub(r"[.,]", "|", n) for n in re.findall(r"\d+(?:[.,]\d+)*", texto)}
+
+
+def _imagens(html: str) -> list:
+    return [re.sub(r"^(\.\./)+", "", u) for u in
+            re.findall(r'<(?:img|source)\b[^>]*?\b(?:src|srcset)="([^"\s]+)', html)]
+
+
+def _licencas(html: str) -> list:
+    achadas = re.findall(r"CC0|CC BY(?:-SA|-NC|-ND)*(?: \d\.\d)?|dom[ií]nio p[uú]blico|public[- ]domain",
+                         _visivel(html), re.I)
+    return [("PD" if "blic" in a.lower() else a.upper()) for a in achadas]
+
+
+def _links_de_licenca(html: str) -> list:
+    return re.findall(r'creativecommons\.org/(?:licenses|publicdomain)/[a-z-]+/[\d.]+', html)
+
+
+def _creditos(html: str) -> list:
+    return [re.sub(r"<[^>]+>", " ", c) for c in
+            re.findall(r'<(?:span class="acervo-fonte"|p class="quadro-credito")>(.*?)</(?:span|p)>',
+                       html, re.S)]
+
+
+def _rotulos(html: str, idioma: str) -> tuple:
+    rec, acv = map(re.escape, (T[idioma]["rotulo_recriacao"], T[idioma]["rotulo_acervo"]))
+    return (len(re.findall(rf'<b>{rec}</b>|class="recriacao">{rec}<', html)),
+            len(re.findall(rf'class="acervo(?:-linha)?">{acv}<', html)))
+
+
+BASTIDOR = re.compile(r"\b(TODO|FIXME|XXX|TRADUZIR|TROCA PRONTA|rascunho|bastidor)\b|\[\?\]", re.I)
+RESTO_DE_PORTUGUES = re.compile(r"\b(não|também|são|está|uma|pelo|pela|então|através|\w+ções?)\b", re.I)
+
+
+def comparar_com_original(original: str, traducao: str, idioma: str, nome: str) -> list:
+    """O que a tradução não pode mudar: números, imagens, licenças, créditos e
+    a marcação de recriação. E não pode levar bastidor."""
+    erros = []
+    a, b = _numeros(_visivel(original)), _numeros(_visivel(traducao))
+    if a - b:
+        erros.append(f"número do original ausente na tradução: {sorted(a - b)}")
+    if b - a:
+        erros.append(f"número na tradução que não está no original: {sorted(b - a)}")
+    if _imagens(original) != _imagens(traducao):
+        erros.append("imagens diferentes do original (mesmos arquivos, na mesma ordem)")
+    if _licencas(original) != _licencas(traducao):
+        erros.append(f"licenças {_licencas(traducao)} ≠ original {_licencas(original)}")
+    if _links_de_licenca(original) != _links_de_licenca(traducao):
+        erros.append("links de licença diferentes do original")
+    co, ct = _creditos(original), _creditos(traducao)
+    if len(co) != len(ct):
+        erros.append(f"{len(ct)} créditos de imagem; o original tem {len(co)}")
+    else:
+        for c_o, c_t in zip(co, ct):
+            nomes = [w for w in re.findall(r"[^\W\d_][\w'’.\-]*", c_o)
+                     if w[0].isupper() and w.rstrip(".") not in PALAVRAS_DE_CREDITO_PT
+                     and w not in ("CC", "BY", "BY-SA", "SA")]
+            faltam = [w for w in nomes if w not in c_t]
+            if faltam:
+                erros.append(f"crédito sem {faltam}: {' '.join(c_t.split())[:80]}")
+    if _rotulos(original, "pt") != _rotulos(traducao, idioma):
+        erros.append(f"rótulos Recriação/Acervo {_rotulos(traducao, idioma)} "
+                     f"≠ original {_rotulos(original, 'pt')}")
+    achou = BASTIDOR.search(_visivel(traducao))
+    if achou:
+        erros.append(f"bastidor no texto: {achou.group(0)!r}")
+    sem_leia = re.sub(r'<nav class="relacionados".*?</nav>', "", traducao, flags=re.S)
+    resto = sorted(set(m.group(0) for m in RESTO_DE_PORTUGUES.finditer(_visivel(sem_leia))))
+    if resto:
+        print(f"  ? {nome}: palavras que parecem português (conferir): {resto[:8]}")
+    return [f"{nome}: {e}" for e in erros]
+
+
+def conferir_traducao(idioma: str) -> None:
+    """Cada página traduzida contra o original; cada cartão contra o cartão
+    da home em português. A home do idioma não entra: os números dela são
+    as contagens do próprio idioma."""
+    erros = []
+    for chave, caminho in templates_do_idioma(idioma).items():
+        if chave == "index.html":
+            continue
+        original = (SRC / caminho.name).read_text(encoding="utf-8")
+        erros += comparar_com_original(original, caminho.read_text(encoding="utf-8"), idioma,
+                                       f"{idioma}/{caminho.name}")
+    pt = {s: b for _, s, b in cartoes_da_home()}
+    for _, s, b in cartoes_da_home(idioma):
+        erros += comparar_com_original(pt[s], b, idioma, f"{idioma}/cartoes/{s}.html")
+    if erros:
+        raise SystemExit("  ! tradução: " + "\n  ! tradução: ".join(erros))
+
+
 def main() -> None:
+    ativos = idiomas_ativos()
+    print("  idiomas ativos:", ", ".join(ativos),
+          "| inativos:", ", ".join(x for x in IDIOMAS if x not in ativos) or "nenhum")
     conferir_ordem_da_home()
     conferir_contagens_da_home()
-    conferir_relacionados()
-    conferir_seo()
+    for idioma in ativos:
+        conferir_relacionados(idioma)
+        conferir_seo(idioma)
     pilar_de = pilar_do_dossie()
+    for idioma in ativos[1:]:
+        pilar_do_dossie(idioma)
+        conferir_traducao(idioma)
     variantes_de_imagem()
 
-    paginas = [(t, d, None) for t, d in PAGINAS.items()]
-    paginas += [(f"tema:{k}", f"temas/{t['slug']}.html", tema_template(k)) for k, t in TEMAS.items()]
+    existe = {x: paginas_existentes(x) for x in ativos}
+    paginas = []
+    for idioma in ativos:
+        paginas += [(idioma, c, p, None) for c, p in templates_do_idioma(idioma).items()]
+        paginas += [(idioma, f"temas/{TEMAS[k]['slug']}.html", None, tema_template(k, idioma))
+                    for k in temas_do_idioma(idioma)]
 
-    for template, destino, pronto in paginas:
-        origem = SRC / template
-        if pronto is None and not origem.exists():
-            print(f"  ! template ausente: {template}")
-            continue
-
-        html = pronto if pronto is not None else origem.read_text(encoding="utf-8")
-        raiz_rel = "../" if "/" in destino else ""
+    for idioma, chave, caminho, pronto in paginas:
+        template = caminho.relative_to(SRC).as_posix() if caminho else f"tema:{chave}"
+        destino = prefixo(idioma) + chave
+        html = pronto if pronto is not None else caminho.read_text(encoding="utf-8")
+        raiz_rel = "../" * chave.count("/")      # raiz do idioma
+        raiz_site = "../" * destino.count("/")   # raiz do site (assets, fontes)
         faltando = [m for m in ("{{CSS}}", "{{LOGO}}", "{{FONTES}}") if m not in html]
         if faltando:
             print(f"  ! {template}: marcador ausente {', '.join(faltando)}")
@@ -1050,65 +1511,105 @@ def main() -> None:
         # Os blocos "TROCA PRONTA" são anotação de trabalho: ficam no template,
         # nunca na página publicada. Sem isto, markup comentado iria para o ar.
         html = re.sub(r"[ \t]*<!--\s*TROCA PRONTA:.*?-->\n?", "", html, flags=re.S)
+        html = marcadores_de_idioma(html, idioma)
 
-        slug = template.replace(".tpl.html", "")
-        if slug in NUMERO:
-            html = html.replace("{{PROXIMO}}", bloco_proximo(slug))
+        slug = Path(chave).stem
+        if chave.startswith("dossies/") and slug in NUMERO:
+            html = html.replace("{{PROXIMO}}", bloco_proximo(slug, idioma))
             if '"BreadcrumbList"' not in html:
-                html = html.replace("</head>", breadcrumb(slug), 1)
-        html = imagem_de_compartilhamento(html, slug, template)
+                html = html.replace("</head>", breadcrumb(slug, idioma), 1)
+        if chave == "index.html" and idioma != "pt":
+            html = montar_home(html, idioma)
+        html = imagem_de_compartilhamento(html, slug, template, idioma)
         html = resolver_numeros(html, slug)
-        html = meta_robots(html, destino)
-        html = preload_do_lcp(html, destino)
-        html = imagens_responsivas(html, destino)
-        html = ligar_pilares(html, destino, pilar_de)
-        html = rodape_rever(html, template)
+        html = meta_robots(html, chave)
+        html = preload_do_lcp(html, chave)
+        html = imagens_responsivas(html, chave)
+        html = ligar_pilares(html, chave, pilar_de, idioma)
+        html = rodape_rever(html, template, idioma)
+        html = cabecalho_de_idioma(html, chave, idioma, ativos, existe)
+        html = seletor_de_idioma(html, chave, idioma, ativos, existe)
+        if idioma != "pt":
+            # os links de página escritos com {{RAIZ}} precisam estar resolvidos
+            # para serem conferidos; recurso com {{RAIZ}} só entra depois (CSS,
+            # fontes), e por isso não pode aparecer aqui
+            if "{{RAIZ}}assets/" in html:
+                raise SystemExit(f"  ! {template}: use ../assets/ no template, não {{{{RAIZ}}}}assets/")
+            html = html.replace("{{RAIZ}}", raiz_rel)
+            html = ligar_ao_original(html, chave, idioma, existe)
+            html = subir_recursos(html, idioma)
+        elif chave == "404.html":
+            html = desvio_do_404(html, ativos)
 
+        final = sem_comentarios(html
+            .replace("{{CSS}}", CSS)
+            .replace("{{FONTES}}", FONTES)
+            .replace("{{LOGO}}", LOGO)
+            .replace("{{DOMINIO}}", DOMINIO.rstrip("/"))
+            .replace("{{VISOR}}", VISOR)
+            .replace("{{ADSENSE}}", ADSENSE)
+            .replace("{{CONSENTIMENTO}}", consentimento(idioma))
+            .replace("{{RAIZ}}assets/", raiz_site + "assets/")
+            .replace("{{RAIZ}}", raiz_rel))
+        conferir_pagina(final, chave, idioma)
         saida = RAIZ / destino
         saida.parent.mkdir(parents=True, exist_ok=True)
-        saida.write_text(
-            sem_comentarios(html
-                .replace("{{CSS}}", CSS)
-                .replace("{{FONTES}}", FONTES)
-                .replace("{{LOGO}}", LOGO)
-                .replace("{{DOMINIO}}", DOMINIO.rstrip("/"))
-                .replace("{{VISOR}}", VISOR)
-                .replace("{{ADSENSE}}", ADSENSE)
-                .replace("{{CONSENTIMENTO}}", CONSENTIMENTO.replace("{{RAIZ}}", raiz_rel))
-                .replace("{{RAIZ}}", raiz_rel)),
-            encoding="utf-8",
-        )
+        saida.write_text(final, encoding="utf-8")
         print(f"  ✓ {destino}  ({saida.stat().st_size / 1024:.1f} KB)")
+
+    # Página que deixou de existir num idioma (tradução retirada, idioma
+    # desligado) não pode ficar no ar com conteúdo velho.
+    for idioma in IDIOMAS[1:]:
+        pasta_saida = RAIZ / idioma
+        if not pasta_saida.is_dir():
+            continue
+        validas = {RAIZ / (prefixo(idioma) + c) for c in existe.get(idioma, set())}
+        for velho in pasta_saida.rglob("*.html"):
+            if velho not in validas:
+                velho.unlink()
+                print(f"  ✓ removida (sem tradução): {velho.relative_to(RAIZ).as_posix()}")
 
     if FAVICON.exists():
         shutil.copyfile(FAVICON, RAIZ / "favicon.svg")
         print("  ✓ favicon.svg")
 
     # sitemap.xml e robots.txt: o Google precisa dos dois para rastrear bem.
-    # São gerados a partir de PAGINAS, então nunca ficam desatualizados.
-    datas = {d: data_modificacao(t) for t, d in PAGINAS.items()}
-    # página de pilar: a data mais recente entre os dossiês dela
-    for k, t in TEMAS.items():
-        datas[f"temas/{t['slug']}.html"] = max(
-            datas[f"dossies/{s}.html"] for s, p in pilar_de.items() if p == k)
-    datas["index.html"] = max(datas.values())
+    # São gerados a partir das páginas existentes, então nunca ficam
+    # desatualizados. Cada URL com versão em outro idioma leva os alternates.
+    datas = {}
+    for idioma in ativos:
+        for chave, caminho in templates_do_idioma(idioma).items():
+            datas[(idioma, chave)] = data_modificacao(caminho)
+        # página de pilar: a data mais recente entre os dossiês dela
+        for k in temas_do_idioma(idioma):
+            datas[(idioma, f"temas/{TEMAS[k]['slug']}.html")] = max(
+                datas[(idioma, f"dossies/{s}.html")] for s, p in pilar_de.items() if p == k)
+        datas[(idioma, "index.html")] = max(v for (x, _), v in datas.items() if x == idioma)
     urls = []
-    for destino in list(PAGINAS.values()) + [f"temas/{t['slug']}.html" for t in TEMAS.values()]:
-        if destino == "404.html":
-            continue  # página de erro não se indexa
-        loc = f"{DOMINIO.rstrip('/')}/{destino}"
-        # a home responde na raiz; o Google prefere a forma canônica
-        if destino == "index.html":
-            loc = DOMINIO.rstrip("/") + "/"
-        prioridade = "1.0" if destino == "index.html" else ("0.3" if destino == "privacidade.html" else "0.8")
-        urls.append(
-            f"  <url>\n    <loc>{loc}</loc>\n"
-            f"    <lastmod>{datas[destino]}</lastmod>\n"
-            f"    <changefreq>monthly</changefreq>\n"
-            f"    <priority>{prioridade}</priority>\n  </url>")
+    ordem = list(PAGINAS.values()) + [f"temas/{t['slug']}.html" for t in TEMAS.values()]
+    for idioma in ativos:
+        for chave in ordem:
+            if chave == "404.html" or chave not in existe[idioma]:
+                continue  # página de erro não se indexa
+            # a home responde na raiz do idioma; o Google prefere a forma canônica
+            loc = url_de(idioma, chave)
+            prioridade = "1.0" if chave == "index.html" else ("0.3" if chave == "privacidade.html" else "0.8")
+            versoes = [x for x in ativos if chave in existe[x]]
+            alternates = ""
+            if len(versoes) > 1:
+                padrao = "en" if "en" in versoes else "pt"
+                alternates = "".join(
+                    f'\n    <xhtml:link rel="alternate" hreflang="{h}" href="{url_de(x, chave)}"/>'
+                    for h, x in [(HREFLANG[v], v) for v in versoes] + [("x-default", padrao)])
+            urls.append(
+                f"  <url>\n    <loc>{loc}</loc>\n"
+                f"    <lastmod>{datas[(idioma, chave)]}</lastmod>\n"
+                f"    <changefreq>monthly</changefreq>\n"
+                f"    <priority>{prioridade}</priority>{alternates}\n  </url>")
     (RAIZ / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"'
+        + (' xmlns:xhtml="http://www.w3.org/1999/xhtml"' if len(ativos) > 1 else "") + '>\n'
         + "\n".join(urls) + "\n</urlset>\n", encoding="utf-8")
     print(f"  ✓ sitemap.xml  ({len(urls)} URLs)")
 

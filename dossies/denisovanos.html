@@ -7,19 +7,21 @@
 <meta name="description" content="Denisovanos: linhagem humana identificada em 2010 pelo DNA de um osso de dedo da caverna Denisova, na Sibéria. Cruzaram com neandertais e estão em nós.">
 <meta name="theme-color" content="#0B0B0C">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-<link rel="canonical" href="https://vestigiooculto.com.br/dossies/denisovanos.html">
+<link rel="canonical" href="https://vestigiooculto.com/dossies/denisovanos.html">
+<link rel="alternate" hreflang="pt-BR" href="https://vestigiooculto.com/dossies/denisovanos.html">
+<link rel="alternate" hreflang="x-default" href="https://vestigiooculto.com/dossies/denisovanos.html">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Denisovanos — a linhagem descoberta num dedo">
 <meta property="og:description" content="Não foi um crânio nem um esqueleto. Foi o DNA de um fragmento de falange que revelou um grupo humano inteiro que ninguém tinha visto.">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:url" content="https://vestigiooculto.com.br/dossies/denisovanos.html">
-<meta property="og:image" content="https://vestigiooculto.com.br/assets/img/og/denisovanos.jpg">
+<meta property="og:url" content="https://vestigiooculto.com/dossies/denisovanos.html">
+<meta property="og:image" content="https://vestigiooculto.com/assets/img/og/denisovanos.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Vista de dentro da caverna de Denisova, no Altai, sob o título Denisovanos">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://vestigiooculto.com.br/assets/img/og/denisovanos.jpg">
+<meta name="twitter:image" content="https://vestigiooculto.com/assets/img/og/denisovanos.jpg">
 <meta name="twitter:image:alt" content="Vista de dentro da caverna de Denisova, no Altai, sob o título Denisovanos">
 <meta name="google-adsense-account" content="ca-pub-4401770243539507">
 <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
@@ -375,6 +377,46 @@ h1, h2, h3, h4 {
 .nav-pilares a:hover { color: var(--gelo); border-color: var(--ambar); }
 
 @media (max-width: 900px) { .nav-pilares { display: none; } }
+
+/* Seletor de idioma (PT · EN). Gerado pelo build só quando há mais de um
+   idioma ativo. Fica fora do menu porque o menu some no celular, e o seletor
+   não pode sumir: é o caminho de quem chegou na língua errada. */
+.topbar .wrap > nav:not(.idiomas) { margin-left: auto; }
+.idiomas {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-shrink: 0;
+  padding-left: .7rem;
+  border-left: 1px solid var(--linha-viva);
+}
+.idiomas a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.1rem;
+  min-height: 2.5rem;
+  font-family: var(--mono);
+  font-size: .66rem;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--osso-fraco);
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  transition: color var(--transicao), border-color var(--transicao);
+}
+.idiomas a:hover { color: var(--gelo); border-color: var(--linha-viva); }
+.idiomas a[aria-current] { color: var(--ambar); border-color: var(--linha-viva); }
+@media (max-width: 900px) { .idiomas { padding-left: 0; border-left: 0; } }
+/* Com o seletor ao lado, o menu aperta antes de sumir. Os nomes dos pilares
+   em inglês são mais longos: lá o menu sai a partir de 1000 px. */
+@media (max-width: 1180px) { .nav-pilares { gap: 1.1rem; } }
+@media (max-width: 1000px) {
+  .nav-pilares { gap: .8rem; }
+  .nav-pilares a { letter-spacing: .08em; }
+  html:not([lang="pt-BR"]) .nav-pilares { display: none; }
+}
 
 /* --- 5. Barra de progresso de leitura --------------------- */
 .progresso {
@@ -1992,7 +2034,7 @@ h1, h2, h3, h4 {
     "name": "Vestígio Oculto",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://vestigiooculto.com.br/assets/img/logo-vestigio-oculto.png", "width": 512, "height": 512
+      "url": "https://vestigiooculto.com/assets/img/logo-vestigio-oculto.png", "width": 512, "height": 512
     }
   },
   "about": {
@@ -2010,10 +2052,10 @@ h1, h2, h3, h4 {
     }
   },
   "temporalCoverage": "-198000/2026",
-  "image": "https://vestigiooculto.com.br/assets/img/og/denisovanos.jpg",
+  "image": "https://vestigiooculto.com/assets/img/og/denisovanos.jpg",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://vestigiooculto.com.br/dossies/denisovanos.html"
+    "@id": "https://vestigiooculto.com/dossies/denisovanos.html"
   }
 }
 </script>
@@ -2026,13 +2068,13 @@ h1, h2, h3, h4 {
       "@type": "ListItem",
       "position": 1,
       "name": "Vestígio Oculto",
-      "item": "https://vestigiooculto.com.br/"
+      "item": "https://vestigiooculto.com/"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Denisovanos — a linhagem descoberta num dedo",
-      "item": "https://vestigiooculto.com.br/dossies/denisovanos.html"
+      "item": "https://vestigiooculto.com/dossies/denisovanos.html"
     }
   ]
 }
@@ -2056,6 +2098,10 @@ h1, h2, h3, h4 {
         <li><a href="../sobre.html">Sobre</a></li>
         <li class="nav-canal"><a href="https://www.youtube.com/@VestigoOcultoBrasil" target="_blank" rel="noopener">YouTube</a></li>
       </ul>
+    </nav>
+    <nav class="idiomas" aria-label="Idioma">
+      <a href="denisovanos.html" hreflang="pt-BR" lang="pt-BR" aria-label="Português" aria-current="true">PT</a>
+      <a href="../en/index.html" hreflang="en" lang="en" aria-label="English" title="English: página inicial (esta página ainda não foi traduzida)">EN</a>
     </nav>
   </div>
 </header>

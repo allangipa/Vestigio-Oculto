@@ -2,13 +2,31 @@
 
 ErrorDocument 404 /404.html
 
-# HTTPS e domínio canônico: evita conteúdo duplicado aos olhos do Google
+# Domínio principal: https://vestigiooculto.com, sem www (desde 03/10/2026).
+# Os outros domínios estão estacionados neste mesmo site e servem os mesmos
+# arquivos; aqui eles redirecionam 301, caminho a caminho e com a query string:
+#   vestigiooculto.com.br e www.vestigiooculto.com.br -> https://vestigiooculto.com/<caminho>
+#   www.vestigiooculto.com                            -> https://vestigiooculto.com/<caminho>
+#   concealedpast.com e www.concealedpast.com         -> https://vestigiooculto.com/en/<caminho>
+# No concealedpast, o que já está em /en/ não ganha um segundo /en/, e os
+# arquivos que existem uma vez só para o site inteiro (imagens, fontes,
+# favicon, robots, sitemap, ads.txt) vão para o mesmo caminho, sem /en/.
+# Só os hosts listados: o domínio temporário da Hostinger fica como está.
+# Teste sem servidor: python _src/testa_htaccess.py .htaccess
 <IfModule mod_rewrite.c>
   RewriteEngine On
+  RewriteCond %{HTTP_HOST} ^(www\.)?concealedpast\.com\.?(:\d+)?$ [NC]
+  RewriteCond %{REQUEST_URI} ^/(en/|assets/|favicon\.svg$|robots\.txt$|sitemap\.xml$|ads\.txt$) [NC]
+  RewriteRule ^ https://vestigiooculto.com%{REQUEST_URI} [R=301,L,NE]
+  RewriteCond %{HTTP_HOST} ^(www\.)?concealedpast\.com\.?(:\d+)?$ [NC]
+  RewriteRule ^ https://vestigiooculto.com/en%{REQUEST_URI} [R=301,L,NE]
+  RewriteCond %{HTTP_HOST} ^(www\.)?vestigiooculto\.com\.br\.?(:\d+)?$ [NC,OR]
+  RewriteCond %{HTTP_HOST} ^www\.vestigiooculto\.com\.?(:\d+)?$ [NC]
+  RewriteRule ^ https://vestigiooculto.com%{REQUEST_URI} [R=301,L,NE]
+  # http -> https no domínio principal, num salto só
   RewriteCond %{HTTPS} off
-  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
-  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-  RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+  RewriteCond %{HTTP_HOST} ^vestigiooculto\.com\.?(:\d+)?$ [NC]
+  RewriteRule ^ https://vestigiooculto.com%{REQUEST_URI} [R=301,L,NE]
 </IfModule>
 
 # Cache de longa duração para estáticos; HTML sempre revalidado
@@ -39,7 +57,7 @@ ErrorDocument 404 /404.html
 # (as fontes tipográficas ficam em /assets/fontes/, essas sim públicas)
 <IfModule mod_rewrite.c>
   RewriteRule ^_src/ - [F,L]
-    # notas de trabalho em qualquer pasta (README, AUDITORIA, PROXIMOS, BAIXAR,
+  # notas de trabalho em qualquer pasta (README, AUDITORIA, PROXIMOS, BAIXAR,
   # assets/img/CREDITOS.md…) e o .gitignore
   RewriteRule \.md$ - [F,L]
   RewriteRule ^\.git - [F,L]

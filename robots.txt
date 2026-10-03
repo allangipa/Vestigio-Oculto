@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 Disallow: /_src/
 
-Sitemap: https://vestigiooculto.com.br/sitemap.xml
+Sitemap: https://vestigiooculto.com/sitemap.xml

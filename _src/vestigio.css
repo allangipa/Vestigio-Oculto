@@ -22,7 +22,7 @@
 
   /* Tinta derivada do osso */
   --osso-suave:  #a79c8a;
-  --osso-fraco:  #756e62;
+  --osso-fraco:  #847c6f;   /* 4,8:1 sobre o carvão e 4,5:1 sobre carvao-2 (WCAG AA) */
 
   /* Traços */
   --linha:       #232120;
@@ -1123,6 +1123,20 @@ h1, h2, h3, h4 {
 }
 
 /* Faixa de dados */
+/* Crédito da foto de terceiro, logo abaixo do quadro: autor · licença */
+.quadro-credito {
+  margin: 0;
+  padding: .45rem 1.2rem .5rem;
+  font-family: var(--mono);
+  font-size: .56rem;
+  letter-spacing: .05em;
+  line-height: 1.5;
+  color: var(--osso-fraco);
+  border-top: 1px solid var(--linha);
+}
+.quadro-credito a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.quadro-credito a:hover { color: var(--ambar); }
+
 .quadro-dados {
   display: grid;
   grid-template-columns: 1fr 1fr;

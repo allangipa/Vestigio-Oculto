@@ -1,198 +1,159 @@
 # Vestígio Oculto
 
-Portal investigativo de enigmas antigos e contemporâneos. Site estático, sem
-framework e sem build no servidor — o mesmo fluxo do viagemnalupa.com.br:
-commit no GitHub, deploy na Hostinger.
+Portal investigativo de enigmas antigos e contemporâneos, no ar em
+**https://vestigiooculto.com.br**. Site estático, sem framework e sem build no
+servidor: o build roda na máquina, o resultado vai para o GitHub e a Hostinger
+publica a raiz do repositório.
+
+**Estado em 03/10/2026:** 22 dossiês publicados (001 a 022), home, Sobre,
+Contato, Política de privacidade e 404. AdSense ligado, com faixa de
+consentimento. O que vem depois está em `PROXIMOS.md`.
 
 ---
 
-## O que falta para entrar no ar
+## Publicar
 
-1. **Dizer qual é o domínio.** É a única coisa que trava a publicação. Abra
-   `_src/build.py`, troque a linha `DOMINIO = "https://vestigiooculto.com.br"`
-   pelo domínio real e rode o build. Ela alimenta `canonical`, `og:url`,
-   `og:image` e o JSON-LD das duas páginas — é um lugar só.
-2. **Criar o repositório e apontar a Hostinger para ele** (passo a passo
-   abaixo).
-3. **Gerar as seis imagens que faltam.** Prompts prontos em
-   `_src/imagens/PROMPTS.md`, ≈ 9 créditos no total. Os quadros funcionam sem
-   elas: aparecem com a tarja "imagem em produção".
+O painel da Hostinger faz deploy direto do GitHub (**Sites → o site →
+Avançado → Git**, branch `main`). O diretório publicado é a **raiz** do
+repositório. `_src/`, os `.md` (em qualquer pasta) e `.git` não são servidos:
+o `.htaccess` devolve 403.
 
-Nada mais é bloqueio. O site já tem favicon, imagem de compartilhamento,
-dados estruturados e passa em telas de 390 px a 1440 px sem estouro.
+A cada alteração:
 
----
-
-## Publicar na Hostinger
-
-O painel tem deploy direto do GitHub (**Sites → seu site → Avançado → Git**).
-O fluxo é o mesmo do outro site:
-
-1. Crie o repositório e mande o projeto:
-
-   ```bash
-   git init
-   git add .
-   git commit -m "Vestígio Oculto — site inicial"
-   git branch -M main
-   git remote add origin git@github.com:SEU-USUARIO/vestigio-oculto.git
-   git push -u origin main
-   ```
-
-2. No painel, conecte o repositório e defina a branch `main`.
-3. O diretório publicado é a **raiz** do repositório: `index.html`,
-   `dossies/`, `assets/` e `favicon.svg` ficam lá. `_src/` vai junto mas não é
-   servido — são os arquivos de trabalho.
-4. Depois do primeiro deploy, confira se o SSL está ativo e force HTTPS.
-
-A cada alteração: edite em `_src/`, rode `python3 _src/build.py`, commite e
-faça push.
+```bash
+PYTHONIOENCODING=utf-8 python _src/build.py   # a partir da raiz
+git add -A && git commit -m "…" && git push
+```
 
 ---
 
 ## Estrutura
 
 ```
-vestigio-oculto/
-├── index.html                  ← home (gerado)
-├── dossies/
-│   └── gobekli-tepe.html       ← dossiê 001 (gerado)
-├── favicon.svg                 ← símbolo da marca (gerado)
-├── assets/img/                 ← fotos dos quadros e das figuras
-├── README.md
-└── _src/                       ← fonte; vai no repositório, não é servido
-    ├── vestigio.css            ← sistema de design, arquivo único
-    ├── index.tpl.html          ← template da home
-    ├── gobekli-tepe.tpl.html   ← template do dossiê
-    ├── marca/                  ← SVGs oficiais, sem os metadados C2PA
-    ├── imagens/PROMPTS.md      ← prompts das imagens que faltam
-    └── build.py                ← injeta CSS, marca e domínio nos templates
+Vestigio-Oculto/
+├── index.html, sobre.html, contato.html,
+│   privacidade.html, 404.html      ← páginas fixas (geradas)
+├── dossies/*.html                  ← os 22 dossiês (gerados)
+├── favicon.svg, sitemap.xml,
+│   robots.txt, ads.txt             ← gerados pelo build
+├── assets/
+│   ├── img/                        ← fotos e recriações; CREDITOS.md registra cada uma
+│   └── fontes/                     ← woff2 hospedados (Cinzel, Inter, JetBrains Mono)
+├── .htaccess                       ← HTTPS, cache, bloqueio de _src/ e de .md
+├── README.md, PROXIMOS.md, AUDITORIA.md, BAIXAR*.md   ← notas de trabalho
+└── _src/                           ← fonte; vai no repositório, não é servido
+    ├── build.py                    ← gera tudo; ARQUIVO é a ordem dos dossiês
+    ├── vestigio.css, fontes.css    ← sistema de design, embutido em cada página
+    ├── *.tpl.html                  ← um template por página
+    ├── consentimento.html          ← faixa de cookies + carga do AdSense
+    ├── visor-voynich.html          ← visor de fólios do dossiê 009
+    ├── marca/                      ← SVGs oficiais
+    ├── imagens/                    ← levantamentos de acervo (TROCAS, COMMONS, SAARA)
+    └── _entrada/                   ← rascunhos de cartão da home dos dossiês 013–022
 ```
 
-As páginas publicadas são **autocontidas**: todo o CSS e a marca vão embutidos
-em cada arquivo. Só as fotos são requisições à parte.
+As páginas publicadas são **autocontidas**: CSS e marca vão embutidos em cada
+arquivo. Só fotos e fontes são requisições à parte.
 
-### Como editar
+**Nunca edite o HTML da raiz nem de `dossies/`**: é gerado, e qualquer
+alteração se perde no próximo build. Edite o template e rode o build.
 
-Nunca edite `index.html` nem `dossies/*.html`: eles são gerados e qualquer
-alteração se perde no próximo build.
+---
 
-```bash
-python3 _src/build.py     # a partir da raiz do projeto
-```
+## O que o build faz (e o que ele recusa)
 
-### Como criar um dossiê novo
+`_src/build.py` injeta CSS, fontes, marca, domínio, AdSense e consentimento
+nos templates, gera as variantes de imagem do `srcset` da home e os `.webp`
+dos PNG, escreve `sitemap.xml`, `robots.txt` e `ads.txt`, e **tira os
+comentários HTML** da página publicada (comentário de template é anotação de
+trabalho).
 
-1. Duplique `_src/gobekli-tepe.tpl.html` com o novo nome.
-2. Mantenha `{{CSS}}`, `{{LOGO}}` e `{{DOMINIO}}` onde estão; troque título,
-   meta tags, JSON-LD e conteúdo.
-3. Registre o par no dicionário `PAGINAS`, em `_src/build.py`.
-4. **Ponha o slug na lista `ARQUIVO`, na posição que ele ocupa na escada.**
-5. Na home, troque o `href="#dossies"` do quadro pelo caminho real, mude
-   `<span class="estado apuracao">Apuração</span>` para
-   `<span class="estado publicado">Publicado</span>` e acrescente os chips de
-   navegação, como no quadro 001.
+Ele **quebra** quando:
 
-### A numeração sai de um lugar só
+- um template cita um dossiê fora de `ARQUIVO` (`{{NUM:slug}}`);
+- os cartões da home não seguem a ordem de `ARQUIVO`, ou falta o comentário
+  de numeração de um cartão;
+- os números da home (total, publicados, contador, contagem por pilar) não
+  batem com os cartões;
+- um "Leia também" chama um dossiê por título diferente do `<h1>` dele, ou
+  repete o "próximo";
+- um dossiê não tem exatamente um `{{PROXIMO}}`.
 
-O número do dossiê não se escreve à mão. O template pede `{{NUM}}` para o
+### A numeração e o "próximo" saem de um lugar só
+
+O número do dossiê não se escreve à mão: o template pede `{{NUM}}` para o
 próprio número e `{{NUM:slug}}` para citar outro, e os dois saem da lista
-`ARQUIVO` em `_src/build.py` — que é também a ordem do arquivo.
+`ARQUIVO`. O link "próximo" também: cada dossiê tem `{{PROXIMO}}`, e o build
+põe ali o número seguinte de `ARQUIVO` (o 022 volta ao 001) com o `<h1>` da
+página de destino.
 
-A ordem segue a escada de "onde estava escondido", o mesmo fio do canal no
-YouTube: terra, floresta, areia, cinzas, pedra, água, DNA, consenso, à vista
-de todos, arquivo, zona de exclusão. Reordenar é editar essa lista; não há
-nada para caçar nos templates.
+### Criar um dossiê novo
 
-Isso existe porque o número estava escrito à mão em 56 pontos, e os links
-entre dossiês são por slug. Um número errado não quebrava link nenhum — só
-mandava o leitor para o dossiê errado, em silêncio. Agora o build quebra se um
-template citar slug fora da lista.
-
-O `AUDITORIA.md` usa a numeração antiga de propósito, e tem a tabela de-para
-no topo: ele é registro do que foi corrigido, não índice.
+1. Duplique um template recente (ex.: `_src/korowai.tpl.html`).
+2. Mantenha `{{CSS}}`, `{{LOGO}}`, `{{FONTES}}`, `{{ADSENSE}}`,
+   `{{CONSENTIMENTO}}`, `{{DOMINIO}}` e `{{PROXIMO}}`; troque título, metas,
+   JSON-LD e conteúdo.
+3. Registre o par em `PAGINAS` e o slug em `ARQUIVO`, na posição dele.
+4. Na home, acrescente o cartão com o comentário `<!-- NNN -->`, a etiqueta
+   **Acervo** ou **Recriação**, a linha `quadro-credito` (autor · licença com
+   link) se a foto for de terceiro, e atualize os números (o build confere).
+5. Registre cada imagem nova em `assets/img/CREDITOS.md`.
 
 ---
 
 ## Sistema de design
 
-Alinhado à **Identidade Visual v1** do canal (`Identidade Visual/LEIA-ME.txt`).
+Alinhado à **Identidade Visual v1** do canal.
 
 | Token | Valor | Uso |
 |---|---|---|
 | `--carvao` | `#0B0B0C` | fundo de tudo |
 | `--osso` | `#D9CBB3` | texto corrente, molduras |
+| `--osso-suave` | `#a79c8a` | texto secundário |
+| `--osso-fraco` | `#847c6f` | metadados e legendas pequenas (4,8:1 sobre o carvão) |
 | `--ambar` | `#C8862A` | acento único: destaques, marcadores, links |
 | `--gelo` | `#F2F0EA` | títulos e números |
 | `--carvao-2` / `--carvao-3` | `#121213` / `#191919` | cartões e hover |
-| `--ambar-fundo` | `#8a5c1c` | âmbar rebaixado, para peso menor |
+| `--ambar-fundo` | `#8a5c1c` | âmbar rebaixado, para peso menor (não usar em texto) |
 
-**Vermelho não entra**, e **âmbar é o único acento**: os quatro pilares se
-distinguem por nome e posição, não por cor. Por isso o medidor de "peso de
-evidência" não é semáforo — o comprimento da barra carrega o dado e o rótulo
-o nomeia.
+**Vermelho não entra**, e **âmbar é o único acento**. O medidor de "peso de
+evidência" usa a escala Alto · Em disputa · Baixo · Nula · Minoritária.
 
-Tipografia: **Cinzel** nos títulos (a fonte da marca), **Inter** no corpo e na
-interface, **JetBrains Mono** em coordenadas, datas e metadados.
-
-### A marca
-
-Vai **inline** nas páginas, em curvas, na versão **sólida** — no cabeçalho
-aparece a 34 px, e a identidade manda usar sólido abaixo de 200 px. Os
-arquivos em `_src/marca/` foram limpos de um bloco de metadados C2PA que valia
-mais da metade do peso: o horizontal caiu de 16,5 KB para 6,4 KB.
-
-Regras herdadas: não recolorir as lentes, não separar o chapéu dos óculos, não
-aplicar contorno ou sombra, não esticar.
+Tipografia: **Cinzel** nos títulos, **Inter** no corpo, **JetBrains Mono** em
+datas e metadados.
 
 ---
 
 ## Imagens
 
-| Quadro | Arquivo | Origem |
-|---|---|---|
-| Hero | `001-gobekli-tepe-capa.jpg` | episódio 01, `03-colina-larga` |
-| 001 Göbekli Tepe | `001-gobekli-tepe.jpg` | episódio 01, `07-escala-humana` |
-| 002 Amazônia | `002-amazonia-lidar.jpg` | episódio 02, `a07-01` |
-| 006 Grande Pirâmide | `006-grande-piramide.jpg` | episódio 01, `10-piramide` |
-| 010 Denisovanos | `010-denisovanos.jpg` | episódio 01, `11-cacadores-v2` |
-| 003, 004, 005, 007, 008, 009 | — | a gerar (`_src/imagens/PROMPTS.md`) |
+A regra de escolha está em `_src/imagens/TROCAS.md`: foto do objeto ou do
+lugar, depois documento de época em domínio público, depois figura de artigo
+em licença aberta, e só então recriação — sempre etiquetada.
 
-Dentro do dossiê 001 há mais sete figuras, todas do episódio 01, intercaladas
-no trecho que cada uma ilustra.
-
-Todas passam por corte 16:9, 1200 px de largura e JPEG progressivo em
-qualidade 82 — entre 100 e 230 KB cada.
-
-**Toda imagem gerada leva a etiqueta "Recriação".** Um canal que se vende por
-precisão histórica não pode deixar uma reconstituição passar por fotografia do
-sítio; a etiqueta aparece no canto da foto e na legenda de cada figura.
+- **Acervo** (âmbar): registro real. **Recriação** (osso): gerada. **Modelo**:
+  réplica moderna. A etiqueta fica visível na própria imagem, inclusive no
+  herói da home.
+- Foto CC BY / CC BY-SA leva crédito na página: legenda nos dossiês, linha
+  `quadro-credito` nos cartões da home. **CC BY-NC não entra.**
+- `assets/img/CREDITOS.md` tem uma linha por imagem usada, com origem, autor,
+  licença (e a base, quando é domínio público), modificação e onde entra.
 
 ---
 
-## Microinterações
+## SEO e privacidade
 
-- **Tarja de confidencialidade**: metadados cobertos por uma barra sólida que
-  some ao passar o cursor. Funciona por foco de teclado.
-- **Figuras que abrem**: cada imagem do dossiê chega desfocada e revela ao
-  entrar na tela — a mesma quebra de sigilo, aplicada ao material visual.
-- **Lupa**: clique (ou Enter) em qualquer figura amplia sem sair da página.
-  Fecha no Esc, no botão ou clicando fora.
-- **Filtro por pilar** na home, sem recarregar.
-- **Barra de progresso de leitura** no topo do dossiê.
-- Tudo respeita `prefers-reduced-motion`.
+`<title>`, meta description, canonical, Open Graph, Twitter card e JSON-LD
+(`WebSite` na home, `Article` nos dossiês). Todos os endereços absolutos saem
+de `DOMINIO`, em `_src/build.py`.
 
----
-
-## SEO
-
-`<title>`, meta description, canonical, Open Graph com imagem 1200×630,
-Twitter card e JSON-LD válido: `WebSite` na home, `Article` + `Place` com
-`geo` no dossiê. Todos os endereços absolutos saem da constante `DOMINIO`.
+AdSense: `ADSENSE_LIGADO` liga e desliga tudo. `CONSENTIMENTO_BLOQUEIA = False`
+(decisão do dono): o anúncio carrega na primeira visita enquanto a faixa está
+na tela, e deixa de carregar depois de uma recusa. A Política de privacidade
+descreve exatamente isso — se a constante mudar, mude o texto junto.
 
 ---
 
 ## Licença de conteúdo
 
 Textos integralmente autorais. As fontes consultadas ficam listadas ao fim de
-cada dossiê, sem reprodução de trecho algum. Imagens de recriação sinalizadas.
+cada dossiê. Imagens de terceiros creditadas na página; recriações sinalizadas.

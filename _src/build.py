@@ -60,11 +60,15 @@ CSS = ((SRC / "fontes.css").read_text(encoding="utf-8") + "\n"
 LOGO = (SRC / "marca" / "logo-horizontal-escuro-solido.svg").read_text(encoding="utf-8")
 LOGO = re.sub(r'\s(width|height)="[^"]*"', "", LOGO, count=2)  # o tamanho é do CSS
 LOGO = LOGO.replace("<svg ", '<svg role="img" aria-hidden="true" focusable="false" ', 1)
+# O SVG traz um <clipPath id="crownclip"> que nada referencia. Como a marca vai
+# duas vezes por página (cabeçalho e rodapé), o id saía duplicado — HTML
+# inválido. Sai o bloco inteiro.
+LOGO = re.sub(r'<defs><clipPath id="crownclip">.*?</clipPath></defs>', "", LOGO, flags=re.S)
 
 FAVICON = SRC / "marca" / "simbolo-escuro-solido.svg"
 
-# Visor de fólios do dossiê 008. Fica num arquivo à parte porque é um bloco
-# grande e independente do texto.
+# Visor de fólios do manuscrito Voynich. Fica num arquivo à parte porque é um
+# bloco grande e independente do texto.
 VISOR = (SRC / "visor-voynich.html").read_text(encoding="utf-8")
 
 # O bloco do AdSense é montado a partir do ID acima, para o número não
@@ -103,11 +107,12 @@ CONSENTIMENTO = (CONSENTIMENTO
 #
 # A sequência é a escada de "onde estava escondido", que o canal usa como fio:
 # terra, floresta, areia, cinzas, pedra, água, DNA, consenso, à vista de
-# todos, arquivo, zona de exclusão.
+# todos, arquivo, zona de exclusão — e, do 012 em diante, os degraus anotados
+# ao lado de cada slug.
 ARQUIVO = [
     "gobekli-tepe",        # 001 · terra
     "amazonia-lidar",      # 002 · floresta
-    "nadadores-do-saara",  # 003 · areia — reservado, ainda não escrito
+    "nadadores-do-saara",  # 003 · areia
     "papiros-herculano",   # 004 · cinzas
     "grande-piramide",     # 005 · pedra
     "nan-madol",           # 006 · água
@@ -160,6 +165,112 @@ def resolver_numeros(html: str, slug: str) -> str:
     if "{{NUM" in html:
         raise SystemExit(f"  ! {slug}: sobrou marcador de número sem resolver")
     return html
+
+
+# ---------------------------------------------------------------- navegação
+
+def titulo_do_dossie(slug: str) -> str:
+    """O <h1> do template, sem marcação. É o título que todo link usa."""
+    html = (SRC / f"{slug}.tpl.html").read_text(encoding="utf-8")
+    achou = re.search(r"<h1[^>]*>(.*?)</h1>", html, re.S)
+    if not achou:
+        raise SystemExit(f"  ! {slug}: template sem <h1>")
+    return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", achou.group(1))).strip()
+
+
+def proximo_de(slug: str) -> str:
+    """O dossiê seguinte em ARQUIVO; o último volta ao primeiro."""
+    i = ARQUIVO.index(slug)
+    return ARQUIVO[(i + 1) % len(ARQUIVO)]
+
+
+def bloco_proximo(slug: str) -> str:
+    """O link "próximo" de cada dossiê, gerado — nunca escrito à mão.
+
+    Até 03/10/2026 cada template trazia o próprio "próximo", e eles tinham
+    virado um grafo arbitrário: dez dossiês não recebiam link de nenhum outro,
+    e o mesmo dossiê aparecia com três títulos diferentes. Agora o próximo é
+    sempre o número seguinte de ARQUIVO (o 022 volta ao 001), e o título é o
+    <h1> da página de destino.
+    """
+    alvo = proximo_de(slug)
+    return (
+        f'<a class="proximo" href="{alvo}.html">\n'
+        f'      <span>\n'
+        f'        <span class="mono">Próximo no arquivo · Dossiê {NUMERO[alvo]}</span>\n'
+        f'        <strong>{titulo_do_dossie(alvo)}</strong>\n'
+        f'      </span>\n'
+        f'      <span class="seta">→</span>\n'
+        f'    </a>')
+
+
+def conferir_relacionados() -> None:
+    """O "Leia também" é escrito à mão; isto confere o que derrapa nele.
+
+    Quebra o build quando um item cita o dossiê com título diferente do <h1>
+    dele, ou quando repete o "próximo" — que já aparece logo abaixo.
+    """
+    erros = []
+    for slug in ARQUIVO:
+        html = (SRC / f"{slug}.tpl.html").read_text(encoding="utf-8")
+        if html.count("{{PROXIMO}}") != 1:
+            erros.append(f"{slug}: precisa de exatamente um {{{{PROXIMO}}}}")
+        nav = re.search(r'<nav class="relacionados".*?</nav>', html, re.S)
+        if not nav:
+            continue
+        for alvo, titulo in re.findall(
+                r'<a href="([a-z0-9-]+)\.html">\s*<span class="num">[^<]*</span>\s*<strong>(.*?)</strong>',
+                nav.group(0), re.S):
+            if alvo not in NUMERO:
+                erros.append(f"{slug}: Leia também cita {alvo}, fora de ARQUIVO")
+                continue
+            if alvo == proximo_de(slug):
+                erros.append(f"{slug}: Leia também repete o próximo ({alvo})")
+            if re.sub(r"\s+", " ", titulo).strip() != titulo_do_dossie(alvo):
+                erros.append(f"{slug}: Leia também chama {alvo} de \"{titulo}\"; "
+                             f"o título é \"{titulo_do_dossie(alvo)}\"")
+    if erros:
+        raise SystemExit("  ! " + "\n  ! ".join(erros))
+
+
+def conferir_contagens_da_home() -> None:
+    """Os números da home são escritos à mão; aqui eles são contados.
+
+    Em 03/10/2026 a home dizia 21 dossiês e "Publicados: 10" com 22 cartões
+    publicados, e o pilar Pedra e Poeira dizia 6 tendo 7.
+    """
+    html = (SRC / "index.tpl.html").read_text(encoding="utf-8")
+    cartoes = re.findall(r'<article class="quadro" data-pilar="([a-z]+)"', html)
+    total = len(cartoes)
+    erros = []
+    for padrao in (r'Arquivo aberto · (\d+) dossiês',
+                   r'<span class="rotulo">Dossiês</span><span class="valor">(\d+)</span>',
+                   r'<span class="rotulo">Publicados</span><span class="valor viva">(\d+)</span>',
+                   r'id="contador">(\d+) dossiês'):
+        achou = re.search(padrao, html)
+        if not achou or int(achou.group(1)) != total:
+            erros.append(f"esperado {total} em {padrao!r}")
+    ids = {"pedra": "pedra-e-poeira", "ontem": "descoberto-ontem",
+           "selado": "arquivo-selado", "isolados": "ultimos-isolados"}
+    for pilar, ident in ids.items():
+        achou = re.search(rf'id="{ident}".*?<span class="contagem">(\d+) dossiês', html, re.S)
+        n = cartoes.count(pilar)
+        if not achou or int(achou.group(1)) != n:
+            erros.append(f"pilar {pilar}: esperado {n:02d}")
+    if erros:
+        raise SystemExit("  ! index.tpl.html: " + "; ".join(erros))
+
+
+def sem_comentarios(html: str) -> str:
+    """Tira os comentários HTML da página publicada (fora de <script>).
+
+    Comentário de template é anotação de trabalho — numeração, decisões,
+    pendências. No ar ele só expõe bastidor no código-fonte.
+    """
+    partes = re.split(r"(<script\b.*?</script>)", html, flags=re.S | re.I)
+    for i in range(0, len(partes), 2):
+        partes[i] = re.sub(r"[ \t]*<!--.*?-->[ \t]*\r?\n?", "", partes[i], flags=re.S)
+    return "".join(partes)
 
 
 PAGINAS = {
@@ -327,6 +438,8 @@ def conferir_ordem_da_home() -> None:
 
 def main() -> None:
     conferir_ordem_da_home()
+    conferir_contagens_da_home()
+    conferir_relacionados()
     variantes_de_imagem()
 
     for template, destino in PAGINAS.items():
@@ -346,19 +459,23 @@ def main() -> None:
         # nunca na página publicada. Sem isto, markup comentado iria para o ar.
         html = re.sub(r"[ \t]*<!--\s*TROCA PRONTA:.*?-->\n?", "", html, flags=re.S)
 
-        html = resolver_numeros(html, template.replace(".tpl.html", ""))
+        slug = template.replace(".tpl.html", "")
+        if slug in NUMERO:
+            html = html.replace("{{PROXIMO}}", bloco_proximo(slug))
+        html = resolver_numeros(html, slug)
 
         saida = RAIZ / destino
         saida.parent.mkdir(parents=True, exist_ok=True)
         saida.write_text(
-            html.replace("{{CSS}}", CSS)
+            sem_comentarios(html
+                .replace("{{CSS}}", CSS)
                 .replace("{{FONTES}}", FONTES)
                 .replace("{{LOGO}}", LOGO)
                 .replace("{{DOMINIO}}", DOMINIO.rstrip("/"))
                 .replace("{{VISOR}}", VISOR)
                 .replace("{{ADSENSE}}", ADSENSE)
                 .replace("{{CONSENTIMENTO}}", CONSENTIMENTO.replace("{{RAIZ}}", raiz_rel))
-                .replace("{{RAIZ}}", raiz_rel),
+                .replace("{{RAIZ}}", raiz_rel)),
             encoding="utf-8",
         )
         print(f"  ✓ {destino}  ({saida.stat().st_size / 1024:.1f} KB)")

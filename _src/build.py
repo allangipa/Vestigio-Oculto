@@ -117,6 +117,11 @@ ARQUIVO = [
     "percy-fawcett",       # 010 · arquivo
     "sentinela-do-norte",  # 011 · zona de exclusão
     "anticitera",          # 012 · naufrágio
+    "linhas-de-nazca",      # 013 · perspectiva
+    "puma-punku",           # 014 · em pedaços
+    "moais-rapa-nui",       # 015 · debaixo da encosta
+    "anomalia-do-baltico",  # 016 · no sonar
+    "dna-fantasma",         # 017 · dentro do genoma
 ]
 
 NUMERO = {slug: f"{i:03d}" for i, slug in enumerate(ARQUIVO, start=1)}
@@ -170,6 +175,11 @@ PAGINAS = {
     "grande-piramide.tpl.html": "dossies/grande-piramide.html",
     "nan-madol.tpl.html": "dossies/nan-madol.html",
     "anticitera.tpl.html": "dossies/anticitera.html",
+    "linhas-de-nazca.tpl.html": "dossies/linhas-de-nazca.html",
+    "puma-punku.tpl.html": "dossies/puma-punku.html",
+    "moais-rapa-nui.tpl.html": "dossies/moais-rapa-nui.html",
+    "anomalia-do-baltico.tpl.html": "dossies/anomalia-do-baltico.html",
+    "dna-fantasma.tpl.html": "dossies/dna-fantasma.html",
 }
 
 

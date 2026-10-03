@@ -39,4 +39,7 @@ ErrorDocument 404 /404.html
 # (as fontes tipográficas ficam em /assets/fontes/, essas sim públicas)
 <IfModule mod_rewrite.c>
   RewriteRule ^_src/ - [F,L]
+  # notas de trabalho da raiz (README, AUDITORIA, PROXIMOS, BAIXAR…) e o .gitignore
+  RewriteRule ^[^/]+\.md$ - [F,L]
+  RewriteRule ^\.git - [F,L]
 </IfModule>

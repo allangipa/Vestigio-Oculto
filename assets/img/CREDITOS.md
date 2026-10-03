@@ -18,6 +18,35 @@ está vendo uma reconstituição ou a coisa.
 
 | Arquivo | Origem | Onde entra |
 |---|---|---|
+| `017-dna-fantasma-real.jpg` (+ `-640`, `-800`) | Sala de sequenciadores Illumina HiSeq 2000, BGI Hong Kong — foto Scotted400, CC BY 3.0, Wikimedia Commons (`Illumina Hiseq 2000 sequencers, BGI Hong Kong sequencing room.JPG`), recorte 16:9 | quadro 017 da home; figura da seção 07 do dossiê |
+| `df-01-iwo-eleru.jpg` | Calvária de Iwo Eleru, quatro vistas — Harvati, K.; Stringer, C.; Grün, R.; Aubert, M.; Allsworth-Jones, P.; Folorunso, C. A., PLoS ONE 6(9): e24024, 2011, fig. 1 (recorte), CC BY 4.0, via Wikimedia Commons (`Iwo Eleru.Journal.pone.0024024.g001-crop.jpg`) | dossiê 017, seção 05 |
+| `df-02-mapa-iwo-eleru.jpg` | Mapa da Nigéria com o sítio de Iwo Eleru — mesma figura 1 de Harvati et al., PLoS ONE, 2011 (metade esquerda), CC BY 4.0, via Wikimedia Commons (`Journal.pone.0024024.g001-(L).jpg`) | dossiê 017, seção 05 |
+| `df-03-kabwe.jpg` | Crânio de Kabwe (Broken Hill), Natural History Museum, Londres — foto Jonathan Cardy, CC BY-SA 3.0, Wikimedia Commons (`Broken Hill skull 02.jpg`), recorte | dossiê 017, seção 05 |
+| `df-04-sequenciador.jpg` | Sequenciador Illumina HiSeq 2500 — foto Konrad Förstner, CC0, Wikimedia Commons (`Illumina HiSeq 2500.jpg`) | dossiê 017, abertura |
+| `016-anomalia-do-baltico-real.jpg` (+ `-640`, `-800`) | *Gulf of Bothnia (MODIS).jpg*, MODIS Land Rapid Response Team, NASA/GSFC, 3 abr. 2023 — domínio público, Wikimedia Commons (recorte 16:9 do mar de Bótnia) | quadro 016 da home |
+| `ba-01-golfo-de-botnia.jpg` | *Gulf of Bothnia satellite.jpg*, Jacques Descloitres, MODIS Land Rapid Response Team, NASA/GSFC, 15 mar. 2002 — domínio público, Wikimedia Commons | dossiê 016, abertura |
+| `ba-02-sonar-de-arrasto.jpg` | *US Navy 040827-N-7676W-145 ... retrieves the Towfish side scan sonar unit*, foto John F. Williams, Marinha dos EUA, 27 ago. 2004 — domínio público, Wikimedia Commons | dossiê 016, seção 02 |
+| `ba-03-sonar-lateral.jpg` | *USRC Bear wreck sidescan sonar image North Atlantic 16 September 2019.png*, NOAA / Guarda Costeira dos EUA — domínio público, Wikimedia Commons | dossiê 016, seção 02 |
+| `ba-04-bloco-erratico.jpg` | *Viikki rapakivi erratic boulder.jpg*, Mjeltsch, 15 ago. 2020 — CC BY-SA 4.0, Wikimedia Commons (redimensionada) | dossiê 016, seção 05 |
+| `ba-05-limonita.jpg` | *Limonite, bog iron ore, Nova Scotia - Redpath Museum - McGill University ... DSC08020.jpg*, Daderot, 2016 — CC0, Wikimedia Commons | dossiê 016, seção 04 |
+| `015-moais-rapa-nui-real.jpg` (+ `-640`, `-800`) | "Moai at Rano Raraku - Easter Island", TravelingOtter (Flickr), 2010, CC BY 2.0, via Wikimedia Commons — recorte 16:9 | quadro 015 da home |
+| `mo-01-rano-raraku.jpg` | "Easter Island, Rano Raraku, moais", Arian Zwegers (Flickr), 2011, CC BY 2.0, via Wikimedia Commons | dossiê 015, abertura |
+| `mo-02-escavado-1914.jpg` | Lantern slide da Mana Expedition to Easter Island (Routledge), 1914–1915, autor desconhecido, British Museum Oc,G.T.1465; domínio público (PD Mark no Commons) | dossiê 015, seção 03 |
+| `mo-03-inacabado.jpg` | "Fabrica de Moais-10", Otávio Nogueira (Flickr), 2024, CC BY 2.0, via Wikimedia Commons | dossiê 015, seção 02 |
+| `mo-04-ahu-tongariki.jpg` | "Ahu Tongariki - Easter Island", TravelingOtter (Flickr), 2010, CC BY 2.0, via Wikimedia Commons | dossiê 015, seção 05 |
+| `mo-05-hoa-hakananaia.jpg` | "Hoa Hakananai'a BM Oc1869 1005 1", Andreas Praefcke, 2011, domínio público (PD-self), via Wikimedia Commons | dossiê 015, seção 07 |
+| `014-puma-punku-real.jpg` (+ `-640`, `-800`) | Benjamin Burga, "Pumapunku 02.jpg", 2017, CC BY-SA 4.0, via Wikimedia Commons (recorte 16:9) | quadro da home, dossiê 014 |
+| `pp-01-laje-arenito.jpg` | Janikorpi, "Puma Punku foundation rock 2.JPG", 2011, CC BY-SA 3.0, via Wikimedia Commons | dossiê Puma Punku, seção 01 |
+| `pp-02-blocos-h.jpg` | Keyan Alejandro, "LAS H DE PUMA PUNKU.jpg", 2025, CC BY 4.0, via Wikimedia Commons | dossiê Puma Punku, seção 04 |
+| `pp-03-encaixes-grampos.jpg` | Janikorpi, "Puma Punku foundation plate joint.JPG", 2011, CC BY-SA 3.0, via Wikimedia Commons | dossiê Puma Punku, seção 05 |
+| `pp-04-modelo-vranich.jpg` | Alexei Vranich, "Virtual model pumapunku2.png", figura de Heritage Science 6:65 (2018), CC BY 4.0, via Wikimedia Commons (fundo transparente achatado em branco) | dossiê Puma Punku, seção 07 (Modelo) |
+| `pp-05-blocos-espalhados.jpg` | Janikorpi, "Puma Punku pile of rocks.JPG", 2011, CC BY-SA 3.0, via Wikimedia Commons (recorte da borda esquerda) | dossiê Puma Punku, abertura |
+| `013-linhas-de-nazca-real*.jpg` | Wikimedia Commons, *Líneas de Nazca, Nazca, Perú, 2015-07-29, DD 52.JPG*, Diego Delso, CC BY-SA 4.0 — recorte 16:9 do beija-flor, a partir da miniatura de 1920 px | quadro 013 na home |
+| `nz-01-colibri.jpg` | Wikimedia Commons, *Líneas de Nazca, Nazca, Perú, 2015-07-29, DD 52.JPG*, Diego Delso, CC BY-SA 4.0 — reduzido a 960 × 582, sem recorte | dossiê 013, abertura |
+| `nz-04-mirante.jpg` | Wikimedia Commons, *Mirador Lineas de Nazca Peru - panoramio.jpg*, Va de Carro (Panoramio), CC BY 3.0 — reduzido a 960 × 540, sem recorte | dossiê 013, seção 03 |
+| `nz-03-aranha.jpg` | Wikimedia Commons, *Líneas de Nazca, Nazca, Perú, 2015-07-29, DD 54.JPG*, Diego Delso, CC BY-SA 4.0 — reduzido a 960 × 786, sem recorte | dossiê 013, seção 04 |
+| `nz-02-macaco.jpg` | Wikimedia Commons, *Líneas de Nazca, Nazca, Perú, 2015-07-29, DD 49.JPG*, Diego Delso, CC BY-SA 4.0 — reduzido a 960 × 638, sem recorte | dossiê 013, seção 05 |
+| `nz-05-rodovia.jpg` | Wikimedia Commons, *Nazca-Linien 062016 hands tree lizard.jpg*, Max Berger, CC BY-SA 4.0 — reduzido a 960 × 720, sem recorte; lagarto cortado pela Pan-Americana, árvore, mãos e a torre do mirante | dossiê 013, seção 07 |
 | `011-sentinela-do-norte-real*.jpg` | Wikimedia Commons, *North Sentinel Island from flight.jpg*, PJeganathan, CC BY-SA 4.0 — recorte 16:9 | quadro 011 na home |
 | `011-sentinela-voo.jpg` | o mesmo arquivo, inteiro | dossiê 011, seção 01 |
 | `011-sentinela-satelite.jpg` | Wikimedia Commons, *North Sentinel Island.jpg*, NASA Earth Observatory (Jesse Allen, dados EO-1), domínio público | dossiê 011, seção 01 |

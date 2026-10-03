@@ -1,7 +1,7 @@
 # Imagens do site — origem e crédito
 
 Uma linha para **cada imagem que alguma página publicada usa** (conferido por
-script contra o HTML gerado em 03/10/2026: 114 arquivos de base, fora as
+script contra o HTML gerado em 03/10/2026: 114 arquivos de base, mais as 22 prévias de `og/`, fora as
 variantes `-640`, `-800`, `-960`, `-1280` e os `.webp`, que herdam a linha do
 original). A origem decide a etiqueta que aparece na tela.
 
@@ -40,7 +40,43 @@ esforço, se está vendo uma reconstituição ou a coisa.
 | Arquivo | Origem | Autor | Licença | Modificação | Onde entra |
 |---|---|---|---|---|---|
 | `001-gobekli-tepe-capa.jpg` | gerada para o episódio 01 (`03-colina-larga`), `flux_2` | arte do canal | — | recorte 16:9 | herói da home, com etiqueta **Recriação** visível |
-| `og-vestigio-oculto.jpg` | a mesma recriação da colina, com a marca | arte do canal | — | escurecida, texto sobreposto | imagem de compartilhamento (`og:image`) da home e dos dossiês |
+| `og-vestigio-oculto.jpg` | a mesma recriação da colina, com a marca | arte do canal | — | escurecida, texto sobreposto | imagem de compartilhamento (`og:image`) da home, de `sobre`, `contato` e `privacidade`; reserva do `build.py` para dossiê sem prévia própria |
+
+### Prévias dos dossiês (`assets/img/og/<slug>.jpg`)
+
+Desde 03/10/2026 cada dossiê tem a sua imagem de compartilhamento
+(`og:image`, `twitter:image` e `image` do JSON-LD), 1200 × 630, gerada a
+partir de uma imagem **real** já usada no próprio dossiê. O `build.py` aponta
+por slug (dicionário `OG_ALT`, que também é o `og:image:alt`) e para se o
+arquivo faltar. **Modificação em todas:** recortada (ou encaixada à direita
+sobre fundo carvão, quando o original é vertical ou quadrado), escurecida, com
+degradê de carvão e título do dossiê e a marca sobrepostos. A atribuição de
+cada uma é a da imagem-base. Nenhuma usa recriação.
+
+| Arquivo | Deriva de | Autor | Licença | Modificação específica |
+|---|---|---|---|---|
+| `og/gobekli-tepe.jpg` | `001-gobekli-tepe-real.jpg` (*Archäologiepark Göbekli Tepe.jpg*) | Philrock | CC BY-SA 4.0 | — |
+| `og/amazonia-lidar.jpg` | `am-02-lidar-real.png`, painel b (Pärssinen et al., *Nature*, 2026, fig. 2) | Pärssinen et al. | CC BY 4.0 | só o painel b, ampliado, à direita |
+| `og/nadadores-do-saara.jpg` | `saara-nadador.jpg` (*WadiSuraSingleSwimmer.jpg*) | Roland Unger | CC BY-SA 3.0 | ampliada 1,5× |
+| `og/papiros-herculano.jpg` | `hc-01-rolo-real.jpg`, painel a (Stabile et al., *Sci. Rep.* 11, 2021) | Sara Stabile et al. | CC BY 4.0 | só o rolo do painel a; fundo branco da figura trocado por carvão |
+| `og/grande-piramide.jpg` | `006-grande-piramide-real.jpg` | Gary Todd | CC0 | — |
+| `og/nan-madol.jpg` | `009-nan-madol-real.jpg` | NOAA | domínio público (PD-USGov-NOAA) | — |
+| `og/denisovanos.jpg` | `010-denisovanos-real.jpg` | Александр Байдуков | CC BY-SA 4.0 | — |
+| `og/serra-da-capivara.jpg` | `003-serra-da-capivara-real.jpg` | Mateus S. Figueiredo | CC BY-SA 4.0 | — |
+| `og/manuscrito-voynich.jpg` | `008-manuscrito-voynich.jpg` (Beinecke MS 408) | Beinecke Rare Book & Manuscript Library | domínio público | substitui o uso direto do `008-…` como `og:image` |
+| `og/percy-fawcett.jpg` | `fw-01-retrato-real.jpg` (*PercyFawcett.jpg*, 1911) | autor desconhecido | domínio público (PD-old) | à direita, sobre carvão |
+| `og/sentinela-do-norte.jpg` | `011-sentinela-voo.jpg` (*North Sentinel Island from flight.jpg*) | PJeganathan | CC BY-SA 4.0 | — (ilha vista do avião; nenhuma pessoa) |
+| `og/anticitera.jpg` | `ac-05-modelo-verso.jpg` (*Antikythera mechanism frontview… (model).jpg* — réplica da Universidade Aristóteles de Tessalônica) | Gts-tg | CC BY-SA 4.0 | à direita, sobre carvão, escurecida um pouco mais; réplica de propósito, para a prévia não usar peça do Museu de Atenas (ver "Riscos registrados") |
+| `og/linhas-de-nazca.jpg` | `nz-01-colibri.jpg` | Diego Delso | CC BY-SA 4.0 | — |
+| `og/puma-punku.jpg` | `pp-02-blocos-h.jpg` (*LAS H DE PUMA PUNKU.jpg*) | Keyan Alejandro | CC BY 4.0 | — |
+| `og/moais-rapa-nui.jpg` | `015-moais-rapa-nui-real.jpg` | TravelingOtter | CC BY 2.0 | — |
+| `og/anomalia-do-baltico.jpg` | `016-anomalia-do-baltico-real.jpg` | MODIS Land Rapid Response Team, NASA/GSFC | domínio público (NASA) | — |
+| `og/dna-fantasma.jpg` | `017-dna-fantasma-real.jpg` | Scotted400 | CC BY 3.0 | — |
+| `og/passagem-dyatlov.jpg` | `dy-01-vale-auspiya.jpg` (*Ауспия 2015.JPG*) | Futball80 | CC BY-SA 4.0 | — |
+| `og/colonia-roanoke.jpg` | `019-colonia-roanoke-real.jpg` (de Bry, 1590) | Theodor de Bry segundo John White | domínio público | — |
+| `og/kryptos.jpg` | `kr-01-escultura.jpg` (*Kryptos sculptor.jpg*) | Jim Sanborn | CC BY-SA 3.0 | à direita, sobre carvão, ampliada 1,23× |
+| `og/mashco-piro.jpg` | `mp-01-rio-las-piedras.jpg` | Julio Araújo Flores e Patrick Champagne (ARCAmazon) | CC BY-SA 4.0 | — (paisagem; nenhuma pessoa) |
+| `og/korowai.jpg` | `ko-02-casa-alta.jpg` ("Korowai Treehouse 2") | usuário do Flickr "♪ ~ from Jayapura, Indonesia" | CC BY 2.0 | — (casa em silhueta; nenhuma pessoa) |
 
 Os quadros da home usam as imagens de abertura dos dossiês; cada linha abaixo
 diz "quadro NNN" quando o arquivo aparece lá.
@@ -131,7 +167,7 @@ entra. O arquivo saiu de `assets/img/` e está em `_src/imagens/descartadas/`.
 
 | Arquivo | Origem | Onde entra |
 |---|---|---|
-| `008-manuscrito-voynich.jpg` | Beinecke MS 408, Yale — recorte da folha dobrada | quadro 009; `og:image` do dossiê |
+| `008-manuscrito-voynich.jpg` | Beinecke MS 408, Yale — recorte da folha dobrada | quadro 009; base de `og/manuscrito-voynich.jpg` |
 | `vy-004.jpg` `vy-025.jpg` `vy-080.jpg` | Beinecke MS 408 — seção botânica | visor de fólios do dossiê |
 | `vy-125.jpg` | Beinecke MS 408 — seção astronômica | visor |
 | `vy-158.jpg` | Beinecke MS 408 — folha dobrada, nove diagramas | visor |
@@ -168,12 +204,12 @@ documento histórico para caber num quadro seria falsificá-lo.
 
 | Arquivo | Origem | Autor | Licença | Modificação | Onde entra |
 |---|---|---|---|---|---|
-| `012-anticitera-real.jpg` | Commons, *The Antikythera Mechanism (3209887483).jpg* (Flickr), vitrine do Museu Arqueológico Nacional de Atenas | Tilemahos Efthimiadis | CC BY 2.0 | recorte 16:9 | quadro 012; `image` do JSON-LD |
+| `012-anticitera-real.jpg` | Commons, *The Antikythera Mechanism (3209887483).jpg* (Flickr), vitrine do Museu Arqueológico Nacional de Atenas | Tilemahos Efthimiadis | CC BY 2.0 | recorte 16:9 | quadro 012 |
 | `ac-01-mykali-1901.jpg` | Commons, *Antikes Wrack von Antikythera 03.jpg*, 1900–1901 | autor desconhecido | domínio público (fotografia de mais de 120 anos) | sem recorte | dossiê, abertura |
 | `ac-02-fragmento-a.jpg` | Commons, *Antikythera Fragment A (Front).webp* | Logg Tandy | CC BY 4.0 | reduzida | dossiê, seção 01 |
 | `ac-03-fragmento-c.jpg` | Commons, *Antikythera Fragment C (Front).webp* | Logg Tandy | CC BY 4.0 | reduzida | dossiê, seção 04 |
 | `ac-04-fragmento-19.jpg` | Commons, *Antikythera Fragment 19 (Front).webp* | Logg Tandy | CC BY 4.0 | recortada a plaqueta do museu | dossiê, seção 02 |
-| `ac-05-modelo-verso.jpg` | Commons, *Antikythera mechanism frontview, 1st-2nd century BC, Greece (model).jpg* — réplica da Universidade Aristóteles de Tessalônica; a foto mostra a face de trás | Gts-tg | CC BY-SA 4.0 | recorte quadrado | dossiê, seção 03, etiqueta **Modelo** |
+| `ac-05-modelo-verso.jpg` | Commons, *Antikythera mechanism frontview, 1st-2nd century BC, Greece (model).jpg* — réplica da Universidade Aristóteles de Tessalônica; a foto mostra a face de trás | Gts-tg | CC BY-SA 4.0 | recorte quadrado | dossiê, seção 03, etiqueta **Modelo**; base de `og/anticitera.jpg` |
 
 ## 013 · As Linhas de Nazca
 

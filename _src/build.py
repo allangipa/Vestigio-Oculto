@@ -197,6 +197,78 @@ def resolver_numeros(html: str, slug: str) -> str:
     return html
 
 
+# ---------------------------------------------------------------- compartilhamento
+
+# Imagem de prévia (og:image / twitter:image / "image" do JSON-LD) de cada
+# dossiê: assets/img/og/<slug>.jpg, 1200 x 630, feita sobre a imagem real do
+# próprio dossiê (origem e licença em assets/img/CREDITOS.md). O texto é o
+# og:image:alt. Dossiê fora deste dicionário usa a genérica; dossiê que está
+# aqui e não tem o arquivo PARA o build — prévia quebrada não sai.
+OG_GENERICA = "og-vestigio-oculto.jpg"
+OG_ALT = {
+    "gobekli-tepe": "Recinto escavado de Göbekli Tepe com pilares em T, sob o título Göbekli Tepe",
+    "amazonia-lidar": "Relevo por LiDAR com recintos geométricos de terra na Amazônia, sob o título Cidades da Amazônia",
+    "nadadores-do-saara": "Pintura rupestre de uma figura humana em pose de nado em Wadi Sura, sob o título Os nadadores do Saara",
+    "papiros-herculano": "Rolo de papiro carbonizado de Herculano, sob o título Os papiros de Herculano",
+    "grande-piramide": "As fiadas de pedra da Grande Pirâmide de Gizé até o ápice, sob o título A Grande Pirâmide",
+    "nan-madol": "Muralhas de basalto colunar de Nan Madol entre a vegetação, sob o título Nan Madol",
+    "denisovanos": "Vista de dentro da caverna de Denisova, no Altai, sob o título Denisovanos",
+    "serra-da-capivara": "Sedimento com seixos e cascalho na Serra da Capivara, sob o título Serra da Capivara",
+    "manuscrito-voynich": "Folha dobrada do manuscrito Voynich com diagramas circulares, sob o título O manuscrito Voynich",
+    "percy-fawcett": "Retrato de Percy Fawcett em 1911, sob o título Percy Fawcett",
+    "sentinela-do-norte": "A ilha Sentinela do Norte vista da janela de um avião, sob o título A Sentinela do Norte",
+    "anticitera": "Réplica moderna do mecanismo de Anticítera, com os mostradores de bronze à mostra, sob o título O mecanismo de Anticítera",
+    "linhas-de-nazca": "O beija-flor das Linhas de Nazca visto do alto, sob o título As Linhas de Nazca",
+    "puma-punku": "Blocos de pedra em forma de H em Puma Punku, sob o título Puma Punku",
+    "moais-rapa-nui": "Moais na encosta de Rano Raraku, na Ilha de Páscoa, sob o título Os moais da Ilha de Páscoa",
+    "anomalia-do-baltico": "Golfo de Bótnia visto por satélite, com gelo no mar Báltico, sob o título A anomalia do Báltico",
+    "dna-fantasma": "Sala de sequenciadores de DNA, sob o título O DNA fantasma",
+    "passagem-dyatlov": "Vale do rio Auspiya, nos Urais, com neve nas árvores, sob o título A passagem Dyatlov",
+    "colonia-roanoke": "Mapa da Virgínia de Theodor de Bry, 1590, com a ilha de Roanoke, sob o título A colônia de Roanoke",
+    "kryptos": "A escultura Kryptos, de Jim Sanborn, sob o título Kryptos",
+    "mashco-piro": "O rio Las Piedras serpenteando pela floresta amazônica do Peru, sob o título Os mashco piro",
+    "korowai": "Silhueta de uma casa na árvore entre palmeiras, na Papua, sob o título Os korowai",
+}
+
+
+def imagem_de_compartilhamento(html: str, slug: str, template: str) -> str:
+    """Aponta og:image, twitter:image e o "image" do JSON-LD para a prévia do
+    dossiê, com 1200 x 630 e alt. Para se o arquivo apontado não existir."""
+    if slug in OG_ALT:
+        nome = f"og/{slug}.jpg"
+        if not (RAIZ / "assets" / "img" / nome).is_file():
+            raise SystemExit(f"  ! {slug}: prévia de compartilhamento ausente: assets/img/{nome}")
+        url = f"{{{{DOMINIO}}}}/assets/img/{nome}"
+        alt = OG_ALT[slug].replace('"', "&quot;")
+        html, n = re.subn(r'<meta property="og:image" content="[^"]*">',
+                          f'<meta property="og:image" content="{url}">', html, count=1)
+        if n != 1:
+            raise SystemExit(f"  ! {template}: sem meta og:image")
+        html = re.sub(r'<meta property="og:image:(width|height|alt)" content="[^"]*">\n?', "", html)
+        html = html.replace(f'<meta property="og:image" content="{url}">',
+                            f'<meta property="og:image" content="{url}">\n'
+                            '<meta property="og:image:width" content="1200">\n'
+                            '<meta property="og:image:height" content="630">\n'
+                            f'<meta property="og:image:alt" content="{alt}">', 1)
+        html, n = re.subn(r'("image":\s*)"[^"]*"', rf'\1"{url}"', html, count=1)
+        if n != 1:
+            raise SystemExit(f"  ! {template}: JSON-LD sem \"image\"")
+        tw = (f'<meta name="twitter:image" content="{url}">\n'
+              f'<meta name="twitter:image:alt" content="{alt}">\n')
+    else:
+        achou = re.search(r'<meta property="og:image" content="([^"]*)">', html)
+        tw = f'<meta name="twitter:image" content="{achou.group(1)}">\n' if achou else ""
+    if "twitter:image" not in html and tw:
+        html = html.replace('<meta name="twitter:card" content="summary_large_image">\n',
+                            '<meta name="twitter:card" content="summary_large_image">\n' + tw, 1)
+    # toda imagem de compartilhamento apontada tem de existir no disco
+    for caminho in set(re.findall(r'\{\{DOMINIO\}\}/(assets/img/[^"]+\.(?:jpg|png))"', html)):
+        if re.search(rf'(og:image"|twitter:image"|"image":)[^\n]*{re.escape(caminho)}', html) \
+                and not (RAIZ / caminho).is_file():
+            raise SystemExit(f"  ! {template}: imagem de compartilhamento inexistente: {caminho}")
+    return html
+
+
 # ---------------------------------------------------------------- navegação
 
 def titulo_do_dossie(slug: str) -> str:
@@ -574,6 +646,7 @@ def main() -> None:
             html = html.replace("{{PROXIMO}}", bloco_proximo(slug))
             if '"BreadcrumbList"' not in html:
                 html = html.replace("</head>", breadcrumb(slug), 1)
+        html = imagem_de_compartilhamento(html, slug, template)
         html = resolver_numeros(html, slug)
         html = rodape_rever(html, template)
 

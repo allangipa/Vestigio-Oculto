@@ -154,6 +154,8 @@ def resolver_numeros(html: str, slug: str) -> str:
 PAGINAS = {
     "index.tpl.html": "index.html",
     "privacidade.tpl.html": "privacidade.html",
+    "sobre.tpl.html": "sobre.html",
+    "contato.tpl.html": "contato.html",
     "404.tpl.html": "404.html",
     "gobekli-tepe.tpl.html": "dossies/gobekli-tepe.html",
     "amazonia-lidar.tpl.html": "dossies/amazonia-lidar.html",

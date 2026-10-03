@@ -45,6 +45,9 @@ ADSENSE_PUB = "pub-4401770243539507"
 # recusar deixa de receber. True = nada de anúncio até a pessoa clicar em
 # "Entendi" — mais conservador com a LGPD, e menos receita.
 CONSENTIMENTO_BLOQUEIA = False
+# Chave do localStorage onde a faixa guarda a escolha. A mesma que está
+# escrita em _src/consentimento.html; o build confere que as duas batem.
+CHAVE_CONSENTIMENTO = "vo-consentimento"
 # ---------------------------------------------------------------
 
 RAIZ = Path(__file__).resolve().parent.parent
@@ -89,6 +92,33 @@ CONSENTIMENTO = (SRC / "consentimento.html").read_text(encoding="utf-8")
 CONSENTIMENTO = (CONSENTIMENTO
     .replace("{{ADSENSE_PUB}}", ADSENSE_PUB if ADSENSE_LIGADO else "")
     .replace("{{CONSENTIMENTO_BLOQUEIA}}", "true" if CONSENTIMENTO_BLOQUEIA else "false"))
+
+if f"var CHAVE = '{CHAVE_CONSENTIMENTO}';" not in CONSENTIMENTO:
+    raise SystemExit(f"  ! consentimento.html não usa a chave {CHAVE_CONSENTIMENTO}")
+
+# "Rever escolha de cookies", no rodapé de toda página: apaga a escolha salva
+# e recarrega, e a faixa volta a aparecer. O script vai junto do link, e não
+# no bloco de consentimento, porque o 404 não leva a faixa.
+REVER_LINK = ' · <a href="#" role="button" data-rever-cookies>Rever escolha de cookies</a>'
+REVER_JS = ("\n<script>\ndocument.querySelectorAll('[data-rever-cookies]').forEach(function (a) {\n"
+            "  a.addEventListener('click', function (ev) {\n    ev.preventDefault();\n"
+            f"    try {{ localStorage.removeItem('{CHAVE_CONSENTIMENTO}'); }} catch (e) {{}}\n"
+            "    location.reload();\n  });\n});\n</script>")
+
+
+def rodape_rever(html: str, template: str) -> str:
+    """Põe o link "Rever escolha de cookies" ao lado da política de privacidade
+    do rodapé. Para se o rodapé não tiver esse link: página sem a revogação
+    não sai."""
+    if not ADSENSE_LIGADO:
+        return html
+    m = re.search(r"<footer\b.*?</footer>", html, flags=re.S)
+    alvo = 'privacidade.html">Política de privacidade</a>'
+    if not m or m.group(0).count(alvo) != 1:
+        raise SystemExit(f"  ! {template}: rodapé sem o link da política de privacidade")
+    rod = m.group(0).replace(alvo, alvo + REVER_LINK)
+    return html[:m.start()] + rod + REVER_JS + html[m.end():]
+
 
 # template  ->  caminho final, relativo à raiz do site
 # ---------------------------------------------------------------- numeração
@@ -545,6 +575,7 @@ def main() -> None:
             if '"BreadcrumbList"' not in html:
                 html = html.replace("</head>", breadcrumb(slug), 1)
         html = resolver_numeros(html, slug)
+        html = rodape_rever(html, template)
 
         saida = RAIZ / destino
         saida.parent.mkdir(parents=True, exist_ok=True)

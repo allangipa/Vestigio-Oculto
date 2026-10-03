@@ -2004,10 +2004,19 @@ h1, h2, h3, h4 {
     </div>
     <div class="creditos">
       <span class="mono">© 2026 Vestígio Oculto</span>
-      <span class="mono"><a href="sobre.html">Sobre</a> · <a href="contato.html">Contato</a> · <a href="privacidade.html">Política de privacidade</a></span>
+      <span class="mono"><a href="sobre.html">Sobre</a> · <a href="contato.html">Contato</a> · <a href="privacidade.html">Política de privacidade</a> · <a href="#" role="button" data-rever-cookies>Rever escolha de cookies</a></span>
     </div>
   </div>
 </footer>
+<script>
+document.querySelectorAll('[data-rever-cookies]').forEach(function (a) {
+  a.addEventListener('click', function (ev) {
+    ev.preventDefault();
+    try { localStorage.removeItem('vo-consentimento'); } catch (e) {}
+    location.reload();
+  });
+});
+</script>
 
 <div class="consentimento" id="consentimento" role="dialog" aria-live="polite"
      aria-label="Aviso de cookies" hidden>
